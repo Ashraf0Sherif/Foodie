@@ -132,8 +132,8 @@ class _LoginViewState extends State<LoginView> {
                           },
                           child: Text(
                             'Create One',
-                            style: FontStyles.font16SecondaryColorBold
-                                .copyWith(fontSize: 14),
+                            style:
+                                FontStyles.kTextStyle16.copyWith(fontSize: 14),
                           ),
                         ),
                       ],
