@@ -39,6 +39,11 @@ abstract class FontStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle font20GreyBold = TextStyle(
+    color: Colors.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.bold,
+  );
   static const TextStyle font14Grey = TextStyle(
     color: Colors.grey,
   );
