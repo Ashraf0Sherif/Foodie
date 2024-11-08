@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
+import 'core/theming/colors.dart';
 
 class Foodie extends StatelessWidget {
   const Foodie({super.key, required this.appRouter});
@@ -45,6 +46,22 @@ class Foodie extends StatelessWidget {
                 },
               ),
             ),
+          ),
+          inputDecorationTheme: const InputDecorationTheme(
+            labelStyle: TextStyle(color: Colors.black),
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(color: ColorsStyles.kPrimaryColor),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: ColorsStyles.kPrimaryColor,
+                width: 1.8,
+              ),
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey),
+            ),
+            suffixIconColor: Colors.grey,
           ),
           textSelectionTheme: TextSelectionThemeData(
             cursorColor: Colors.black,
