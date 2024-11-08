@@ -3,39 +3,36 @@ import 'package:flutter/material.dart';
 import '../theming/colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    super.key,
-    required TextEditingController controller,
-    required this.label,
-    required this.keyboardType,
-    this.isObscureText,
-    this.suffixIcon,
-    this.validatorMessage,
-    this.border,
-    this.focusedBorder,
-    this.enabledBorder,
-  }) : _controller = controller;
-
-  final TextEditingController _controller;
+  final TextEditingController controller;
   final TextInputType keyboardType;
   final String label;
-  final String? validatorMessage;
   final bool? isObscureText;
   final Widget? suffixIcon;
   final InputBorder? border, focusedBorder, enabledBorder;
+  final Function(String?) validator;
+
+  const CustomTextFormField({
+    super.key,
+    required this.controller,
+    required this.keyboardType,
+    required this.label,
+    this.isObscureText,
+    this.suffixIcon,
+    this.border,
+    this.focusedBorder,
+    this.enabledBorder,
+    required this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (validator) {
-        if (validator!.isEmpty) {
-          return validatorMessage ?? 'Email cannot be empty';
-        }
-        return null;
+      validator: (value) {
+        return validator(value);
       },
       obscureText: isObscureText ?? false,
       keyboardType: keyboardType,
-      controller: _controller,
+      controller: controller,
       decoration: InputDecoration(
         label: Text(label),
         labelStyle: const TextStyle(color: Colors.black),

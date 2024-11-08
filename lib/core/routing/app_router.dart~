@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/di/dependency_injection.dart';
+import 'package:foodie/core/di/dependancy_injection.dart';
 import 'package:foodie/core/routing/routes.dart';
 import 'package:foodie/features/auth/logic/login_cubit/login_cubit.dart';
 import 'package:foodie/features/home/presentation/views/home_view.dart';

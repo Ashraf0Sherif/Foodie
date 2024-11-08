@@ -1,17 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../../core/firebase/custom_firebase.dart';
-import '../../../core/firebase/firebase_exceptions.dart';
-import '../../../core/firebase/firebase_result.dart';
-import '../data/models/user_model/user.dart';
-import 'auth_repo.dart';
+import '../../../../core/firebase/custom_firebase.dart';
+import '../../../../core/firebase/firebase_exceptions.dart';
+import '../../../../core/firebase/firebase_result.dart';
+import '../models/user_model/user.dart';
 
-class AuthRepoImplementation implements AuthRepo {
+class AuthRepo {
   final CustomFirebase customFirebase;
 
-  AuthRepoImplementation(this.customFirebase);
+  AuthRepo(this.customFirebase);
 
-  @override
   Future<FirebaseResult<UserCredential>> loginUsingEmailAndPassword(
       {required String email, required String password}) async {
     try {
@@ -24,18 +22,6 @@ class AuthRepoImplementation implements AuthRepo {
     }
   }
 
-  // @override
-  // Future<FirebaseResult<UserCredential>> loginUsingGoogle() async {
-  //   try {
-  //     var user = await customFirebase.loginUsingGoogle();
-  //     return FirebaseResult.success(user);
-  //   } catch (error) {
-  //     return FirebaseResult.failure(
-  //         FirebaseExceptions.getFirebaseException(error));
-  //   }
-  // }
-
-  @override
   Future<FirebaseResult<UserCredential>> signupUsingEmailAndPassword(
       {required String email,
       required String password,
@@ -50,7 +36,6 @@ class AuthRepoImplementation implements AuthRepo {
     }
   }
 
-  @override
   Future<FirebaseResult<dynamic>> resetPassword({required String email}) async {
     try {
       await customFirebase.resetPassword(email: email);
@@ -59,11 +44,5 @@ class AuthRepoImplementation implements AuthRepo {
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }
-  }
-
-  @override
-  Future<FirebaseResult<UserModel>> fetchUser({required User firebaseUser}) {
-    // TODO: implement fetchUser
-    throw UnimplementedError();
   }
 }
