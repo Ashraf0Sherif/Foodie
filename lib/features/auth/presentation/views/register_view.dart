@@ -81,13 +81,13 @@ class _RegisterViewState extends State<RegisterView> {
                           controller: _emailController,
                           label: 'E-mail',
                           keyboardType: TextInputType.emailAddress,
+                          validator: (value) {},
                         ),
                         verticalSpace(10),
                         CustomTextFormField(
                           controller: _passwordController,
                           label: 'Password',
                           isObscureText: _obscurePassword,
-                          validatorMessage: 'Password cannot be empty',
                           keyboardType: TextInputType.visiblePassword,
                           suffixIcon: GestureDetector(
                             onTap: () {
@@ -99,13 +99,13 @@ class _RegisterViewState extends State<RegisterView> {
                                 ? Icons.visibility_off
                                 : Icons.visibility),
                           ),
+                          validator: (value) {},
                         ),
                         verticalSpace(10),
                         CustomTextFormField(
                           controller: _confirmPasswordController,
                           isObscureText: _obscureConfirmPassword,
                           label: 'Confirm Password',
-                          validatorMessage: 'Confirm Password cannot be empty',
                           keyboardType: TextInputType.visiblePassword,
                           suffixIcon: GestureDetector(
                             onTap: () {
@@ -118,6 +118,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 ? Icons.visibility_off
                                 : Icons.visibility),
                           ),
+                          validator: (value) {},
                         ),
                         verticalSpace(36),
                         CustomElevatedButton(

@@ -70,7 +70,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                         CustomTextFormField(
                           controller: _emailController,
                           label: 'E-mail',
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.emailAddress, validator: (value) {  },
                         ),
                         verticalSpace(38),
                         CustomElevatedButton(

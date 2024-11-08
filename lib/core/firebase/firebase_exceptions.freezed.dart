@@ -120,6 +120,9 @@ class _$FirebaseExceptionsCopyWithImpl<$Res, $Val extends FirebaseExceptions>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -136,6 +139,9 @@ class __$$EmailAlreadyExistsImplCopyWithImpl<$Res>
   __$$EmailAlreadyExistsImplCopyWithImpl(_$EmailAlreadyExistsImpl _value,
       $Res Function(_$EmailAlreadyExistsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -286,6 +292,9 @@ class __$$InvalidEmailImplCopyWithImpl<$Res>
   __$$InvalidEmailImplCopyWithImpl(
       _$InvalidEmailImpl _value, $Res Function(_$InvalidEmailImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -436,6 +445,9 @@ class __$$InvalidPasswordImplCopyWithImpl<$Res>
   __$$InvalidPasswordImplCopyWithImpl(
       _$InvalidPasswordImpl _value, $Res Function(_$InvalidPasswordImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -586,6 +598,9 @@ class __$$InvalidCredentialImplCopyWithImpl<$Res>
   __$$InvalidCredentialImplCopyWithImpl(_$InvalidCredentialImpl _value,
       $Res Function(_$InvalidCredentialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -736,6 +751,9 @@ class __$$WrongPasswordImplCopyWithImpl<$Res>
   __$$WrongPasswordImplCopyWithImpl(
       _$WrongPasswordImpl _value, $Res Function(_$WrongPasswordImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -886,6 +904,9 @@ class __$$WeakPasswordImplCopyWithImpl<$Res>
   __$$WeakPasswordImplCopyWithImpl(
       _$WeakPasswordImpl _value, $Res Function(_$WeakPasswordImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1036,6 +1057,9 @@ class __$$FormatExceptionImplCopyWithImpl<$Res>
   __$$FormatExceptionImplCopyWithImpl(
       _$FormatExceptionImpl _value, $Res Function(_$FormatExceptionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1186,6 +1210,9 @@ class __$$NoInternetConnectionImplCopyWithImpl<$Res>
   __$$NoInternetConnectionImplCopyWithImpl(_$NoInternetConnectionImpl _value,
       $Res Function(_$NoInternetConnectionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1337,6 +1364,9 @@ class __$$UnexpectedErrorImplCopyWithImpl<$Res>
   __$$UnexpectedErrorImplCopyWithImpl(
       _$UnexpectedErrorImpl _value, $Res Function(_$UnexpectedErrorImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1487,6 +1517,9 @@ class __$$UserNotFoundImplCopyWithImpl<$Res>
   __$$UserNotFoundImplCopyWithImpl(
       _$UserNotFoundImpl _value, $Res Function(_$UserNotFoundImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of FirebaseExceptions
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
