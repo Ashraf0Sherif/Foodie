@@ -2,25 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/spacing.dart';
+import 'package:foodie/core/widgets/terms_and_conditions_text.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
-import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 
-class ResetPasswordView extends StatefulWidget {
-  const ResetPasswordView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<ResetPasswordView> createState() => _ResetPasswordViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _ResetPasswordViewState extends State<ResetPasswordView> {
+class _RegisterViewState extends State<RegisterView> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _confirmPasswordController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +69,11 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                         ),
                         verticalSpace(31),
                         Text(
-                          'Forgot Password?',
-                          style: FontStyles.font24Bold,
+                          'Nice to meet you!',
+                          style: FontStyles.font20GreyBold,
                         ),
                         const Text(
-                          "Don’t worry!",
-                          style: FontStyles.font14Grey,
-                        ),
-                        const Text(
-                          "You can easily reset your password ",
+                          "I hope you spend your all money here :)",
                           style: FontStyles.font14Grey,
                         ),
                         verticalSpace(10),
@@ -72,19 +82,58 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                           label: 'E-mail',
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        verticalSpace(38),
+                        verticalSpace(10),
+                        CustomTextFormField(
+                          controller: _passwordController,
+                          label: 'Password',
+                          isObscureText: _obscurePassword,
+                          validatorMessage: 'Password cannot be empty',
+                          keyboardType: TextInputType.visiblePassword,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscurePassword = !_obscurePassword;
+                              });
+                            },
+                            child: Icon(_obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                          ),
+                        ),
+                        verticalSpace(10),
+                        CustomTextFormField(
+                          controller: _confirmPasswordController,
+                          isObscureText: _obscureConfirmPassword,
+                          label: 'Confirm Password',
+                          validatorMessage: 'Confirm Password cannot be empty',
+                          keyboardType: TextInputType.visiblePassword,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obscureConfirmPassword =
+                                    !_obscureConfirmPassword;
+                              });
+                            },
+                            child: Icon(_obscureConfirmPassword
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                          ),
+                        ),
+                        verticalSpace(36),
                         CustomElevatedButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              //TODO : Login Logic
+                              //TODO : Register Logic
                             } else {
                               setState(() {
                                 autoValidateMode = AutovalidateMode.always;
                               });
                             }
                           },
-                          text: 'RESET',
+                          text: 'REGISTER',
                         ),
+                        verticalSpace(16),
+                        const TermsAndConditionsText(),
                       ],
                     ),
                   ),
@@ -97,7 +146,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                       context.pop();
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                      padding: const EdgeInsets.only(left: 10.0, right: 10),
                       child: Image.asset(
                         AssetsData.kBackButton,
                         width: 25.w,

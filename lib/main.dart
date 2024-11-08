@@ -5,9 +5,6 @@ import 'foodie.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Future.delayed(const Duration(seconds: 5), () {
-    FlutterNativeSplash.remove();
-  });
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
