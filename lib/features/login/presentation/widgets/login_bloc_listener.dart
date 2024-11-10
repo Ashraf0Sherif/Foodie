@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/core/routing/routes.dart';
-import 'package:foodie/features/auth/logic/login_cubit/login_cubit.dart';
-import 'package:foodie/features/auth/logic/login_cubit/login_state.dart';
+
+import '../../logic/login_cubit/login_cubit.dart';
+import '../../logic/login_cubit/login_state.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
@@ -23,14 +24,17 @@ class LoginBlocListener extends StatelessWidget {
           },
           success: (loginResponse) {
             context.pop();
-            context.pushNamed(Routes.kHomeView);
+            context.pushNamedAndRemoveUntil(Routes.kHomeView,
+                predicate: (Route<dynamic> route) {
+              return false;
+            });
           },
           error: (error) {
             setupErrorState(context, error);
           },
         );
       },
-      child: Placeholder(),
+      child: const SizedBox.shrink(),
     );
   }
 

@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/helpers/app_regex.dart';
-import 'package:foodie/core/helpers/extensions.dart';
-import 'package:foodie/features/auth/logic/login_cubit/login_cubit.dart';
-import 'package:foodie/features/auth/presentation/widgets/password_validations.dart';
+import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 
+import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../core/widgets/password_validations.dart';
 
-class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key});
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
 
   @override
-  State<EmailAndPassword> createState() => _EmailAndPasswordState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _EmailAndPasswordState extends State<EmailAndPassword> {
+class _SignUpFormState extends State<SignUpForm> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
+  late TextEditingController _confirmPasswordController;
   bool _obscureText = true;
+  bool _obscureConfirmPassword = true;
   bool hasLowercase = false;
   bool hasUppercase = false;
   bool hasSpecialCharacter = false;
@@ -31,8 +30,10 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   void initState() {
     super.initState();
-    _emailController = context.read<LoginCubit>().emailController;
-    _passwordController = context.read<LoginCubit>().passwordController;
+    _emailController = context.read<SignUpCubit>().emailController;
+    _passwordController = context.read<SignUpCubit>().passwordController;
+    _confirmPasswordController =
+        context.read<SignUpCubit>().confirmPasswordController;
     setupPasswordControllerListener();
   }
 
@@ -58,7 +59,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<LoginCubit>().formKey,
+      key: context.read<SignUpCubit>().formKey,
       child: Column(
         children: [
           CustomTextFormField(
@@ -80,17 +81,48 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             isObscureText: _obscureText,
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: GestureDetector(
-              onTap: () => {
+              onTap: () {
                 setState(() {
                   _obscureText = !_obscureText;
-                })
+                });
               },
               child:
                   Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPasswordValid(value) ||
+                  value.length < 8 ||
+                  !hasMinLength ||
+                  !hasSpecialCharacter ||
+                  !hasUppercase ||
+                  !hasLowercase ||
+                  !hasNumber) {
                 return "Please enter a valid password";
+              }
+            },
+          ),
+          CustomTextFormField(
+            controller: _confirmPasswordController,
+            isObscureText: _obscureConfirmPassword,
+            label: 'Confirm Password',
+            keyboardType: TextInputType.visiblePassword,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _obscureConfirmPassword = !_obscureConfirmPassword;
+                });
+              },
+              child: Icon(_obscureConfirmPassword
+                  ? Icons.visibility_off
+                  : Icons.visibility),
+            ),
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  value != _passwordController.text) {
+                return "Password does not match";
               }
             },
           ),
@@ -101,35 +133,21 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               hasSpecialCharacter: hasSpecialCharacter,
               hasMinLength: hasMinLength,
               hasNumber: hasNumber),
-          verticalSpace(8),
-          Align(
-            alignment: AlignmentDirectional.centerEnd,
-            child: TextButton(
-              onPressed: () {
-                context.pushNamed(Routes.kResetPasswordView);
-              },
-              child: Text(
-                'Forgot Password?',
-                style: FontStyles.font16SecondaryColorBold,
-              ),
-            ),
-          ),
-          verticalSpace(35),
+          verticalSpace(36),
           CustomElevatedButton(
             onPressed: () {
-              validateAndLogin();
+              validateAndSignUp();
             },
-            text: 'LOGIN',
+            text: 'REGISTER',
           ),
         ],
       ),
     );
   }
 
-  void validateAndLogin() {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-          email: _emailController.text, password: _passwordController.text);
+  void validateAndSignUp() {
+    if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+      context.read<SignUpCubit>().emitSignUpStates();
     }
   }
 }
