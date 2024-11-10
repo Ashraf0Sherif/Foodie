@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 
-import '../../../../core/theming/styles.dart';
+import '../theming/styles.dart';
 
 class PasswordValidations extends StatelessWidget {
   final bool hasLowercase;
@@ -31,9 +31,9 @@ class PasswordValidations extends StatelessWidget {
           style: FontStyles.font13GreyRegular.copyWith(
             decoration:
                 hasValidated ? TextDecoration.lineThrough : TextDecoration.none,
-            decorationColor: Colors.green,
+            decorationColor: Colors.grey,
             decorationThickness: 2,
-            color: hasValidated ? Colors.grey : Colors.black,
+            color: hasValidated ? Colors.green : Colors.black,
           ),
         ),
       ],

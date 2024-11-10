@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/core/helpers/spacing.dart';
-import 'package:foodie/features/auth/presentation/widgets/email_and_password.dart';
+import 'package:foodie/features/login/presentation/widgets/dont_have_an_account.dart';
 
-import '../../../../core/constants.dart';
-import '../../../../core/helpers/assets.dart';
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/styles.dart';
-import '../widgets/login_bloc_listener.dart';
+import '../../../core/constants.dart';
+import '../../../core/helpers/assets.dart';
+import '../../../core/theming/styles.dart';
+import 'widgets/email_and_password.dart';
+import 'widgets/login_bloc_listener.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -49,26 +48,9 @@ class LoginView extends StatelessWidget {
                     style: FontStyles.font16GreyRegular,
                   ),
                   verticalSpace(10),
-                   const EmailAndPassword(),
+                  const EmailAndPassword(),
                   verticalSpace(24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Don\'t have an account? ',
-                      ),
-                      InkWell(
-                        onTap: () {
-                          context.pushNamed(Routes.kRegisterView);
-                        },
-                        child: Text(
-                          'Create One',
-                          style: FontStyles.font16SecondaryColorBold
-                              .copyWith(fontSize: 14),
-                        ),
-                      ),
-                    ],
-                  ),
+                  const DontHaveAnAccount(),
                   const LoginBlocListener(),
                 ],
               ),
