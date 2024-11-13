@@ -36,7 +36,7 @@ class Foodie extends StatelessWidget {
                 );
               }),
               overlayColor: WidgetStateProperty.resolveWith<Color>(
-                (Set<WidgetState> states) {
+                    (Set<WidgetState> states) {
                   if (states.contains(WidgetState.pressed)) {
                     return Colors.blue
                         .withOpacity(0.1); // Change this to your desired color

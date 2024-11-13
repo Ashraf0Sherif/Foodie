@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'restaurantadminpanel-ec989.appspot.com',
     measurementId: 'G-SEQ80D604H',
   );
+
 }

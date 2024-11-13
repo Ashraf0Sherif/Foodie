@@ -26,10 +26,22 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            dimension "default"
+            resValue "string", "app_name", "Foodie Production"
+        }
+        development {
+            dimension "default"
+            resValue "string", "app_name", "Foodie Development"
+            applicationIdSuffix ".dev"
+        }
+    }
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug // Update this if you plan to add a release signing key
+            signingConfig = signingConfigs.debug
+            // Update this if you plan to add a release signing key
         }
     }
 }
