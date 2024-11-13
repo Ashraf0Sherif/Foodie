@@ -26,6 +26,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1088120563863:android:adef7c042e0386ca7421d2",
+        "android_client_info": {
+          "package_name": "com.example.foodie.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPwRoth1pKg0fFIGEPDQdAfbehgbg3wVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1088120563863:android:176a5e552a368e947421d2",
         "android_client_info": {
           "package_name": "com.example.restaurant_admin_panel"
