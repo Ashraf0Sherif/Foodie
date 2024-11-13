@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
-import 'package:foodie/features/onboarding/presentation/views/widgets/onboarding_image.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
+import '../widgets/onboarding_image.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});

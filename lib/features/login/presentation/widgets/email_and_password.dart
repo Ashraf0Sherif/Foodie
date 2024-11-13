@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/helpers/app_regex.dart';
 import 'package:foodie/core/helpers/extensions.dart';
-import 'package:foodie/core/widgets/password_validations.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
@@ -80,7 +79,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             alignment: AlignmentDirectional.centerEnd,
             child: TextButton(
               onPressed: () {
-                context.pushNamed(Routes.kResetPasswordView);
+                context.pushNamed(Routes.kForgotPasswordView);
               },
               child: Text(
                 'Forgot Password?',

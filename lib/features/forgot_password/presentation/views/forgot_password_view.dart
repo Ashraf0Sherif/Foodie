@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/features/forgot_password/presentation/widgets/forgot_password_form.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/custom_elevated_button.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
+import '../widgets/forgot_password_bloc_listener.dart';
 
 class ResetPasswordView extends StatefulWidget {
   const ResetPasswordView({super.key});
@@ -19,7 +19,6 @@ class ResetPasswordView extends StatefulWidget {
 
 class _ResetPasswordViewState extends State<ResetPasswordView> {
   final formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
@@ -67,24 +66,8 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                           style: FontStyles.font14Grey,
                         ),
                         verticalSpace(10),
-                        CustomTextFormField(
-                          controller: _emailController,
-                          label: 'E-mail',
-                          keyboardType: TextInputType.emailAddress, validator: (value) {  },
-                        ),
-                        verticalSpace(38),
-                        CustomElevatedButton(
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              //TODO : Login Logic
-                            } else {
-                              setState(() {
-                                autoValidateMode = AutovalidateMode.always;
-                              });
-                            }
-                          },
-                          text: 'RESET',
-                        ),
+                        const ForgotPasswordForm(),
+                        const ForgotPasswordBlocListener(),
                       ],
                     ),
                   ),
