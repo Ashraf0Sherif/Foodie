@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class CustomFirebase {
   Future<UserCredential> loginUsingEmailAndPassword({
     required String email,
@@ -13,21 +12,6 @@ class CustomFirebase {
     );
     return userCredential;
   }
-
-  // Future<UserCredential> loginUsingGoogle() async {
-  //   // final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  //   //
-  //   // final GoogleSignInAuthentication googleAuth =
-  //   //     await googleUser!.authentication;
-  //   //
-  //   // final AuthCredential credential = GoogleAuthProvider.credential(
-  //   //   accessToken: googleAuth.accessToken,
-  //   //   idToken: googleAuth.idToken,
-  //   // );
-  //   // UserCredential userCredential =
-  //   //     await FirebaseAuth.instance.signInWithCredential(credential);
-  //   // return userCredential;
-  // }
 
   Future<UserCredential> signupUsingEmailAndPassword({
     required String email,
@@ -46,7 +30,7 @@ class CustomFirebase {
     return userCredential;
   }
 
-  Future<void> resetPassword({required String email}) async {
+  Future<void> forgotPassword({required String email}) async {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 }
