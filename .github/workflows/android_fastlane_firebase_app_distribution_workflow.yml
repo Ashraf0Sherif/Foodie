@@ -46,6 +46,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Generate Flutter Native Splash
+        run: dart run flutter_native_splash:create --path=flutter_native_splash.yaml
+
       - name: Build and Distribute App
         env:
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
