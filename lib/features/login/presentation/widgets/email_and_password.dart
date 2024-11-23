@@ -90,7 +90,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(8),
           CustomElevatedButton(
             onPressed: () {
-              validateAndLogin();
+              //validateAndLogin();
+              context.pushNamedAndRemoveUntil(Routes.kHomeView,
+                  predicate: (Route<dynamic> route) {
+                    return false;
+                  });
             },
             text: 'LOGIN',
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/core/helpers/spacing.dart';
 
+import '../widgets/banners_carousel_slider.dart';
 import '../widgets/home_top_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -14,11 +14,12 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
           child: Container(
         width: double.infinity,
-        margin: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 28.h),
+        margin: EdgeInsets.only(top: 16.h, bottom: 28.h),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             HomeTopBar(),
+            BannersCarouselSlider()
           ],
         ),
       )),
