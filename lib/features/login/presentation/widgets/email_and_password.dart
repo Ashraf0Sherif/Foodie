@@ -5,6 +5,7 @@ import 'package:foodie/core/helpers/extensions.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
@@ -89,12 +90,13 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(8),
           CustomElevatedButton(
+            gradient: ColorsStyles.kButtonGradient,
             onPressed: () {
               //validateAndLogin();
               context.pushNamedAndRemoveUntil(Routes.kHomeView,
                   predicate: (Route<dynamic> route) {
-                    return false;
-                  });
+                return false;
+              });
             },
             text: 'LOGIN',
           ),

@@ -14,6 +14,16 @@ abstract class FontStyles {
     fontSize: 24.sp,
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle fon12PassiveBold = TextStyle(
+    color: ColorsStyles.kPassiveColor,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font12BlackRegular = TextStyle(
+    color: Colors.black,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font24Bold = TextStyle(
     color: Colors.black,
     fontSize: 24.sp,
@@ -23,6 +33,11 @@ abstract class FontStyles {
     color: Colors.grey,
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font15BlueMedium = TextStyle(
+    color: ColorsStyles.kPrimaryColor,
+    fontSize: 17.sp,
+    fontWeight: FontWeightHelper.medium,
   );
   static TextStyle font13GreyRegular = TextStyle(
     color: Colors.grey,

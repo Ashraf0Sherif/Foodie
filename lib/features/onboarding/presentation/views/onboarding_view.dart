@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 
 import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../widgets/onboarding_image.dart';
@@ -16,7 +17,7 @@ class OnboardingView extends StatelessWidget {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 10.0.w),
+          padding: EdgeInsets.symmetric(horizontal: 10.0.w),
           child: Column(
             children: [
               SizedBox(
@@ -43,6 +44,7 @@ class OnboardingView extends StatelessWidget {
               ),
               CustomElevatedButton(
                 width: 200.w,
+                gradient: ColorsStyles.kButtonGradient,
                 onPressed: () {
                   context.pushNamedAndRemoveUntil(Routes.kLoginView,
                       predicate: (Route<dynamic> route) {
