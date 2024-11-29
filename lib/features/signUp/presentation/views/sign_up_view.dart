@@ -9,6 +9,7 @@ import 'package:foodie/features/signUp/presentation/widgets/sign_up_form.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class SignUpView extends StatefulWidget {
@@ -41,10 +42,11 @@ class _SignUpViewState extends State<SignUpView> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: ColorsStyles.kViewBackground,
         body: SafeArea(
           child: Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+            const EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
             child: Stack(
               children: [
                 SingleChildScrollView(
