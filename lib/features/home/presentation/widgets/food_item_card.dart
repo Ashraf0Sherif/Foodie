@@ -12,8 +12,10 @@ class FoodItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 14.0.w),
+      padding: EdgeInsets.only(left: 14.0.w,right: 14.w,bottom: 12.h),
       child: Card(
+        elevation: 5,
+        shadowColor: Colors.white.withOpacity(0.75),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),
@@ -40,7 +42,7 @@ class FoodItemCard extends StatelessWidget {
               ),
               Text(
                 "Ingredients",
-                style: FontStyles.fon12PassiveBold,
+                style: FontStyles.font12PassiveBold,
               ),
               Text(
                 "Olive, Pickle, Mushroom, Sausage, Corn",

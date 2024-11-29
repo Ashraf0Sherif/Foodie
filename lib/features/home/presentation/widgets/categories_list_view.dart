@@ -24,38 +24,35 @@ class _CategoriesListViewState extends State<CategoriesListView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50.h,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  _selectedCategory = index;
-                });
-              },
-              child: Text(
-                categories[index],
-                style: FontStyles.font15BlueMedium.copyWith(
-                  color: _selectedCategory == index
-                      ? ColorsStyles.kPrimaryColor
-                      : Colors.grey,
-                ),
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: categories.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.r),
               ),
             ),
-          );
-        },
-      ),
+            onPressed: () {
+              setState(() {
+                _selectedCategory = index;
+              });
+            },
+            child: Text(
+              categories[index],
+              style: FontStyles.font17BlueMedium.copyWith(
+                color: _selectedCategory == index
+                    ? ColorsStyles.kPrimaryColor
+                    : Colors.grey,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

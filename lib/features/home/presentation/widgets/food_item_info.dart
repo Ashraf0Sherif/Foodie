@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/theming/styles.dart';
+
 class FoodItemInfo extends StatelessWidget {
   const FoodItemInfo({super.key});
 
@@ -12,17 +14,20 @@ class FoodItemInfo extends StatelessWidget {
         SizedBox(
           width: 7.w,
         ),
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Mixed Pizza',
+              style: FontStyles.font16BlackBold
             ),
-            Text(
+             Text(
               'Pizza',
+              style: FontStyles.font12GreyRegular,
             ),
-            Text(
+             Text(
               '15\$',
+               style: FontStyles.font16SecondaryColorBold,
             ),
           ],
         ),

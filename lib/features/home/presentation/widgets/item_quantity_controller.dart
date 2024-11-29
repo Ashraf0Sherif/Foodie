@@ -12,11 +12,13 @@ class ItemQuantityController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 2,
+      shadowColor: Colors.white,
       child: Column(
         children: [
           CustomElevatedButton(
             onPressed: () {},
-            text: '-',
+            text: '--',
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(8.r),
               topRight: Radius.circular(8.r),

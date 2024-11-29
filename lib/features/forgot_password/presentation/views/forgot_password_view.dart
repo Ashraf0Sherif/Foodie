@@ -7,6 +7,7 @@ import 'package:foodie/features/forgot_password/presentation/widgets/forgot_pass
 import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../widgets/forgot_password_bloc_listener.dart';
 
@@ -26,10 +27,11 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: ColorsStyles.kViewBackground,
         body: SafeArea(
           child: Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+            const EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
             child: Stack(
               children: [
                 Form(

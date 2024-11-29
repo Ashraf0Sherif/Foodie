@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/theming/colors.dart';
+import 'package:foodie/features/home/presentation/widgets/home_top_bar.dart';
 
 import '../widgets/banners_carousel_slider.dart';
 import '../widgets/categories_list_view.dart';
+import '../widgets/categories_presistent_header.dart';
 import '../widgets/food_items_list_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,43 +14,41 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorsStyles.kViewBackground,
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(
+            const SliverAppBar(
               floating: true,
               snap: true,
-              backgroundColor: Colors.white,
+              backgroundColor: Color(0xffF2F3F7),
               shadowColor: Colors.white,
-              foregroundColor: Colors.transparent,
-              surfaceTintColor: Colors.white,
+              surfaceTintColor: Color(0xffF2F3F7),
               elevation: 0,
               centerTitle: true,
-              title: Text(
-                "Foodie",
-                style: TextStyle(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
-              ),
+              title: HomeTopBar(),
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.only(top: 16.h, bottom: 28.h),
+                padding: EdgeInsets.only(bottom: 5.h),
                 child: const BannersCarouselSlider(),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 18.h),
-                child: const CategoriesListView(),
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: CategoriesHeader(
+                maxHeight: 57.h,
+                minHeight: 57.h,
+                child: Container(
+                  color: ColorsStyles.kViewBackground,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 5.h, top: 5.h),
+                    child: const CategoriesListView(),
+                  ),
+                ),
               ),
             ),
-            const SliverFillRemaining(
-              child: FoodItemsListView(),
-            ),
+            const FoodItemsSliverListView(),
           ],
         ),
       ),

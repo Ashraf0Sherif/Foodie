@@ -5,6 +5,7 @@ import 'package:foodie/features/login/presentation/widgets/dont_have_an_account.
 
 import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../widgets/email_and_password.dart';
 import '../widgets/login_bloc_listener.dart';
@@ -17,10 +18,11 @@ class LoginView extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: ColorsStyles.kViewBackground,
         body: SafeArea(
           child: Padding(
             padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+                const EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

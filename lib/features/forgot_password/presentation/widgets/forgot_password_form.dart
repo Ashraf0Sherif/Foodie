@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/features/forgot_password/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 
@@ -42,6 +43,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           ),
           verticalSpace(38),
           CustomElevatedButton(
+            gradient: ColorsStyles.kButtonGradient,
             onPressed: () => validateAndResetPassword(),
             text: 'RESET',
           ),
