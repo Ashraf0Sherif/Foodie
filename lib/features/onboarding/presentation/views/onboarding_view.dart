@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/spacing.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
@@ -20,18 +21,14 @@ class OnboardingView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 10.0.w),
           child: Column(
             children: [
-              SizedBox(
-                height: 40.h,
-              ),
+              verticalSpace(40),
               const OnboardingImage(),
               Text(
                 "Experience Convenient and Fast Food Delivery with Foodie",
                 textAlign: TextAlign.center,
                 style: FontStyles.font24BlueBold,
               ),
-              SizedBox(
-                height: 10.h,
-              ),
+              verticalSpace(10),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                 child: Text(
@@ -39,9 +36,7 @@ class OnboardingView extends StatelessWidget {
                     style: FontStyles.font13GreyRegular,
                     "Say goodbye to waiting in line or dealing with traffic, our food delivery app will make ordering and receiving your food a breeze."),
               ),
-              SizedBox(
-                height: 30.h,
-              ),
+              verticalSpace(30),
               CustomElevatedButton(
                 width: 200.w,
                 gradient: ColorsStyles.kButtonGradient,

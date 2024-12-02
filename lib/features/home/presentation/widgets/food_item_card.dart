@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/home/presentation/views/customize_order_bottom_sheet.dart';
 
+import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import 'food_item_info.dart';
 import 'item_quantity_controller.dart';
@@ -36,17 +37,13 @@ class FoodItemCard extends StatelessWidget {
                     const FoodItemInfo(),
                     const Spacer(),
                     const ItemQuantityController(),
-                    SizedBox(
-                      width: 20.w,
-                    ),
+                    horizontalSpace(20),
                   ],
                 ),
                 const Divider(
                   color: Color(0xffECECEC),
                 ),
-                SizedBox(
-                  height: 9.h,
-                ),
+                horizontalSpace(9),
                 Text(
                   "Ingredients",
                   style: FontStyles.font12PassiveBold,
