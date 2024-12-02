@@ -5,9 +5,18 @@ import 'package:foodie/core/theming/font_weight_helper.dart';
 import 'colors.dart';
 
 abstract class FontStyles {
-  static TextStyle font20Black700Bold = TextStyle(
+  static TextStyle font20BlackBold = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font18PassiveRegular = TextStyle(
+    fontSize: 18.sp,
+    color: ColorsStyles.kPassiveColor,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font18BlackSemiBold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font24BlueBold = TextStyle(
     color: ColorsStyles.kSecondaryColor,
@@ -62,9 +71,25 @@ abstract class FontStyles {
   static TextStyle font14WhiteBold = TextStyle(
     color: Colors.white,
     fontSize: 14.sp,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font14PassiveRegular = TextStyle(
+    color: ColorsStyles.kPassiveColor,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
   );
   static const TextStyle font14Grey = TextStyle(
     color: Colors.grey,
+  );
+
+  static TextStyle font16WhiteSemiBold = TextStyle(
+    color: Colors.white,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font16BlackSemiBold = TextStyle(
+    color: Colors.black,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
   );
 }
