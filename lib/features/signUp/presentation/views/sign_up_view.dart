@@ -24,7 +24,7 @@ class _SignUpViewState extends State<SignUpView> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
-  TextEditingController();
+      TextEditingController();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
@@ -46,7 +46,7 @@ class _SignUpViewState extends State<SignUpView> {
         body: SafeArea(
           child: Padding(
             padding:
-            const EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
             child: Stack(
               children: [
                 SingleChildScrollView(
@@ -71,9 +71,9 @@ class _SignUpViewState extends State<SignUpView> {
                         'Nice to meet you!',
                         style: FontStyles.font24Bold,
                       ),
-                      const Text(
+                      Text(
                         "I hope you spend your all money here :)",
-                        style: FontStyles.font14Grey,
+                        style: FontStyles.font14GreyRegular,
                       ),
                       verticalSpace(10),
                       const SignUpForm(),

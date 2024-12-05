@@ -58,6 +58,11 @@ abstract class FontStyles {
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font16BlackMedium = TextStyle(
+    color: Colors.black,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font17PrimaryColorMedium = TextStyle(
     color: ColorsStyles.kPrimaryColor,
     fontSize: 17.sp,
@@ -67,6 +72,11 @@ abstract class FontStyles {
     color: Colors.grey,
     fontSize: 13.sp,
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font13BlackBold = TextStyle(
+    color: Colors.black,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font16SecondaryColorBold = TextStyle(
     color: ColorsStyles.kSecondaryColor,
@@ -83,10 +93,16 @@ abstract class FontStyles {
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.regular,
   );
-  static const TextStyle font14Grey = TextStyle(
+  static TextStyle font14GreyRegular = TextStyle(
     color: Colors.grey,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
   );
-
+  static TextStyle font14BlackRegular = TextStyle(
+    color: Colors.black,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font16WhiteSemiBold = TextStyle(
     color: Colors.white,
     fontSize: 16.sp,
@@ -96,5 +112,10 @@ abstract class FontStyles {
     color: Colors.black,
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font13CustomRedColorBold = TextStyle(
+    color: ColorsStyles.kCustomRedColor,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.bold,
   );
 }

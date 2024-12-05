@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
