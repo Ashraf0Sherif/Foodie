@@ -22,7 +22,7 @@ class Foodie extends StatelessWidget {
         initialRoute: Routes.kOnboardingView,
         theme: ThemeData(
           colorScheme: const ColorScheme.light(),
-          scaffoldBackgroundColor: Colors.white,
+          //scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.white,
             elevation: 0,

@@ -11,19 +11,23 @@ class CustomizeOrderBottomSheetTopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: Center(
-            child: Text(
-              "Customize Order",
-              style: FontStyles.font18BlackSemiBold,
-            ),
-          ),
+        const Spacer(
+          flex: 2,
         ),
+        Text(
+          "Customize Order",
+          style: FontStyles.font18BlackSemiBold,
+        ),
+        const Spacer(),
         IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon:  const Icon(Icons.close,size: 25,))
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.close,
+            size: 25,
+          ),
+        )
       ],
     );
   }

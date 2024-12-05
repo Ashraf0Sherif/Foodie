@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/colors.dart';
-import 'package:foodie/features/home/presentation/widgets/home_top_bar.dart';
 
 import '../widgets/banners_carousel_slider.dart';
 import '../widgets/categories_list_view.dart';
 import '../widgets/categories_presistent_header.dart';
 import '../widgets/food_items_list_view.dart';
+import '../widgets/home_top_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -14,7 +14,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsStyles.kViewBackground,
       body: SafeArea(
         child: CustomScrollView(
           slivers: [

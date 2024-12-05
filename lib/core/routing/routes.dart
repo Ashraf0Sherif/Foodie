@@ -4,4 +4,8 @@ class Routes {
   static const String kForgotPasswordView = '/forgotPassword';
   static const String kOnboardingView = '/';
   static const String kHomeView = '/home';
+  static const String kProfileView = '/profile';
+  static const String kSearchView = '/search';
+  static const String kCartView = '/cart';
+  static const String kLandingView = '/landing';
 }

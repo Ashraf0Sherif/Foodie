@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/helpers/spacing.dart';
 
 import '../../../../core/theming/styles.dart';
 
@@ -11,23 +12,18 @@ class FoodItemInfo extends StatelessWidget {
     return Row(
       children: [
         Image.asset('assets/images/image 19.png'),
-        SizedBox(
-          width: 7.w,
-        ),
+        horizontalSpace(7),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text('Mixed Pizza', style: FontStyles.font16BlackBold),
             Text(
-              'Mixed Pizza',
-              style: FontStyles.font16BlackBold
-            ),
-             Text(
               'Pizza',
-              style: FontStyles.font12GreyRegular,
+              style: FontStyles.font12PassiveRegular,
             ),
-             Text(
+            Text(
               '15\$',
-               style: FontStyles.font16SecondaryColorBold,
+              style: FontStyles.font16SecondaryColorBold,
             ),
           ],
         ),

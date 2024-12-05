@@ -44,7 +44,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             },
             child: Text(
               categories[index],
-              style: FontStyles.font17BlueMedium.copyWith(
+              style: FontStyles.font17PrimaryColorMedium.copyWith(
                 color: _selectedCategory == index
                     ? ColorsStyles.kPrimaryColor
                     : Colors.grey,
