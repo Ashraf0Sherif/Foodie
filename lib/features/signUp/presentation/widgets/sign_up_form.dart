@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 
 import '../../../../core/helpers/app_regex.dart';
@@ -135,6 +136,7 @@ class _SignUpFormState extends State<SignUpForm> {
               hasNumber: hasNumber),
           verticalSpace(36),
           CustomElevatedButton(
+            gradient: ColorsStyles.kButtonGradient,
             onPressed: () {
               validateAndSignUp();
             },

@@ -32,7 +32,7 @@ class TermsAndConditionsText extends StatelessWidget {
           TextSpan(
             text: 'Terms of Service',
             style:
-            FontStyles.font16SecondaryColorBold.copyWith(fontSize: 15.sp),
+                FontStyles.font16SecondaryColorBold.copyWith(fontSize: 15.sp),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 showModalBottomSheet(
@@ -55,7 +55,7 @@ class TermsAndConditionsText extends StatelessWidget {
           TextSpan(
             text: 'Privacy Policy',
             style:
-            FontStyles.font16SecondaryColorBold.copyWith(fontSize: 15.sp),
+                FontStyles.font16SecondaryColorBold.copyWith(fontSize: 15.sp),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 showModalBottomSheet(
