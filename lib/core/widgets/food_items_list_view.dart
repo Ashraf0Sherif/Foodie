@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'food_item_card.dart';
+import '../../features/home/presentation/widgets/food_item_card.dart';
 class FoodItemsSliverListView extends StatelessWidget {
   const FoodItemsSliverListView({
     super.key,
@@ -9,7 +9,7 @@ class FoodItemsSliverListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: 50,
+      itemCount: 2,
       itemBuilder: (BuildContext context, int index) {
         return const FoodItemCard();
       },

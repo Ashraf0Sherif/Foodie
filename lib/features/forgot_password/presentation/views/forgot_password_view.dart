@@ -31,7 +31,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
         body: SafeArea(
           child: Padding(
             padding:
-            const EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
             child: Stack(
               children: [
                 Form(
@@ -59,13 +59,13 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                           'Forgot Password?',
                           style: FontStyles.font24Bold,
                         ),
-                        const Text(
+                        Text(
                           "Don’t worry!",
-                          style: FontStyles.font14Grey,
+                          style: FontStyles.font14GreyRegular,
                         ),
-                        const Text(
+                        Text(
                           "You can easily reset your password ",
-                          style: FontStyles.font14Grey,
+                          style: FontStyles.font14GreyRegular,
                         ),
                         verticalSpace(10),
                         const ForgotPasswordForm(),

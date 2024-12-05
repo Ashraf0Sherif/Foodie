@@ -46,7 +46,6 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SearchView());
       case Routes.kProfileView:
         return MaterialPageRoute(builder: (_) => const ProfileView());
-
       case Routes.kCartView:
         return MaterialPageRoute(builder: (_) => const HomeView());
       case Routes.kLandingView:
