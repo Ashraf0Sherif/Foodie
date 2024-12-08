@@ -9,7 +9,7 @@ class FoodItemsSliverListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: 2,
+      itemCount: 4,
       itemBuilder: (BuildContext context, int index) {
         return const FoodItemCard();
       },

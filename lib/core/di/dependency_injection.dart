@@ -6,12 +6,12 @@ import 'package:get_it/get_it.dart';
 import '../../features/forgot_password/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../features/login/data/repos/login_repo.dart';
 import '../../features/login/logic/login_cubit/login_cubit.dart';
-import '../firebase/custom_firebase.dart';
+import '../firebase/foodie_firebase_auth.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  getIt.registerLazySingleton<CustomFirebase>(() => CustomFirebase());
+  getIt.registerLazySingleton<FoodieFirebaseAuth>(() => FoodieFirebaseAuth());
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerLazySingleton<ForgotPasswordRepo>(

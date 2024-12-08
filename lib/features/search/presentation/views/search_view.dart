@@ -37,7 +37,7 @@ class _SearchViewState extends State<SearchView> {
           child: Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-            child: RecentSearchWidget(),
+            child: const EmptySearchBarWidget(),
           ),
         ),
       ],

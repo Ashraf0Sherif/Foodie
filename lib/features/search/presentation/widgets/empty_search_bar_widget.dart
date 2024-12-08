@@ -19,13 +19,13 @@ class EmptySearchBarWidget extends StatelessWidget {
         verticalSpace(16),
         Text(
           'Search for your favorite food',
-          style: FontStyles.font14BlackRegular,
+          style: FontStyles.font16BlackMedium,
           textAlign: TextAlign.center,
         ),
         verticalSpace(4),
         Text(
           'Find what you want among hundreds of different dishes.',
-          style: FontStyles.font14GreyRegular,
+          style: FontStyles.font16GreyRegular,
           textAlign: TextAlign.center,
         ),
         const Spacer(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/firebase/firebase_exceptions.dart';
+import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../data/repos/login_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

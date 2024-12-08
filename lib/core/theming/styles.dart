@@ -6,18 +6,20 @@ import 'colors.dart';
 
 abstract class FontStyles {
   static TextStyle font20BlackBold = TextStyle(
-    fontSize: 20.sp,
-    fontWeight: FontWeightHelper.bold,
-  );
+      fontSize: 20.sp, fontWeight: FontWeightHelper.bold, color: Colors.black);
+  static TextStyle font20BlackMedium = TextStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeightHelper.medium,
+      color: Colors.black);
   static TextStyle font18PassiveRegular = TextStyle(
     fontSize: 18.sp,
     color: ColorsStyles.kPassiveColor,
     fontWeight: FontWeightHelper.regular,
   );
   static TextStyle font18BlackSemiBold = TextStyle(
-    fontSize: 18.sp,
-    fontWeight: FontWeightHelper.semiBold,
-  );
+      fontSize: 18.sp,
+      fontWeight: FontWeightHelper.semiBold,
+      color: Colors.black);
   static TextStyle font24BlueBold = TextStyle(
     color: ColorsStyles.kSecondaryColor,
     fontSize: 24.sp,

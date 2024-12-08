@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-class CustomFirebase {
+class FoodieFirebaseAuth {
   Future<UserCredential> loginUsingEmailAndPassword({
     required String email,
     required String password,
