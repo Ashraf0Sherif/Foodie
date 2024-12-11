@@ -1,4 +1,7 @@
+import 'package:foodie/core/firebase/foodie_firebase_banner.dart';
 import 'package:foodie/features/forgot_password/data/repos/forgot_password_repo.dart';
+import 'package:foodie/features/home/data/repos/banner_repo.dart';
+import 'package:foodie/features/home/logic/banner_cubit/banner_cubit.dart';
 import 'package:foodie/features/signUp/data/repos/sign_up_repo.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -12,8 +15,11 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   getIt.registerLazySingleton<FoodieFirebaseAuth>(() => FoodieFirebaseAuth());
+  getIt.registerLazySingleton<FoodieFirebaseBanner>(
+      () => FoodieFirebaseBanner());
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
+  getIt.registerLazySingleton<BannerRepo>(() => BannerRepo(getIt()));
   getIt.registerLazySingleton<ForgotPasswordRepo>(
       () => ForgotPasswordRepo(getIt()));
   //Auth Cubits
@@ -21,4 +27,6 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
   getIt
       .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt()));
+  //Banner Cubit
+  getIt.registerFactory<BannerCubit>(() => BannerCubit(getIt()));
 }
