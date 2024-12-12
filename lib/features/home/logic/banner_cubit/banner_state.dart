@@ -6,7 +6,7 @@ class BannerState<T> with _$BannerState {
 
   const factory BannerState.loading() = Loading;
 
-  const factory BannerState.success(T data) = Success<T>;
+  const factory BannerState.success({required List<BannerModel> banners}) = Success;
 
   const factory BannerState.error({required String error}) = Error;
 }

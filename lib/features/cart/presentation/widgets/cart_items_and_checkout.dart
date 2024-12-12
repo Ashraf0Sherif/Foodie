@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../home/presentation/widgets/food_item_card.dart';
 
 class CartItemsAndCheckout extends StatelessWidget {

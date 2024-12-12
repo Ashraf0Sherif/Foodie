@@ -2,7 +2,7 @@ import 'package:foodie/core/firebase/foodie_firebase_banner.dart';
 import 'package:foodie/core/firebase/models/firebase_result/firebase_result.dart';
 
 import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
-import '../models/banner_model.dart';
+import '../models/banner_model/banner_model.dart';
 
 class BannerRepo {
   final FoodieFirebaseBanner firebaseBanner;
