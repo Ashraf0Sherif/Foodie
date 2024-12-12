@@ -7,7 +7,7 @@ import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../widgets/email_and_password.dart';
+import '../widgets/login_form.dart';
 import '../widgets/login_bloc_listener.dart';
 
 class LoginView extends StatelessWidget {

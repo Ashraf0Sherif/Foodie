@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/core/widgets/food_items_list_view.dart';
 import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
-import 'package:foodie/features/search/presentation/widgets/no_food_item_found_widget.dart';
-import 'package:foodie/features/search/presentation/widgets/recent_search_widget.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/theming/styles.dart';

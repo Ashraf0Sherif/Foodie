@@ -25,8 +25,6 @@ class _SignUpViewState extends State<SignUpView> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-  bool _obscurePassword = true;
-  bool _obscureConfirmPassword = true;
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
