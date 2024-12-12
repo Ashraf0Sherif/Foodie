@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'firebase_exceptions.dart';
+import '../firebase_exceptions/firebase_exceptions.dart';
 
 part 'firebase_result.freezed.dart';
 

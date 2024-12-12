@@ -1,9 +1,9 @@
-import '../../../../core/firebase/custom_firebase.dart';
-import '../../../../core/firebase/firebase_exceptions.dart';
-import '../../../../core/firebase/firebase_result.dart';
+import '../../../../core/firebase/foodie_firebase_auth.dart';
+import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/firebase/models/firebase_result/firebase_result.dart';
 
 class ForgotPasswordRepo {
-  final CustomFirebase customFirebase;
+  final FoodieFirebaseAuth customFirebase;
 
   ForgotPasswordRepo(this.customFirebase);
 

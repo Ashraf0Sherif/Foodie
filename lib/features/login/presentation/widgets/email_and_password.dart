@@ -91,12 +91,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(8),
           CustomElevatedButton(
             gradient: ColorsStyles.kButtonGradient,
-            onPressed: () {
-              context.pushNamedAndRemoveUntil(Routes.kLandingView,
-                  predicate: (Route<dynamic> route) {
-                return false;
-              });
-            },
+            onPressed: () => validateAndLogin(),
             text: 'LOGIN',
           ),
         ],
