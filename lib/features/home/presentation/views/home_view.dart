@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/core/theming/colors.dart';
 
+import '../../../../core/theming/colors.dart';
 import '../widgets/banners_carousel_slider.dart';
-import '../widgets/categories_list_view.dart';
+import '../widgets/categories_bloc_builder.dart';
 import '../widgets/categories_presistent_header.dart';
-import '../../../../core/widgets/food_items_list_view.dart';
+import '../widgets/food_list_bloc_builder.dart';
 import '../widgets/home_top_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -25,12 +25,14 @@ class HomeView extends StatelessWidget {
           centerTitle: true,
           title: HomeTopBar(),
         ),
+        // Use BannerCubit for BannersCarouselSlider
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.only(bottom: 5.h),
             child: const BannersCarouselSlider(),
           ),
         ),
+        // Use FoodCubit for SliverPersistentHeader
         SliverPersistentHeader(
           pinned: true,
           delegate: CategoriesHeader(
@@ -40,12 +42,12 @@ class HomeView extends StatelessWidget {
               color: ColorsStyles.kViewBackground,
               child: Padding(
                 padding: EdgeInsets.only(bottom: 5.h, top: 5.h),
-                child: const CategoriesListView(),
+                child: const CategoriesBlocBuilder(),
               ),
             ),
           ),
         ),
-        const FoodItemsSliverListView(),
+        const FoodListBlocBuilder(),
       ],
     );
   }

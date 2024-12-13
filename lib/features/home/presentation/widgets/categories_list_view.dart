@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/features/home/data/models/food_category/food_category.dart';
 
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
+import 'categoires_list_view_item.dart';
 
-class CategoriesListView extends StatefulWidget {
-  const CategoriesListView({super.key});
+class CategoriesListView extends StatelessWidget {
+  const CategoriesListView({super.key, required this.categories});
 
-  @override
-  State<CategoriesListView> createState() => _CategoriesListViewState();
-}
-
-class _CategoriesListViewState extends State<CategoriesListView> {
-  final List<String> categories = const [
-    "All",
-    "Pizzas",
-    "Burgers",
-    "Drinks",
-    "Beverages",
-    "Desserts",
-  ];
-  int _selectedCategory = 0;
+  final List<FoodCategory> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -28,29 +14,9 @@ class _CategoriesListViewState extends State<CategoriesListView> {
       scrollDirection: Axis.horizontal,
       itemCount: categories.length,
       itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-            ),
-            onPressed: () {
-              setState(() {
-                _selectedCategory = index;
-              });
-            },
-            child: Text(
-              categories[index],
-              style: FontStyles.font17PrimaryColorMedium.copyWith(
-                color: _selectedCategory == index
-                    ? ColorsStyles.kPrimaryColor
-                    : Colors.grey,
-              ),
-            ),
-          ),
+        return CategoriesListViewItem(
+          category: categories[index],
+          index: index,
         );
       },
     );
