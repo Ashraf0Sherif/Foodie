@@ -12,6 +12,7 @@ class FoodieFirebaseFood {
     List<FoodItem> foodItems = topicsSnapshot.docs.map((doc) {
       final foodItem = FoodItem.fromJson(doc.data() as Map<String, dynamic>);
       foodItem.id = doc.id;
+      foodItem.totalPrice = int.parse(foodItem.price);
       return foodItem;
     }).toList();
     return foodItems;

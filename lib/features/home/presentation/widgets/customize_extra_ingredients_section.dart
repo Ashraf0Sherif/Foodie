@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/features/home/presentation/widgets/custom_ingredient_check_box.dart';
 
-import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../data/models/ingredient/ingredient.dart';
 
 class CustomizeExtraIngredientsSection extends StatelessWidget {
-  const CustomizeExtraIngredientsSection({super.key});
+  const CustomizeExtraIngredientsSection(
+      {super.key, required this.extraIngredients});
+
+  final List<Ingredient> extraIngredients;
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +17,20 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
         "Extra Ingredients",
         style: FontStyles.font16BlackBold,
       ),
-      for (int i = 0; i < 3; i++)
+      for (int i = 0; i < extraIngredients.length; i++)
         Row(
           children: [
             Text(
-              "Red pepper",
+              extraIngredients[i].title,
               style: FontStyles.font18PassiveRegular,
             ),
             const Spacer(),
             Text(
-              "+1",
+              "2323+",
               style: FontStyles.font14PassiveRegular,
             ),
-            Checkbox(
-              value: true,
-              onChanged: (value) {},
-              activeColor: ColorsStyles.kPrimaryColor,
+            CustomIngredientCheckBox(
+              ingredient: extraIngredients[i],
             )
           ],
         ),

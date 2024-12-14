@@ -10,8 +10,10 @@ class FoodItem {
   final String description;
   final String price;
   final String deliveryTime;
-
   final List<String> images;
+  @JsonKey(name: 'ingredients')
+  final List<Ingredient> mainIngredients;
+  final List<Ingredient> extraIngredients;
 
   FoodItem({
     required this.title,
@@ -19,14 +21,17 @@ class FoodItem {
     required this.price,
     required this.deliveryTime,
     required this.images,
-    required this.ingredients,
+    required this.mainIngredients,
+    required this.extraIngredients,
   });
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   late final String id;
-  final List<Ingredient> ingredients;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  int quantity = 0;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  int totalPrice = 0;
 
   factory FoodItem.fromJson(Map<String, dynamic> json) =>
       _$FoodItemFromJson(json);
-
 }

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/features/home/data/models/food_item/food_item.dart';
+import 'package:foodie/features/home/data/models/ingredient/ingredient.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import 'custom_ingredient_check_box.dart';
+
 class CustomizeMainIngredientsSection extends StatelessWidget {
-  const CustomizeMainIngredientsSection({super.key});
+  const CustomizeMainIngredientsSection(
+      {super.key, required this.mainIngredients});
+
+  final List<Ingredient> mainIngredients;
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +21,20 @@ class CustomizeMainIngredientsSection extends StatelessWidget {
           "Main Ingredients",
           style: FontStyles.font16BlackBold,
         ),
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < mainIngredients.length; i++)
           Row(
             children: [
               Text(
-                "Red pepper",
+                mainIngredients[i].title,
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
-              Checkbox(
-                value: i % 2 == 1 ? true : false,
-                onChanged: (value) {},
-                activeColor: ColorsStyles.kPrimaryColor,
-              )
+              CustomIngredientCheckBox(ingredient: mainIngredients[i])
             ],
           ),
       ],
     );
   }
 }
+
+

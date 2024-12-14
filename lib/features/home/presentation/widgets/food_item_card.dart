@@ -22,9 +22,12 @@ class FoodItemCard extends StatelessWidget {
       padding: EdgeInsets.only(left: 14.0.w, right: 14.w, bottom: 12.h),
       child: InkWell(
         onTap: () => showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-            builder: (context) => const CustomizeOrderBottomSheet()),
+          context: context,
+          isScrollControlled: true,
+          builder: (modalContext) => CustomizeOrderBottomSheet(
+            foodItem: foodItem,
+          ),
+        ),
         child: Card(
           elevation: 5,
           shadowColor: Colors.white.withOpacity(0.75),
@@ -32,8 +35,7 @@ class FoodItemCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 9.0, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 9.0, vertical: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -43,7 +45,9 @@ class FoodItemCard extends StatelessWidget {
                       foodItem: foodItem,
                     ),
                     const Spacer(),
-                    const ItemQuantityController(),
+                    ItemQuantityController(
+                      foodItem: foodItem,
+                    ),
                     horizontalSpace(20),
                   ],
                 ),
@@ -56,7 +60,7 @@ class FoodItemCard extends StatelessWidget {
                   style: FontStyles.font12PassiveBold,
                 ),
                 Text(
-                  foodItem.ingredients.map((e) => e.title).join(", "),
+                  foodItem.mainIngredients.map((e) => e.title).join(", "),
                   style: FontStyles.font12BlackRegular,
                 ),
               ],

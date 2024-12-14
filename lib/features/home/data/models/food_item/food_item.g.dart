@@ -13,7 +13,10 @@ FoodItem _$FoodItemFromJson(Map<String, dynamic> json) => FoodItem(
       deliveryTime: json['deliveryTime'] as String,
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
-      ingredients: (json['ingredients'] as List<dynamic>)
+      mainIngredients: (json['ingredients'] as List<dynamic>)
+          .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      extraIngredients: (json['extraIngredients'] as List<dynamic>)
           .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -24,5 +27,6 @@ Map<String, dynamic> _$FoodItemToJson(FoodItem instance) => <String, dynamic>{
       'price': instance.price,
       'deliveryTime': instance.deliveryTime,
       'images': instance.images,
-      'ingredients': instance.ingredients,
+      'ingredients': instance.mainIngredients,
+      'extraIngredients': instance.extraIngredients,
     };
