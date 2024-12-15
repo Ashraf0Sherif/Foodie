@@ -6,7 +6,6 @@ import 'package:foodie/core/di/dependency_injection.dart';
 import 'core/helpers/shared_pref_helper.dart';
 import 'core/helpers/shared_pref_keys.dart';
 import 'core/routing/app_router.dart';
-import 'core/routing/navigator_observer.dart';
 import 'firebase_options.dart';
 import 'foodie.dart';
 
