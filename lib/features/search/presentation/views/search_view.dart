@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
 
-import '../../../../core/constants.dart';
+import '../../../../core/ui_constants.dart';
 import '../../../../core/theming/styles.dart';
 
 class SearchView extends StatefulWidget {

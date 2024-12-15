@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 
+import '../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../core/helpers/shared_pref_keys.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -11,6 +13,10 @@ import '../widgets/onboarding_image.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
+
+  setIsFirstTime() async {
+    await SharedPrefHelper.setData(SharedPrefKeys.kIsFirstTime, false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +47,7 @@ class OnboardingView extends StatelessWidget {
                 width: 200.w,
                 gradient: ColorsStyles.kButtonGradient,
                 onPressed: () {
+                  setIsFirstTime();
                   context.pushNamedAndRemoveUntil(Routes.kLoginView,
                       predicate: (Route<dynamic> route) {
                     return false;

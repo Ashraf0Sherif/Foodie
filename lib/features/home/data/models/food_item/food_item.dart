@@ -1,3 +1,4 @@
+import 'package:foodie/features/home/data/models/ingredient/extra_ingredient.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../ingredient/ingredient.dart';
@@ -13,7 +14,7 @@ class FoodItem {
   final List<String> images;
   @JsonKey(name: 'ingredients')
   final List<Ingredient> mainIngredients;
-  final List<Ingredient> extraIngredients;
+  final List<ExtraIngredient> extraIngredients;
 
   FoodItem({
     required this.title,

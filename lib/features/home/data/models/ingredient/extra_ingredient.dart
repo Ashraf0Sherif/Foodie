@@ -8,12 +8,8 @@ part 'extra_ingredient.g.dart';
 class ExtraIngredient extends Ingredient {
   ExtraIngredient(
       {required super.title,
-      required this.price,
-      bool isChecked = false,
-      int quantity = 0}) {
-    this.isChecked = isChecked;
-    this.quantity = quantity;
-  }
+        required this.price,
+        super.isChecked = false});
 
   final String price;
 

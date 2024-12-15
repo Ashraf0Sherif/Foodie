@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/home/logic/filter_cubit/filter_cubit.dart';
 
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
-import '../../data/models/food_category/food_category.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../data/models/food_category/food_category.dart';
 
 class CategoriesListViewItem extends StatelessWidget {
   const CategoriesListViewItem({

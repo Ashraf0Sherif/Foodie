@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/views/customize_order_bottom_sheet.dart';
 
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/styles.dart';
 import 'food_item_info.dart';
 import 'item_quantity_controller.dart';
 

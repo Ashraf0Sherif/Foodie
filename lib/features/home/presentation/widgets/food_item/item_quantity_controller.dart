@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
-import '../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../../core/widgets/custom_elevated_button.dart';
 
 class ItemQuantityController extends StatefulWidget {
   const ItemQuantityController({

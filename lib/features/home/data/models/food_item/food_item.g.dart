@@ -17,7 +17,7 @@ FoodItem _$FoodItemFromJson(Map<String, dynamic> json) => FoodItem(
           .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
           .toList(),
       extraIngredients: (json['extraIngredients'] as List<dynamic>)
-          .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
+          .map((e) => ExtraIngredient.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

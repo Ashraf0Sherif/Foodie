@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/colors.dart';
-import '../../data/models/ingredient/ingredient.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../data/models/ingredient/ingredient.dart';
 
 class CustomIngredientCheckBox extends StatefulWidget {
   const CustomIngredientCheckBox({

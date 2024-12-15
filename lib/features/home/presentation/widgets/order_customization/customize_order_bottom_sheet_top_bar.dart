@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/theming/styles.dart';
 
 class CustomizeOrderBottomSheetTopBar extends StatelessWidget {
   const CustomizeOrderBottomSheetTopBar({

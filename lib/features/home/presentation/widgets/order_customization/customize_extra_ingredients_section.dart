@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/features/home/presentation/widgets/custom_ingredient_check_box.dart';
+import 'package:foodie/features/home/presentation/widgets/order_customization/custom_ingredient_check_box.dart';
 
-import '../../../../core/theming/styles.dart';
-import '../../data/models/ingredient/ingredient.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../data/models/ingredient/ingredient.dart';
 
 class CustomizeExtraIngredientsSection extends StatelessWidget {
   const CustomizeExtraIngredientsSection(

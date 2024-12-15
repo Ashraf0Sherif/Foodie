@@ -4,14 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/theming/styles.dart';
 
 class FoodItemInfo extends StatelessWidget {
   const FoodItemInfo({super.key, required this.foodItem});
+
   final FoodItem foodItem;
+
   @override
   Widget build(BuildContext context) {
-
     return Row(
       children: [
         ClipRRect(

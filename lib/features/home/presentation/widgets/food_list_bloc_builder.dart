@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/logic/food_items/food_items_cubit.dart';
-import '../../../../core/widgets/food_items_list_view.dart';
-import '../../data/models/food_category/food_category.dart';
-import '../../logic/filter_cubit/filter_cubit.dart';
 import 'filter_food_items_bloc_builder.dart';
 
 class FoodListBlocBuilder extends StatelessWidget {

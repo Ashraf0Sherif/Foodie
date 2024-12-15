@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/logic/food_items/food_items_cubit.dart';
+import '../../../../../core/logic/food_items/food_items_cubit.dart';
 import 'categories_list_view.dart';
 
 class CategoriesBlocBuilder extends StatelessWidget {

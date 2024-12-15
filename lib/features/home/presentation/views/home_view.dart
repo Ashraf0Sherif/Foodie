@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/colors.dart';
-import '../widgets/banners_carousel_slider.dart';
-import '../widgets/categories_bloc_builder.dart';
-import '../widgets/categories_presistent_header.dart';
+import '../widgets/banner_widgets/banners_carousel_slider.dart';
+import '../widgets/categories/categories_bloc_builder.dart';
+import '../widgets/categories/categories_presistent_header.dart';
 import '../widgets/food_list_bloc_builder.dart';
 import '../widgets/home_top_bar.dart';
 

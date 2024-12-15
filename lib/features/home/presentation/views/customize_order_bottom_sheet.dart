@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
-import '../widgets/add_to_cart_card_button.dart';
-import '../widgets/customize_extra_ingredients_section.dart';
-import '../widgets/customize_main_ingredients_section.dart';
-import '../widgets/customize_order_bottom_sheet_top_bar.dart';
+import '../widgets/order_customization/add_to_cart_card_button.dart';
+import '../widgets/order_customization/customize_extra_ingredients_section.dart';
+import '../widgets/order_customization/customize_main_ingredients_section.dart';
+import '../widgets/order_customization/customize_order_bottom_sheet_top_bar.dart';
 
 class CustomizeOrderBottomSheet extends StatelessWidget {
   const CustomizeOrderBottomSheet({super.key, required this.foodItem});
