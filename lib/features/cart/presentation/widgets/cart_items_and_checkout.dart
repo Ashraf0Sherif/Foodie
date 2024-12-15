@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
-import '../../../home/presentation/widgets/food_item_card.dart';
+import '../../../home/presentation/widgets/food_item/food_item_card.dart';
 
 class CartItemsAndCheckout extends StatelessWidget {
   const CartItemsAndCheckout({
@@ -10,7 +11,16 @@ class CartItemsAndCheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemBuilder: (context, index) => const FoodItemCard(),
+      itemBuilder: (context, index) => FoodItemCard(
+        foodItem: FoodItem(
+            images: [],
+            title: '',
+            description: '',
+            price: '',
+            deliveryTime: '',
+            mainIngredients: [],
+            extraIngredients: []),
+      ),
       itemCount: 4,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/spacing.dart';
+import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
-import '../widgets/add_to_cart_card_button.dart';
-import '../widgets/customize_beverage_section.dart';
-import '../widgets/customize_extra_ingredients_section.dart';
-import '../widgets/customize_main_ingredients_section.dart';
-import '../widgets/customize_order_bottom_sheet_top_bar.dart';
+import '../widgets/order_customization/add_to_cart_card_button.dart';
+import '../widgets/order_customization/customize_extra_ingredients_section.dart';
+import '../widgets/order_customization/customize_main_ingredients_section.dart';
+import '../widgets/order_customization/customize_order_bottom_sheet_top_bar.dart';
 
 class CustomizeOrderBottomSheet extends StatelessWidget {
-  const CustomizeOrderBottomSheet({super.key});
+  const CustomizeOrderBottomSheet({super.key, required this.foodItem});
+
+  final FoodItem foodItem;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +34,16 @@ class CustomizeOrderBottomSheet extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         verticalSpace(sectionSpacing),
-                        const CustomizeMainIngredientsSection(),
+                        if (foodItem.mainIngredients.isNotEmpty)
+                          CustomizeMainIngredientsSection(
+                            mainIngredients: foodItem.mainIngredients,
+                          ),
                         verticalSpace(sectionSpacing),
-                        const CustomizeExtraIngredientsSection(),
-                        verticalSpace(sectionSpacing),
-                        const CustomizeBeverageSection(),
-                        verticalSpace(120.h),
+                        if (foodItem.extraIngredients.isNotEmpty)
+                          CustomizeExtraIngredientsSection(
+                            extraIngredients: foodItem.extraIngredients,
+                          ),
+                        verticalSpace(120),
                       ],
                     ),
                   ),
@@ -45,7 +51,9 @@ class CustomizeOrderBottomSheet extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     child: Padding(
                       padding: EdgeInsets.only(bottom: 18.h),
-                      child: const AddToCartCardButton(),
+                      child: AddToCartCardButton(
+                        foodItem: foodItem,
+                      ),
                     ),
                   ),
                 ],

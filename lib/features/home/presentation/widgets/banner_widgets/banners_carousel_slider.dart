@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/features/home/logic/banner_cubit/banner_cubit.dart';
-import 'package:foodie/features/home/presentation/widgets/custom_banner.dart';
+
+import 'custom_banner.dart';
 
 class BannersCarouselSlider extends StatefulWidget {
   const BannersCarouselSlider({
@@ -22,9 +23,7 @@ class _BannersCarouselSliderState extends State<BannersCarouselSlider> {
   Widget build(BuildContext context) {
     return BlocBuilder<BannerCubit, BannerState>(
       builder: (context, state) {
-        if (state is Error) {
-          return Center(child: Text(state.error));
-        } else if (state is Success) {
+        if (state is Success) {
           return Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -52,6 +51,8 @@ class _BannersCarouselSliderState extends State<BannersCarouselSlider> {
               ],
             ),
           );
+        } else if (state is Error) {
+          return Text(state.error);
         } else {
           return Container();
         }

@@ -67,7 +67,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 })
               },
               child:
-                  Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
+              Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -91,8 +91,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(8),
           CustomElevatedButton(
             gradient: ColorsStyles.kButtonGradient,
-            onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                context, Routes.kLandingView, (route) => false),
+            onPressed: validateAndLogin,
             text: 'LOGIN',
           ),
         ],
