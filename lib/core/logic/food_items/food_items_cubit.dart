@@ -11,17 +11,22 @@ part 'food_items_cubit.freezed.dart';
 
 class FoodieFoodCubit extends Cubit<FoodieFoodState> {
   final FoodieFoodRepo foodieFoodRepo;
+  List<FoodCategory> foodCategories = [];
 
   FoodieFoodCubit(this.foodieFoodRepo) : super(const FoodieFoodState.initial());
 
   void emitFoodStates() async {
     emit(const FoodieFoodState.loading());
     final response = await foodieFoodRepo.getCategories();
-    response.when(success: (foodCategories) {
-      emit(FoodieFoodState.success(foodCategories: foodCategories));
-    }, failure: (error) {
-      emit(FoodieFoodState.error(
-          error: FirebaseExceptions.getErrorMessage(error)));
-    });
+    response.when(
+      success: (foodCategories) {
+        this.foodCategories = foodCategories;
+        emit(FoodieFoodState.success(foodCategories: foodCategories));
+      },
+      failure: (error) {
+        emit(FoodieFoodState.error(
+            error: FirebaseExceptions.getErrorMessage(error)));
+      },
+    );
   }
 }

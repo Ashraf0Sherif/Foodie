@@ -31,7 +31,7 @@ class CartView extends StatelessWidget {
             style: FontStyles.font20BlackMedium,
           ),
         ),
-         FoodItemsSliverListView(foodItems: [],),
+        FoodItemsSliverListView(foodItems: [],),
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 22.0.w, vertical: 20.h),
