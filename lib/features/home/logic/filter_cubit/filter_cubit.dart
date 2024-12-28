@@ -6,7 +6,7 @@ part 'filter_state.dart';
 class FilterCubit extends Cubit<FilterState> {
   FilterCubit() : super(FilterInitial());
 
-  void changeFilter(int index) {
-    emit(FilterIndexChanged(index: index));
+  void changeFilter({required int index, required String categoryId}) {
+    emit(FilterIndexChanged(index: index, categoryId: categoryId));
   }
 }

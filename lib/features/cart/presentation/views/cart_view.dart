@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/styles.dart';
-import 'package:foodie/core/widgets/food_items_list_view.dart';
+import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
