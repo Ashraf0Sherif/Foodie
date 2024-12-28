@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
-import 'package:foodie/core/routing/app_router.dart';
 
-import '../../features/cart/presentation/views/cart_view.dart';
-import '../../features/home/presentation/views/home_view.dart';
-import '../../features/profile/presentation/views/profile_view.dart';
-import '../../features/search/presentation/views/search_view.dart';
+import '../logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import '../theming/colors.dart';
 import '../theming/styles.dart';
 

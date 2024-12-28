@@ -24,7 +24,7 @@ class LoginBlocListener extends StatelessWidget {
           },
           success: (loginResponse) {
             context.pop();
-            context.pushNamedAndRemoveUntil(Routes.kHomeView,
+            context.pushNamedAndRemoveUntil(Routes.kLandingView,
                 predicate: (Route<dynamic> route) {
               return false;
             });

@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/features/forgot_password/presentation/widgets/forgot_password_form.dart';
 
-import '../../../../core/constants.dart';
+import '../../../../core/ui_constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';

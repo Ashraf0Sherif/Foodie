@@ -7,7 +7,7 @@ import 'package:foodie/core/widgets/terms_and_conditions_text.dart';
 import 'package:foodie/features/signUp/presentation/widgets/sign_up_bloc_listener.dart';
 import 'package:foodie/features/signUp/presentation/widgets/sign_up_form.dart';
 
-import '../../../../core/constants.dart';
+import '../../../../core/ui_constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -25,8 +25,6 @@ class _SignUpViewState extends State<SignUpView> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-  bool _obscurePassword = true;
-  bool _obscureConfirmPassword = true;
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override

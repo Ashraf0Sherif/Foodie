@@ -3,12 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/login/presentation/widgets/dont_have_an_account.dart';
 
-import '../../../../core/constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../widgets/email_and_password.dart';
+import '../../../../core/ui_constants.dart';
 import '../widgets/login_bloc_listener.dart';
+import '../widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
