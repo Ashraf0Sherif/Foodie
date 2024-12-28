@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'food_items_cubit.dart';
+part of 'food_categories_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FoodieFoodState {
+mixin _$FoodCategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -69,23 +69,23 @@ mixin _$FoodieFoodState {
 }
 
 /// @nodoc
-abstract class $FoodieFoodStateCopyWith<$Res> {
-  factory $FoodieFoodStateCopyWith(
-          FoodieFoodState value, $Res Function(FoodieFoodState) then) =
-      _$FoodieFoodStateCopyWithImpl<$Res, FoodieFoodState>;
+abstract class $FoodCategoriesStateCopyWith<$Res> {
+  factory $FoodCategoriesStateCopyWith(
+          FoodCategoriesState value, $Res Function(FoodCategoriesState) then) =
+      _$FoodCategoriesStateCopyWithImpl<$Res, FoodCategoriesState>;
 }
 
 /// @nodoc
-class _$FoodieFoodStateCopyWithImpl<$Res, $Val extends FoodieFoodState>
-    implements $FoodieFoodStateCopyWith<$Res> {
-  _$FoodieFoodStateCopyWithImpl(this._value, this._then);
+class _$FoodCategoriesStateCopyWithImpl<$Res, $Val extends FoodCategoriesState>
+    implements $FoodCategoriesStateCopyWith<$Res> {
+  _$FoodCategoriesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -98,13 +98,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$FoodieFoodStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$FoodCategoriesStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -115,7 +115,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'FoodieFoodState.initial()';
+    return 'FoodCategoriesState.initial()';
   }
 
   @override
@@ -202,7 +202,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements FoodieFoodState {
+abstract class _Initial implements FoodCategoriesState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -215,13 +215,13 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$FoodieFoodStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$FoodCategoriesStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -232,7 +232,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'FoodieFoodState.loading()';
+    return 'FoodCategoriesState.loading()';
   }
 
   @override
@@ -319,7 +319,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements FoodieFoodState {
+abstract class Loading implements FoodCategoriesState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -334,13 +334,13 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$FoodieFoodStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$FoodCategoriesStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -372,7 +372,7 @@ class _$SuccessImpl implements Success {
 
   @override
   String toString() {
-    return 'FoodieFoodState.success(foodCategories: $foodCategories)';
+    return 'FoodCategoriesState.success(foodCategories: $foodCategories)';
   }
 
   @override
@@ -388,7 +388,7 @@ class _$SuccessImpl implements Success {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_foodCategories));
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -471,13 +471,13 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements FoodieFoodState {
+abstract class Success implements FoodCategoriesState {
   const factory Success({required final List<FoodCategory> foodCategories}) =
       _$SuccessImpl;
 
   List<FoodCategory> get foodCategories;
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -495,13 +495,13 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$FoodieFoodStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$FoodCategoriesStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -527,7 +527,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'FoodieFoodState.error(error: $error)';
+    return 'FoodCategoriesState.error(error: $error)';
   }
 
   @override
@@ -541,7 +541,7 @@ class _$ErrorImpl implements Error {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -624,12 +624,12 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements FoodieFoodState {
+abstract class Error implements FoodCategoriesState {
   const factory Error({required final String error}) = _$ErrorImpl;
 
   String get error;
 
-  /// Create a copy of FoodieFoodState
+  /// Create a copy of FoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/logic/food_items/food_items_cubit.dart';
-import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
 
 import '../../features/cart/presentation/views/cart_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
@@ -23,11 +21,7 @@ class _LandingViewState extends State<LandingView> {
 
   List<Widget> views = [
     const HomeView(),
-    BlocProvider(
-      create: (context) =>
-          SearchCubit(context.read<FoodieFoodCubit>().foodCategories),
-      child: const SearchView(),
-    ),
+    const SearchView(),
     const CartView(),
     const ProfileView(),
   ];

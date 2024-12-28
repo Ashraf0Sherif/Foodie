@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/widgets/food_items_list_view.dart';
+import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
 import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
 import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
 import 'package:foodie/features/search/presentation/widgets/no_food_item_found_widget.dart';

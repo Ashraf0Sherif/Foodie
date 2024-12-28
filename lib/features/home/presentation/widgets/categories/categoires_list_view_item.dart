@@ -28,7 +28,9 @@ class CategoriesListViewItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.r),
           ),
         ),
-        onPressed: () => context.read<FilterCubit>().changeFilter(index),
+        onPressed: () => context
+            .read<FilterCubit>()
+            .changeFilter(index: index, categoryId: category.id),
         child: BlocBuilder<FilterCubit, FilterState>(
           builder: (context, state) {
             return Text(

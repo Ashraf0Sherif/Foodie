@@ -26,7 +26,6 @@ class SearchCubit extends Cubit<SearchState> {
         if (searchedItems.isEmpty) {
           emit(SearchNoResults());
         } else {
-
           emit(SearchSuccess(searchedItems));
         }
       },

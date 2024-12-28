@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/ui_constants.dart';
-import '../../../../core/widgets/food_items_list_view.dart';
+import '../../../../core/widgets/food_items_sliver_list_view.dart';
 import '../../logic/search_cubit/search_cubit.dart';
 import 'empty_search_bar_widget.dart';
 import 'no_food_item_found_widget.dart';
@@ -25,7 +25,7 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
             ),
           );
         } else if (state is SearchSuccess) {
-          return FoodItemsSliverListView(foodItems: state.foodItems);
+          return FoodItemsSliverListView(foodItems: [],);
         } else if (state is SearchLoading) {
           return SliverFillRemaining(
             child: Padding(

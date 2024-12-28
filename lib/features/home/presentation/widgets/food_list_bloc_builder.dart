@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/logic/food_categories_cubit/food_categories_cubit.dart';
 
-import '../../../../core/logic/food_items/food_items_cubit.dart';
-import 'filter_food_items_bloc_builder.dart';
+import 'filter_food_items_bloc_listener.dart';
 
 class FoodListBlocBuilder extends StatelessWidget {
   const FoodListBlocBuilder({
@@ -11,7 +11,7 @@ class FoodListBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FoodieFoodCubit, FoodieFoodState>(
+    return BlocBuilder<FoodCategoriesCubit, FoodCategoriesState>(
       buildWhen: (previous, current) =>
           current is Success || current is Error || current is Loading,
       builder: (context, state) {
@@ -21,7 +21,7 @@ class FoodListBlocBuilder extends StatelessWidget {
           );
         }, success: (foodCategories) {
           return FilterFoodItemsBlocBuilder(
-            foodCategories: foodCategories,
+            categoryId: foodCategories[0].id,
           );
         }, orElse: () {
           return const SliverToBoxAdapter(child: SizedBox.shrink());
@@ -30,5 +30,3 @@ class FoodListBlocBuilder extends StatelessWidget {
     );
   }
 }
-
-
