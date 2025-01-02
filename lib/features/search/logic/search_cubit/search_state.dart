@@ -1,16 +1,16 @@
 part of 'search_cubit.dart';
 
-@immutable
-sealed class SearchState {}
+@freezed
+class SearchState with _$SearchState {
+  const factory SearchState.initial() = _Initial;
 
-final class SearchInitial extends SearchState {}
+  const factory SearchState.loading({required List<FoodItem> foodItems}) =
+      SearchLoading;
 
-final class SearchLoading extends SearchState {}
+  const factory SearchState.success({required List<FoodItem> foodItems}) =
+      SearchSuccess;
 
-final class SearchSuccess extends SearchState {
-  final List<FoodItem> foodItems;
+  const factory SearchState.error({required String error}) = SearchError;
 
-  SearchSuccess(this.foodItems);
+  const factory SearchState.noResults() = SearchNoResults;
 }
-
-final class SearchNoResults extends SearchState {}

@@ -12,17 +12,16 @@ class FoodItemsSliverListView extends StatelessWidget {
   const FoodItemsSliverListView({
     super.key,
     required this.foodItems,
+    required this.isLoading,
   });
 
   final List<FoodItem> foodItems;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: context.read<FoodItemsCubit>().state is FoodItemsLoading ||
-              context.read<SearchCubit>().state is SearchLoading
-          ? foodItems.length + 1
-          : foodItems.length,
+      itemCount: foodItems.length + (isLoading ? 1 : 0),
       itemBuilder: (BuildContext context, int index) {
         if (index < foodItems.length) {
           return FoodItemCard(foodItem: foodItems[index]);

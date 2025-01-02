@@ -35,7 +35,10 @@ class FoodItemsBlocBuilder extends StatelessWidget {
           ),
           loading: (foodItems) {
             if (foodItems.isNotEmpty) {
-              return FoodItemsSliverListView(foodItems: foodItems);
+              return FoodItemsSliverListView(
+                foodItems: foodItems,
+                isLoading: true,
+              );
             } else {
               return SliverToBoxAdapter(
                 child: Skeletonizer(
@@ -56,7 +59,10 @@ class FoodItemsBlocBuilder extends StatelessWidget {
           error: (error) => const SliverToBoxAdapter(
             child: Center(child: Text('Error loading food items')),
           ),
-          success: (foodItems) => FoodItemsSliverListView(foodItems: foodItems),
+          success: (foodItems) => FoodItemsSliverListView(
+            foodItems: foodItems,
+            isLoading: false,
+          ),
         );
       },
     );
