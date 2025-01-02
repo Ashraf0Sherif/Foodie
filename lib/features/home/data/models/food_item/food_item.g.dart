@@ -19,6 +19,7 @@ FoodItem _$FoodItemFromJson(Map<String, dynamic> json) => FoodItem(
       extraIngredients: (json['extraIngredients'] as List<dynamic>)
           .map((e) => ExtraIngredient.fromJson(e as Map<String, dynamic>))
           .toList(),
+      createdAt: FoodItem._timestampToDateTime(json['createdAt']),
     );
 
 Map<String, dynamic> _$FoodItemToJson(FoodItem instance) => <String, dynamic>{
@@ -27,6 +28,7 @@ Map<String, dynamic> _$FoodItemToJson(FoodItem instance) => <String, dynamic>{
       'price': instance.price,
       'deliveryTime': instance.deliveryTime,
       'images': instance.images,
+      'createdAt': FoodItem._dateTimeToTimestamp(instance.createdAt),
       'ingredients': instance.mainIngredients,
       'extraIngredients': instance.extraIngredients,
     };
