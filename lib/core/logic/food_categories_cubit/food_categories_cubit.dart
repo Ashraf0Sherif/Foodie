@@ -11,7 +11,6 @@ part 'food_categories_cubit.freezed.dart';
 
 class FoodCategoriesCubit extends Cubit<FoodCategoriesState> {
   final FoodieFoodRepo foodieFoodRepo;
-
   FoodCategoriesCubit(this.foodieFoodRepo) : super(const FoodCategoriesState.initial());
 
   void emitFoodStates() async {

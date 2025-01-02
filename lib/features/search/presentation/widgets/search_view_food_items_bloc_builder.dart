@@ -28,6 +28,7 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
             if (foodItems.isNotEmpty) {
               return FoodItemsSliverListView(
                 foodItems: foodItems,
+                isLoading: true,
               );
             }
             return SliverToBoxAdapter(
@@ -47,6 +48,7 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
           },
           success: (foodItems) => FoodItemsSliverListView(
             foodItems: foodItems,
+            isLoading: false,
           ),
           noResults: () => SliverFillRemaining(
             child: Padding(

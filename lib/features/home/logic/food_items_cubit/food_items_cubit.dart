@@ -7,6 +7,7 @@ import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions
 import '../../data/repos/foodie_food_repo.dart';
 
 part 'food_items_cubit.freezed.dart';
+
 part 'food_items_state.dart';
 
 class FoodItemsCubit extends Cubit<FoodItemsState> {
@@ -57,6 +58,7 @@ class FoodItemsCubit extends Cubit<FoodItemsState> {
         } else {
           foodItemsMap[categoryId] = [...oldFoodItems, ...foodItems];
         }
+
         emit(
           FoodItemsState.success(foodItems: foodItemsMap[categoryId]!),
         );

@@ -18,9 +18,14 @@ class CategoriesBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           success: (foodCategories) {
-            context
-                .read<FoodItemsCubit>()
-                .emitFoodItemsStates(categoryId: foodCategories[0].id);
+            String? currentCategoryId =
+                context.read<FoodItemsCubit>().currentCategoryId;
+            if (currentCategoryId == null) {
+              context
+                  .read<FoodItemsCubit>()
+                  .emitFoodItemsStates(categoryId: foodCategories[0].id);
+              currentCategoryId = foodCategories[0].id;
+            }
             return CategoriesListView(
               categories: foodCategories,
             );
