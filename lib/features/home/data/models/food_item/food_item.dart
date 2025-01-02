@@ -32,9 +32,12 @@ class FoodItem {
   int quantity = 0;
   @JsonKey(includeFromJson: false, includeToJson: false)
   int totalPrice = 0;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  late final String categoryId;
 
   factory FoodItem.fromJson(Map<String, dynamic> json) =>
       _$FoodItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$FoodItemToJson(this);
+
 }
