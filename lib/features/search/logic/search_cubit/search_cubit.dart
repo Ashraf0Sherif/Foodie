@@ -29,13 +29,13 @@ class SearchCubit extends Cubit<SearchState> {
         } else {
           this.foodItems = foodItems;
           isLastPage = false;
-          emit(SearchSuccess(foodItems: foodItems));
+          emit(SearchState.success(foodItems: foodItems));
           _setupScrollController();
         }
       },
       failure: (error) {
         emit(
-          SearchError(
+          SearchState.error(
             error: FirebaseExceptions.getErrorMessage(error),
           ),
         );
@@ -47,7 +47,7 @@ class SearchCubit extends Cubit<SearchState> {
     if (state is SearchLoading || isLastPage) {
       return;
     }
-    emit(SearchLoading(foodItems: foodItems));
+    emit(SearchState.loading(foodItems: foodItems));
     final response = await foodieFoodRepo.searchFoodItems(
         query: searchController.text, lastFoodItem: foodItems.last);
     response.when(
@@ -57,10 +57,10 @@ class SearchCubit extends Cubit<SearchState> {
         } else {
           this.foodItems = [...this.foodItems, ...foodItems];
         }
-        emit(SearchSuccess(foodItems: this.foodItems));
+        emit(SearchState.success(foodItems: this.foodItems));
       },
       failure: (error) {
-        emit(SearchSuccess(foodItems: foodItems));
+        emit(SearchState.success(foodItems: foodItems));
       },
     );
   }

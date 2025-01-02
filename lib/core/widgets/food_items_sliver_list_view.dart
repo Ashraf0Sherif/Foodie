@@ -26,10 +26,7 @@ class FoodItemsSliverListView extends StatelessWidget {
         if (index < foodItems.length) {
           return FoodItemCard(foodItem: foodItems[index]);
         } else {
-          return const Skeletonizer(
-            enabled: true,
-            child: FoodItemCardSkeleton(),
-          );
+          return const FoodItemCardSkeleton();
         }
       },
     );

@@ -5,15 +5,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../firebase/models/firebase_exceptions/firebase_exceptions.dart';
 
-part 'food_categories_state.dart';
-
 part 'food_categories_cubit.freezed.dart';
+part 'food_categories_state.dart';
 
 class FoodCategoriesCubit extends Cubit<FoodCategoriesState> {
   final FoodieFoodRepo foodieFoodRepo;
-  FoodCategoriesCubit(this.foodieFoodRepo) : super(const FoodCategoriesState.initial());
 
-  void emitFoodStates() async {
+  FoodCategoriesCubit(this.foodieFoodRepo)
+      : super(const FoodCategoriesState.initial());
+
+  void emitFoodCategoriesStates() async {
+
     emit(const FoodCategoriesState.loading());
     final response = await foodieFoodRepo.getCategories();
     response.when(

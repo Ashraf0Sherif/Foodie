@@ -43,7 +43,7 @@ mixin _$FoodCategoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -51,7 +51,7 @@ mixin _$FoodCategoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -59,7 +59,7 @@ mixin _$FoodCategoriesState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -110,7 +110,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl implements Initial {
   const _$InitialImpl();
 
   @override
@@ -167,7 +167,7 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -178,7 +178,7 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -189,7 +189,7 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -202,8 +202,8 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements FoodCategoriesState {
-  const factory _Initial() = _$InitialImpl;
+abstract class Initial implements FoodCategoriesState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -284,7 +284,7 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -295,7 +295,7 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -306,7 +306,7 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -436,7 +436,7 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -447,7 +447,7 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -458,7 +458,7 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
@@ -589,7 +589,7 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
@@ -600,7 +600,7 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
@@ -611,7 +611,7 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,

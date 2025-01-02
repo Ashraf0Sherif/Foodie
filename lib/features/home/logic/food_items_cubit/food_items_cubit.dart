@@ -7,7 +7,6 @@ import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions
 import '../../data/repos/foodie_food_repo.dart';
 
 part 'food_items_cubit.freezed.dart';
-
 part 'food_items_state.dart';
 
 class FoodItemsCubit extends Cubit<FoodItemsState> {
@@ -64,7 +63,7 @@ class FoodItemsCubit extends Cubit<FoodItemsState> {
         );
       },
       failure: (error) {
-        emit(FoodItemsSuccess(foodItems: foodItemsMap[categoryId]!));
+        emit(FoodItemsState.success(foodItems: foodItemsMap[categoryId]!));
       },
     );
   }

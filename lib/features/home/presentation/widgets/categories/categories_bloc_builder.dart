@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/food_categories_cubit/food_categories_cubit.dart';
 
 import '../../../logic/food_items_cubit/food_items_cubit.dart';
 import 'categories_list_view.dart';
+import 'categories_list_view_item_skeleton.dart';
 
 class CategoriesBlocBuilder extends StatelessWidget {
   const CategoriesBlocBuilder({
@@ -14,7 +16,10 @@ class CategoriesBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FoodCategoriesCubit, FoodCategoriesState>(
       buildWhen: (previous, current) =>
-          current is Success || current is Error || current is Loading,
+          current is Success ||
+          current is Error ||
+          current is Loading ||
+          current is Initial,
       builder: (context, state) {
         return state.maybeWhen(
           success: (foodCategories) {
@@ -32,6 +37,18 @@ class CategoriesBlocBuilder extends StatelessWidget {
           },
           error: (error) {
             return const Center(child: Text('Error loading categories'));
+          },
+          loading: () {
+            return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 3, // Show 3 skeletons when loading
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  child: const SkeletonizerCategoriesListViewItem(),
+                );
+              },
+            );
           },
           orElse: () {
             return const SizedBox();

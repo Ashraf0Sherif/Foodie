@@ -63,7 +63,7 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (context) =>
-                    FoodCategoriesCubit(getIt())..emitFoodStates(),
+                    FoodCategoriesCubit(getIt())..emitFoodCategoriesStates(),
               ),
               BlocProvider(
                 create: (context) => FilterCubit(),
