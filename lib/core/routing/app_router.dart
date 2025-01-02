@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/di/dependency_injection.dart';
 import 'package:foodie/core/routing/routes.dart';
 import 'package:foodie/features/home/logic/food_items_cubit/food_items_cubit.dart';
+import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 
 import '../../features/forgot_password/logic/forgot_password_cubit/forgot_password_cubit.dart';
@@ -55,14 +56,24 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(
-                  create: (context) =>
-                      BannerCubit(getIt())..emitBannerStates()),
+                create: (context) => BannerCubit(getIt())..emitBannerStates(),
+              ),
               BlocProvider(
-                  create: (context) =>
-                      FoodCategoriesCubit(getIt())..emitFoodStates()),
-              BlocProvider(create: (context) => FilterCubit()),
-              BlocProvider(create: (context) => BottomNavBarCubit()),
-              BlocProvider(create: (context) => FoodItemsCubit(getIt())),
+                create: (context) => SearchCubit(getIt()),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    FoodCategoriesCubit(getIt())..emitFoodStates(),
+              ),
+              BlocProvider(
+                create: (context) => FilterCubit(),
+              ),
+              BlocProvider(
+                create: (context) => BottomNavBarCubit(),
+              ),
+              BlocProvider(
+                create: (context) => FoodItemsCubit(getIt()),
+              ),
             ],
             child: const LandingView(),
           ),

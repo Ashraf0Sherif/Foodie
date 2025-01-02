@@ -1,3 +1,4 @@
+import 'package:bloc/bloc.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:foodie/core/di/dependency_injection.dart';
 
 import 'core/helpers/shared_pref_helper.dart';
 import 'core/helpers/shared_pref_keys.dart';
+import 'core/helpers/simple_bloc_observer.dart';
 import 'core/routing/app_router.dart';
 import 'firebase_options.dart';
 import 'foodie.dart';
@@ -16,6 +18,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp();
   await FirebaseAppCheck.instance.activate(
     androidProvider: AndroidProvider.debug,

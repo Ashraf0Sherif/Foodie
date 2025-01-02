@@ -10,4 +10,5 @@ abstract class FirebaseResult<T> with _$FirebaseResult<T> {
 
   const factory FirebaseResult.failure(FirebaseExceptions firebaseExceptions) =
       Failure<T>;
+
 }

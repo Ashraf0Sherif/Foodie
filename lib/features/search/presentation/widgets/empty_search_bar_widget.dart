@@ -11,7 +11,7 @@ class EmptySearchBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Spacer(),
+        verticalSpace(64),
         Image.asset(
           'assets/images/foode_search_image.png',
           width: 200.w,
@@ -27,9 +27,6 @@ class EmptySearchBarWidget extends StatelessWidget {
           'Find what you want among hundreds of different dishes.',
           style: FontStyles.font16GreyRegular,
           textAlign: TextAlign.center,
-        ),
-        const Spacer(
-          flex: 2,
         ),
       ],
     );
