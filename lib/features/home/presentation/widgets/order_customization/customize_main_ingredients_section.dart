@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
-import 'package:foodie/features/home/data/models/ingredient/ingredient.dart';
 
 import '../../../../../core/theming/styles.dart';
 import 'custom_ingredient_check_box.dart';
 
 class CustomizeMainIngredientsSection extends StatelessWidget {
   const CustomizeMainIngredientsSection(
-      {super.key, required this.foodItem});
+      {super.key, required this.foodItem, required this.onIngredientChanged});
 
   final FoodItem foodItem;
+  final VoidCallback onIngredientChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,13 @@ class CustomizeMainIngredientsSection extends StatelessWidget {
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
-              CustomIngredientCheckBox(ingredient: foodItem.mainIngredients[i])
+              CustomIngredientCheckBox(
+                ingredient: foodItem.mainIngredients[i],
+                onChanged: (bool value) => onIngredientChanged(),
+              )
             ],
           ),
       ],
     );
   }
 }
-
-

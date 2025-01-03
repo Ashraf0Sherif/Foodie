@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/core/di/dependency_injection.dart';
-import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/views/customize_order_bottom_sheet.dart';
 
@@ -27,11 +24,8 @@ class FoodItemCard extends StatelessWidget {
         onTap: () => showModalBottomSheet(
           context: context,
           isScrollControlled: true,
-          builder: (modalContext) => BlocProvider.value(
-            value: context.read<CartCubit>(),
-            child: CustomizeOrderBottomSheet(
-              foodItem: foodItem,
-            ),
+          builder: (modalContext) => CustomizeOrderBottomSheet(
+            foodItem: foodItem,
           ),
         ),
         child: Card(
@@ -41,16 +35,18 @@ class FoodItemCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 9.0, vertical: 15),
+            padding: EdgeInsets.symmetric(horizontal: 9.0.w, vertical: 15.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FoodItemInfo(
-                      foodItem: foodItem,
+                    Expanded(
+                      child: FoodItemInfo(
+                        foodItem: foodItem,
+                      ),
                     ),
-                    const Spacer(),
                     ItemQuantityController(
                       foodItem: foodItem,
                     ),
@@ -60,14 +56,23 @@ class FoodItemCard extends StatelessWidget {
                 const Divider(
                   color: Color(0xffECECEC),
                 ),
-                horizontalSpace(9),
-                Text(
-                  "Ingredients",
-                  style: FontStyles.font12PassiveBold,
-                ),
-                Text(
-                  foodItem.mainIngredients.map((e) => e.title).join(", "),
-                  style: FontStyles.font12BlackRegular,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 9.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Ingredients",
+                        style: FontStyles.font12PassiveBold,
+                      ),
+                      Text(
+                        foodItem.mainIngredients.map((e) => e.title).join(", "),
+                        style: FontStyles.font12BlackRegular,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

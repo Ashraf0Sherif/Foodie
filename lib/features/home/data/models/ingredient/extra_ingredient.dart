@@ -24,6 +24,18 @@ class ExtraIngredient extends Ingredient {
     );
   }
 
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ExtraIngredient) return false;
+    return title == other.title &&
+        isChecked == other.isChecked &&
+        price == other.price;
+  }
+
+  @override
+  int get hashCode => Object.hash(title, isChecked, price);
+
   factory ExtraIngredient.fromJson(Map<String, dynamic> json) =>
       _$ExtraIngredientFromJson(json);
 }

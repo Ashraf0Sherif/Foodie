@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
-import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 
 class DeleteFromCartCardButton extends StatelessWidget {
