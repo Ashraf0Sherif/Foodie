@@ -2,7 +2,7 @@ part of 'food_categories_cubit.dart';
 
 @freezed
 class FoodCategoriesState with _$FoodCategoriesState {
-  const factory FoodCategoriesState.initial() = _Initial;
+  const factory FoodCategoriesState.initial() = Initial;
 
   const factory FoodCategoriesState.loading() = Loading;
 

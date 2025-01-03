@@ -31,4 +31,16 @@ class FoodieFoodRepo {
           FirebaseExceptions.getFirebaseException(error));
     }
   }
+
+  Future<FirebaseResult<List<FoodItem>>> searchFoodItems(
+      {required String query, FoodItem? lastFoodItem}) async {
+    try {
+      var response = await foodieFirebaseFood.searchFoodItems(
+          query: query, lastFoodItem: lastFoodItem);
+      return FirebaseResult.success(response);
+    } catch (error) {
+      return FirebaseResult.failure(
+          FirebaseExceptions.getFirebaseException(error));
+    }
+  }
 }

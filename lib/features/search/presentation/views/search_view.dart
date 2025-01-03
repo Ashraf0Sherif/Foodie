@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
 import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
-import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
-import 'package:foodie/features/search/presentation/widgets/no_food_item_found_widget.dart';
 
 import '../../../../core/theming/styles.dart';
-import '../../../../core/ui_constants.dart';
 import '../widgets/search_view_food_items_bloc_builder.dart';
 
 class SearchView extends StatefulWidget {
@@ -17,15 +13,22 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-  final int view = 1;
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _searchController = TextEditingController();
+  late final TextEditingController _searchController;
+  late final ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController = context.read<SearchCubit>().searchController;
+    _scrollController = context.read<SearchCubit>().scrollController;
+  }
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      controller: _scrollController,
       slivers: [
         SliverAppBar(
           backgroundColor: Colors.transparent,
@@ -33,16 +36,19 @@ class _SearchViewState extends State<SearchView> {
           title: Form(
             key: _formKey,
             child: TextFormField(
+              controller: _searchController,
               onFieldSubmitted: (value) {
                 if (value == '' || value.isEmpty) return;
-                context.read<SearchCubit>().search(value);
+                context.read<SearchCubit>().emitSearchStates();
               },
               validator: (value) =>
                   value!.isEmpty ? 'Enter search query' : null,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: const Icon(Icons.search),
-                hintText: 'Search',
+                hintText: _searchController.text == ''
+                    ? 'Search'
+                    : _searchController.text,
                 hintStyle: FontStyles.font14GreyRegular,
               ),
             ),

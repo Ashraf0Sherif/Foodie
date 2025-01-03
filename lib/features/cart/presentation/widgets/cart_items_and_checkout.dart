@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
@@ -19,7 +20,8 @@ class CartItemsAndCheckout extends StatelessWidget {
             price: '',
             deliveryTime: '',
             mainIngredients: [],
-            extraIngredients: []),
+            extraIngredients: [],
+            createdAt: DateTime.now()),
       ),
       itemCount: 4,
       shrinkWrap: true,
