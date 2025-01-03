@@ -13,7 +13,7 @@ class NoFoodItemFoundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Spacer(),
+        verticalSpace(64),
         Image.asset(
           'assets/images/no_item_found.png',
           width: 200.w,
@@ -29,9 +29,6 @@ class NoFoodItemFoundWidget extends StatelessWidget {
           'We couldn\'t find any food with the name you searched for. Please try searching with different names.',
           style: FontStyles.font14GreyRegular,
           textAlign: TextAlign.center,
-        ),
-        const Spacer(
-          flex: 2,
         ),
       ],
     );

@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/features/home/logic/food_items_cubit/food_items_cubit.dart';
-import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../features/home/data/models/food_item/food_item.dart';
 import '../../features/home/presentation/widgets/food_item/food_item_card.dart';

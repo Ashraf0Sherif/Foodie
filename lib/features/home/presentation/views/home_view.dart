@@ -21,18 +21,19 @@ class _HomeViewState extends State<HomeView> {
           (previous is InitialConnection && current is Connected) ||
           (previous is InitialConnection && current is NotConnected),
       builder: (context, state) {
-        if (context.read<InternetConnectionCubit>().previousState
-                is Connected &&
-            state is NotConnected) {
+        if ((context.read<InternetConnectionCubit>().previousState
+                    is Connected &&
+                state is NotConnected) ||
+            state is InitialConnection ||
+            state is Connected) {
           return const HomeViewBody();
+        } else {
+          return state.maybeWhen(orElse: () {
+            return const SizedBox.shrink();
+          }, notConnected: () {
+            return const NoInternetConnectionWidget();
+          });
         }
-        return state.maybeWhen(orElse: () {
-          return const SizedBox.shrink();
-        }, connected: () {
-          return const HomeViewBody();
-        }, notConnected: () {
-          return const NoInternetConnectionWidget();
-        });
       },
     );
   }

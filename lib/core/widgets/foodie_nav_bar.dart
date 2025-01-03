@@ -38,37 +38,42 @@ class _FoodieNavigationBarState extends State<FoodieNavigationBar> {
     },
   ];
 
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: navItems.map(
-        (item) {
-          int index = navItems.indexOf(item);
-          return BottomNavigationBarItem(
-            icon: Icon(
-              currentIndex == index ? item['iconActive'] : item['iconInactive'],
-              color: currentIndex == index
-                  ? ColorsStyles.kPrimaryColor
-                  : ColorsStyles.kPassiveColor,
-            ),
-            label: item['label'],
-          );
-        },
-      ).toList(),
-      onTap: (index) {
-        setState(() {
-          currentIndex = index;
-          context.read<BottomNavBarCubit>().changeIndex(index);
-        });
+    return BlocBuilder<BottomNavBarCubit, BottomNavBarState>(
+      builder: (context, state) {
+        int currentIndex = context.read<BottomNavBarCubit>().currentIndex;
+        return BottomNavigationBar(
+          items: navItems.map(
+            (item) {
+              int index = navItems.indexOf(item);
+              return BottomNavigationBarItem(
+                icon: Icon(
+                  currentIndex == index
+                      ? item['iconActive']
+                      : item['iconInactive'],
+                  color: currentIndex == index
+                      ? ColorsStyles.kPrimaryColor
+                      : ColorsStyles.kPassiveColor,
+                ),
+                label: item['label'],
+              );
+            },
+          ).toList(),
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+              context.read<BottomNavBarCubit>().changeIndex(index);
+            });
+          },
+          unselectedLabelStyle: FontStyles.font12PassiveRegular,
+          selectedLabelStyle: FontStyles.font12PrimaryColorRegular,
+          currentIndex: currentIndex,
+          selectedItemColor: ColorsStyles.kPrimaryColor,
+          showUnselectedLabels: true,
+          unselectedItemColor: ColorsStyles.kPassiveColor,
+        );
       },
-      unselectedLabelStyle: FontStyles.font12PassiveRegular,
-      selectedLabelStyle: FontStyles.font12PrimaryColorRegular,
-      currentIndex: currentIndex,
-      selectedItemColor: ColorsStyles.kPrimaryColor,
-      showUnselectedLabels: true,
-      unselectedItemColor: ColorsStyles.kPassiveColor,
     );
   }
 }

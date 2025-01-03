@@ -17,11 +17,15 @@ class SearchCubit extends Cubit<SearchState> {
   List<FoodItem> foodItems = [];
   bool isLastPage = false;
 
-  SearchCubit(this.foodieFoodRepo) : super(const SearchState.initial());
+  SearchCubit(this.foodieFoodRepo) : super(const SearchState.emptySearch());
 
   void emitSearchStates() async {
-    if(!InternetConnectionHelper.isConnectedToInternet) {
+    if (!InternetConnectionHelper.isConnectedToInternet) {
       emit(const SearchState.noInternet());
+      return;
+    }
+    if (searchController.text.isEmpty) {
+      emit(const SearchState.emptySearch());
       return;
     }
     emit(const SearchLoading(foodItems: []));

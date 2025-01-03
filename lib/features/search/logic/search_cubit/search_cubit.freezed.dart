@@ -24,6 +24,7 @@ mixin _$SearchState {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$SearchState {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$SearchState {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$SearchState {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$SearchState {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$SearchState {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) {
     return initial();
   }
@@ -161,6 +168,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) {
     return initial?.call();
   }
@@ -174,6 +182,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -191,6 +200,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) {
     return initial(this);
   }
@@ -204,6 +214,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) {
     return initial?.call(this);
   }
@@ -217,6 +228,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -312,6 +324,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) {
     return loading(foodItems);
   }
@@ -325,6 +338,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) {
     return loading?.call(foodItems);
   }
@@ -338,6 +352,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -355,6 +370,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) {
     return loading(this);
   }
@@ -368,6 +384,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) {
     return loading?.call(this);
   }
@@ -381,6 +398,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -485,6 +503,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) {
     return success(foodItems);
   }
@@ -498,6 +517,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) {
     return success?.call(foodItems);
   }
@@ -511,6 +531,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -528,6 +549,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) {
     return success(this);
   }
@@ -541,6 +563,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) {
     return success?.call(this);
   }
@@ -554,6 +577,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -650,6 +674,7 @@ class _$SearchErrorImpl implements SearchError {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) {
     return error(this.error);
   }
@@ -663,6 +688,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) {
     return error?.call(this.error);
   }
@@ -676,6 +702,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -693,6 +720,7 @@ class _$SearchErrorImpl implements SearchError {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) {
     return error(this);
   }
@@ -706,6 +734,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) {
     return error?.call(this);
   }
@@ -719,6 +748,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -787,6 +817,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) {
     return noResults();
   }
@@ -800,6 +831,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) {
     return noResults?.call();
   }
@@ -813,6 +845,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) {
     if (noResults != null) {
@@ -830,6 +863,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) {
     return noResults(this);
   }
@@ -843,6 +877,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) {
     return noResults?.call(this);
   }
@@ -856,6 +891,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) {
     if (noResults != null) {
@@ -916,6 +952,7 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
     required TResult Function(String error) error,
     required TResult Function() noResults,
     required TResult Function() noInternet,
+    required TResult Function() emptySearch,
   }) {
     return noInternet();
   }
@@ -929,6 +966,7 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
     TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
   }) {
     return noInternet?.call();
   }
@@ -942,6 +980,7 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
     TResult Function(String error)? error,
     TResult Function()? noResults,
     TResult Function()? noInternet,
+    TResult Function()? emptySearch,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -959,6 +998,7 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
     required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
   }) {
     return noInternet(this);
   }
@@ -972,6 +1012,7 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
     TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
   }) {
     return noInternet?.call(this);
   }
@@ -985,6 +1026,7 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
     TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -996,4 +1038,139 @@ class _$SearchNoInternetImpl implements SearchNoInternet {
 
 abstract class SearchNoInternet implements SearchState {
   const factory SearchNoInternet() = _$SearchNoInternetImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchEmptySearchImplCopyWith<$Res> {
+  factory _$$SearchEmptySearchImplCopyWith(_$SearchEmptySearchImpl value,
+          $Res Function(_$SearchEmptySearchImpl) then) =
+      __$$SearchEmptySearchImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchEmptySearchImplCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$SearchEmptySearchImpl>
+    implements _$$SearchEmptySearchImplCopyWith<$Res> {
+  __$$SearchEmptySearchImplCopyWithImpl(_$SearchEmptySearchImpl _value,
+      $Res Function(_$SearchEmptySearchImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SearchState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SearchEmptySearchImpl implements SearchEmptySearch {
+  const _$SearchEmptySearchImpl();
+
+  @override
+  String toString() {
+    return 'SearchState.emptySearch()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SearchEmptySearchImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<FoodItem> foodItems) loading,
+    required TResult Function(List<FoodItem> foodItems) success,
+    required TResult Function(String error) error,
+    required TResult Function() noResults,
+    required TResult Function() noInternet,
+    required TResult Function() emptySearch,
+  }) {
+    return emptySearch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<FoodItem> foodItems)? loading,
+    TResult? Function(List<FoodItem> foodItems)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? noResults,
+    TResult? Function()? noInternet,
+    TResult? Function()? emptySearch,
+  }) {
+    return emptySearch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<FoodItem> foodItems)? loading,
+    TResult Function(List<FoodItem> foodItems)? success,
+    TResult Function(String error)? error,
+    TResult Function()? noResults,
+    TResult Function()? noInternet,
+    TResult Function()? emptySearch,
+    required TResult orElse(),
+  }) {
+    if (emptySearch != null) {
+      return emptySearch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SearchLoading value) loading,
+    required TResult Function(SearchSuccess value) success,
+    required TResult Function(SearchError value) error,
+    required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
+    required TResult Function(SearchEmptySearch value) emptySearch,
+  }) {
+    return emptySearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SearchLoading value)? loading,
+    TResult? Function(SearchSuccess value)? success,
+    TResult? Function(SearchError value)? error,
+    TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
+    TResult? Function(SearchEmptySearch value)? emptySearch,
+  }) {
+    return emptySearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SearchLoading value)? loading,
+    TResult Function(SearchSuccess value)? success,
+    TResult Function(SearchError value)? error,
+    TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
+    TResult Function(SearchEmptySearch value)? emptySearch,
+    required TResult orElse(),
+  }) {
+    if (emptySearch != null) {
+      return emptySearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchEmptySearch implements SearchState {
+  const factory SearchEmptySearch() = _$SearchEmptySearchImpl;
 }

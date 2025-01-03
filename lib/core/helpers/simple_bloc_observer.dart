@@ -19,7 +19,7 @@ class SimpleBlocObserver implements BlocObserver {
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    print(error.toString());
+    debugPrint(error.toString());
   }
 
   @override

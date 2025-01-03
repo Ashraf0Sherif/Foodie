@@ -15,4 +15,6 @@ class SearchState with _$SearchState {
   const factory SearchState.noResults() = SearchNoResults;
 
   const factory SearchState.noInternet() = SearchNoInternet;
+
+  const factory SearchState.emptySearch() = SearchEmptySearch;
 }

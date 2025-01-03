@@ -23,7 +23,8 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
           current is SearchSuccess ||
           current is SearchLoading ||
           current is SearchNoResults ||
-          current is SearchNoInternet,
+          current is SearchNoInternet ||
+          current is SearchEmptySearch,
       builder: (context, state) {
         return state.maybeWhen(
           loading: (foodItems) {
@@ -52,17 +53,21 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
             foodItems: foodItems,
             isLoading: false,
           ),
-          noResults: () => SliverFillRemaining(
+          noResults: () => SliverToBoxAdapter(
             child: Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
               child: const NoFoodItemFoundWidget(),
             ),
           ),
+          emptySearch: () =>
+              const SliverToBoxAdapter(child: EmptySearchBarWidget()),
           noInternet: () =>
-              const SliverFillRemaining(child: NoInternetConnectionWidget()),
+              const SliverToBoxAdapter(child: NoInternetConnectionWidget()),
           orElse: () {
-            return const SliverFillRemaining(child: EmptySearchBarWidget());
+            return const SliverToBoxAdapter(
+              child: SizedBox.shrink(),
+            );
           },
         );
       },
