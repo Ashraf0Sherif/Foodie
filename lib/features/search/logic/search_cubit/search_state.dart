@@ -13,4 +13,6 @@ class SearchState with _$SearchState {
   const factory SearchState.error({required String error}) = SearchError;
 
   const factory SearchState.noResults() = SearchNoResults;
+
+  const factory SearchState.noInternet() = SearchNoInternet;
 }

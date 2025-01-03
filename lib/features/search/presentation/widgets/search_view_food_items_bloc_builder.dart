@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/widgets/no_internet_connection_widget.dart';
 import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -21,7 +22,8 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
       buildWhen: (previous, current) =>
           current is SearchSuccess ||
           current is SearchLoading ||
-          current is SearchNoResults,
+          current is SearchNoResults ||
+          current is SearchNoInternet,
       builder: (context, state) {
         return state.maybeWhen(
           loading: (foodItems) {
@@ -57,6 +59,8 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
               child: const NoFoodItemFoundWidget(),
             ),
           ),
+          noInternet: () =>
+              const SliverFillRemaining(child: NoInternetConnectionWidget()),
           orElse: () {
             return const SliverFillRemaining(child: EmptySearchBarWidget());
           },

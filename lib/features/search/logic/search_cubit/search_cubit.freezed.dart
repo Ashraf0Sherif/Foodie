@@ -23,6 +23,7 @@ mixin _$SearchState {
     required TResult Function(List<FoodItem> foodItems) success,
     required TResult Function(String error) error,
     required TResult Function() noResults,
+    required TResult Function() noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$SearchState {
     TResult? Function(List<FoodItem> foodItems)? success,
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
+    TResult? Function()? noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$SearchState {
     TResult Function(List<FoodItem> foodItems)? success,
     TResult Function(String error)? error,
     TResult Function()? noResults,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$SearchState {
     required TResult Function(SearchSuccess value) success,
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$SearchState {
     TResult? Function(SearchSuccess value)? success,
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$SearchState {
     TResult Function(SearchSuccess value)? success,
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +147,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(List<FoodItem> foodItems) success,
     required TResult Function(String error) error,
     required TResult Function() noResults,
+    required TResult Function() noInternet,
   }) {
     return initial();
   }
@@ -153,6 +160,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(List<FoodItem> foodItems)? success,
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
+    TResult? Function()? noInternet,
   }) {
     return initial?.call();
   }
@@ -165,6 +173,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(List<FoodItem> foodItems)? success,
     TResult Function(String error)? error,
     TResult Function()? noResults,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -181,6 +190,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(SearchSuccess value) success,
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
   }) {
     return initial(this);
   }
@@ -193,6 +203,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(SearchSuccess value)? success,
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
   }) {
     return initial?.call(this);
   }
@@ -205,6 +216,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(SearchSuccess value)? success,
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -299,6 +311,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     required TResult Function(List<FoodItem> foodItems) success,
     required TResult Function(String error) error,
     required TResult Function() noResults,
+    required TResult Function() noInternet,
   }) {
     return loading(foodItems);
   }
@@ -311,6 +324,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult? Function(List<FoodItem> foodItems)? success,
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
+    TResult? Function()? noInternet,
   }) {
     return loading?.call(foodItems);
   }
@@ -323,6 +337,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult Function(List<FoodItem> foodItems)? success,
     TResult Function(String error)? error,
     TResult Function()? noResults,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -339,6 +354,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     required TResult Function(SearchSuccess value) success,
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
   }) {
     return loading(this);
   }
@@ -351,6 +367,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult? Function(SearchSuccess value)? success,
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
   }) {
     return loading?.call(this);
   }
@@ -363,6 +380,7 @@ class _$SearchLoadingImpl implements SearchLoading {
     TResult Function(SearchSuccess value)? success,
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -466,6 +484,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     required TResult Function(List<FoodItem> foodItems) success,
     required TResult Function(String error) error,
     required TResult Function() noResults,
+    required TResult Function() noInternet,
   }) {
     return success(foodItems);
   }
@@ -478,6 +497,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult? Function(List<FoodItem> foodItems)? success,
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
+    TResult? Function()? noInternet,
   }) {
     return success?.call(foodItems);
   }
@@ -490,6 +510,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult Function(List<FoodItem> foodItems)? success,
     TResult Function(String error)? error,
     TResult Function()? noResults,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -506,6 +527,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     required TResult Function(SearchSuccess value) success,
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
   }) {
     return success(this);
   }
@@ -518,6 +540,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult? Function(SearchSuccess value)? success,
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
   }) {
     return success?.call(this);
   }
@@ -530,6 +553,7 @@ class _$SearchSuccessImpl implements SearchSuccess {
     TResult Function(SearchSuccess value)? success,
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -625,6 +649,7 @@ class _$SearchErrorImpl implements SearchError {
     required TResult Function(List<FoodItem> foodItems) success,
     required TResult Function(String error) error,
     required TResult Function() noResults,
+    required TResult Function() noInternet,
   }) {
     return error(this.error);
   }
@@ -637,6 +662,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult? Function(List<FoodItem> foodItems)? success,
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
+    TResult? Function()? noInternet,
   }) {
     return error?.call(this.error);
   }
@@ -649,6 +675,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult Function(List<FoodItem> foodItems)? success,
     TResult Function(String error)? error,
     TResult Function()? noResults,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -665,6 +692,7 @@ class _$SearchErrorImpl implements SearchError {
     required TResult Function(SearchSuccess value) success,
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
   }) {
     return error(this);
   }
@@ -677,6 +705,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult? Function(SearchSuccess value)? success,
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
   }) {
     return error?.call(this);
   }
@@ -689,6 +718,7 @@ class _$SearchErrorImpl implements SearchError {
     TResult Function(SearchSuccess value)? success,
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -756,6 +786,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     required TResult Function(List<FoodItem> foodItems) success,
     required TResult Function(String error) error,
     required TResult Function() noResults,
+    required TResult Function() noInternet,
   }) {
     return noResults();
   }
@@ -768,6 +799,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult? Function(List<FoodItem> foodItems)? success,
     TResult? Function(String error)? error,
     TResult? Function()? noResults,
+    TResult? Function()? noInternet,
   }) {
     return noResults?.call();
   }
@@ -780,6 +812,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult Function(List<FoodItem> foodItems)? success,
     TResult Function(String error)? error,
     TResult Function()? noResults,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (noResults != null) {
@@ -796,6 +829,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     required TResult Function(SearchSuccess value) success,
     required TResult Function(SearchError value) error,
     required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
   }) {
     return noResults(this);
   }
@@ -808,6 +842,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult? Function(SearchSuccess value)? success,
     TResult? Function(SearchError value)? error,
     TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
   }) {
     return noResults?.call(this);
   }
@@ -820,6 +855,7 @@ class _$SearchNoResultsImpl implements SearchNoResults {
     TResult Function(SearchSuccess value)? success,
     TResult Function(SearchError value)? error,
     TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (noResults != null) {
@@ -831,4 +867,133 @@ class _$SearchNoResultsImpl implements SearchNoResults {
 
 abstract class SearchNoResults implements SearchState {
   const factory SearchNoResults() = _$SearchNoResultsImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchNoInternetImplCopyWith<$Res> {
+  factory _$$SearchNoInternetImplCopyWith(_$SearchNoInternetImpl value,
+          $Res Function(_$SearchNoInternetImpl) then) =
+      __$$SearchNoInternetImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SearchNoInternetImplCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$SearchNoInternetImpl>
+    implements _$$SearchNoInternetImplCopyWith<$Res> {
+  __$$SearchNoInternetImplCopyWithImpl(_$SearchNoInternetImpl _value,
+      $Res Function(_$SearchNoInternetImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SearchState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SearchNoInternetImpl implements SearchNoInternet {
+  const _$SearchNoInternetImpl();
+
+  @override
+  String toString() {
+    return 'SearchState.noInternet()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SearchNoInternetImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<FoodItem> foodItems) loading,
+    required TResult Function(List<FoodItem> foodItems) success,
+    required TResult Function(String error) error,
+    required TResult Function() noResults,
+    required TResult Function() noInternet,
+  }) {
+    return noInternet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<FoodItem> foodItems)? loading,
+    TResult? Function(List<FoodItem> foodItems)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? noResults,
+    TResult? Function()? noInternet,
+  }) {
+    return noInternet?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<FoodItem> foodItems)? loading,
+    TResult Function(List<FoodItem> foodItems)? success,
+    TResult Function(String error)? error,
+    TResult Function()? noResults,
+    TResult Function()? noInternet,
+    required TResult orElse(),
+  }) {
+    if (noInternet != null) {
+      return noInternet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(SearchLoading value) loading,
+    required TResult Function(SearchSuccess value) success,
+    required TResult Function(SearchError value) error,
+    required TResult Function(SearchNoResults value) noResults,
+    required TResult Function(SearchNoInternet value) noInternet,
+  }) {
+    return noInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(SearchLoading value)? loading,
+    TResult? Function(SearchSuccess value)? success,
+    TResult? Function(SearchError value)? error,
+    TResult? Function(SearchNoResults value)? noResults,
+    TResult? Function(SearchNoInternet value)? noInternet,
+  }) {
+    return noInternet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(SearchLoading value)? loading,
+    TResult Function(SearchSuccess value)? success,
+    TResult Function(SearchError value)? error,
+    TResult Function(SearchNoResults value)? noResults,
+    TResult Function(SearchNoInternet value)? noInternet,
+    required TResult orElse(),
+  }) {
+    if (noInternet != null) {
+      return noInternet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchNoInternet implements SearchState {
+  const factory SearchNoInternet() = _$SearchNoInternetImpl;
 }

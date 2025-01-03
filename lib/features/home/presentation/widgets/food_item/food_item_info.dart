@@ -20,6 +20,7 @@ class FoodItemInfo extends StatelessWidget {
           child: CachedNetworkImage(
             width: 120.w,
             height: 120.h,
+            errorWidget: (_, __, ___) => const Icon(Icons.error,color: Colors.red,),
             imageUrl: foodItem.images[0],
             fit: BoxFit.cover,
           ),
