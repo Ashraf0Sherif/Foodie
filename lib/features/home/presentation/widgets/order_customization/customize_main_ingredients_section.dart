@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/data/models/ingredient/ingredient.dart';
 
 import '../../../../../core/theming/styles.dart';
@@ -6,9 +7,9 @@ import 'custom_ingredient_check_box.dart';
 
 class CustomizeMainIngredientsSection extends StatelessWidget {
   const CustomizeMainIngredientsSection(
-      {super.key, required this.mainIngredients});
+      {super.key, required this.foodItem});
 
-  final List<Ingredient> mainIngredients;
+  final FoodItem foodItem;
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +20,15 @@ class CustomizeMainIngredientsSection extends StatelessWidget {
           "Main Ingredients",
           style: FontStyles.font16BlackBold,
         ),
-        for (int i = 0; i < mainIngredients.length; i++)
+        for (int i = 0; i < foodItem.mainIngredients.length; i++)
           Row(
             children: [
               Text(
-                mainIngredients[i].title,
+                foodItem.mainIngredients[i].title,
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
-              CustomIngredientCheckBox(ingredient: mainIngredients[i])
+              CustomIngredientCheckBox(ingredient: foodItem.mainIngredients[i])
             ],
           ),
       ],
