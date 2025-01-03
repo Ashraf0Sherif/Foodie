@@ -18,7 +18,8 @@ class CustomBanner extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.r),
         child: CachedNetworkImage(
-          fit: BoxFit.contain,
+          errorWidget: (_, __, ___) => const Icon(Icons.error,color: Colors.red,),
+          fit: BoxFit.fill,
           imageUrl: bannerModel.image,
         ),
       ),

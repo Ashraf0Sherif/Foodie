@@ -4,9 +4,11 @@ import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/helpers/internet_connection_helper.dart';
 import '../../data/repos/foodie_food_repo.dart';
 
 part 'food_items_cubit.freezed.dart';
+
 part 'food_items_state.dart';
 
 class FoodItemsCubit extends Cubit<FoodItemsState> {
@@ -19,7 +21,8 @@ class FoodItemsCubit extends Cubit<FoodItemsState> {
 
   void emitFoodItemsStates({required String categoryId}) async {
     currentCategoryId = categoryId;
-    if (foodItemsMap.containsKey(categoryId)) {
+    if (foodItemsMap.containsKey(categoryId) &&
+        foodItemsMap[categoryId]!.isNotEmpty) {
       emit(FoodItemsState.success(foodItems: foodItemsMap[categoryId]!));
     } else {
       emit(const FoodItemsState.loading(foodItems: []));
@@ -41,7 +44,9 @@ class FoodItemsCubit extends Cubit<FoodItemsState> {
 
   void emitFoodItemsPage(
       {required String categoryId, required FoodItem lastFoodItem}) async {
-    if (state is FoodItemsLoading || isCategoryExpanded[categoryId] == true) {
+    if (state is FoodItemsLoading ||
+        isCategoryExpanded[categoryId] == true ||
+        !InternetConnectionHelper.isConnectedToInternet) {
       return;
     }
     emit(FoodItemsState.loading(foodItems: foodItemsMap[categoryId]!));
@@ -52,7 +57,8 @@ class FoodItemsCubit extends Cubit<FoodItemsState> {
       success: (foodItems) {
         var oldFoodItems = foodItemsMap[categoryId]!;
         if (foodItemsMap[categoryId]!.length ==
-            [...oldFoodItems, ...foodItems].length) {
+                [...oldFoodItems, ...foodItems].length &&
+            InternetConnectionHelper.isConnectedToInternet) {
           isCategoryExpanded[categoryId] = true;
         } else {
           foodItemsMap[categoryId] = [...oldFoodItems, ...foodItems];

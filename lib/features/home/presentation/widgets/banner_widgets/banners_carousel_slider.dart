@@ -25,32 +25,26 @@ class _BannersCarouselSliderState extends State<BannersCarouselSlider> {
     return BlocBuilder<BannerCubit, BannerState>(
       builder: (context, state) {
         if (state is Success) {
-          return Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.r),
-            ),
-            child: Column(
-              children: [
-                CarouselSlider(
-                  items: state.banners
-                      .map<Widget>((bannerModel) =>
-                          CustomBanner(bannerModel: bannerModel))
-                      .toList(),
-                  options: CarouselOptions(
-                      onPageChanged: (value, _) {
-                        setState(() {
-                          _currentPage = value;
-                        });
-                      },
-                      viewportFraction: 0.78,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      height: 200.h),
-                ),
-                buildCarouselIndicators(state.banners.length),
-              ],
-            ),
+          return Column(
+            children: [
+              CarouselSlider(
+                items: state.banners
+                    .map<Widget>((bannerModel) =>
+                        CustomBanner(bannerModel: bannerModel))
+                    .toList(),
+                options: CarouselOptions(
+                    onPageChanged: (value, _) {
+                      setState(() {
+                        _currentPage = value;
+                      });
+                    },
+                    viewportFraction: 0.78,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    height: 200.h),
+              ),
+              buildCarouselIndicators(state.banners.length),
+            ],
           );
         } else if (state is Error) {
           return Container(
