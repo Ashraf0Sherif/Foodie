@@ -17,8 +17,6 @@ class LandingView extends StatefulWidget {
 }
 
 class _LandingViewState extends State<LandingView> {
-  int currentIndex = 0;
-
   List<Widget> views = [
     const HomeView(),
     const SearchView(),
@@ -37,7 +35,8 @@ class _LandingViewState extends State<LandingView> {
           child: BlocBuilder<BottomNavBarCubit, BottomNavBarState>(
               builder: (context, state) {
             if (state is BottomNavBarIndexChanged) {
-              return views[state.index];
+              int index = context.read<BottomNavBarCubit>().currentIndex;
+              return views[index];
             } else {
               return views[0];
             }

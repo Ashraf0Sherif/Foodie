@@ -46,6 +46,13 @@ class _SearchViewState extends State<SearchView> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: const Icon(Icons.search),
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.clear),
+                  onPressed: () {
+                    _searchController.clear();
+                    context.read<SearchCubit>().emitSearchStates();
+                  },
+                ),
                 hintText: _searchController.text == ''
                     ? 'Search'
                     : _searchController.text,

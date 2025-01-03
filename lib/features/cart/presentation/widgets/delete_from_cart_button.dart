@@ -7,8 +7,8 @@ import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 
-class AddToCartCardButton extends StatelessWidget {
-  const AddToCartCardButton({
+class DeleteFromCartCardButton extends StatelessWidget {
+  const DeleteFromCartCardButton({
     super.key,
     required this.foodItem,
   });
@@ -32,16 +32,16 @@ class AddToCartCardButton extends StatelessWidget {
               width: 80.w,
               child: Center(
                   child: Text(
-                "\$${foodItem.totalPrice}",
-                style: FontStyles.font16BlackSemiBold,
-              )),
+                    "\$${foodItem.totalPrice}",
+                    style: FontStyles.font16BlackSemiBold,
+                  )),
             ),
             Expanded(
               child: SizedBox(
                 height: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorsStyles.kPrimaryColor,
+                    backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(8.r),
@@ -50,11 +50,11 @@ class AddToCartCardButton extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    context.read<CartCubit>().addItemToCart(foodItem);
+                    context.read<CartCubit>().removeItemFromCart(foodItem);
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Add to cart",
+                    "Delete from cart",
                     style: FontStyles.font16WhiteSemiBold,
                   ),
                 ),

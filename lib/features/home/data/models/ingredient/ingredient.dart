@@ -7,10 +7,19 @@ class Ingredient {
   final String title;
   @JsonKey(includeFromJson: false, includeToJson: false)
   bool isChecked = true;
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  int quantity = 0;
 
-  Ingredient({required this.title, this.isChecked = true, this.quantity = 0});
+  Ingredient({required this.title, this.isChecked = true});
+
+  Ingredient copyWith({
+    String? title,
+    String? description,
+    List<String>? images,
+  }) {
+    return Ingredient(
+      title: title ?? this.title,
+      isChecked: isChecked,
+    );
+  }
 
   factory Ingredient.fromJson(Map<String, dynamic> json) =>
       _$IngredientFromJson(json);

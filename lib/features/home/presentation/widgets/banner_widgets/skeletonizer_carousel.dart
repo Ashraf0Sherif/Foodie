@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SkeletonizerCarousel extends StatelessWidget {
-  const SkeletonizerCarousel({Key? key}) : super(key: key);
+  const SkeletonizerCarousel({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
+import 'package:foodie/core/routing/app_router.dart';
 import 'package:foodie/core/widgets/custom_elevated_button.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -35,7 +38,13 @@ class EmptyCartWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           verticalSpace(32),
-          CustomElevatedButton(onPressed: (){}, text: 'ORDER NOW',gradient:  ColorsStyles.kButtonGradient,),
+          CustomElevatedButton(
+            onPressed: () {
+              context.read<BottomNavBarCubit>().changeIndex(0);
+            },
+            text: 'ORDER NOW',
+            gradient: ColorsStyles.kButtonGradient,
+          ),
           const Spacer(
             flex: 2,
           ),

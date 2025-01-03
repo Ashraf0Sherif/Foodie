@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/food_categories_cubit/food_categories_cubit.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import 'filter_food_items_bloc_listener.dart';
 import 'food_item/food_item_card_skeleton.dart';
