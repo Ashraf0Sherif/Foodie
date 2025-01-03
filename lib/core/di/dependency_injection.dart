@@ -1,6 +1,5 @@
 import 'package:foodie/core/firebase/foodie_firebase_banner.dart';
 import 'package:foodie/core/firebase/foodie_firebase_food.dart';
-import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/forgot_password/data/repos/forgot_password_repo.dart';
 import 'package:foodie/features/home/data/repos/banner_repo.dart';
 import 'package:foodie/features/home/data/repos/foodie_food_repo.dart';
@@ -25,6 +24,4 @@ Future<void> setupGetIt() async {
       () => ForgotPasswordRepo(getIt()));
   getIt.registerLazySingleton<BannerRepo>(() => BannerRepo(getIt()));
   getIt.registerLazySingleton<FoodieFoodRepo>(() => FoodieFoodRepo(getIt()));
-  //Cubits
-  getIt.registerFactory<CartCubit>(() => CartCubit());
 }

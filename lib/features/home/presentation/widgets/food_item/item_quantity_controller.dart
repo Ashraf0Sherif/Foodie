@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/colors.dart';
+import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/widgets/custom_elevated_button.dart';
@@ -18,6 +20,16 @@ class ItemQuantityController extends StatefulWidget {
 }
 
 class _ItemQuantityControllerState extends State<ItemQuantityController> {
+  bool _isInCart() {
+    return context.read<CartCubit>().isItemInCart(widget.foodItem);
+  }
+
+  void _refreshCart() {
+    if (_isInCart()) {
+      context.read<CartCubit>().getCartCheckoutPrice();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -30,6 +42,7 @@ class _ItemQuantityControllerState extends State<ItemQuantityController> {
               setState(() {
                 if (widget.foodItem.quantity > 0) {
                   widget.foodItem.quantity--;
+                  _refreshCart();
                 }
               });
             },
@@ -56,6 +69,7 @@ class _ItemQuantityControllerState extends State<ItemQuantityController> {
             onPressed: () {
               setState(() {
                 widget.foodItem.quantity++;
+                _refreshCart();
               });
             },
             text: '+',

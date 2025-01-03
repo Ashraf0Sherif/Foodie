@@ -19,21 +19,27 @@ mixin _$CartState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<FoodItem> cartItems) notEmptyCart,
+    required TResult Function(List<FoodItem> cartItems) removeItem,
     required TResult Function() emptyCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult? Function(List<FoodItem> cartItems)? removeItem,
     TResult? Function()? emptyCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult Function(List<FoodItem> cartItems)? removeItem,
     TResult Function()? emptyCart,
     required TResult orElse(),
   }) =>
@@ -41,21 +47,27 @@ mixin _$CartState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(CartLoading value) loading,
     required TResult Function(CartNotEmpty value) notEmptyCart,
+    required TResult Function(CartItemRemoved value) removeItem,
     required TResult Function(CartEmpty value) emptyCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(CartLoading value)? loading,
     TResult? Function(CartNotEmpty value)? notEmptyCart,
+    TResult? Function(CartItemRemoved value)? removeItem,
     TResult? Function(CartEmpty value)? emptyCart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(CartLoading value)? loading,
     TResult Function(CartNotEmpty value)? notEmptyCart,
+    TResult Function(CartItemRemoved value)? removeItem,
     TResult Function(CartEmpty value)? emptyCart,
     required TResult orElse(),
   }) =>
@@ -124,7 +136,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<FoodItem> cartItems) notEmptyCart,
+    required TResult Function(List<FoodItem> cartItems) removeItem,
     required TResult Function() emptyCart,
   }) {
     return initial();
@@ -134,7 +148,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult? Function(List<FoodItem> cartItems)? removeItem,
     TResult? Function()? emptyCart,
   }) {
     return initial?.call();
@@ -144,7 +160,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult Function(List<FoodItem> cartItems)? removeItem,
     TResult Function()? emptyCart,
     required TResult orElse(),
   }) {
@@ -158,7 +176,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(CartLoading value) loading,
     required TResult Function(CartNotEmpty value) notEmptyCart,
+    required TResult Function(CartItemRemoved value) removeItem,
     required TResult Function(CartEmpty value) emptyCart,
   }) {
     return initial(this);
@@ -168,7 +188,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(CartLoading value)? loading,
     TResult? Function(CartNotEmpty value)? notEmptyCart,
+    TResult? Function(CartItemRemoved value)? removeItem,
     TResult? Function(CartEmpty value)? emptyCart,
   }) {
     return initial?.call(this);
@@ -178,7 +200,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(CartLoading value)? loading,
     TResult Function(CartNotEmpty value)? notEmptyCart,
+    TResult Function(CartItemRemoved value)? removeItem,
     TResult Function(CartEmpty value)? emptyCart,
     required TResult orElse(),
   }) {
@@ -191,6 +215,129 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements CartState {
   const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$CartLoadingImplCopyWith<$Res> {
+  factory _$$CartLoadingImplCopyWith(
+          _$CartLoadingImpl value, $Res Function(_$CartLoadingImpl) then) =
+      __$$CartLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CartLoadingImplCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$CartLoadingImpl>
+    implements _$$CartLoadingImplCopyWith<$Res> {
+  __$$CartLoadingImplCopyWithImpl(
+      _$CartLoadingImpl _value, $Res Function(_$CartLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CartLoadingImpl implements CartLoading {
+  const _$CartLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CartState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CartLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<FoodItem> cartItems) notEmptyCart,
+    required TResult Function(List<FoodItem> cartItems) removeItem,
+    required TResult Function() emptyCart,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult? Function(List<FoodItem> cartItems)? removeItem,
+    TResult? Function()? emptyCart,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult Function(List<FoodItem> cartItems)? removeItem,
+    TResult Function()? emptyCart,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CartLoading value) loading,
+    required TResult Function(CartNotEmpty value) notEmptyCart,
+    required TResult Function(CartItemRemoved value) removeItem,
+    required TResult Function(CartEmpty value) emptyCart,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CartLoading value)? loading,
+    TResult? Function(CartNotEmpty value)? notEmptyCart,
+    TResult? Function(CartItemRemoved value)? removeItem,
+    TResult? Function(CartEmpty value)? emptyCart,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CartLoading value)? loading,
+    TResult Function(CartNotEmpty value)? notEmptyCart,
+    TResult Function(CartItemRemoved value)? removeItem,
+    TResult Function(CartEmpty value)? emptyCart,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CartLoading implements CartState {
+  const factory CartLoading() = _$CartLoadingImpl;
 }
 
 /// @nodoc
@@ -270,7 +417,9 @@ class _$CartNotEmptyImpl implements CartNotEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<FoodItem> cartItems) notEmptyCart,
+    required TResult Function(List<FoodItem> cartItems) removeItem,
     required TResult Function() emptyCart,
   }) {
     return notEmptyCart(cartItems);
@@ -280,7 +429,9 @@ class _$CartNotEmptyImpl implements CartNotEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult? Function(List<FoodItem> cartItems)? removeItem,
     TResult? Function()? emptyCart,
   }) {
     return notEmptyCart?.call(cartItems);
@@ -290,7 +441,9 @@ class _$CartNotEmptyImpl implements CartNotEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult Function(List<FoodItem> cartItems)? removeItem,
     TResult Function()? emptyCart,
     required TResult orElse(),
   }) {
@@ -304,7 +457,9 @@ class _$CartNotEmptyImpl implements CartNotEmpty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(CartLoading value) loading,
     required TResult Function(CartNotEmpty value) notEmptyCart,
+    required TResult Function(CartItemRemoved value) removeItem,
     required TResult Function(CartEmpty value) emptyCart,
   }) {
     return notEmptyCart(this);
@@ -314,7 +469,9 @@ class _$CartNotEmptyImpl implements CartNotEmpty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(CartLoading value)? loading,
     TResult? Function(CartNotEmpty value)? notEmptyCart,
+    TResult? Function(CartItemRemoved value)? removeItem,
     TResult? Function(CartEmpty value)? emptyCart,
   }) {
     return notEmptyCart?.call(this);
@@ -324,7 +481,9 @@ class _$CartNotEmptyImpl implements CartNotEmpty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(CartLoading value)? loading,
     TResult Function(CartNotEmpty value)? notEmptyCart,
+    TResult Function(CartItemRemoved value)? removeItem,
     TResult Function(CartEmpty value)? emptyCart,
     required TResult orElse(),
   }) {
@@ -345,6 +504,174 @@ abstract class CartNotEmpty implements CartState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CartNotEmptyImplCopyWith<_$CartNotEmptyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CartItemRemovedImplCopyWith<$Res> {
+  factory _$$CartItemRemovedImplCopyWith(_$CartItemRemovedImpl value,
+          $Res Function(_$CartItemRemovedImpl) then) =
+      __$$CartItemRemovedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<FoodItem> cartItems});
+}
+
+/// @nodoc
+class __$$CartItemRemovedImplCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$CartItemRemovedImpl>
+    implements _$$CartItemRemovedImplCopyWith<$Res> {
+  __$$CartItemRemovedImplCopyWithImpl(
+      _$CartItemRemovedImpl _value, $Res Function(_$CartItemRemovedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cartItems = null,
+  }) {
+    return _then(_$CartItemRemovedImpl(
+      cartItems: null == cartItems
+          ? _value._cartItems
+          : cartItems // ignore: cast_nullable_to_non_nullable
+              as List<FoodItem>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CartItemRemovedImpl implements CartItemRemoved {
+  const _$CartItemRemovedImpl({required final List<FoodItem> cartItems})
+      : _cartItems = cartItems;
+
+  final List<FoodItem> _cartItems;
+  @override
+  List<FoodItem> get cartItems {
+    if (_cartItems is EqualUnmodifiableListView) return _cartItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_cartItems);
+  }
+
+  @override
+  String toString() {
+    return 'CartState.removeItem(cartItems: $cartItems)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CartItemRemovedImpl &&
+            const DeepCollectionEquality()
+                .equals(other._cartItems, _cartItems));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cartItems));
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CartItemRemovedImplCopyWith<_$CartItemRemovedImpl> get copyWith =>
+      __$$CartItemRemovedImplCopyWithImpl<_$CartItemRemovedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<FoodItem> cartItems) notEmptyCart,
+    required TResult Function(List<FoodItem> cartItems) removeItem,
+    required TResult Function() emptyCart,
+  }) {
+    return removeItem(cartItems);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult? Function(List<FoodItem> cartItems)? removeItem,
+    TResult? Function()? emptyCart,
+  }) {
+    return removeItem?.call(cartItems);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult Function(List<FoodItem> cartItems)? removeItem,
+    TResult Function()? emptyCart,
+    required TResult orElse(),
+  }) {
+    if (removeItem != null) {
+      return removeItem(cartItems);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CartLoading value) loading,
+    required TResult Function(CartNotEmpty value) notEmptyCart,
+    required TResult Function(CartItemRemoved value) removeItem,
+    required TResult Function(CartEmpty value) emptyCart,
+  }) {
+    return removeItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CartLoading value)? loading,
+    TResult? Function(CartNotEmpty value)? notEmptyCart,
+    TResult? Function(CartItemRemoved value)? removeItem,
+    TResult? Function(CartEmpty value)? emptyCart,
+  }) {
+    return removeItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CartLoading value)? loading,
+    TResult Function(CartNotEmpty value)? notEmptyCart,
+    TResult Function(CartItemRemoved value)? removeItem,
+    TResult Function(CartEmpty value)? emptyCart,
+    required TResult orElse(),
+  }) {
+    if (removeItem != null) {
+      return removeItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CartItemRemoved implements CartState {
+  const factory CartItemRemoved({required final List<FoodItem> cartItems}) =
+      _$CartItemRemovedImpl;
+
+  List<FoodItem> get cartItems;
+
+  /// Create a copy of CartState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CartItemRemovedImplCopyWith<_$CartItemRemovedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -390,7 +717,9 @@ class _$CartEmptyImpl implements CartEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<FoodItem> cartItems) notEmptyCart,
+    required TResult Function(List<FoodItem> cartItems) removeItem,
     required TResult Function() emptyCart,
   }) {
     return emptyCart();
@@ -400,7 +729,9 @@ class _$CartEmptyImpl implements CartEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult? Function(List<FoodItem> cartItems)? removeItem,
     TResult? Function()? emptyCart,
   }) {
     return emptyCart?.call();
@@ -410,7 +741,9 @@ class _$CartEmptyImpl implements CartEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<FoodItem> cartItems)? notEmptyCart,
+    TResult Function(List<FoodItem> cartItems)? removeItem,
     TResult Function()? emptyCart,
     required TResult orElse(),
   }) {
@@ -424,7 +757,9 @@ class _$CartEmptyImpl implements CartEmpty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(CartLoading value) loading,
     required TResult Function(CartNotEmpty value) notEmptyCart,
+    required TResult Function(CartItemRemoved value) removeItem,
     required TResult Function(CartEmpty value) emptyCart,
   }) {
     return emptyCart(this);
@@ -434,7 +769,9 @@ class _$CartEmptyImpl implements CartEmpty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(CartLoading value)? loading,
     TResult? Function(CartNotEmpty value)? notEmptyCart,
+    TResult? Function(CartItemRemoved value)? removeItem,
     TResult? Function(CartEmpty value)? emptyCart,
   }) {
     return emptyCart?.call(this);
@@ -444,7 +781,9 @@ class _$CartEmptyImpl implements CartEmpty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(CartLoading value)? loading,
     TResult Function(CartNotEmpty value)? notEmptyCart,
+    TResult Function(CartItemRemoved value)? removeItem,
     TResult Function(CartEmpty value)? emptyCart,
     required TResult orElse(),
   }) {
