@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/widgets/order_customization/custom_ingredient_check_box.dart';
 
 import '../../../../../core/theming/styles.dart';
+import '../../../../cart/logic/cart_cubit/cart_cubit.dart';
 
 class CustomizeExtraIngredientsSection extends StatelessWidget {
-  const CustomizeExtraIngredientsSection({super.key, required this.foodItem});
+  const CustomizeExtraIngredientsSection(
+      {super.key, required this.foodItem, required this.onIngredientChanged});
 
   final FoodItem foodItem;
+  final VoidCallback onIngredientChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +29,22 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              "2323+",
+              "${foodItem.extraIngredients[i].price}\$",
               style: FontStyles.font14PassiveRegular,
             ),
             CustomIngredientCheckBox(
               ingredient: foodItem.extraIngredients[i],
+              onChanged: (bool value) {
+                if (value) {
+                  foodItem.totalPrice +=
+                      int.parse(foodItem.extraIngredients[i].price);
+                } else {
+                  foodItem.totalPrice -=
+                      int.parse(foodItem.extraIngredients[i].price);
+                }
+                context.read<CartCubit>().getCartCheckoutPrice();
+                onIngredientChanged();
+              },
             )
           ],
         ),

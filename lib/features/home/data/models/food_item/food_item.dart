@@ -26,8 +26,8 @@ class FoodItem {
     String? deliveryTime,
     List<String>? images,
     DateTime? createdAt,
-    required List<Ingredient> mainIngredients,
-    required List<ExtraIngredient> extraIngredients,
+    List<Ingredient>? mainIngredients,
+    List<ExtraIngredient>? extraIngredients,
     String? id,
     int? quantity,
     int? totalPrice,
@@ -84,18 +84,23 @@ class FoodItem {
   static Timestamp _dateTimeToTimestamp(DateTime dateTime) {
     return Timestamp.fromDate(dateTime);
   }
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    return other is FoodItem && other.id == id;
+    return other is FoodItem && other.id == id && hasSameIngredients(other);
   }
 
   @override
   int get hashCode => id.hashCode;
+
   bool hasSameIngredients(FoodItem other) {
-    final currentIngredients = mainIngredients.map((i) => i.title).toSet();
-    final otherIngredients = other.mainIngredients.map((i) => i.title).toSet();
-    return currentIngredients.containsAll(otherIngredients) &&
-        otherIngredients.containsAll(currentIngredients);
+    for (int i = 0; i < mainIngredients.length; i++) {
+      if (mainIngredients[i] != other.mainIngredients[i]) return false;
+    }
+    for (int i = 0; i < extraIngredients.length; i++) {
+      if (extraIngredients[i] != other.extraIngredients[i]) return false;
+    }
+    return true;
   }
 }

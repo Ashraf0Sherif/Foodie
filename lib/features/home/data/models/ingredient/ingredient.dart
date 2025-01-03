@@ -21,6 +21,14 @@ class Ingredient {
     );
   }
 
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! Ingredient) return false;
+    return title == other.title && isChecked == other.isChecked;
+  }
+  @override
+  int get hashCode => Object.hash(title, isChecked);
   factory Ingredient.fromJson(Map<String, dynamic> json) =>
       _$IngredientFromJson(json);
 }

@@ -3,37 +3,50 @@ import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cart_cubit.freezed.dart';
-
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(const CartState.emptyCart());
   List<FoodItem> cartItems = [];
+  int price = 0;
 
   void addItemToCart(FoodItem item) {
-    if (!cartItems.contains(item)) {
-      final newFoodItem = item.copyWith(
-        mainIngredients: item.mainIngredients.map((e) => e.copyWith()).toList(),
-        extraIngredients:
-            item.extraIngredients.map((e) => e.copyWith()).toList(),
-      );
-      cartItems.add(newFoodItem);
-    }
+    final newFoodItem = item.copyWith();
+    if (newFoodItem.quantity == 0) newFoodItem.quantity = 1;
+    cartItems.add(newFoodItem);
     if (state is CartEmpty) emit(CartState.notEmptyCart(cartItems: cartItems));
   }
 
   void removeItemFromCart(FoodItem item) {
-    print('Before remove - Cart items: ${cartItems.length}');
-    cartItems.removeWhere((cartItem) => cartItem.id == item.id);
-    print('After remove - Cart items: ${cartItems.length}');
-
+    emit(const CartState.loading());
+    cartItems.remove(item);
     if (cartItems.isEmpty) {
-      print('Emitting empty cart state');
       emit(const CartState.emptyCart());
     } else {
-      print('Emitting non-empty cart state');
-      emit(CartNotEmpty(cartItems: cartItems));
+      emit(CartState.removeItem(cartItems: cartItems));
     }
+  }
+
+  int getCartCheckoutPrice() {
+    int currentPrice = 0;
+    for (var item in cartItems) {
+      currentPrice += (item.totalPrice * item.quantity);
+    }
+    if (currentPrice != price) {
+      price = currentPrice;
+      if (state is CartNotEmpty) {
+        emit(const CartState.loading());
+        emit(CartState.notEmptyCart(cartItems: cartItems));
+      } else if (state is CartItemRemoved) {
+        emit(CartState.notEmptyCart(cartItems: cartItems));
+      }
+    }
+    return price;
+  }
+
+  void clearCart() {
+    cartItems.clear();
+    emit(const CartState.emptyCart());
   }
 
   bool isItemInCart(FoodItem item) => cartItems.contains(item);

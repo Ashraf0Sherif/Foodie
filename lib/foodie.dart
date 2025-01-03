@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/internet_connection_cubit/internet_connection_cubit.dart';
 import 'package:foodie/core/routing/navigator_observer.dart';
 import 'package:foodie/core/theming/foodie_theme.dart';
+import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
@@ -18,9 +19,16 @@ class Foodie extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: BlocProvider(
-        create: (context) =>
-            InternetConnectionCubit()..setupInternetConnectionListener(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<InternetConnectionCubit>(
+            create: (context) =>
+                InternetConnectionCubit()..setupInternetConnectionListener(),
+          ),
+          BlocProvider(
+            create: (context) => CartCubit(),
+          ),
+        ],
         child: MaterialApp(
           navigatorObservers: [MyNavigatorObserver()],
           debugShowCheckedModeBanner: false,
