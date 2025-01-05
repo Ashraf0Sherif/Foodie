@@ -39,15 +39,16 @@ class CustomElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isDisabled ? null : onPressed,
         style: ElevatedButton.styleFrom(
-            disabledBackgroundColor: Colors.transparent,
-            backgroundColor: Colors.transparent,
-            foregroundColor: Colors.transparent,
-            shadowColor: Colors.black.withOpacity(0.2),
-            padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-              borderRadius: borderRadius ?? BorderRadius.circular(10.r),
-            ),
-            elevation: 5),
+          disabledBackgroundColor: Colors.transparent,
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.transparent,
+          shadowColor: Colors.black.withOpacity(0.2),
+          padding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: borderRadius ?? BorderRadius.circular(10.r),
+          ),
+          elevation: 5,
+        ),
         child: Center(
           child: Text(
             text,
