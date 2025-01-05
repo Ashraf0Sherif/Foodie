@@ -24,14 +24,13 @@ class CartBottomSheet extends StatelessWidget {
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
-              BlocBuilder<CartCubit, CartState>(
-                builder: (context, state) {
-                  return Text(
-                    '\$${context.read<CartCubit>().getCartCheckoutPrice()}',
-                    style: FontStyles.font16PrimaryColoSemiBold,
-                  );
-                },
-              ),
+              Builder(builder: (context) {
+                final price = context.watch<CartCubit>().price;
+                return Text(
+                  '\$$price',
+                  style: FontStyles.font16PrimaryColoSemiBold,
+                );
+              }),
             ],
           ),
           verticalSpace(8),

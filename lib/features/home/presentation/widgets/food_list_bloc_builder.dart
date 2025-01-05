@@ -14,7 +14,9 @@ class FoodListBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FoodCategoriesCubit, FoodCategoriesState>(
       buildWhen: (previous, current) =>
-          current is Success || current is Error || current is Loading,
+          current is FoodCategoriesSuccess ||
+          current is FoodCategoriesError ||
+          current is FoodCategoriesLoading,
       builder: (context, state) {
         return state.maybeWhen(
           error: (error) {

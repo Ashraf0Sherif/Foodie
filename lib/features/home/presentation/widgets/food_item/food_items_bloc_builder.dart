@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/features/home/logic/combined_cubit/combined_cubit.dart';
 import 'package:foodie/features/home/presentation/widgets/food_item/sliver_food_item_card_list_skeleton.dart';
 
 import '../../../../../core/widgets/food_items_sliver_list_view.dart';

@@ -42,7 +42,7 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
                   foodItem.totalPrice -=
                       int.parse(foodItem.extraIngredients[i].price);
                 }
-                context.read<CartCubit>().getCartCheckoutPrice();
+                context.read<CartCubit>().updateCheckoutPrice();
                 onIngredientChanged();
               },
             )
