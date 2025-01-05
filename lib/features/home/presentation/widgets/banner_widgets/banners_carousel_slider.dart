@@ -29,19 +29,20 @@ class _BannersCarouselSliderState extends State<BannersCarouselSlider> {
             children: [
               CarouselSlider(
                 items: state.banners
-                    .map<Widget>((bannerModel) =>
-                        CustomBanner(bannerModel: bannerModel))
+                    .map<Widget>(
+                        (bannerModel) => CustomBanner(bannerModel: bannerModel))
                     .toList(),
                 options: CarouselOptions(
-                    onPageChanged: (value, _) {
-                      setState(() {
-                        _currentPage = value;
-                      });
-                    },
-                    viewportFraction: 0.78,
-                    autoPlay: true,
-                    enlargeCenterPage: true,
-                    height: 200.h),
+                  onPageChanged: (value, _) {
+                    setState(() {
+                      _currentPage = value;
+                    });
+                  },
+                  viewportFraction: 0.78,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  height: 200.h,
+                ),
               ),
               buildCarouselIndicators(state.banners.length),
             ],

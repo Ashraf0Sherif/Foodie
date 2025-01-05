@@ -5,6 +5,7 @@ import 'package:foodie/core/logic/food_categories_cubit/food_categories_cubit.da
 
 import 'filter_food_items_bloc_listener.dart';
 import 'food_item/food_item_card_skeleton.dart';
+import 'food_item/sliver_food_item_card_list_skeleton.dart';
 
 class FoodListBlocBuilder extends StatelessWidget {
   const FoodListBlocBuilder({
@@ -29,17 +30,7 @@ class FoodListBlocBuilder extends StatelessWidget {
             );
           },
           loading: () {
-            return SliverToBoxAdapter(
-              child: Column(
-                children: List.generate(
-                  3,
-                  (_) => Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.h),
-                    child: const FoodItemCardSkeleton(),
-                  ),
-                ),
-              ),
-            );
+            return SliverFoodItemCardListSkeleton();
           },
           orElse: () {
             return const SliverToBoxAdapter(child: SizedBox.shrink());
@@ -49,3 +40,5 @@ class FoodListBlocBuilder extends StatelessWidget {
     );
   }
 }
+
+
