@@ -15,7 +15,6 @@ class BannerCubit extends Cubit<BannerState> {
   BannerCubit(this.bannerRepo) : super(const BannerState.initial());
 
   void emitBannerStates() async {
-
     emit(const BannerState.loading());
     final response = await bannerRepo.getBanners();
     response.when(

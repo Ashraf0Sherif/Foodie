@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/features/home/logic/combined_cubit/combined_cubit.dart';
+import 'package:foodie/features/home/presentation/widgets/food_item/sliver_food_item_card_list_skeleton.dart';
 
-import '../../../../../core/theming/styles.dart';
 import '../../../../../core/widgets/food_items_sliver_list_view.dart';
 import '../../../logic/food_items_cubit/food_items_cubit.dart';
 
@@ -25,7 +26,7 @@ class FoodItemsBlocBuilder extends StatelessWidget {
                 isLoading: true,
               );
             } else {
-              return const SliverToBoxAdapter(child: SizedBox.shrink());
+              return const SliverFoodItemCardListSkeleton();
             }
           },
           error: (error) => const SliverToBoxAdapter(
@@ -38,14 +39,8 @@ class FoodItemsBlocBuilder extends StatelessWidget {
                 isLoading: false,
               );
             } else {
-              return SliverToBoxAdapter(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('No food items found',
-                        style: FontStyles.font16SecondaryColorBold),
-                  ),
-                ),
+              return const SliverToBoxAdapter(
+                child: SizedBox.shrink(),
               );
             }
           },

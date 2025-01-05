@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
+import 'package:foodie/features/home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/theming/styles.dart';
@@ -22,14 +23,7 @@ class FoodItemInfo extends StatelessWidget {
           child: CachedNetworkImage(
             width: 120.w,
             height: 120.h,
-            placeholder: (_, __) => Skeletonizer(child: Container(
-              width: 120.w,
-              height: 120.h,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade50,
-                borderRadius: BorderRadius.circular(16.r),
-              ),
-            )),
+            placeholder: (_, __) => const FoodItemCardImageSkeleton(),
             errorWidget: (_, __, ___) => const Icon(
               Icons.error,
               color: Colors.red,
