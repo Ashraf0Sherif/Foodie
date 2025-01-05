@@ -115,6 +115,11 @@ abstract class FontStyles {
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle font16PrimaryColoSemiBold = TextStyle(
+    color: ColorsStyles.kPrimaryColor,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font13CustomRedColorBold = TextStyle(
     color: ColorsStyles.kCustomRedColor,
     fontSize: 13.sp,

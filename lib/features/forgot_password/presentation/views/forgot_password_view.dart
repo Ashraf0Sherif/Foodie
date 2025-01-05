@@ -48,7 +48,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: SvgPicture.asset(
-                                AssetsData.kLogo,
+                                AssetsData.kLogoSVG,
                                 width: 50.w,
                               ),
                             ),

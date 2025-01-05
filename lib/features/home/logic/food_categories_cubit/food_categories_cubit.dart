@@ -3,7 +3,8 @@ import 'package:foodie/features/home/data/models/food_category/food_category.dar
 import 'package:foodie/features/home/data/repos/foodie_food_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+
 
 part 'food_categories_cubit.freezed.dart';
 part 'food_categories_state.dart';
@@ -15,7 +16,6 @@ class FoodCategoriesCubit extends Cubit<FoodCategoriesState> {
       : super(const FoodCategoriesState.initial());
 
   void emitFoodCategoriesStates() async {
-
     emit(const FoodCategoriesState.loading());
     final response = await foodieFoodRepo.getCategories();
     response.when(
