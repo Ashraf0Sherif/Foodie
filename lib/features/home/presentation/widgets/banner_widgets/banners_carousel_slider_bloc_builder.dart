@@ -4,10 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/features/home/logic/banner_cubit/banner_cubit.dart';
-import 'package:foodie/features/home/logic/combined_cubit/combined_cubit.dart';
 import 'package:foodie/features/home/presentation/widgets/banner_widgets/skeletonizer_carousel.dart';
 
-import '../../../../../core/theming/styles.dart';
 import 'custom_banner.dart';
 
 class BannersCarouselSlider extends StatefulWidget {
@@ -26,9 +24,8 @@ class _BannersCarouselSliderState extends State<BannersCarouselSlider> {
   Widget build(BuildContext context) {
     return BlocBuilder<BannerCubit, BannerState>(
       builder: (context, state) {
-        if (state is Success) {
+        if (state is BannerSuccess) {
           if (state.banners.isEmpty) {
-            context.read<CombinedCubit>().incrementCounter();
             return const SizedBox.shrink();
           }
           return Column(

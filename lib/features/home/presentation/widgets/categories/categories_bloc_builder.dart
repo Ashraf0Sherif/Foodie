@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/features/home/logic/combined_cubit/combined_cubit.dart';
 
 import '../../../logic/food_categories_cubit/food_categories_cubit.dart';
 import '../../../logic/food_items_cubit/food_items_cubit.dart';
@@ -17,15 +16,14 @@ class CategoriesBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FoodCategoriesCubit, FoodCategoriesState>(
       buildWhen: (previous, current) =>
-          current is Success ||
-          current is Error ||
-          current is Loading ||
-          current is Initial,
+          current is FoodCategoriesSuccess ||
+          current is FoodCategoriesError ||
+          current is FoodCategoriesLoading ||
+          current is FoodCategoriesInitial,
       builder: (context, state) {
         return state.maybeWhen(
           success: (foodCategories) {
             if (foodCategories.isEmpty) {
-              context.read<CombinedCubit>().incrementCounter();
               return const SizedBox.shrink();
             } else {
               String? currentCategoryId =

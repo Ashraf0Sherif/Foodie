@@ -44,25 +44,25 @@ mixin _$BannerState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(BannerLoading<T> value) loading,
+    required TResult Function(BannerSuccess<T> value) success,
+    required TResult Function(BannerError<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(BannerLoading<T> value)? loading,
+    TResult? Function(BannerSuccess<T> value)? success,
+    TResult? Function(BannerError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(BannerLoading<T> value)? loading,
+    TResult Function(BannerSuccess<T> value)? success,
+    TResult Function(BannerError<T> value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,9 +168,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(BannerLoading<T> value) loading,
+    required TResult Function(BannerSuccess<T> value) success,
+    required TResult Function(BannerError<T> value) error,
   }) {
     return initial(this);
   }
@@ -179,9 +179,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(BannerLoading<T> value)? loading,
+    TResult? Function(BannerSuccess<T> value)? success,
+    TResult? Function(BannerError<T> value)? error,
   }) {
     return initial?.call(this);
   }
@@ -190,9 +190,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(BannerLoading<T> value)? loading,
+    TResult Function(BannerSuccess<T> value)? success,
+    TResult Function(BannerError<T> value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -207,18 +207,18 @@ abstract class _Initial<T> implements BannerState<T> {
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<T, $Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
-      __$$LoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$BannerLoadingImplCopyWith<T, $Res> {
+  factory _$$BannerLoadingImplCopyWith(_$BannerLoadingImpl<T> value,
+          $Res Function(_$BannerLoadingImpl<T>) then) =
+      __$$BannerLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$BannerStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
-    implements _$$LoadingImplCopyWith<T, $Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
+class __$$BannerLoadingImplCopyWithImpl<T, $Res>
+    extends _$BannerStateCopyWithImpl<T, $Res, _$BannerLoadingImpl<T>>
+    implements _$$BannerLoadingImplCopyWith<T, $Res> {
+  __$$BannerLoadingImplCopyWithImpl(_$BannerLoadingImpl<T> _value,
+      $Res Function(_$BannerLoadingImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of BannerState
@@ -227,8 +227,8 @@ class __$$LoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LoadingImpl<T> implements Loading<T> {
-  const _$LoadingImpl();
+class _$BannerLoadingImpl<T> implements BannerLoading<T> {
+  const _$BannerLoadingImpl();
 
   @override
   String toString() {
@@ -238,7 +238,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$BannerLoadingImpl<T>);
   }
 
   @override
@@ -285,9 +285,9 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(BannerLoading<T> value) loading,
+    required TResult Function(BannerSuccess<T> value) success,
+    required TResult Function(BannerError<T> value) error,
   }) {
     return loading(this);
   }
@@ -296,9 +296,9 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(BannerLoading<T> value)? loading,
+    TResult? Function(BannerSuccess<T> value)? success,
+    TResult? Function(BannerError<T> value)? error,
   }) {
     return loading?.call(this);
   }
@@ -307,9 +307,9 @@ class _$LoadingImpl<T> implements Loading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(BannerLoading<T> value)? loading,
+    TResult Function(BannerSuccess<T> value)? success,
+    TResult Function(BannerError<T> value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -319,25 +319,25 @@ class _$LoadingImpl<T> implements Loading<T> {
   }
 }
 
-abstract class Loading<T> implements BannerState<T> {
-  const factory Loading() = _$LoadingImpl<T>;
+abstract class BannerLoading<T> implements BannerState<T> {
+  const factory BannerLoading() = _$BannerLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$BannerSuccessImplCopyWith<T, $Res> {
+  factory _$$BannerSuccessImplCopyWith(_$BannerSuccessImpl<T> value,
+          $Res Function(_$BannerSuccessImpl<T>) then) =
+      __$$BannerSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({List<BannerModel> banners});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$BannerStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$BannerSuccessImplCopyWithImpl<T, $Res>
+    extends _$BannerStateCopyWithImpl<T, $Res, _$BannerSuccessImpl<T>>
+    implements _$$BannerSuccessImplCopyWith<T, $Res> {
+  __$$BannerSuccessImplCopyWithImpl(_$BannerSuccessImpl<T> _value,
+      $Res Function(_$BannerSuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of BannerState
@@ -347,7 +347,7 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? banners = null,
   }) {
-    return _then(_$SuccessImpl<T>(
+    return _then(_$BannerSuccessImpl<T>(
       banners: null == banners
           ? _value._banners
           : banners // ignore: cast_nullable_to_non_nullable
@@ -358,8 +358,8 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl({required final List<BannerModel> banners})
+class _$BannerSuccessImpl<T> implements BannerSuccess<T> {
+  const _$BannerSuccessImpl({required final List<BannerModel> banners})
       : _banners = banners;
 
   final List<BannerModel> _banners;
@@ -379,7 +379,7 @@ class _$SuccessImpl<T> implements Success<T> {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl<T> &&
+            other is _$BannerSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other._banners, _banners));
   }
 
@@ -392,8 +392,9 @@ class _$SuccessImpl<T> implements Success<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      __$$SuccessImplCopyWithImpl<T, _$SuccessImpl<T>>(this, _$identity);
+  _$$BannerSuccessImplCopyWith<T, _$BannerSuccessImpl<T>> get copyWith =>
+      __$$BannerSuccessImplCopyWithImpl<T, _$BannerSuccessImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -436,9 +437,9 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(BannerLoading<T> value) loading,
+    required TResult Function(BannerSuccess<T> value) success,
+    required TResult Function(BannerError<T> value) error,
   }) {
     return success(this);
   }
@@ -447,9 +448,9 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(BannerLoading<T> value)? loading,
+    TResult? Function(BannerSuccess<T> value)? success,
+    TResult? Function(BannerError<T> value)? error,
   }) {
     return success?.call(this);
   }
@@ -458,9 +459,9 @@ class _$SuccessImpl<T> implements Success<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(BannerLoading<T> value)? loading,
+    TResult Function(BannerSuccess<T> value)? success,
+    TResult Function(BannerError<T> value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -470,34 +471,34 @@ class _$SuccessImpl<T> implements Success<T> {
   }
 }
 
-abstract class Success<T> implements BannerState<T> {
-  const factory Success({required final List<BannerModel> banners}) =
-      _$SuccessImpl<T>;
+abstract class BannerSuccess<T> implements BannerState<T> {
+  const factory BannerSuccess({required final List<BannerModel> banners}) =
+      _$BannerSuccessImpl<T>;
 
   List<BannerModel> get banners;
 
   /// Create a copy of BannerState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
+  _$$BannerSuccessImplCopyWith<T, _$BannerSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<T, $Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
-      __$$ErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$BannerErrorImplCopyWith<T, $Res> {
+  factory _$$BannerErrorImplCopyWith(_$BannerErrorImpl<T> value,
+          $Res Function(_$BannerErrorImpl<T>) then) =
+      __$$BannerErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$BannerStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
-    implements _$$ErrorImplCopyWith<T, $Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
+class __$$BannerErrorImplCopyWithImpl<T, $Res>
+    extends _$BannerStateCopyWithImpl<T, $Res, _$BannerErrorImpl<T>>
+    implements _$$BannerErrorImplCopyWith<T, $Res> {
+  __$$BannerErrorImplCopyWithImpl(
+      _$BannerErrorImpl<T> _value, $Res Function(_$BannerErrorImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of BannerState
@@ -507,7 +508,7 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$ErrorImpl<T>(
+    return _then(_$BannerErrorImpl<T>(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -518,8 +519,8 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl({required this.error});
+class _$BannerErrorImpl<T> implements BannerError<T> {
+  const _$BannerErrorImpl({required this.error});
 
   @override
   final String error;
@@ -533,7 +534,7 @@ class _$ErrorImpl<T> implements Error<T> {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl<T> &&
+            other is _$BannerErrorImpl<T> &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -545,8 +546,9 @@ class _$ErrorImpl<T> implements Error<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      __$$ErrorImplCopyWithImpl<T, _$ErrorImpl<T>>(this, _$identity);
+  _$$BannerErrorImplCopyWith<T, _$BannerErrorImpl<T>> get copyWith =>
+      __$$BannerErrorImplCopyWithImpl<T, _$BannerErrorImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -589,9 +591,9 @@ class _$ErrorImpl<T> implements Error<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(BannerLoading<T> value) loading,
+    required TResult Function(BannerSuccess<T> value) success,
+    required TResult Function(BannerError<T> value) error,
   }) {
     return error(this);
   }
@@ -600,9 +602,9 @@ class _$ErrorImpl<T> implements Error<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(BannerLoading<T> value)? loading,
+    TResult? Function(BannerSuccess<T> value)? success,
+    TResult? Function(BannerError<T> value)? error,
   }) {
     return error?.call(this);
   }
@@ -611,9 +613,9 @@ class _$ErrorImpl<T> implements Error<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
+    TResult Function(BannerLoading<T> value)? loading,
+    TResult Function(BannerSuccess<T> value)? success,
+    TResult Function(BannerError<T> value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -623,14 +625,15 @@ class _$ErrorImpl<T> implements Error<T> {
   }
 }
 
-abstract class Error<T> implements BannerState<T> {
-  const factory Error({required final String error}) = _$ErrorImpl<T>;
+abstract class BannerError<T> implements BannerState<T> {
+  const factory BannerError({required final String error}) =
+      _$BannerErrorImpl<T>;
 
   String get error;
 
   /// Create a copy of BannerState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+  _$$BannerErrorImplCopyWith<T, _$BannerErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

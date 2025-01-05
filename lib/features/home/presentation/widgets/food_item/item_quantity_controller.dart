@@ -26,7 +26,7 @@ class _ItemQuantityControllerState extends State<ItemQuantityController> {
 
   void _refreshCart() {
     if (_isInCart()) {
-      context.read<CartCubit>().getCartCheckoutPrice();
+      context.read<CartCubit>().updateCheckoutPrice();
     }
   }
 
