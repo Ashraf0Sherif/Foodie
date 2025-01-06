@@ -4,6 +4,7 @@ import 'package:foodie/features/home/presentation/widgets/food_item/sliver_food_
 
 import '../../../../../core/widgets/food_items_sliver_list_view.dart';
 import '../../../logic/food_items_cubit/food_items_cubit.dart';
+import 'no_food_items_found.dart';
 
 class FoodItemsBlocBuilder extends StatelessWidget {
   const FoodItemsBlocBuilder({super.key});
@@ -39,7 +40,7 @@ class FoodItemsBlocBuilder extends StatelessWidget {
               );
             } else {
               return const SliverToBoxAdapter(
-                child: SizedBox.shrink(),
+                child: NoFoodItemsFound(),
               );
             }
           },
