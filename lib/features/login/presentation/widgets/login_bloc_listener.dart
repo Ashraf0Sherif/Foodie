@@ -13,7 +13,9 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is LoginError || current is LoginSuccess || current is LoginLoading,
+          current is LoginError ||
+          current is LoginSuccess ||
+          current is LoginLoading,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
@@ -22,10 +24,10 @@ class LoginBlocListener extends StatelessWidget {
                 builder: (context) =>
                     const Center(child: CircularProgressIndicator()));
           },
-          success: (loginResponse) {
+          success: (foodieUser) {
             context.pop();
             context.pushNamedAndRemoveUntil(Routes.kLandingView,
-                predicate: (Route<dynamic> route) {
+                arguments: foodieUser, predicate: (Route<dynamic> route) {
               return false;
             });
           },

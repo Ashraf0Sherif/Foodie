@@ -8,7 +8,6 @@ import '../../../login/data/models/user_model/address.dart';
 import '../../../login/data/models/user_model/foodie_user.dart';
 import '../../logic/cart_cubit/cart_cubit.dart';
 import '../../logic/payment_cubit/payment_cubit.dart';
-import 'cart_view_body.dart';
 
 class CheckoutButtonBlocBuilder extends StatelessWidget {
   const CheckoutButtonBlocBuilder({
@@ -29,7 +28,6 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
                     amount: context.read<CartCubit>().price,
                     foodItems: cartItems,
                     user: FoodieUser(
-                      id: 123,
                       firstName: 'dummy',
                       lastName: 'dummy',
                       email: 'dummy@gmail.com',
@@ -65,7 +63,6 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
                     amount: context.read<CartCubit>().price,
                     foodItems: cartItems,
                     user: FoodieUser(
-                      id: 123,
                       firstName: 'dummy',
                       lastName: 'dummy',
                       email: 'dummy@gmail.com',

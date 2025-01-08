@@ -20,8 +20,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await loginRepo.loginUsingEmailAndPassword(
         email: emailController.text, password: passwordController.text);
-    response.when(success: (user) {
-      emit(LoginState.success(user));
+    response.when(success: (foodieUser) {
+      emit(LoginState.success(foodieUser: foodieUser));
     }, failure: (error) {
       emit(LoginState.error(error: FirebaseExceptions.getErrorMessage(error)));
     });

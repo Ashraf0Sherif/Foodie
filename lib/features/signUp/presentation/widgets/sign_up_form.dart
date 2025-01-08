@@ -20,7 +20,8 @@ class _SignUpFormState extends State<SignUpForm> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
   late TextEditingController _confirmPasswordController;
-  late TextEditingController _usernameController;
+  late TextEditingController _firstNameController;
+  late TextEditingController _lastNameController;
   bool _obscureText = true;
   bool _obscureConfirmPassword = true;
   bool hasLowercase = false;
@@ -36,7 +37,8 @@ class _SignUpFormState extends State<SignUpForm> {
     _passwordController = context.read<SignUpCubit>().passwordController;
     _confirmPasswordController =
         context.read<SignUpCubit>().confirmPasswordController;
-    _usernameController = context.read<SignUpCubit>().usernameController;
+    _firstNameController = context.read<SignUpCubit>().firstNameController;
+    _lastNameController = context.read<SignUpCubit>().lastNameController;
     setupPasswordControllerListener();
   }
 
@@ -66,12 +68,23 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         children: [
           CustomTextFormField(
-            controller: _usernameController,
-            label: 'Username',
+            controller: _firstNameController,
+            label: 'First Name',
             keyboardType: TextInputType.text,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Please enter your username";
+                return "Please enter your first name";
+              }
+            },
+          ),
+          verticalSpace(10),
+          CustomTextFormField(
+            controller: _lastNameController,
+            label: 'Last Name',
+            keyboardType: TextInputType.text,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Please enter your last name";
               }
             },
           ),

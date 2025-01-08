@@ -12,10 +12,14 @@ class SignUpRepo {
   Future<FirebaseResult<UserCredential>> signupUsingEmailAndPassword(
       {required String email,
       required String password,
-      required String username}) async {
+      required String firstName,
+      required String lastName}) async {
     try {
       var response = await customFirebase.signupUsingEmailAndPassword(
-          email: email, password: password, username: username);
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName);
       return FirebaseResult.success(response);
     } catch (error) {
       return FirebaseResult.failure(

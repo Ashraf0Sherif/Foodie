@@ -51,7 +51,7 @@ class PaymobService {
       "email": user.email,
       "first_name": user.firstName,
       "last_name": user.lastName,
-      "phone_number": user.phoneNumber,
+      "phone_number": user.phoneNumber??"NA",
       "country": address.country,
       "city": address.city,
       "street": address.street,
