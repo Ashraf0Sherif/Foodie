@@ -44,7 +44,7 @@ class SuccessReceiptAlertDialog extends StatelessWidget {
             style: FontStyles.font24SecondaryColorBold,
             overflow: TextOverflow.ellipsis),
         verticalSpace(20),
-        Text("EGP ${receipt.amountCents}",
+        Text("EGP ${int.parse(receipt.amountCents) / 10}",
             style: FontStyles.font16SecondaryColorBold,
             overflow: TextOverflow.ellipsis),
         verticalSpace(20),

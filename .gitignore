@@ -28,7 +28,7 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
-e.env
+assets/e.env
 .pub-cache/
 .pub/
 /build/

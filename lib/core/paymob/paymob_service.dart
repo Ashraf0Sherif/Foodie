@@ -8,7 +8,7 @@ import '../../features/login/data/models/user_model/foodie_user.dart';
 class PaymobService {
   final Dio _dio = Dio();
   final String _url = dotenv.env["BASE_URL"]!;
-  final String _authToken = dotenv.env["PAYMENT_TOKEN"]!;
+  final String _authToken = dotenv.env["PAYMENT_KEY"]!;
 
   Future<String> getPaymentKey({
     required double amount,
