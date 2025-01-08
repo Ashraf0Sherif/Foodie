@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:foodie/core/helpers/spacing.dart';
 
-import '../helpers/spacing.dart';
-import '../theming/colors.dart';
+import '../helpers/assets.dart';
 import '../theming/styles.dart';
 
 class NoInternetConnectionWidget extends StatelessWidget {
@@ -12,26 +13,30 @@ class NoInternetConnectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.wifi_off,
-            color: ColorsStyles.kSecondaryColor,
-            size: 80.sp,
+    return Column(
+      children: [
+        verticalSpace(120),
+        SvgPicture.asset(
+          AssetsData.kNoInternetConnectionSVG,
+          width: 250.w,
+        ),
+        Center(
+          child: Text(
+            'No Network',
+            style: FontStyles.font24SecondaryColorBold,
           ),
-          Text(
-            "No internet connection",
-            style: FontStyles.font16SecondaryColorBold,
+        ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: 8.h, right: 14.w, left: 14.w),
+            child: Text(
+              'Please check your network connection',
+              style: FontStyles.font16PrimaryColoSemiBold,
+              textAlign: TextAlign.center,
+            ),
           ),
-          verticalSpace(5),
-          Text(
-            "Please connect to the internet and try again.",
-            style: FontStyles.font12PrimaryColorRegular,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

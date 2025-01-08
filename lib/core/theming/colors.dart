@@ -8,4 +8,6 @@ abstract class ColorsStyles {
   static const Color kCustomRedColor = Color(0xffF44336);
   static const Gradient kButtonGradient = LinearGradient(
       colors: [ColorsStyles.kPrimaryColor, ColorsStyles.kSecondaryColor]);
+  static const Gradient kButtonGradientDisabled = LinearGradient(
+      colors: [ColorsStyles.kPassiveColor, ColorsStyles.kPassiveColor]);
 }

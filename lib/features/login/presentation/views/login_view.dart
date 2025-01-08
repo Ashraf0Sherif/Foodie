@@ -34,7 +34,7 @@ class LoginView extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: SvgPicture.asset(
-                          AssetsData.kLogo,
+                          AssetsData.kLogoSVG,
                           width: 50,
                         ),
                       ),

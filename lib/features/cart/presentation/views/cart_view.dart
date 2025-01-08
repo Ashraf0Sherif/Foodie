@@ -12,17 +12,10 @@ class CartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       buildWhen: (previous, current) =>
-          current is CartNotEmpty ||
-          current is CartEmpty ||
-          current is CartItemRemoved,
+          current is CartNotEmpty || current is CartEmpty,
       builder: (context, state) {
         return state.maybeWhen(
           notEmptyCart: (cartItems) {
-            return CartViewBody(
-              cartItems: cartItems,
-            );
-          },
-          removeItem: (cartItems) {
             return CartViewBody(
               cartItems: cartItems,
             );

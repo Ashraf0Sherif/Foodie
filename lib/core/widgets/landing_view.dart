@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/di/dependency_injection.dart';
+import 'package:foodie/features/cart/logic/payment_cubit/payment_cubit.dart';
 
 import '../../features/cart/presentation/views/cart_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
@@ -20,7 +22,10 @@ class _LandingViewState extends State<LandingView> {
   List<Widget> views = [
     const HomeView(),
     const SearchView(),
-    const CartView(),
+    BlocProvider(
+      create: (context) => getIt<PaymentCubit>(),
+      child: const CartView(),
+    ),
     const ProfileView(),
   ];
 

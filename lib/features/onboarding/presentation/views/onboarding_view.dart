@@ -32,7 +32,7 @@ class OnboardingView extends StatelessWidget {
               Text(
                 "Experience Convenient and Fast Food Delivery with Foodie",
                 textAlign: TextAlign.center,
-                style: FontStyles.font24BlueBold,
+                style: FontStyles.font24SecondaryColorBold,
               ),
               verticalSpace(10),
               Padding(

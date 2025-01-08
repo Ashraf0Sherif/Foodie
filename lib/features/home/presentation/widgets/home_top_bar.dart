@@ -10,7 +10,7 @@ class HomeTopBar extends StatelessWidget {
     return Center(
       child: Text(
         "Foodie",
-        style: FontStyles.font24BlueBold,
+        style: FontStyles.font24SecondaryColorBold,
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/features/home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/helpers/spacing.dart';
@@ -24,14 +25,7 @@ class FoodItemCardSkeleton extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Skeletonizer(
-                    enabled: true,
-                    child: Container(
-                      width: 80.w,
-                      height: 80.h,
-                      color: Colors.grey,
-                    ),
-                  ),
+                  const FoodItemCardImageSkeleton(),
                   const Spacer(),
                   Skeletonizer(
                     enabled: true,

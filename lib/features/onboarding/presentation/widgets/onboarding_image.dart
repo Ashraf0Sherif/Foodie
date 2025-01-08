@@ -12,7 +12,7 @@ class OnboardingImage extends StatelessWidget {
       children: [
         Center(
           child: SvgPicture.asset(
-            AssetsData.kLogoLowOpacity,
+            AssetsData.kLogoLowOpacitySVG,
             width: 300,
           ),
         ),
@@ -27,7 +27,7 @@ class OnboardingImage extends StatelessWidget {
               ),
             ),
             child: SvgPicture.asset(
-              AssetsData.kOnBoardingImage,
+              AssetsData.kOnBoardingImageSVG,
               width: 300,
             ),
           ),

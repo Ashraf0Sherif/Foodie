@@ -59,6 +59,9 @@ dependencies:
   shared_preferences: ^2.3.3
   skeletonizer: ^1.4.2
   internet_connection_checker: ^3.0.1
+  dio: ^5.7.0
+  flutter_inappwebview: ^6.1.5
+  flutter_dotenv: ^5.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -86,6 +89,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svgs/
+    - e.env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
