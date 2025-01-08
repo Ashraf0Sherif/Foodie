@@ -8,4 +8,5 @@ class Routes {
   static const String kSearchView = '/search';
   static const String kCartView = '/cart';
   static const String kLandingView = '/landing';
+  static const String kPaymentGatewayView = '/paymentGateway';
 }

@@ -23,7 +23,7 @@ class NoInternetConnectionWidget extends StatelessWidget {
         Center(
           child: Text(
             'No Network',
-            style: FontStyles.font24BlueBold,
+            style: FontStyles.font24SecondaryColorBold,
           ),
         ),
         Center(

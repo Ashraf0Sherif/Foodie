@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/theming/colors.dart';
 
 import '../theming/styles.dart';
 
@@ -15,9 +16,11 @@ class CustomElevatedButton extends StatelessWidget {
     this.gradient,
     this.textColor,
     this.isDisabled = false,
+    this.loading = false,
   });
 
   final bool isDisabled;
+  final bool loading;
   final double? width, height;
   final void Function() onPressed;
   final String text;
@@ -37,7 +40,7 @@ class CustomElevatedButton extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(10.r),
       ),
       child: ElevatedButton(
-        onPressed: isDisabled ? null : onPressed,
+        onPressed: isDisabled || loading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           disabledBackgroundColor: Colors.transparent,
           backgroundColor: Colors.transparent,
@@ -50,13 +53,23 @@ class CustomElevatedButton extends StatelessWidget {
           elevation: 5,
         ),
         child: Center(
-          child: Text(
-            text,
-            style: FontStyles.font14WhiteBold.copyWith(
-              color: textColor,
-            ),
-            textAlign: TextAlign.center,
-          ),
+          child: loading
+              ? SizedBox(
+                  width: 25.w,
+                  height: 25.h,
+                  child: const CircularProgressIndicator(
+                    color: ColorsStyles.kPrimaryColor,
+                    strokeWidth: 2,
+                    backgroundColor: Colors.white,
+                  ),
+                )
+              : Text(
+                  text,
+                  style: FontStyles.font14WhiteBold.copyWith(
+                    color: textColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
         ),
       ),
     );

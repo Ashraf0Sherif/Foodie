@@ -20,7 +20,7 @@ abstract class FontStyles {
       fontSize: 18.sp,
       fontWeight: FontWeightHelper.semiBold,
       color: Colors.black);
-  static TextStyle font24BlueBold = TextStyle(
+  static TextStyle font24SecondaryColorBold = TextStyle(
     color: ColorsStyles.kSecondaryColor,
     fontSize: 24.sp,
     fontWeight: FontWeightHelper.bold,
@@ -118,6 +118,11 @@ abstract class FontStyles {
   static TextStyle font16PrimaryColoSemiBold = TextStyle(
     color: ColorsStyles.kPrimaryColor,
     fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font20PrimaryColoSemiBold = TextStyle(
+    color: ColorsStyles.kPrimaryColor,
+    fontSize: 20.sp,
     fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font13CustomRedColorBold = TextStyle(

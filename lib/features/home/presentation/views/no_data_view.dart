@@ -24,7 +24,7 @@ class NoDataView extends StatelessWidget {
         Center(
           child: Text(
             'No Data',
-            style: FontStyles.font24BlueBold,
+            style: FontStyles.font24SecondaryColorBold,
           ),
         ),
         Center(
