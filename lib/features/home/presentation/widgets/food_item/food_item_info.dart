@@ -51,9 +51,17 @@ class FoodItemInfo extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               verticalSpace(5),
-              Text(
-                '${foodItem.totalPrice}\$',
-                style: FontStyles.font16SecondaryColorBold,
+              Row(
+                children: [
+                  Text(
+                    '${foodItem.totalPrice}',
+                    style: FontStyles.font16SecondaryColorBold,
+                  ),
+                  Text(
+                    ' EGP',
+                    style: FontStyles.font12SecondaryColorBold,
+                  ),
+                ],
               ),
             ],
           ),

@@ -53,27 +53,31 @@ class FoodItemCard extends StatelessWidget {
                     horizontalSpace(20),
                   ],
                 ),
-                const Divider(
-                  color: Color(0xffECECEC),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 9.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Ingredients",
-                        style: FontStyles.font12PassiveBold,
-                      ),
-                      Text(
-                        foodItem.mainIngredients.map((e) => e.title).join(", "),
-                        style: FontStyles.font12BlackRegular,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                    ],
+                if (foodItem.mainIngredients.isNotEmpty)
+                  const Divider(
+                    color: Color(0xffECECEC),
                   ),
-                ),
+                if (foodItem.mainIngredients.isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 9.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Ingredients",
+                          style: FontStyles.font12PassiveBold,
+                        ),
+                        Text(
+                          foodItem.mainIngredients
+                              .map((e) => e.title)
+                              .join(", "),
+                          style: FontStyles.font12BlackRegular,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ],
+                    ),
+                  ),
               ],
             ),
           ),

@@ -29,11 +29,22 @@ class DeleteFromCartCardButton extends StatelessWidget {
             SizedBox(
               height: 50.h,
               width: 80.w,
-              child: Center(
-                  child: Text(
-                    "\$${foodItem.totalPrice}",
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${foodItem.totalPrice}",
                     style: FontStyles.font16BlackSemiBold,
-                  )),
+                  ),
+                  Flexible(
+                    child: Text(
+                      " EGP",
+                      style: FontStyles.font14BlackRegular,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: SizedBox(
