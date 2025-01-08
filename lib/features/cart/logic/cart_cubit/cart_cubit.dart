@@ -9,7 +9,7 @@ part 'cart_state.dart';
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(const CartState.emptyCart());
   List<FoodItem> cartItems = [];
-  int price = 0;
+  double price = 0;
 
   void addItemToCart(FoodItem item) {
     final newFoodItem = item.copyWith();
@@ -24,7 +24,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   void updateCheckoutPrice() {
-    int currentPrice = 0;
+    double currentPrice = 0;
     for (var item in cartItems) {
       currentPrice += (item.totalPrice * item.quantity);
     }

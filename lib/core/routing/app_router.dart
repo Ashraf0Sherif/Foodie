@@ -6,6 +6,7 @@ import 'package:foodie/features/home/logic/food_items_cubit/food_items_cubit.dar
 import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 
+import '../../features/cart/presentation/views/payment_gateway_view.dart';
 import '../../features/forgot_password/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../features/forgot_password/presentation/views/forgot_password_view.dart';
 import '../../features/home/logic/banner_cubit/banner_cubit.dart';
@@ -50,6 +51,17 @@ class AppRouter {
             child: const ResetPasswordView(),
           ),
           settings: const RouteSettings(name: Routes.kForgotPasswordView),
+        );
+      case Routes.kPaymentGatewayView:
+        return MaterialPageRoute(
+          builder: (_) {
+            final args = arguments as PaymentGatewayArgs;
+            return PaymentGatewayView(
+              paymentToken: args.paymentKey,
+              onSuccess: args.onSuccess,
+            );
+          },
+          settings: const RouteSettings(name: Routes.kPaymentGatewayView),
         );
       case Routes.kLandingView:
         return MaterialPageRoute(
