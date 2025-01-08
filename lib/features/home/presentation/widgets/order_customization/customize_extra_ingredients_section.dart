@@ -28,9 +28,17 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
               style: FontStyles.font18PassiveRegular,
             ),
             const Spacer(),
-            Text(
-              "${foodItem.extraIngredients[i].price}\$",
-              style: FontStyles.font14PassiveRegular,
+            Row(
+              children: [
+                Text(
+                  foodItem.extraIngredients[i].price,
+                  style: FontStyles.font14PassiveRegular,
+                ),
+                Text(
+                  " EGP",
+                  style: FontStyles.font12PassiveRegular,
+                ),
+              ],
             ),
             CustomIngredientCheckBox(
               ingredient: foodItem.extraIngredients[i],

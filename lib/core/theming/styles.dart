@@ -85,6 +85,11 @@ abstract class FontStyles {
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font12SecondaryColorBold = TextStyle(
+    color: ColorsStyles.kSecondaryColor,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font14WhiteBold = TextStyle(
     color: Colors.white,
     fontSize: 14.sp,

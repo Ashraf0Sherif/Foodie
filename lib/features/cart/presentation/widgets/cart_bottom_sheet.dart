@@ -26,9 +26,14 @@ class CartBottomSheet extends StatelessWidget {
               const Spacer(),
               Builder(builder: (context) {
                 final price = context.watch<CartCubit>().price;
-                return Text(
-                  '\$$price',
-                  style: FontStyles.font16PrimaryColoSemiBold,
+                return Row(
+                  children: [
+                    Text(
+                      '$price',
+                      style: FontStyles.font16PrimaryColoSemiBold,
+                    ),
+                    Text(' EGP', style: FontStyles.font12PrimaryColorRegular),
+                  ],
                 );
               }),
             ],
