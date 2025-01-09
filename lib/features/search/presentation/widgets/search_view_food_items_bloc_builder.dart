@@ -5,7 +5,7 @@ import 'package:foodie/core/widgets/no_internet_connection_widget.dart';
 import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/widgets/food_items_sliver_list_view.dart';
 import '../../../home/presentation/widgets/food_item/food_item_card_skeleton.dart';
 import '../../logic/search_cubit/search_cubit.dart';

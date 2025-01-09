@@ -8,16 +8,16 @@ part 'foodie_user.g.dart';
 class FoodieUser {
   String firstName;
   String lastName;
-  final String email;
+
   String? phoneNumber;
   List<Address>? address;
   @JsonKey(includeFromJson: false, includeToJson: true)
   late final String id;
-
+  @JsonKey(includeFromJson: false, includeToJson: true)
+  late final String email;
   FoodieUser({
     required this.firstName,
     required this.lastName,
-    required this.email,
     required this.phoneNumber,
     required this.address,
   });

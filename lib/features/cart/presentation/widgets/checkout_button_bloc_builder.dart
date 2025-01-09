@@ -30,7 +30,6 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
                     user: FoodieUser(
                       firstName: 'dummy',
                       lastName: 'dummy',
-                      email: 'dummy@gmail.com',
                       phoneNumber: '01553336414',
                       address: [],
                     ),
@@ -65,7 +64,6 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
                     user: FoodieUser(
                       firstName: 'dummy',
                       lastName: 'dummy',
-                      email: 'dummy@gmail.com',
                       phoneNumber: '01553336414',
                       address: [],
                     ),

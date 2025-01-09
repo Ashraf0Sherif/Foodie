@@ -10,7 +10,7 @@ import 'package:foodie/features/signUp/data/repos/sign_up_repo.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/login/data/repos/login_repo.dart';
-import '../firebase/foodie_firebase_auth.dart';
+import '../firebase/foodie_firebase_profile.dart';
 
 final getIt = GetIt.instance;
 

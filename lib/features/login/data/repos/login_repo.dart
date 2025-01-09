@@ -1,6 +1,6 @@
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 
-import '../../../../core/firebase/foodie_firebase_auth.dart';
+import '../../../../core/firebase/foodie_firebase_profile.dart';
 import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../../core/firebase/models/firebase_result/firebase_result.dart';
 
