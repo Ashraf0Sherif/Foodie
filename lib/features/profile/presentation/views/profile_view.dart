@@ -37,9 +37,11 @@ class ProfileView extends StatelessWidget {
                 buildRow(
                     icon: Icons.location_on,
                     title: 'Addresses',
-                    onPressed: ()=>context.pushNamed(Routes.kAddressView)),
+                    onPressed: () => context.pushNamed(Routes.kAddressView)),
                 buildRow(
-                    icon: Icons.receipt, title: 'Receipts', onPressed: () {}),
+                    icon: Icons.receipt,
+                    title: 'Receipts',
+                    onPressed: () => context.pushNamed(Routes.kReceiptsView)),
                 buildRow(
                     icon: Icons.logout,
                     title: 'Logout',
@@ -62,7 +64,7 @@ class ProfileView extends StatelessWidget {
       children: [
         Icon(icon),
         horizontalSpace(10),
-        Text(title , style: FontStyles.font16SecondaryColorBold),
+        Text(title, style: FontStyles.font16SecondaryColorBold),
         const Spacer(),
         IconButton(onPressed: onPressed, icon: const Icon(Icons.chevron_right))
       ],

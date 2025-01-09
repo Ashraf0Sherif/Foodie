@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/widgets/no_internet_connection_widget.dart';
-import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
+import 'package:foodie/features/profile/presentation/widgets/no_addresses_found.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/widgets/food_items_sliver_list_view.dart';
 import '../../../home/presentation/widgets/food_item/food_item_card_skeleton.dart';
 import '../../logic/search_cubit/search_cubit.dart';
-import 'no_food_item_found_widget.dart';
 
 class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
   const SearchViewFoodItemsBlocBuilder({
@@ -57,11 +57,20 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
             child: Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-              child: const NoFoodItemFoundWidget(),
+              child: const NoItemsFound(
+                  svgImage: AssetsData.kNoSearchItemsSVG,
+                  title:
+                      'The food item you are looking for could not be found.',
+                  description:
+                      'We couldn\'t find any food with the name you searched for. Please try searching with different names.'),
             ),
           ),
-          emptySearch: () =>
-              const SliverToBoxAdapter(child: EmptySearchBarWidget()),
+          emptySearch: () => const SliverToBoxAdapter(
+              child: NoItemsFound(
+                  svgImage: AssetsData.kEmptySearchSVG,
+                  title: 'Search For Your Favorite Food',
+                  description:
+                      'Find what you  want among hundreds of different dishes.')),
           noInternet: () =>
               const SliverToBoxAdapter(child: NoInternetConnectionWidget()),
           orElse: () {

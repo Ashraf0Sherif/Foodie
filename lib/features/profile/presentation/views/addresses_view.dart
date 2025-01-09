@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/helpers/assets.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../widgets/address_card.dart';
+import '../widgets/no_addresses_found.dart';
 import 'address_bottom_sheet.dart';
 
 class AddressesView extends StatelessWidget {
@@ -25,7 +25,9 @@ class AddressesView extends StatelessWidget {
               context: context,
               isScrollControlled: true,
               builder: (context) {
-                return const AddressBottomSheet(edit: false,);
+                return const AddressBottomSheet(
+                  edit: false,
+                );
               });
         },
       ),
@@ -45,29 +47,16 @@ class AddressesView extends StatelessWidget {
             child: Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-              child: const Divider(
-                thickness: 0.5,
-                color: Colors.grey,
+              child: const NoItemsFound(
+                svgImage: AssetsData.kNoAddressesSVG,
+                title: 'Your address list is empty',
+                description:
+                    'You look like you haven\'t given any addresses yet.',
               ),
             ),
           ),
-          SliverList.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.only(
-                      left: 14.w,
-                      right: 14.w,
-                      bottom: index == 9 ? 100.h : 12.h),
-                  child: const AddressCard(),
-                );
-              }),
         ],
       ),
     );
   }
 }
-
-
-
-

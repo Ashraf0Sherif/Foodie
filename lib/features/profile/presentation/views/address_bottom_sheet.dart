@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/home/presentation/widgets/order_customization/customize_order_bottom_sheet_top_bar.dart';
 
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/colors.dart';
-import '../../../../core/widgets/custom_elevated_button.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
 import '../widgets/address_bottom_sheet_form.dart';
 
 class AddressBottomSheet extends StatelessWidget {
