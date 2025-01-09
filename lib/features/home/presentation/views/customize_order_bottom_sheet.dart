@@ -48,7 +48,9 @@ class _CustomizeOrderBottomSheetState extends State<CustomizeOrderBottomSheet> {
         padding: EdgeInsets.symmetric(horizontal: 16.0.w),
         child: Column(
           children: [
-            const CustomizeOrderBottomSheetTopBar(),
+            const BottomSheetTopBar(
+              title: 'Customize Order',
+            ),
             const Divider(
               color: Color(0xffECECEC),
             ),

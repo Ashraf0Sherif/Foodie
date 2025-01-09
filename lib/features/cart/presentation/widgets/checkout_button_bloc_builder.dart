@@ -34,12 +34,10 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
                       address: [],
                     ),
                     address: Address(
-                      country: 'Egypt',
-                      city: 'Cairo',
                       street: 'Elshorouk',
                       building: '1',
                       floor: '',
-                      apartment: '',
+                      apartment: '', title: '',
                     ),
                   );
             },
@@ -68,12 +66,10 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
                       address: [],
                     ),
                     address: Address(
-                      country: 'Egypt',
-                      city: 'Cairo',
                       street: 'Elshorouk',
                       building: '1',
                       floor: '',
-                      apartment: '',
+                      apartment: '', title: '',
                     ),
                   );
             },
