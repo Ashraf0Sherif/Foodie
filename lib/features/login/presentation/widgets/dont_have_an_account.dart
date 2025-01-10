@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/spacing.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
@@ -9,18 +10,37 @@ class DontHaveAnAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: [
-        const Text(
-          'Don\'t have an account? ',
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Don\'t have an account? ',
+            ),
+            InkWell(
+              onTap: () {
+                context.pushNamed(Routes.kRegisterView);
+              },
+              child: Text(
+                'Create One',
+                style:
+                    FontStyles.font16SecondaryColorBold.copyWith(fontSize: 14),
+              ),
+            ),
+            horizontalSpace(10),
+          ],
         ),
+        verticalSpace(5),
         InkWell(
           onTap: () {
-            context.pushNamed(Routes.kRegisterView);
+            context.pushNamedAndRemoveUntil(Routes.kLandingView,
+                predicate: (Route<dynamic> route) {
+              return false;
+            });
           },
           child: Text(
-            'Create One',
+            'Or Continue as Guest',
             style: FontStyles.font16SecondaryColorBold.copyWith(fontSize: 14),
           ),
         ),

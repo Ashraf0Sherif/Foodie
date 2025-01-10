@@ -83,6 +83,9 @@ class AppRouter {
                     FoodCategoriesCubit(getIt())..emitFoodCategoriesStates(),
               ),
               BlocProvider(
+                create: (context) => ProfileCubit(getIt())..getFoodieUser(),
+              ),
+              BlocProvider(
                 create: (context) => FilterCubit(),
               ),
               BlocProvider(
@@ -90,9 +93,6 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (context) => FoodItemsCubit(getIt()),
-              ),
-              BlocProvider(
-                create: (context) => ProfileCubit(getIt()),
               ),
             ],
             child: const LandingView(),

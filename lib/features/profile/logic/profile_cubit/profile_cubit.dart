@@ -11,19 +11,24 @@ part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo profileRepo;
-  late final FoodieUser foodieUser;
+  FoodieUser? foodieUser;
 
   ProfileCubit(this.profileRepo) : super(const ProfileState.initial());
 
   void getFoodieUser() async {
+
     emit(const ProfileState.loading());
     final response = await profileRepo.getCurrentUser();
-    response.when(success: (foodieUser) {
-      this.foodieUser = foodieUser;
-      emit(const ProfileState.success());
-    }, failure: (error) {
-      emit(
-          ProfileState.error(error: FirebaseExceptions.getErrorMessage(error)));
-    });
+    response.when(
+      success: (foodieUser) {
+        this.foodieUser = foodieUser;
+        print(this.foodieUser);
+        emit(const ProfileState.success());
+      },
+      failure: (error) {
+        emit(ProfileState.error(
+            error: FirebaseExceptions.getErrorMessage(error)));
+      },
+    );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:foodie/core/widgets/custom_elevated_button.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/styles.dart';

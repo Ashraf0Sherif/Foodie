@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
@@ -153,7 +154,11 @@ class ProfileView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.r),
               ),
               child: buildPaddingRow(
-                  title: 'Logout', onPressed: () {}, icon: Icons.logout),
+                  title: 'Logout',
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                  },
+                  icon: Icons.logout),
             ),
           ),
         ),
