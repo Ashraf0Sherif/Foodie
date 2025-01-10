@@ -4,6 +4,7 @@ import 'package:foodie/core/di/dependency_injection.dart';
 import 'package:foodie/core/routing/routes.dart';
 import 'package:foodie/features/home/logic/food_items_cubit/food_items_cubit.dart';
 import 'package:foodie/features/profile/presentation/views/addresses_view.dart';
+import 'package:foodie/features/profile/presentation/views/manage_profile_view.dart';
 import 'package:foodie/features/profile/presentation/views/receipt_details_view.dart';
 import 'package:foodie/features/profile/presentation/views/receipts_view.dart';
 import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
@@ -108,6 +109,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const ReceiptDetailsView(),
           settings: const RouteSettings(name: Routes.kReceiptDetailsView),
+        );
+      case Routes.kManageProfileView:
+        return MaterialPageRoute(
+          builder: (_) => const ManageProfileView(),
+          settings: const RouteSettings(name: Routes.kManageProfileView),
         );
       default:
         return null;

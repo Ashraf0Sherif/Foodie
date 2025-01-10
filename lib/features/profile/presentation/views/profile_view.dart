@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
@@ -100,35 +99,12 @@ class ProfileView extends StatelessWidget {
                     ),
                     subtitle: Center(
                       child: Text(
-                        'Total Orders',
+                        'Total Spent',
                         style: FontStyles.font12BlackRegular,
                       ),
                     ),
                   ),
                 )),
-                horizontalSpace(10),
-                Expanded(
-                    child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.blue.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10.r)),
-                  child: ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Center(
-                      child: Text(
-                        '10',
-                        style: FontStyles.font12SecondaryColorBold,
-                      ),
-                    ),
-                    subtitle: Center(
-                      child: Text(
-                        'Total Orders',
-                        style: FontStyles.font12BlackRegular,
-                      ),
-                    ),
-                  ),
-                )),
-                horizontalSpace(10),
               ],
             ),
           ),
@@ -147,70 +123,18 @@ class ProfileView extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Text('Manage Profile',
-                            style: FontStyles.font14PassiveRegular),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.chevron_right,
-                            size: 20.sp,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                    height: 0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Text('Manage Profile',
-                            style: FontStyles.font14PassiveRegular),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.chevron_right,
-                            size: 20.sp,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                    height: 0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Text('Manage Profile',
-                            style: FontStyles.font14PassiveRegular),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.chevron_right,
-                            size: 20.sp,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  buildPaddingRow(
+                      title: 'Manage Profile',
+                      onPressed: () =>
+                          context.pushNamed(Routes.kManageProfileView)),
+                  buildDivider(),
+                  buildPaddingRow(
+                      title: 'Addresses',
+                      onPressed: () => context.pushNamed(Routes.kAddressView)),
+                  buildDivider(),
+                  buildPaddingRow(
+                      title: 'Receipts',
+                      onPressed: () => context.pushNamed(Routes.kReceiptsView)),
                 ],
               ),
             ),
@@ -228,113 +152,8 @@ class ProfileView extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.25),
                 borderRadius: BorderRadius.circular(10.r),
               ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Text('Manage Profile',
-                            style: FontStyles.font14PassiveRegular),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.chevron_right,
-                            size: 20.sp,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                    height: 0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Text('Manage Profile',
-                            style: FontStyles.font14PassiveRegular),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.chevron_right,
-                            size: 20.sp,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                    height: 0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: Row(
-                      children: [
-                        Text('Manage Profile',
-                            style: FontStyles.font14PassiveRegular),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.chevron_right,
-                            size: 20.sp,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: verticalSpace(20),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.25),
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.logout,
-                      color: Colors.grey,
-                      size: 20.sp,
-                    ),
-                    horizontalSpace(10),
-                    Text('Manage Profile',
-                        style: FontStyles.font14PassiveRegular),
-                    Spacer(),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.chevron_right,
-                        size: 20.sp,
-                        color: Colors.grey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              child: buildPaddingRow(
+                  title: 'Logout', onPressed: () {}, icon: Icons.logout),
             ),
           ),
         ),
@@ -345,18 +164,34 @@ class ProfileView extends StatelessWidget {
     );
   }
 
-  Row buildRow(
-      {required IconData icon,
-      required String title,
-      required void Function() onPressed}) {
-    return Row(
-      children: [
-        Icon(icon),
-        horizontalSpace(10),
-        Text(title, style: FontStyles.font16SecondaryColorBold),
-        const Spacer(),
-        IconButton(onPressed: onPressed, icon: const Icon(Icons.chevron_right))
-      ],
+  Divider buildDivider() {
+    return const Divider(
+      color: Colors.grey,
+      thickness: 1,
+      height: 0,
+    );
+  }
+
+  Padding buildPaddingRow(
+      {required String title,
+      required void Function() onPressed,
+      IconData icon = Icons.chevron_right}) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      child: Row(
+        children: [
+          Text(title, style: FontStyles.font14PassiveRegular),
+          Spacer(),
+          IconButton(
+            onPressed: onPressed,
+            icon: Icon(
+              icon,
+              size: 20.sp,
+              color: Colors.grey,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
