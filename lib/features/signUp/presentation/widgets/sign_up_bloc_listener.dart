@@ -24,7 +24,7 @@ class SignUpBlocListener extends StatelessWidget {
                 builder: (context) =>
                     const Center(child: CircularProgressIndicator()));
           },
-          signUpSuccess: (signUpResponse) {
+          signUpSuccess: () {
             context.pop();
             showSuccessDialog(context);
           },

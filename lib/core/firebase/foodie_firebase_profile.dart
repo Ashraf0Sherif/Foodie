@@ -3,20 +3,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 
-class FoodieFirebaseAuth {
-  Future<UserCredential> loginUsingEmailAndPassword({
+class FoodieFirebaseProfile {
+  Future<void> loginUsingEmailAndPassword({
     required String email,
     required String password,
   }) async {
-    UserCredential userCredential =
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
-    return userCredential;
   }
 
-  Future<UserCredential> signupUsingEmailAndPassword(
+  Future<void> signupUsingEmailAndPassword(
       {required String email,
       required String password,
       required String firstName,
@@ -32,7 +30,6 @@ class FoodieFirebaseAuth {
     user = FirebaseAuth.instance.currentUser!;
     await addUserToFirestore(
         userId: user.uid, firstName: firstName, lastName: lastName);
-    return userCredential;
   }
 
   Future<void> logout() async {
@@ -83,8 +80,7 @@ class FoodieFirebaseAuth {
         .doc(foodieUser.id)
         .collection('addresses')
         .get()
-        .then((snapshot) => snapshot.docs
-            .map((doc) => Address.fromJson(doc.data()))
-            .toList());
+        .then((snapshot) =>
+            snapshot.docs.map((doc) => Address.fromJson(doc.data())).toList());
   }
 }

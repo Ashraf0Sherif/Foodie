@@ -6,6 +6,7 @@ import 'package:foodie/features/cart/logic/payment_cubit/payment_cubit.dart';
 import 'package:foodie/features/forgot_password/data/repos/forgot_password_repo.dart';
 import 'package:foodie/features/home/data/repos/banner_repo.dart';
 import 'package:foodie/features/home/data/repos/foodie_food_repo.dart';
+import 'package:foodie/features/profile/data/repos/profile_repo.dart';
 import 'package:foodie/features/signUp/data/repos/sign_up_repo.dart';
 import 'package:get_it/get_it.dart';
 
@@ -16,7 +17,7 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   //Firebase
-  getIt.registerLazySingleton<FoodieFirebaseAuth>(() => FoodieFirebaseAuth());
+  getIt.registerLazySingleton<FoodieFirebaseProfile>(() => FoodieFirebaseProfile());
   getIt.registerLazySingleton<FoodieFirebaseFood>(() => FoodieFirebaseFood());
   getIt.registerLazySingleton<FoodieFirebaseBanner>(
       () => FoodieFirebaseBanner());
@@ -30,6 +31,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<BannerRepo>(() => BannerRepo(getIt()));
   getIt.registerLazySingleton<FoodieFoodRepo>(() => FoodieFoodRepo(getIt()));
   getIt.registerLazySingleton<PaymobRepo>(() => PaymobRepo(getIt()));
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
   //Cubit
   getIt.registerFactory(() => PaymentCubit(getIt()));
 }

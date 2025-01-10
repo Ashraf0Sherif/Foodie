@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/di/dependency_injection.dart';
 import 'package:foodie/core/routing/routes.dart';
 import 'package:foodie/features/home/logic/food_items_cubit/food_items_cubit.dart';
+import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/views/addresses_view.dart';
 import 'package:foodie/features/profile/presentation/views/manage_profile_view.dart';
 import 'package:foodie/features/profile/presentation/views/receipt_details_view.dart';
@@ -89,6 +90,9 @@ class AppRouter {
               ),
               BlocProvider(
                 create: (context) => FoodItemsCubit(getIt()),
+              ),
+              BlocProvider(
+                create: (context) => ProfileCubit(getIt()),
               ),
             ],
             child: const LandingView(),

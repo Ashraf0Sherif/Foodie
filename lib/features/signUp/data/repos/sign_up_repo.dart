@@ -1,26 +1,24 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 import '../../../../core/firebase/foodie_firebase_profile.dart';
 import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../../core/firebase/models/firebase_result/firebase_result.dart';
 
 class SignUpRepo {
-  final FoodieFirebaseAuth customFirebase;
+  final FoodieFirebaseProfile foodieFirebaseProfile;
 
-  SignUpRepo(this.customFirebase);
+  SignUpRepo(this.foodieFirebaseProfile);
 
-  Future<FirebaseResult<UserCredential>> signupUsingEmailAndPassword(
+  Future<FirebaseResult<void>> signupUsingEmailAndPassword(
       {required String email,
       required String password,
       required String firstName,
       required String lastName}) async {
     try {
-      var response = await customFirebase.signupUsingEmailAndPassword(
+      await foodieFirebaseProfile.signupUsingEmailAndPassword(
           email: email,
           password: password,
           firstName: firstName,
           lastName: lastName);
-      return FirebaseResult.success(response);
+      return const FirebaseResult.success(null);
     } catch (error) {
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));

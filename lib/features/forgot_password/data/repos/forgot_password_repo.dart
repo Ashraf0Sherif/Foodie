@@ -3,13 +3,13 @@ import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions
 import '../../../../core/firebase/models/firebase_result/firebase_result.dart';
 
 class ForgotPasswordRepo {
-  final FoodieFirebaseAuth customFirebase;
+  final FoodieFirebaseProfile foodieFirebaseProfile;
 
-  ForgotPasswordRepo(this.customFirebase);
+  ForgotPasswordRepo(this.foodieFirebaseProfile);
 
   Future<FirebaseResult<dynamic>> forgotPassword({required String email}) async {
     try {
-      await customFirebase.forgotPassword(email: email);
+      await foodieFirebaseProfile.forgotPassword(email: email);
       return const FirebaseResult.success(null);
     } catch (error) {
       return FirebaseResult.failure(

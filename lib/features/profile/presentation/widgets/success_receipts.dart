@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 
@@ -7,10 +6,6 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/theming/ui_constants.dart';
-import '../../../../core/widgets/food_items_sliver_list_view.dart';
-import '../../../cart/logic/cart_cubit/cart_cubit.dart';
-import 'address_card.dart';
 
 class SuccessReceipts extends StatelessWidget {
   const SuccessReceipts({super.key});

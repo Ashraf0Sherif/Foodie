@@ -6,14 +6,24 @@ import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions
 import '../../../login/data/models/user_model/foodie_user.dart';
 
 class ProfileRepo {
-  final FoodieFirebaseAuth foodieFirebaseAuth;
+  final FoodieFirebaseProfile foodieFirebaseProfile;
 
-  ProfileRepo(this.foodieFirebaseAuth);
+  ProfileRepo(this.foodieFirebaseProfile);
 
   Future<FirebaseResult<void>> logout() async {
     try {
-      await foodieFirebaseAuth.logout();
+      await foodieFirebaseProfile.logout();
       return const FirebaseResult.success(null);
+    } catch (error) {
+      return FirebaseResult.failure(
+          FirebaseExceptions.getFirebaseException(error));
+    }
+  }
+
+  Future<FirebaseResult<FoodieUser>> getCurrentUser() async {
+    try {
+      var foodieUser = await foodieFirebaseProfile.getCurrentUser();
+      return FirebaseResult.success(foodieUser);
     } catch (error) {
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
@@ -23,7 +33,7 @@ class ProfileRepo {
   Future<FirebaseResult<void>> addAddress(
       {required FoodieUser foodieUser, required Address address}) async {
     try {
-      await foodieFirebaseAuth.addAddress(
+      await foodieFirebaseProfile.addAddress(
           foodieUser: foodieUser, address: address);
       return const FirebaseResult.success(null);
     } catch (error) {
@@ -36,7 +46,7 @@ class ProfileRepo {
       {required FoodieUser foodieUser}) async {
     try {
       var addresses =
-          await foodieFirebaseAuth.getUserAddresses(foodieUser: foodieUser);
+          await foodieFirebaseProfile.getUserAddresses(foodieUser: foodieUser);
       return FirebaseResult.success(addresses);
     } catch (error) {
       return FirebaseResult.failure(

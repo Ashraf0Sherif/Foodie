@@ -25,8 +25,8 @@ class SignUpCubit extends Cubit<SignUpState> {
         password: passwordController.text,
         firstName: firstNameController.text,
         lastName: lastNameController.text);
-    response.when(success: (user) {
-      emit(SignUpState.signUpSuccess(user));
+    response.when(success: (_) {
+      emit(const SignUpState.signUpSuccess());
     }, failure: (error) {
       emit(SignUpState.signUpError(
           error: FirebaseExceptions.getErrorMessage(error)));

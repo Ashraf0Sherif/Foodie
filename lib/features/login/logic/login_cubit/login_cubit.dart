@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../data/repos/login_repo.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -20,8 +19,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await loginRepo.loginUsingEmailAndPassword(
         email: emailController.text, password: passwordController.text);
-    response.when(success: (foodieUser) {
-      emit(LoginState.success(foodieUser: foodieUser));
+    response.when(success: (userCredential) {
+      emit(const LoginState.success());
     }, failure: (error) {
       emit(LoginState.error(error: FirebaseExceptions.getErrorMessage(error)));
     });

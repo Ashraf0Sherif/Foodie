@@ -24,10 +24,9 @@ class LoginBlocListener extends StatelessWidget {
                 builder: (context) =>
                     const Center(child: CircularProgressIndicator()));
           },
-          success: (foodieUser) {
+          success: () {
             context.pop();
-            context.pushNamedAndRemoveUntil(Routes.kLandingView,
-                arguments: foodieUser, predicate: (Route<dynamic> route) {
+            context.pushNamedAndRemoveUntil(Routes.kLandingView, predicate: (Route<dynamic> route) {
               return false;
             });
           },

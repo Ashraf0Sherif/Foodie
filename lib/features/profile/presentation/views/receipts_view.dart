@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/core/helpers/extensions.dart';
-import 'package:foodie/features/profile/presentation/widgets/no_receipts_found.dart';
 import 'package:foodie/features/profile/presentation/widgets/success_receipts.dart';
 
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 

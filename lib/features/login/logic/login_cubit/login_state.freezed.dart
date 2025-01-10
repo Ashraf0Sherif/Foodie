@@ -20,7 +20,7 @@ mixin _$LoginState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FoodieUser foodieUser) success,
+    required TResult Function() success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LoginState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FoodieUser foodieUser)? success,
+    TResult? Function()? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$LoginState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FoodieUser foodieUser)? success,
+    TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -132,7 +132,7 @@ class _$LoginInitialImpl<T> implements _LoginInitial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FoodieUser foodieUser) success,
+    required TResult Function() success,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -143,7 +143,7 @@ class _$LoginInitialImpl<T> implements _LoginInitial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FoodieUser foodieUser)? success,
+    TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -154,7 +154,7 @@ class _$LoginInitialImpl<T> implements _LoginInitial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FoodieUser foodieUser)? success,
+    TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -249,7 +249,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FoodieUser foodieUser) success,
+    required TResult Function() success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -260,7 +260,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FoodieUser foodieUser)? success,
+    TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -271,7 +271,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FoodieUser foodieUser)? success,
+    TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -328,8 +328,6 @@ abstract class _$$LoginSuccessImplCopyWith<T, $Res> {
   factory _$$LoginSuccessImplCopyWith(_$LoginSuccessImpl<T> value,
           $Res Function(_$LoginSuccessImpl<T>) then) =
       __$$LoginSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({FoodieUser foodieUser});
 }
 
 /// @nodoc
@@ -342,63 +340,36 @@ class __$$LoginSuccessImplCopyWithImpl<T, $Res>
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? foodieUser = null,
-  }) {
-    return _then(_$LoginSuccessImpl<T>(
-      foodieUser: null == foodieUser
-          ? _value.foodieUser
-          : foodieUser // ignore: cast_nullable_to_non_nullable
-              as FoodieUser,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
-  const _$LoginSuccessImpl({required this.foodieUser});
-
-  @override
-  final FoodieUser foodieUser;
+  const _$LoginSuccessImpl();
 
   @override
   String toString() {
-    return 'LoginState<$T>.success(foodieUser: $foodieUser)';
+    return 'LoginState<$T>.success()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginSuccessImpl<T> &&
-            (identical(other.foodieUser, foodieUser) ||
-                other.foodieUser == foodieUser));
+        (other.runtimeType == runtimeType && other is _$LoginSuccessImpl<T>);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, foodieUser);
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginSuccessImplCopyWith<T, _$LoginSuccessImpl<T>> get copyWith =>
-      __$$LoginSuccessImplCopyWithImpl<T, _$LoginSuccessImpl<T>>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FoodieUser foodieUser) success,
+    required TResult Function() success,
     required TResult Function(String error) error,
   }) {
-    return success(foodieUser);
+    return success();
   }
 
   @override
@@ -406,10 +377,10 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FoodieUser foodieUser)? success,
+    TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
-    return success?.call(foodieUser);
+    return success?.call();
   }
 
   @override
@@ -417,12 +388,12 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FoodieUser foodieUser)? success,
+    TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(foodieUser);
+      return success();
     }
     return orElse();
   }
@@ -466,16 +437,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
 }
 
 abstract class LoginSuccess<T> implements LoginState<T> {
-  const factory LoginSuccess({required final FoodieUser foodieUser}) =
-      _$LoginSuccessImpl<T>;
-
-  FoodieUser get foodieUser;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoginSuccessImplCopyWith<T, _$LoginSuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory LoginSuccess() = _$LoginSuccessImpl<T>;
 }
 
 /// @nodoc
@@ -548,7 +510,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(FoodieUser foodieUser) success,
+    required TResult Function() success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -559,7 +521,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(FoodieUser foodieUser)? success,
+    TResult? Function()? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -570,7 +532,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(FoodieUser foodieUser)? success,
+    TResult Function()? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
