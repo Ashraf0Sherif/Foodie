@@ -8,10 +8,14 @@ import '../../../../cart/logic/cart_cubit/cart_cubit.dart';
 
 class CustomizeExtraIngredientsSection extends StatelessWidget {
   const CustomizeExtraIngredientsSection(
-      {super.key, required this.foodItem, required this.onIngredientChanged});
+      {super.key,
+      required this.foodItem,
+      required this.onIngredientChanged,
+      this.isReceipt = false});
 
   final FoodItem foodItem;
   final VoidCallback onIngredientChanged;
+  final bool isReceipt;
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +44,21 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
                 ),
               ],
             ),
-            CustomIngredientCheckBox(
-              ingredient: foodItem.extraIngredients[i],
-              onChanged: (bool value) {
-                if (value) {
-                  foodItem.totalPrice +=
-                      int.parse(foodItem.extraIngredients[i].price);
-                } else {
-                  foodItem.totalPrice -=
-                      int.parse(foodItem.extraIngredients[i].price);
-                }
-                context.read<CartCubit>().updateCheckoutPrice();
-                onIngredientChanged();
-              },
-            )
+            if (!isReceipt)
+              CustomIngredientCheckBox(
+                ingredient: foodItem.extraIngredients[i],
+                onChanged: (bool value) {
+                  if (value) {
+                    foodItem.totalPrice +=
+                        int.parse(foodItem.extraIngredients[i].price);
+                  } else {
+                    foodItem.totalPrice -=
+                        int.parse(foodItem.extraIngredients[i].price);
+                  }
+                  context.read<CartCubit>().updateCheckoutPrice();
+                  onIngredientChanged();
+                },
+              )
           ],
         ),
     ]);

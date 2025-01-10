@@ -9,10 +9,12 @@ class FoodItemsSliverListView extends StatelessWidget {
     super.key,
     required this.foodItems,
     required this.isLoading,
+    this.isReceiptView = false,
   });
 
   final List<FoodItem> foodItems;
   final bool isLoading;
+  final bool isReceiptView;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,10 @@ class FoodItemsSliverListView extends StatelessWidget {
       itemCount: foodItems.length + (isLoading ? 1 : 0),
       itemBuilder: (BuildContext context, int index) {
         if (index < foodItems.length) {
-          return FoodItemCard(foodItem: foodItems[index]);
+          return FoodItemCard(
+            foodItem: foodItems[index],
+            isReceipt: isReceiptView,
+          );
         } else {
           return const FoodItemCardSkeleton();
         }

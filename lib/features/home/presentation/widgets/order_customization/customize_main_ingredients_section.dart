@@ -6,10 +6,14 @@ import 'custom_ingredient_check_box.dart';
 
 class CustomizeMainIngredientsSection extends StatelessWidget {
   const CustomizeMainIngredientsSection(
-      {super.key, required this.foodItem, required this.onIngredientChanged});
+      {super.key,
+      required this.foodItem,
+      required this.onIngredientChanged,
+      this.isReceipt = false});
 
   final FoodItem foodItem;
   final VoidCallback onIngredientChanged;
+  final bool isReceipt;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +32,11 @@ class CustomizeMainIngredientsSection extends StatelessWidget {
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
-              CustomIngredientCheckBox(
-                ingredient: foodItem.mainIngredients[i],
-                onChanged: (bool value) => onIngredientChanged(),
-              )
+              if (!isReceipt)
+                CustomIngredientCheckBox(
+                  ingredient: foodItem.mainIngredients[i],
+                  onChanged: (bool value) => onIngredientChanged(),
+                )
             ],
           ),
       ],

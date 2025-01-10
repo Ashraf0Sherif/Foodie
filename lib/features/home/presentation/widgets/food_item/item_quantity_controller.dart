@@ -14,7 +14,6 @@ class ItemQuantityController extends StatefulWidget {
   });
 
   final FoodItem foodItem;
-
   @override
   State<ItemQuantityController> createState() => _ItemQuantityControllerState();
 }

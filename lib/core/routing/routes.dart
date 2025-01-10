@@ -11,4 +11,5 @@ class Routes {
   static const String kPaymentGatewayView = '/paymentGateway';
   static const String kAddressView = '/address';
   static const String kReceiptsView = '/receipts';
+  static const String kReceiptDetailsView = '/receiptDetails';
 }

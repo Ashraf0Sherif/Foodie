@@ -9,7 +9,10 @@ import '../views/address_bottom_sheet.dart';
 class AddressCard extends StatelessWidget {
   const AddressCard({
     super.key,
+    this.edit = true,
   });
+
+  final bool edit;
 
   @override
   Widget build(BuildContext context) {
@@ -48,23 +51,26 @@ class AddressCard extends StatelessWidget {
               'details of address',
               style: FontStyles.font12PassiveRegular,
             ),
-            trailing: IconButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    isScrollControlled: true,
-                    builder: (context) {
-                      return const AddressBottomSheet(
-                        edit: true,
+            trailing: edit
+                ? IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return const AddressBottomSheet(
+                            edit: true,
+                          );
+                        },
                       );
                     },
-                  );
-                },
-                icon: Icon(
-                  Icons.mode_edit_sharp,
-                  size: 22.sp,
-                  color: ColorsStyles.kPrimaryColor,
-                )),
+                    icon: Icon(
+                      Icons.mode_edit_sharp,
+                      size: 22.sp,
+                      color: ColorsStyles.kPrimaryColor,
+                    ),
+                  )
+                : null,
           ),
         ),
       ),

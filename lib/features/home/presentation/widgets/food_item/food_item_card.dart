@@ -12,9 +12,11 @@ class FoodItemCard extends StatelessWidget {
   const FoodItemCard({
     super.key,
     required this.foodItem,
+    this.isReceipt = false,
   });
 
   final FoodItem foodItem;
+  final bool isReceipt;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class FoodItemCard extends StatelessWidget {
           isScrollControlled: true,
           builder: (modalContext) => CustomizeOrderBottomSheet(
             foodItem: foodItem,
+            isReceipt: isReceipt,
           ),
         ),
         child: Card(
@@ -47,9 +50,10 @@ class FoodItemCard extends StatelessWidget {
                         foodItem: foodItem,
                       ),
                     ),
-                    ItemQuantityController(
-                      foodItem: foodItem,
-                    ),
+                    if (!isReceipt)
+                      ItemQuantityController(
+                        foodItem: foodItem,
+                      ),
                     horizontalSpace(20),
                   ],
                 ),
