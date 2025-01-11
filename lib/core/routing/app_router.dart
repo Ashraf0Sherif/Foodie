@@ -99,8 +99,11 @@ class AppRouter {
         );
       case Routes.kAddressView:
         return MaterialPageRoute(
-          builder: (_) => AddressesView(
-            foodieUser: arguments as FoodieUser,
+          builder: (_) => BlocProvider<ProfileCubit>.value(
+            value: arguments as ProfileCubit,
+            child: AddressesView(
+              profileCubit: arguments,
+            ),
           ),
           settings: const RouteSettings(name: Routes.kAddressView),
         );

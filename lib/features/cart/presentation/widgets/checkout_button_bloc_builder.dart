@@ -4,9 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../home/data/models/food_item/food_item.dart';
-import '../../../login/data/models/user_model/address.dart';
-import '../../../login/data/models/user_model/foodie_user.dart';
-import '../../logic/cart_cubit/cart_cubit.dart';
 import '../../logic/payment_cubit/payment_cubit.dart';
 
 class CheckoutButtonBlocBuilder extends StatelessWidget {

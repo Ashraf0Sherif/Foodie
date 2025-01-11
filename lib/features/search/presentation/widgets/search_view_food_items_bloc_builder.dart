@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/widgets/no_internet_connection_widget.dart';
-import 'package:foodie/features/profile/presentation/widgets/no_addresses_found.dart';
+import 'package:foodie/core/widgets/no_items_found.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/helpers/assets.dart';

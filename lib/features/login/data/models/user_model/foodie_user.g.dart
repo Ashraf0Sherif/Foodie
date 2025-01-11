@@ -8,7 +8,7 @@ part of 'foodie_user.dart';
 
 FoodieUser _$FoodieUserFromJson(Map<String, dynamic> json) => FoodieUser(
       phoneNumber: json['phoneNumber'] as String?,
-      address: (json['address'] as List<dynamic>?)
+      addresses: (json['addresses'] as List<dynamic>?)
           ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalOrders: (json['totalOrders'] as num).toInt(),
@@ -20,7 +20,7 @@ Map<String, dynamic> _$FoodieUserToJson(FoodieUser instance) =>
       'totalOrders': instance.totalOrders,
       'totalSpent': instance.totalSpent,
       'phoneNumber': instance.phoneNumber,
-      'address': instance.address,
+      'addresses': instance.addresses,
       'id': instance.id,
       'email': instance.email,
       'username': instance.username,

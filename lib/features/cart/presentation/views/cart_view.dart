@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import 'package:foodie/core/widgets/custom_elevated_button.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
-import 'package:foodie/features/profile/presentation/widgets/no_addresses_found.dart';
+import 'package:foodie/core/widgets/no_items_found.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';

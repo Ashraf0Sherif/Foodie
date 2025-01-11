@@ -7,10 +7,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../../core/media_service/media_service.dart';
+import '../../../login/data/models/user_model/address.dart';
 import '../../data/repos/profile_repo.dart';
 
 part 'profile_cubit.freezed.dart';
-
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
@@ -26,7 +26,11 @@ class ProfileCubit extends Cubit<ProfileState> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController currentPasswordController =
       TextEditingController();
-  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+  final TextEditingController addressTitleController = TextEditingController();
+  final TextEditingController streetController = TextEditingController();
+  final TextEditingController floorController = TextEditingController();
+  final TextEditingController buildingController = TextEditingController();
+  final TextEditingController apartmentController = TextEditingController();
 
   void getFoodieUser() async {
     emit(const ProfileState.loading());
@@ -34,6 +38,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     response.when(
       success: (foodieUser) {
         this.foodieUser = foodieUser;
+        print(this.foodieUser!.addresses);
         emit(const ProfileState.success());
       },
       failure: (error) {
@@ -67,7 +72,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
-  Future<void> changeUserAvatar() async {
+  void changeUserAvatar() async {
     File? image = await MediaService.getImageFromGallery();
     if (image != null) {
       emit(const ProfileState.loading());
@@ -75,7 +80,6 @@ class ProfileCubit extends Cubit<ProfileState> {
       response.when(
         success: (avatarUrl) {
           foodieUser!.avatarUrl = avatarUrl;
-          print(foodieUser!.avatarUrl);
           emit(const ProfileState.success());
         },
         failure: (FirebaseExceptions firebaseExceptions) {
@@ -87,5 +91,79 @@ class ProfileCubit extends Cubit<ProfileState> {
         },
       );
     }
+  }
+
+  void addAddress() async {
+    emit(const ProfileState.loading());
+    final address = Address(
+      title: addressTitleController.text,
+      street: streetController.text,
+      floor: floorController.text,
+      building: buildingController.text,
+      apartment: apartmentController.text,
+    );
+    final response =
+        await profileRepo.addAddress(foodieUser: foodieUser!, address: address);
+    response.when(
+      success: (address) {
+        if (foodieUser!.addresses == null) {
+          foodieUser!.addresses = [];
+        }
+        foodieUser!.addresses!.add(address);
+        emit(const ProfileState.success());
+      },
+      failure: (error) {
+        emit(ProfileState.error(
+            error: FirebaseExceptions.getErrorMessage(error)));
+      },
+    );
+  }
+
+  void removeAddress({required Address address}) async {
+    emit(const ProfileState.loading());
+    final response = await profileRepo.deleteAddress(
+        foodieUser: foodieUser!, addressId: address.id);
+    response.when(
+      success: (_) {
+        foodieUser!.addresses!.remove(address);
+        emit(const ProfileState.success());
+      },
+      failure: (error) {
+        emit(ProfileState.error(
+            error: FirebaseExceptions.getErrorMessage(error)));
+      },
+    );
+  }
+
+  void updateAddress({required Address address}) async {
+    if (address.title == addressTitleController.text &&
+        address.street == streetController.text &&
+        address.floor == floorController.text &&
+        address.building == buildingController.text &&
+        address.apartment == apartmentController.text) {
+      return;
+    }
+    emit(const ProfileState.loading());
+    final updatedAddress = Address(
+      title: addressTitleController.text,
+      street: streetController.text,
+      floor: floorController.text,
+      building: buildingController.text,
+      apartment: apartmentController.text,
+    );
+    updatedAddress.id = address.id;
+    final response = await profileRepo.updateAddress(
+        foodieUser: foodieUser!, address: updatedAddress);
+    response.when(
+      success: (_) {
+        foodieUser!.addresses!.remove(address);
+        foodieUser!.addresses!.add(updatedAddress);
+        emit(const ProfileState.success());
+      },
+      failure: (error) {
+        emit(ProfileState.error(
+            error: FirebaseExceptions.getErrorMessage(error)));
+      },
+    );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodie/core/widgets/custom_elevated_button.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/styles.dart';
@@ -30,7 +29,7 @@ class NoDataView extends StatelessWidget {
         ),
         Center(
           child: Padding(
-            padding: EdgeInsets.only(top: 8.h,right: 14.w,left: 14.w),
+            padding: EdgeInsets.only(top: 8.h, right: 14.w, left: 14.w),
             child: Text(
               'There is no data to show right now',
               style: FontStyles.font16PrimaryColoSemiBold,

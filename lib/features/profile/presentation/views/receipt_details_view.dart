@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
+import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/profile/presentation/widgets/address_card.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -54,7 +55,7 @@ class ReceiptDetailsView extends StatelessWidget {
                             children: [
                               Text('Date',
                                   style: FontStyles.font16BlackSemiBold),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 '23.05.2020 - 23:20',
                                 style: FontStyles.font14PassiveRegular,
@@ -65,7 +66,7 @@ class ReceiptDetailsView extends StatelessWidget {
                             children: [
                               Text('Order Number',
                                   style: FontStyles.font16BlackSemiBold),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 '14124124',
                                 style: FontStyles.font14PassiveRegular,
@@ -95,7 +96,7 @@ class ReceiptDetailsView extends StatelessWidget {
                             children: [
                               Text('Total',
                                   style: FontStyles.font16BlackSemiBold),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 '1200 EGP',
                                 style: FontStyles.font14PassiveRegular,
@@ -106,14 +107,14 @@ class ReceiptDetailsView extends StatelessWidget {
                             children: [
                               Text('Shipping',
                                   style: FontStyles.font16BlackSemiBold),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 'Free',
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
                           ),
-                          Divider(
+                          const Divider(
                             color: Colors.grey,
                             thickness: 0.5,
                           ),
@@ -121,7 +122,7 @@ class ReceiptDetailsView extends StatelessWidget {
                             children: [
                               Text('Total',
                                   style: FontStyles.font16PrimaryColoSemiBold),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 '1200 EGP',
                                 style: FontStyles.font16PrimaryColoSemiBold,
@@ -136,7 +137,10 @@ class ReceiptDetailsView extends StatelessWidget {
                   Text('Address Information',
                       style: FontStyles.font16PrimaryColoSemiBold),
                   verticalSpace(10),
-                  AddressCard(edit: false),
+                  AddressCard(
+                    edit: false,
+                    address: Address(street: 'street', title: ' title'),
+                  ),
                   verticalSpace(10),
                   Text('Payment Information',
                       style: FontStyles.font16PrimaryColoSemiBold),

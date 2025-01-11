@@ -140,7 +140,7 @@ class SuccessProfileView extends StatelessWidget {
                   buildPaddingRow(
                       title: 'Addresses',
                       onPressed: () => context.pushNamed(Routes.kAddressView,
-                          arguments: foodieUser)),
+                          arguments: context.read<ProfileCubit>())),
                   buildDivider(),
                   buildPaddingRow(
                       title: 'Receipts',
@@ -198,7 +198,7 @@ class SuccessProfileView extends StatelessWidget {
       child: Row(
         children: [
           Text(title, style: FontStyles.font14PassiveRegular),
-          Spacer(),
+          const Spacer(),
           IconButton(
             onPressed: onPressed,
             icon: Icon(

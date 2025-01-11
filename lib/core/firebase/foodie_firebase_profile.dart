@@ -93,26 +93,52 @@ class FoodieFirebaseProfile {
     foodieUser.email = user.email!;
     foodieUser.username = user.displayName!;
     foodieUser.avatarUrl = user.photoURL;
+    foodieUser.addresses = await _getUserAddresses(foodieUser: foodieUser);
     return foodieUser;
   }
 
-  Future<void> addAddress(
+  Future<Address> addAddress(
       {required FoodieUser foodieUser, required Address address}) async {
-    await FirebaseFirestore.instance
+    final docRef = await FirebaseFirestore.instance
         .collection('users')
         .doc(foodieUser.id)
         .collection('addresses')
         .add(address.toJson());
+    address.id = docRef.id;
+    return address;
   }
 
-  Future<List<Address>> getUserAddresses({required FoodieUser foodieUser}) {
+  Future<List<Address>> _getUserAddresses({required FoodieUser foodieUser}) {
     return FirebaseFirestore.instance
         .collection('users')
         .doc(foodieUser.id)
         .collection('addresses')
         .get()
-        .then((snapshot) =>
-            snapshot.docs.map((doc) => Address.fromJson(doc.data())).toList());
+        .then((snapshot) => snapshot.docs.map((doc) {
+              final address = Address.fromJson(doc.data());
+              address.id = doc.id;
+              return address;
+            }).toList());
+  }
+
+  Future<void> deleteAddress(
+      {required FoodieUser foodieUser, required String addressId}) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(foodieUser.id)
+        .collection('addresses')
+        .doc(addressId)
+        .delete();
+  }
+
+  Future<void> updateAddress(
+      {required FoodieUser foodieUser, required Address address}) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(foodieUser.id)
+        .collection('addresses')
+        .doc(address.id)
+        .set(address.toJson(), SetOptions(merge: true));
   }
 
   Future<String> changeUserAvatar({required File image}) async {

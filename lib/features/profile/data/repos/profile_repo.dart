@@ -27,7 +27,6 @@ class ProfileRepo {
       var foodieUser = await foodieFirebaseProfile.getCurrentUser();
       return FirebaseResult.success(foodieUser);
     } catch (error) {
-      print(error);
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }
@@ -51,7 +50,6 @@ class ProfileRepo {
       );
       return FirebaseResult.success(foodieUser);
     } catch (error) {
-      print(error);
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }
@@ -68,11 +66,25 @@ class ProfileRepo {
     }
   }
 
-  Future<FirebaseResult<void>> addAddress(
+  Future<FirebaseResult<Address>> addAddress(
       {required FoodieUser foodieUser, required Address address}) async {
     try {
-      await foodieFirebaseProfile.addAddress(
+      var response = await foodieFirebaseProfile.addAddress(
           foodieUser: foodieUser, address: address);
+      return FirebaseResult.success(response);
+    } catch (error) {
+      return FirebaseResult.failure(
+          FirebaseExceptions.getFirebaseException(error));
+    }
+  }
+
+  Future<FirebaseResult<void>> deleteAddress(
+      {required FoodieUser foodieUser, required String addressId}) async {
+    try {
+      await foodieFirebaseProfile.deleteAddress(
+        foodieUser: foodieUser,
+        addressId: addressId,
+      );
       return const FirebaseResult.success(null);
     } catch (error) {
       return FirebaseResult.failure(
@@ -80,13 +92,16 @@ class ProfileRepo {
     }
   }
 
-  Future<FirebaseResult<List<Address>>> getUserAddresses(
-      {required FoodieUser foodieUser}) async {
+  Future<FirebaseResult<void>> updateAddress(
+      {required FoodieUser foodieUser, required Address address}) async {
     try {
-      var addresses =
-          await foodieFirebaseProfile.getUserAddresses(foodieUser: foodieUser);
-      return FirebaseResult.success(addresses);
+      await foodieFirebaseProfile.updateAddress(
+        foodieUser: foodieUser,
+        address: address,
+      );
+      return const FirebaseResult.success(null);
     } catch (error) {
+      print(error);
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }
