@@ -9,6 +9,8 @@ class Address {
   String? floor;
   String? building;
   String? apartment;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  late final String id;
 
   Address({
     required this.street,
@@ -22,4 +24,9 @@ class Address {
       _$AddressFromJson(json);
 
   Map<String, dynamic> toJson() => _$AddressToJson(this);
+
+  @override
+  String toString() {
+    return 'Address{title: $title, street: $street, floor: $floor, building: $building, apartment: $apartment} , id: $id';
+  }
 }

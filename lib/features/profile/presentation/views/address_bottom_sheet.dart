@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/home/presentation/widgets/order_customization/customize_order_bottom_sheet_top_bar.dart';
 
+import '../../../login/data/models/user_model/address.dart';
 import '../widgets/address_bottom_sheet_form.dart';
 
 class AddressBottomSheet extends StatelessWidget {
   const AddressBottomSheet({
     super.key,
     required this.edit,
+    this.address,
   });
 
   final bool edit;
+  final Address? address;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,10 @@ class AddressBottomSheet extends StatelessWidget {
               color: Color(0xffECECEC),
             ),
             Expanded(
-              child: AddressBottomSheetForm(edit: edit),
+              child: AddressBottomSheetForm(
+                edit: edit,
+                address: address,
+              ),
             )
           ],
         ),
@@ -33,5 +39,3 @@ class AddressBottomSheet extends StatelessWidget {
     );
   }
 }
-
-

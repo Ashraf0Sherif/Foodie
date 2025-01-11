@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
+import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/profile/presentation/widgets/address_card.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -136,7 +137,10 @@ class ReceiptDetailsView extends StatelessWidget {
                   Text('Address Information',
                       style: FontStyles.font16PrimaryColoSemiBold),
                   verticalSpace(10),
-                  AddressCard(edit: false),
+                  AddressCard(
+                    edit: false,
+                    address: Address(street: 'street', title: ' title'),
+                  ),
                   verticalSpace(10),
                   Text('Payment Information',
                       style: FontStyles.font16PrimaryColoSemiBold),

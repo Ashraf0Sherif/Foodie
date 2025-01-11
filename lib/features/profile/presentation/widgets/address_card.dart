@@ -1,27 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../login/data/models/user_model/address.dart';
 import '../views/address_bottom_sheet.dart';
 
 class AddressCard extends StatelessWidget {
   const AddressCard({
     super.key,
     this.edit = true,
+    required this.address,
+    this.profileCubit,
   });
 
   final bool edit;
+  final Address address;
+  final ProfileCubit? profileCubit;
 
   @override
   Widget build(BuildContext context) {
     return Slidable(
+      enabled: edit,
       endActionPane: ActionPane(
         motion: const StretchMotion(),
         children: [
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              context.read<ProfileCubit>().removeAddress(address: address);
+            },
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
             icon: Icons.delete,
@@ -46,9 +56,12 @@ class AddressCard extends StatelessWidget {
               size: 30.sp,
               color: ColorsStyles.kPrimaryColor,
             ),
-            title: Text('Home', style: FontStyles.font16SecondaryColorBold),
+            title: Text(
+              address.title,
+              style: FontStyles.font16SecondaryColorBold,
+            ),
             subtitle: Text(
-              'details of address',
+              address.street,
               style: FontStyles.font12PassiveRegular,
             ),
             trailing: edit
@@ -58,8 +71,12 @@ class AddressCard extends StatelessWidget {
                         context: context,
                         isScrollControlled: true,
                         builder: (context) {
-                          return const AddressBottomSheet(
-                            edit: true,
+                          return BlocProvider<ProfileCubit>.value(
+                            value: profileCubit!,
+                            child: AddressBottomSheet(
+                              edit: true,
+                              address: address,
+                            ),
                           );
                         },
                       );

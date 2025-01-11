@@ -9,7 +9,7 @@ class FoodieUser {
   int totalOrders;
   double totalSpent;
   String? phoneNumber;
-  final List<Address>? address;
+  List<Address>? addresses;
   @JsonKey(includeFromJson: false, includeToJson: true)
   late final String id;
   @JsonKey(includeFromJson: false, includeToJson: true)
@@ -19,10 +19,11 @@ class FoodieUser {
   @JsonKey(includeFromJson: false, includeToJson: true)
   String? avatarUrl;
 
-  FoodieUser({required this.phoneNumber,
-    required this.address,
-    required this.totalOrders,
-    required this.totalSpent});
+  FoodieUser(
+      {required this.phoneNumber,
+      required this.addresses,
+      required this.totalOrders,
+      required this.totalSpent});
 
   factory FoodieUser.fromJson(Map<String, dynamic> json) =>
       _$FoodieUserFromJson(json);
@@ -31,6 +32,6 @@ class FoodieUser {
 
   @override
   String toString() {
-    return 'FoodieUser{username: $username, firstName, email: $email, phoneNumber: $phoneNumber, address: $address}';
+    return 'FoodieUser{username: $username, firstName, email: $email, phoneNumber: $phoneNumber, address: $addresses}';
   }
 }

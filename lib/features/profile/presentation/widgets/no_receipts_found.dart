@@ -7,7 +7,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
-import 'no_addresses_found.dart';
+import '../../../../core/widgets/no_items_found.dart';
 class NoReceiptsFound extends StatelessWidget {
   const NoReceiptsFound({super.key});
 
