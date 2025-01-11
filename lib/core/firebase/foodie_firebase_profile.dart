@@ -17,19 +17,17 @@ class FoodieFirebaseProfile {
   Future<void> signupUsingEmailAndPassword(
       {required String email,
       required String password,
-      required String firstName,
-      required String lastName}) async {
+      required String username}) async {
     UserCredential userCredential =
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
     User user = userCredential.user!;
-    await user.updateDisplayName("$firstName $lastName");
+    await user.updateDisplayName(username);
     await user.reload();
     user = FirebaseAuth.instance.currentUser!;
-    await addUserToFirestore(
-        userId: user.uid, firstName: firstName, lastName: lastName);
+    await addUserToFirestore(userId: user.uid);
   }
 
   Future<void> logout() async {
@@ -40,14 +38,11 @@ class FoodieFirebaseProfile {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> addUserToFirestore(
-      {required String userId,
-      required String firstName,
-      required String lastName}) async {
+  Future<void> addUserToFirestore({required String userId}) async {
     await FirebaseFirestore.instance.collection('users').doc(userId).set(
       {
-        'firstName': firstName,
-        'lastName': lastName,
+        'totalOrders': 0,
+        'totalSpent': 0.0,
       },
     );
   }
@@ -62,6 +57,7 @@ class FoodieFirebaseProfile {
         FoodieUser.fromJson(snapshot.data() as Map<String, dynamic>);
     foodieUser.id = user.uid;
     foodieUser.email = user.email!;
+    foodieUser.username = user.displayName!;
     return foodieUser;
   }
 

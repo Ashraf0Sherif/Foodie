@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/core/helpers/assets.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
+import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -8,7 +9,9 @@ import '../widgets/no_addresses_found.dart';
 import 'address_bottom_sheet.dart';
 
 class AddressesView extends StatelessWidget {
-  const AddressesView({super.key});
+  const AddressesView({super.key, required this.foodieUser});
+
+  final FoodieUser foodieUser;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +25,14 @@ class AddressesView extends StatelessWidget {
         ),
         onPressed: () {
           showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              builder: (context) {
-                return const AddressBottomSheet(
-                  edit: false,
-                );
-              });
+            context: context,
+            isScrollControlled: true,
+            builder: (context) {
+              return const AddressBottomSheet(
+                edit: false,
+              );
+            },
+          );
         },
       ),
       body: CustomScrollView(

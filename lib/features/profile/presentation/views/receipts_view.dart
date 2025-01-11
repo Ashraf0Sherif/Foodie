@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 import 'package:foodie/features/profile/presentation/widgets/success_receipts.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class ReceiptsView extends StatelessWidget {
-  const ReceiptsView({super.key});
+  const ReceiptsView({super.key, required this.foodieUser});
+
+  final FoodieUser foodieUser;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class ReceiptsView extends StatelessWidget {
               style: FontStyles.font24SecondaryColorBold,
             ),
           ),
-          SuccessReceipts(),
+          const SuccessReceipts(),
         ],
       ),
     );

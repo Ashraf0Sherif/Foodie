@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,6 @@ import 'package:foodie/features/profile/presentation/widgets/no_addresses_found.
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../profile/logic/profile_cubit/profile_cubit.dart';
 import '../widgets/cart_view_body.dart';
 import '../widgets/not_logged_in.dart';
 
@@ -21,13 +21,11 @@ class CartView extends StatelessWidget {
       buildWhen: (previous, current) =>
           current is CartNotEmpty || current is CartEmpty,
       builder: (context, state) {
-        final foodieUserState = context.watch<ProfileCubit>().state;
-        if (foodieUserState is ProfileError) {
-          return const NotLoggedIn();
-        }
-        if (foodieUserState is ProfileLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
+        if (FirebaseAuth.instance.currentUser == null) {
+          return const ProfileErrorOrNotLoggedIn(
+            error: 'Not logged in',
+            view: 'Cart',
+            errorDescription: 'Please login first',
           );
         }
         return state.maybeWhen(

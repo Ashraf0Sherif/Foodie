@@ -7,6 +7,7 @@ import 'package:foodie/features/forgot_password/data/repos/forgot_password_repo.
 import 'package:foodie/features/home/data/repos/banner_repo.dart';
 import 'package:foodie/features/home/data/repos/foodie_food_repo.dart';
 import 'package:foodie/features/profile/data/repos/profile_repo.dart';
+import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/signUp/data/repos/sign_up_repo.dart';
 import 'package:get_it/get_it.dart';
 
@@ -32,6 +33,4 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<FoodieFoodRepo>(() => FoodieFoodRepo(getIt()));
   getIt.registerLazySingleton<PaymobRepo>(() => PaymobRepo(getIt()));
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
-  //Cubit
-  getIt.registerFactory(() => PaymentCubit(getIt()));
 }

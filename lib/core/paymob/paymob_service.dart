@@ -49,8 +49,8 @@ class PaymobService {
   Map<String, String> _buildBillingData(FoodieUser user, Address address) {
     return {
       "email": user.email,
-      "first_name": user.firstName,
-      "last_name": user.lastName,
+      "first_name": user.username,
+      "last_name": "NA",
       "phone_number": user.phoneNumber ?? "NA",
       "country": "NA",
       "city": "NA",

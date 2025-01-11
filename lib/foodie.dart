@@ -35,8 +35,11 @@ class Foodie extends StatelessWidget {
           navigatorObservers: [MyNavigatorObserver()],
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
-          initialRoute:
-              isFirstTime ? Routes.kOnboardingView : Routes.kLandingView,
+          initialRoute: isFirstTime
+              ? Routes.kOnboardingView
+              : (FirebaseAuth.instance.currentUser != null)
+                  ? Routes.kLandingView
+                  : Routes.kLoginView,
           theme: foodieTheme,
         ),
       ),

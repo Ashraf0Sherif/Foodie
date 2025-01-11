@@ -17,6 +17,7 @@ import '../../features/forgot_password/presentation/views/forgot_password_view.d
 import '../../features/home/logic/banner_cubit/banner_cubit.dart';
 import '../../features/home/logic/filter_cubit/filter_cubit.dart';
 import '../../features/home/logic/food_categories_cubit/food_categories_cubit.dart';
+import '../../features/login/data/models/user_model/foodie_user.dart';
 import '../../features/login/logic/login_cubit/login_cubit.dart';
 import '../../features/login/presentation/views/login_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
@@ -83,9 +84,6 @@ class AppRouter {
                     FoodCategoriesCubit(getIt())..emitFoodCategoriesStates(),
               ),
               BlocProvider(
-                create: (context) => ProfileCubit(getIt())..getFoodieUser(),
-              ),
-              BlocProvider(
                 create: (context) => FilterCubit(),
               ),
               BlocProvider(
@@ -101,12 +99,16 @@ class AppRouter {
         );
       case Routes.kAddressView:
         return MaterialPageRoute(
-          builder: (_) => const AddressesView(),
+          builder: (_) => AddressesView(
+            foodieUser: arguments as FoodieUser,
+          ),
           settings: const RouteSettings(name: Routes.kAddressView),
         );
       case Routes.kReceiptsView:
         return MaterialPageRoute(
-          builder: (_) => const ReceiptsView(),
+          builder: (_) => ReceiptsView(
+            foodieUser: arguments as FoodieUser,
+          ),
           settings: const RouteSettings(name: Routes.kReceiptsView),
         );
       case Routes.kReceiptDetailsView:
@@ -116,7 +118,9 @@ class AppRouter {
         );
       case Routes.kManageProfileView:
         return MaterialPageRoute(
-          builder: (_) => const ManageProfileView(),
+          builder: (_) => ManageProfileView(
+            foodieUser: arguments as FoodieUser,
+          ),
           settings: const RouteSettings(name: Routes.kManageProfileView),
         );
       default:

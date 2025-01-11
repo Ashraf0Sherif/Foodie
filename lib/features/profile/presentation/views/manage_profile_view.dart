@@ -4,17 +4,20 @@ import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/core/widgets/custom_elevated_button.dart';
 import 'package:foodie/core/widgets/custom_text_form_field.dart';
+import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class ManageProfileView extends StatelessWidget {
-  const ManageProfileView({super.key});
+  const ManageProfileView({super.key, required this.foodieUser});
+
+  final FoodieUser foodieUser;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=> FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         backgroundColor: ColorsStyles.kViewBackground,
         body: Padding(
@@ -41,7 +44,8 @@ class ManageProfileView extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            border: Border.all(color: ColorsStyles.kPrimaryColor),
+                            border:
+                                Border.all(color: ColorsStyles.kPrimaryColor),
                             borderRadius: BorderRadius.circular(70.r),
                           ),
                           child: Padding(

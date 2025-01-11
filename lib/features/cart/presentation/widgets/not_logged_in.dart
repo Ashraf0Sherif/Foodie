@@ -9,11 +9,17 @@ import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
-import '../../../home/presentation/widgets/home_top_bar.dart';
-import 'clear_cart_alert_dialog.dart';
 
-class NotLoggedIn extends StatelessWidget {
-  const NotLoggedIn({super.key});
+class ProfileErrorOrNotLoggedIn extends StatelessWidget {
+  const ProfileErrorOrNotLoggedIn(
+      {super.key,
+      required this.error,
+      required this.view,
+      required this.errorDescription});
+
+  final String error;
+  final String view;
+  final String errorDescription;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,7 @@ class NotLoggedIn extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            'Cart',
+            view,
             style: FontStyles.font24SecondaryColorBold,
           ),
         ),
@@ -39,7 +45,7 @@ class NotLoggedIn extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  'Not Logged In',
+                  error,
                   style: FontStyles.font24SecondaryColorBold,
                 ),
               ),
@@ -47,7 +53,7 @@ class NotLoggedIn extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(top: 8.h, right: 14.w, left: 14.w),
                   child: Text(
-                    'Please register or login first',
+                    errorDescription,
                     style: FontStyles.font16PrimaryColoSemiBold,
                     textAlign: TextAlign.center,
                   ),

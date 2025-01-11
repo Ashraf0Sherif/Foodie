@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,14 +16,17 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   ProfileCubit(this.profileRepo) : super(const ProfileState.initial());
 
-  void getFoodieUser() async {
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
+  void getFoodieUser() async {
     emit(const ProfileState.loading());
     final response = await profileRepo.getCurrentUser();
     response.when(
       success: (foodieUser) {
         this.foodieUser = foodieUser;
-        print(this.foodieUser);
         emit(const ProfileState.success());
       },
       failure: (error) {

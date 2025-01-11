@@ -10,14 +10,12 @@ class SignUpRepo {
   Future<FirebaseResult<void>> signupUsingEmailAndPassword(
       {required String email,
       required String password,
-      required String firstName,
-      required String lastName}) async {
+      required String username,}) async {
     try {
       await foodieFirebaseProfile.signupUsingEmailAndPassword(
           email: email,
           password: password,
-          firstName: firstName,
-          lastName: lastName);
+          username: username);
       return const FirebaseResult.success(null);
     } catch (error) {
       return FirebaseResult.failure(

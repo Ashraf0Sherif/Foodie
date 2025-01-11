@@ -24,22 +24,25 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           orElse: () => CustomElevatedButton(
             onPressed: () {
-              context.read<PaymentCubit>().emitPaymentStates(
-                    amount: context.read<CartCubit>().price,
-                    foodItems: cartItems,
-                    user: FoodieUser(
-                      firstName: 'dummy',
-                      lastName: 'dummy',
-                      phoneNumber: '01553336414',
-                      address: [],
-                    ),
-                    address: Address(
-                      street: 'Elshorouk',
-                      building: '1',
-                      floor: '',
-                      apartment: '', title: '',
-                    ),
-                  );
+              // context.read<PaymentCubit>().emitPaymentStates(
+              //       amount: context.read<CartCubit>().price,
+              //       foodItems: cartItems,
+              //       user: FoodieUser(
+              //         firstName: 'dummy',
+              //         lastName: 'dummy',
+              //         phoneNumber: '01553336414',
+              //         address: [],
+              //         totalOrders: 0,
+              //         totalSpent: 0,
+              //       ),
+              //       address: Address(
+              //         street: 'Elshorouk',
+              //         building: '1',
+              //         floor: '',
+              //         apartment: '',
+              //         title: '',
+              //       ),
+              //     );
             },
             text: 'CHECKOUT',
             gradient: ColorsStyles.kButtonGradient,
@@ -56,22 +59,25 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
           ),
           success: (paymentKey) => CustomElevatedButton(
             onPressed: () {
-              context.read<PaymentCubit>().emitPaymentStates(
-                    amount: context.read<CartCubit>().price,
-                    foodItems: cartItems,
-                    user: FoodieUser(
-                      firstName: 'dummy',
-                      lastName: 'dummy',
-                      phoneNumber: '01553336414',
-                      address: [],
-                    ),
-                    address: Address(
-                      street: 'Elshorouk',
-                      building: '1',
-                      floor: '',
-                      apartment: '', title: '',
-                    ),
-                  );
+              // context.read<PaymentCubit>().emitPaymentStates(
+              //       amount: context.read<CartCubit>().price,
+              //       foodItems: cartItems,
+              //       user: FoodieUser(
+              //         firstName: 'dummy',
+              //         lastName: 'dummy',
+              //         phoneNumber: '01553336414',
+              //         address: [],
+              //         totalOrders: 0,
+              //         totalSpent: 0,
+              //       ),
+              //       address: Address(
+              //         street: 'Elshorouk',
+              //         building: '1',
+              //         floor: '',
+              //         apartment: '',
+              //         title: '',
+              //       ),
+              //     );
             },
             text: 'CHECKOUT',
             gradient: ColorsStyles.kButtonGradient,

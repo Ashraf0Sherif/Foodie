@@ -6,21 +6,22 @@ part 'foodie_user.g.dart';
 
 @JsonSerializable()
 class FoodieUser {
-  String firstName;
-  String lastName;
-
+  int totalOrders;
+  double totalSpent;
   String? phoneNumber;
   List<Address>? address;
   @JsonKey(includeFromJson: false, includeToJson: true)
   late final String id;
   @JsonKey(includeFromJson: false, includeToJson: true)
   late final String email;
-  FoodieUser({
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
-    required this.address,
-  });
+  @JsonKey(includeFromJson: false, includeToJson: true)
+  String username = '';
+
+  FoodieUser(
+      {required this.phoneNumber,
+      required this.address,
+      required this.totalOrders,
+      required this.totalSpent});
 
   factory FoodieUser.fromJson(Map<String, dynamic> json) =>
       _$FoodieUserFromJson(json);
@@ -29,6 +30,6 @@ class FoodieUser {
 
   @override
   String toString() {
-    return 'FoodieUser{firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, address: $address}';
+    return 'FoodieUser{username: $username, firstName, email: $email, phoneNumber: $phoneNumber, address: $address}';
   }
 }

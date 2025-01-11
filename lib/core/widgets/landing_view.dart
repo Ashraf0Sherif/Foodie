@@ -27,7 +27,10 @@ class _LandingViewState extends State<LandingView> {
       create: (context) => PaymentCubit(getIt()),
       child: const CartView(),
     ),
-    const ProfileView(),
+    BlocProvider(
+      create: (context) => ProfileCubit(getIt()),
+      child: const ProfileView(),
+    ),
   ];
 
   @override
