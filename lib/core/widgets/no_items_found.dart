@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-<<<<<<< HEAD
 import 'package:foodie/core/theming/ui_constants.dart';
-=======
->>>>>>> a7a86b5e97b3d4607376d6acecabd23f5cec782d
-
 import '../helpers/spacing.dart';
 import '../theming/styles.dart';
 import 'custom_elevated_button.dart';
