@@ -118,8 +118,9 @@ class AppRouter {
         );
       case Routes.kManageProfileView:
         return MaterialPageRoute(
-          builder: (_) => ManageProfileView(
-            foodieUser: arguments as FoodieUser,
+          builder: (_) => BlocProvider<ProfileCubit>.value(
+            value: arguments as ProfileCubit,
+            child: const ManageProfileView(),
           ),
           settings: const RouteSettings(name: Routes.kManageProfileView),
         );

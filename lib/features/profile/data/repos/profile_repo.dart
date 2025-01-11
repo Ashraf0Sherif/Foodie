@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:foodie/core/firebase/models/firebase_result/firebase_result.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 
@@ -24,6 +26,42 @@ class ProfileRepo {
     try {
       var foodieUser = await foodieFirebaseProfile.getCurrentUser();
       return FirebaseResult.success(foodieUser);
+    } catch (error) {
+      print(error);
+      return FirebaseResult.failure(
+          FirebaseExceptions.getFirebaseException(error));
+    }
+  }
+
+  Future<FirebaseResult<FoodieUser>> updateFoodieUser(
+      {required String username,
+      required String email,
+      required String phoneNumber,
+      required String password,
+      required String currentPassword,
+      required FoodieUser oldFoodieUser}) async {
+    try {
+      var foodieUser = await foodieFirebaseProfile.updateFoodieUser(
+        username: username,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
+        currentPassword: currentPassword,
+        foodieUser: oldFoodieUser,
+      );
+      return FirebaseResult.success(foodieUser);
+    } catch (error) {
+      print(error);
+      return FirebaseResult.failure(
+          FirebaseExceptions.getFirebaseException(error));
+    }
+  }
+
+  Future<FirebaseResult<String>> changeUserAvatar({required File image}) async {
+    try {
+      var avatarUrl =
+          await foodieFirebaseProfile.changeUserAvatar(image: image);
+      return FirebaseResult.success(avatarUrl);
     } catch (error) {
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));

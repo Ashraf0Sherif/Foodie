@@ -41,16 +41,18 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   void setupPasswordControllerListener() {
-    _passwordController.addListener(() {
-      setState(() {
-        hasLowercase = AppRegex.hasLowerCase(_passwordController.text);
-        hasUppercase = AppRegex.hasUpperCase(_passwordController.text);
-        hasSpecialCharacter =
-            AppRegex.hasSpecialCharacter(_passwordController.text);
-        hasMinLength = AppRegex.hasMinLength(_passwordController.text);
-        hasNumber = AppRegex.hasNumber(_passwordController.text);
-      });
-    });
+    _passwordController.addListener(
+      () {
+        setState(() {
+          hasLowercase = AppRegex.hasLowerCase(_passwordController.text);
+          hasUppercase = AppRegex.hasUpperCase(_passwordController.text);
+          hasSpecialCharacter =
+              AppRegex.hasSpecialCharacter(_passwordController.text);
+          hasMinLength = AppRegex.hasMinLength(_passwordController.text);
+          hasNumber = AppRegex.hasNumber(_passwordController.text);
+        });
+      },
+    );
   }
 
   @override

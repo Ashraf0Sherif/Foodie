@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +38,9 @@ class SuccessProfileView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/129702213.jpg'),
+                  backgroundImage: CachedNetworkImageProvider(foodieUser
+                          .avatarUrl ??
+                      'https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-1170x780.jpg'),
                   radius: 24.sp,
                 ),
                 horizontalSpace(10),
@@ -132,7 +135,7 @@ class SuccessProfileView extends StatelessWidget {
                       title: 'Manage Profile',
                       onPressed: () => context.pushNamed(
                           Routes.kManageProfileView,
-                          arguments: foodieUser)),
+                          arguments: context.read<ProfileCubit>())),
                   buildDivider(),
                   buildPaddingRow(
                       title: 'Addresses',
@@ -164,6 +167,8 @@ class SuccessProfileView extends StatelessWidget {
                   title: 'Logout',
                   onPressed: () {
                     FirebaseAuth.instance.signOut();
+                    context.pushNamedAndRemoveUntil(Routes.kLoginView,
+                        predicate: (Route<dynamic> route) => false);
                   },
                   icon: Icons.logout),
             ),

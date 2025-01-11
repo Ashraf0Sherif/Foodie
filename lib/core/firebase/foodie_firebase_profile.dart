@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 
@@ -47,6 +50,37 @@ class FoodieFirebaseProfile {
     );
   }
 
+  Future<FoodieUser> updateFoodieUser(
+      {required String username,
+      required String email,
+      required String phoneNumber,
+      required String password,
+      required String currentPassword,
+      required FoodieUser foodieUser}) async {
+    User user = FirebaseAuth.instance.currentUser!;
+
+    if (password != currentPassword) _changePassword(currentPassword, password);
+    if (username != user.displayName) await user.updateDisplayName(username);
+    await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+      'phoneNumber': phoneNumber,
+    }, SetOptions(merge: true));
+    foodieUser.phoneNumber = phoneNumber;
+    foodieUser.email = email;
+    foodieUser.username = username;
+    return foodieUser;
+  }
+
+  void _changePassword(String currentPassword, String newPassword) async {
+    final user = FirebaseAuth.instance.currentUser;
+    final cred = EmailAuthProvider.credential(
+        email: user!.email!, password: currentPassword);
+    user.reauthenticateWithCredential(cred).then(
+      (value) {
+        user.updatePassword(newPassword);
+      },
+    );
+  }
+
   Future<FoodieUser> getCurrentUser() async {
     User user = FirebaseAuth.instance.currentUser!;
     DocumentSnapshot snapshot = await FirebaseFirestore.instance
@@ -58,6 +92,7 @@ class FoodieFirebaseProfile {
     foodieUser.id = user.uid;
     foodieUser.email = user.email!;
     foodieUser.username = user.displayName!;
+    foodieUser.avatarUrl = user.photoURL;
     return foodieUser;
   }
 
@@ -78,5 +113,20 @@ class FoodieFirebaseProfile {
         .get()
         .then((snapshot) =>
             snapshot.docs.map((doc) => Address.fromJson(doc.data())).toList());
+  }
+
+  Future<String> changeUserAvatar({required File image}) async {
+    final foodieUser = FirebaseAuth.instance.currentUser!;
+
+    final storageRef = FirebaseStorage.instance
+        .ref()
+        .child('user_avatars/${foodieUser.uid}.jpg');
+    final uploadTask = storageRef.putFile(image);
+    final snapshot = await uploadTask.whenComplete(() {});
+    final avatarUrl = await snapshot.ref.getDownloadURL();
+    foodieUser.updatePhotoURL(
+      avatarUrl,
+    );
+    return avatarUrl;
   }
 }

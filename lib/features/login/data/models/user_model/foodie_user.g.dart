@@ -24,4 +24,5 @@ Map<String, dynamic> _$FoodieUserToJson(FoodieUser instance) =>
       'id': instance.id,
       'email': instance.email,
       'username': instance.username,
+      'avatarUrl': instance.avatarUrl,
     };
