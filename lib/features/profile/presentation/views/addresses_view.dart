@@ -4,11 +4,7 @@ import 'package:foodie/core/helpers/assets.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
-<<<<<<< HEAD
 import 'package:foodie/features/profile/presentation/widgets/success_addresses_view.dart';
-=======
-import 'package:foodie/features/profile/presentation/widgets/address_card.dart';
->>>>>>> a7a86b5e97b3d4607376d6acecabd23f5cec782d
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -79,19 +75,7 @@ class AddressesView extends StatelessWidget {
                       ),
                     );
                   } else {
-<<<<<<< HEAD
                     return SuccessAddressesView(addresses: addresses, profileCubit: profileCubit);
-=======
-                    return SliverList.builder(
-                      itemCount: addresses.length,
-                      itemBuilder: (context, index) {
-                        return AddressCard(
-                          address: addresses[index],
-                          profileCubit: profileCubit,
-                        );
-                      },
-                    );
->>>>>>> a7a86b5e97b3d4607376d6acecabd23f5cec782d
                   }
                 },
                 error: (error) {

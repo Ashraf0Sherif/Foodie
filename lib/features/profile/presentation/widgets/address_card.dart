@@ -15,11 +15,13 @@ class AddressCard extends StatelessWidget {
     this.edit = true,
     required this.address,
     this.profileCubit,
+    this.selected = false,
   });
 
   final bool edit;
   final Address address;
   final ProfileCubit? profileCubit;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class AddressCard extends StatelessWidget {
       child: Card(
         elevation: 5,
         shadowColor: Colors.white.withOpacity(0.75),
+        color: selected ? Colors.blue.withOpacity(0.3) : Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),

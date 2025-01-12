@@ -59,7 +59,9 @@ class _AddressBottomSheetFormState extends State<AddressBottomSheetForm> {
                   label: 'Address Title',
                   keyboardType: TextInputType.text,
                   validator: (value) {
-                    return "Please enter your address title";
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your address title";
+                    }
                   },
                   controller: _addressTitleController,
                 ),
@@ -68,7 +70,9 @@ class _AddressBottomSheetFormState extends State<AddressBottomSheetForm> {
                   label: 'Street',
                   keyboardType: TextInputType.text,
                   validator: (value) {
-                    return "Please enter your address title";
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your street";
+                    }
                   },
                   controller: _streetController,
                 ),
@@ -90,6 +94,7 @@ class _AddressBottomSheetFormState extends State<AddressBottomSheetForm> {
                   keyboardType: TextInputType.text,
                   controller: _apartmentController,
                 ),
+                verticalSpace(100),
               ],
             ),
           ),
@@ -106,8 +111,10 @@ class _AddressBottomSheetFormState extends State<AddressBottomSheetForm> {
                         .updateAddress(address: widget.address!);
                     _clearAndPop();
                   } else {
-                    context.read<ProfileCubit>().addAddress();
-                    _clearAndPop();
+                    if (_formKey.currentState!.validate()) {
+                      context.read<ProfileCubit>().addAddress();
+                      _clearAndPop();
+                    }
                   }
                 },
                 text: widget.edit ? 'UPDATE' : 'ADD ADDRESS',

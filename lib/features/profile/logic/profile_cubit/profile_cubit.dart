@@ -38,7 +38,6 @@ class ProfileCubit extends Cubit<ProfileState> {
     response.when(
       success: (foodieUser) {
         this.foodieUser = foodieUser;
-        print(this.foodieUser!.addresses);
         emit(const ProfileState.success());
       },
       failure: (error) {

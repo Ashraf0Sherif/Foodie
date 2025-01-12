@@ -92,6 +92,9 @@ class AppRouter {
               BlocProvider(
                 create: (context) => FoodItemsCubit(getIt()),
               ),
+              BlocProvider(
+                create: (context) => ProfileCubit(getIt()),
+              ),
             ],
             child: const LandingView(),
           ),

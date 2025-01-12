@@ -25,7 +25,7 @@ class CartBottomSheet extends StatelessWidget {
               ),
               const Spacer(),
               Builder(builder: (context) {
-                final price = context.watch<CartCubit>().price;
+                final price = context.watch<CartCubit>().amount;
                 return Row(
                   children: [
                     Text(

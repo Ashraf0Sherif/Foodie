@@ -9,7 +9,9 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<ProfileCubit>().getFoodieUser();
+    // if (context.read<ProfileCubit>().foodieUser == null) {
+    //   context.read<ProfileCubit>().getFoodieUser();
+    // }
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         return state.maybeWhen(
@@ -31,6 +33,4 @@ class ProfileView extends StatelessWidget {
       },
     );
   }
-
-
 }

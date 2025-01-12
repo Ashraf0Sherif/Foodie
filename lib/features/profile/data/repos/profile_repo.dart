@@ -101,7 +101,6 @@ class ProfileRepo {
       );
       return const FirebaseResult.success(null);
     } catch (error) {
-      print(error);
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }
