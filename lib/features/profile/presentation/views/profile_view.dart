@@ -9,9 +9,6 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // if (context.read<ProfileCubit>().foodieUser == null) {
-    //   context.read<ProfileCubit>().getFoodieUser();
-    // }
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         return state.maybeWhen(
@@ -27,7 +24,11 @@ class ProfileView extends StatelessWidget {
             errorDescription: 'Something went wrong',
           ),
           orElse: () {
-            return Container();
+            return const ProfileErrorOrNotLoggedIn(
+              error: 'You are not logged in',
+              view: 'Profile',
+              errorDescription: 'Please log in to view your profile',
+            );
           },
         );
       },

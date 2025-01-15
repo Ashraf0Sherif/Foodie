@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/show_snack_bar.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/success_manage_profile_view.dart';
@@ -27,21 +29,34 @@ class _ManageProfileViewState extends State<ManageProfileView> {
         backgroundColor: ColorsStyles.kViewBackground,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-          child: BlocBuilder<ProfileCubit, ProfileState>(
-            builder: (context, state) {
-              return state.maybeWhen(
-                orElse: () => const SizedBox(),
-                loading: () {
-                  return const Center(child: CircularProgressIndicator());
-                },
+          child: BlocListener<ProfileCubit, ProfileState>(
+            listener: (BuildContext context, ProfileState state) {
+              state.maybeWhen(
+                orElse: () {},
                 success: () {
-                  return const SuccessManageProfileView();
+                  context.pop();
+                  if (context.read<ProfileCubit>().emailController.text !=
+                      context.read<ProfileCubit>().foodieUser!.email!) {
+                    showSnackBar(context, message: 'Verify your new email!');
+                  } else {
+                    showSnackBar(context,
+                        message: 'Profile updated successfully');
+                  }
                 },
-                error: (error) => Center(
-                  child: Text(error),
-                ),
+                error: (error) {
+                  context.pop();
+                  showSnackBar(context, message: 'Something went wrong');
+                },
+                loading: () {
+                  showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) =>
+                          const Center(child: CircularProgressIndicator()));
+                },
               );
             },
+            child: const SuccessManageProfileView(),
           ),
         ),
       ),

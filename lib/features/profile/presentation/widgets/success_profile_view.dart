@@ -19,166 +19,166 @@ class SuccessProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     final FoodieUser foodieUser = context.read<ProfileCubit>().foodieUser!;
     return CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          backgroundColor: Colors.transparent,
-          surfaceTintColor: Colors.transparent,
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            'Profile',
-            style: FontStyles.font24SecondaryColorBold,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  backgroundImage: CachedNetworkImageProvider(foodieUser
-                          .avatarUrl ??
-                      'https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-1170x780.jpg'),
-                  radius: 24.sp,
-                ),
-                horizontalSpace(10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      foodieUser.username,
-                      style: FontStyles.font16SecondaryColorBold,
-                    ),
-                    Text(
-                      foodieUser.email,
-                      style: FontStyles.font14PassiveRegular,
-                    ),
-                  ],
-                ),
-              ],
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+            elevation: 0,
+            centerTitle: true,
+            title: Text(
+              'Profile',
+              style: FontStyles.font24SecondaryColorBold,
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: verticalSpace(20),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-            child: Row(
-              children: [
-                Expanded(
-                    child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.blue.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10.r)),
-                  child: ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Center(
-                      child: Text(
-                        foodieUser.totalOrders.toString(),
-                        style: FontStyles.font12SecondaryColorBold,
-                      ),
-                    ),
-                    subtitle: Center(
-                      child: Text(
-                        'Total Orders',
-                        style: FontStyles.font12BlackRegular,
-                      ),
-                    ),
-                  ),
-                )),
-                horizontalSpace(10),
-                Expanded(
-                    child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.blue.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10.r)),
-                  child: ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Center(
-                      child: Text(
-                        foodieUser.totalSpent.toString(),
-                        style: FontStyles.font12SecondaryColorBold,
-                      ),
-                    ),
-                    subtitle: Center(
-                      child: Text(
-                        'Total Spent',
-                        style: FontStyles.font12BlackRegular,
-                      ),
-                    ),
-                  ),
-                )),
-              ],
-            ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: verticalSpace(20),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.25),
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: Column(
+          SliverToBoxAdapter(
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  buildPaddingRow(
-                      title: 'Manage Profile',
-                      onPressed: () => context.pushNamed(
-                          Routes.kManageProfileView,
-                          arguments: context.read<ProfileCubit>())),
-                  buildDivider(),
-                  buildPaddingRow(
-                      title: 'Addresses',
-                      onPressed: () => context.pushNamed(Routes.kAddressView,
-                          arguments: context.read<ProfileCubit>())),
-                  buildDivider(),
-                  buildPaddingRow(
-                      title: 'Receipts',
-                      onPressed: () => context.pushNamed(Routes.kReceiptsView,
-                          arguments: foodieUser)),
+                  CircleAvatar(
+                    backgroundImage: CachedNetworkImageProvider(foodieUser
+                            .avatarUrl ??
+                        'https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-1170x780.jpg'),
+                    radius: 24.sp,
+                  ),
+                  horizontalSpace(10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        foodieUser.username!,
+                        style: FontStyles.font16SecondaryColorBold,
+                      ),
+                      Text(
+                        foodieUser.email!,
+                        style: FontStyles.font14PassiveRegular,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: verticalSpace(20),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.25),
-                borderRadius: BorderRadius.circular(10.r),
+          SliverToBoxAdapter(
+            child: verticalSpace(20),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blue.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10.r)),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Center(
+                        child: Text(
+                          foodieUser.totalOrders.toString(),
+                          style: FontStyles.font12SecondaryColorBold,
+                        ),
+                      ),
+                      subtitle: Center(
+                        child: Text(
+                          'Total Orders',
+                          style: FontStyles.font12BlackRegular,
+                        ),
+                      ),
+                    ),
+                  )),
+                  horizontalSpace(10),
+                  Expanded(
+                      child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blue.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(10.r)),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Center(
+                        child: Text(
+                          foodieUser.totalSpent.toString(),
+                          style: FontStyles.font12SecondaryColorBold,
+                        ),
+                      ),
+                      subtitle: Center(
+                        child: Text(
+                          'Total Spent',
+                          style: FontStyles.font12BlackRegular,
+                        ),
+                      ),
+                    ),
+                  )),
+                ],
               ),
-              child: buildPaddingRow(
-                  title: 'Logout',
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut();
-                    context.pushNamedAndRemoveUntil(Routes.kLoginView,
-                        predicate: (Route<dynamic> route) => false);
-                  },
-                  icon: Icons.logout),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: verticalSpace(20),
-        ),
-      ],
-    );
+          SliverToBoxAdapter(
+            child: verticalSpace(20),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.25),
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                child: Column(
+                  children: [
+                    buildPaddingRow(
+                        title: 'Manage Profile',
+                        onPressed: () => context.pushNamed(
+                            Routes.kManageProfileView,
+                            arguments: context.read<ProfileCubit>())),
+                    buildDivider(),
+                    buildPaddingRow(
+                        title: 'Addresses',
+                        onPressed: () => context.pushNamed(Routes.kAddressView,
+                            arguments: context.read<ProfileCubit>())),
+                    buildDivider(),
+                    buildPaddingRow(
+                        title: 'Receipts',
+                        onPressed: () => context.pushNamed(Routes.kReceiptsView,
+                            arguments: foodieUser)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: verticalSpace(20),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.25),
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                child: buildPaddingRow(
+                    title: 'Logout',
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      context.pushNamedAndRemoveUntil(Routes.kLoginView,
+                          predicate: (Route<dynamic> route) => false);
+                    },
+                    icon: Icons.logout),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: verticalSpace(20),
+          ),
+        ],
+      );
   }
 
   Divider buildDivider() {

@@ -10,7 +10,8 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   SignUpCubit(this.signUpRepo) : super(const SignUpState.initial());
   final formKey = GlobalKey<FormState>();
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController firstnameController = TextEditingController();
+  final TextEditingController lastnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -22,7 +23,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     final response = await signUpRepo.signupUsingEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
-        username: usernameController.text);
+        username: "${firstnameController.text} ${lastnameController.text}");
     response.when(success: (_) {
       emit(const SignUpState.signUpSuccess());
     }, failure: (error) {

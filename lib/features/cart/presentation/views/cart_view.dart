@@ -9,6 +9,7 @@ import 'package:foodie/core/widgets/no_items_found.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
+import '../../../../core/theming/styles.dart';
 import '../widgets/cart_view_body.dart';
 import '../widgets/not_logged_in.dart';
 
@@ -22,10 +23,25 @@ class CartView extends StatelessWidget {
           current is CartNotEmpty || current is CartEmpty,
       builder: (context, state) {
         if (FirebaseAuth.instance.currentUser == null) {
-          return const ProfileErrorOrNotLoggedIn(
-            error: 'Not logged in',
-            view: 'Cart',
-            errorDescription: 'Please login first',
+          return CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                backgroundColor: Colors.transparent,
+                surfaceTintColor: Colors.transparent,
+                elevation: 0,
+                centerTitle: true,
+                title: Text(
+                  'Cart',
+                  style: FontStyles.font24SecondaryColorBold,
+                ),
+              ),
+              const SliverToBoxAdapter(
+              child: NoItemsFound(
+                svgImage: AssetsData.kNotLoggedInCartSVG,
+                title: 'You are not logged in',
+                description: 'Login to your account to start your order.',
+              ),
+            ),],
           );
         }
         return state.maybeWhen(
@@ -35,19 +51,35 @@ class CartView extends StatelessWidget {
             );
           },
           emptyCart: () {
-            return NoItemsFound(
-              svgImage: AssetsData.kEmptyCartSVG,
-              title: 'Your cart is empty',
-              description:
-                  'Find what you want among hundreds of different dishes.',
-              button: CustomElevatedButton(
-                onPressed: () {
-                  context.read<BottomNavBarCubit>().changeIndex(0);
-                },
-                text: 'Order Now',
-                gradient: ColorsStyles.kButtonGradient,
-                width: 200.w,
-              ),
+            return CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  backgroundColor: Colors.transparent,
+                  surfaceTintColor: Colors.transparent,
+                  elevation: 0,
+                  centerTitle: true,
+                  title: Text(
+                    'Cart',
+                    style: FontStyles.font24SecondaryColorBold,
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: NoItemsFound(
+                    svgImage: AssetsData.kEmptyCartSVG,
+                    title: 'Your cart is empty',
+                    description:
+                        'Find what you want among hundreds of different dishes.',
+                    button: CustomElevatedButton(
+                      onPressed: () {
+                        context.read<BottomNavBarCubit>().changeIndex(0);
+                      },
+                      text: 'Order Now',
+                      gradient: ColorsStyles.kButtonGradient,
+                      width: 200.w,
+                    ),
+                  ),
+                )
+              ],
             );
           },
           orElse: () {

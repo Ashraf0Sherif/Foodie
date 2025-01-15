@@ -15,11 +15,13 @@ class ProfileErrorOrNotLoggedIn extends StatelessWidget {
       {super.key,
       required this.error,
       required this.view,
-      required this.errorDescription});
+      required this.errorDescription,
+      this.showButton = true});
 
   final String error;
   final String view;
   final String errorDescription;
+  final bool showButton;
 
   @override
   Widget build(BuildContext context) {
@@ -60,17 +62,18 @@ class ProfileErrorOrNotLoggedIn extends StatelessWidget {
                 ),
               ),
               verticalSpace(50),
-              CustomElevatedButton(
-                onPressed: () {
-                  context.pushNamedAndRemoveUntil(Routes.kLoginView,
-                      predicate: (Route<dynamic> route) {
-                    return false;
-                  });
-                },
-                text: 'Login',
-                gradient: ColorsStyles.kButtonGradient,
-                width: 120.w,
-              ),
+              if (showButton)
+                CustomElevatedButton(
+                  onPressed: () {
+                    context.pushNamedAndRemoveUntil(Routes.kLoginView,
+                        predicate: (Route<dynamic> route) {
+                      return false;
+                    });
+                  },
+                  text: 'Login',
+                  gradient: ColorsStyles.kButtonGradient,
+                  width: 120.w,
+                ),
             ],
           ),
         )

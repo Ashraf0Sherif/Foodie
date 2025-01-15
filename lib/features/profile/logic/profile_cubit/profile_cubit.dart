@@ -11,16 +11,19 @@ import '../../../login/data/models/user_model/address.dart';
 import '../../data/repos/profile_repo.dart';
 
 part 'profile_cubit.freezed.dart';
+
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo profileRepo;
+  BuildContext? cubitContext;
   FoodieUser? foodieUser;
 
   ProfileCubit(this.profileRepo) : super(const ProfileState.initial());
 
   final formKey = GlobalKey<FormState>();
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -50,7 +53,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   void updateFoodieUser() async {
     emit(const ProfileState.loading());
     final response = await profileRepo.updateFoodieUser(
-      username: usernameController.text,
+      username: "${firstNameController.text} ${lastNameController.text}",
       email: emailController.text,
       phoneNumber: phoneNumberController.text,
       password: passwordController.text,

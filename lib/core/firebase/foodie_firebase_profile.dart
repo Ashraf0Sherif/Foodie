@@ -58,14 +58,17 @@ class FoodieFirebaseProfile {
       required String currentPassword,
       required FoodieUser foodieUser}) async {
     User user = FirebaseAuth.instance.currentUser!;
-
-    if (password != currentPassword) _changePassword(currentPassword, password);
+    if (password != currentPassword && password.isNotEmpty) {
+      _changePassword(currentPassword, password);
+    }
     if (username != user.displayName) await user.updateDisplayName(username);
     await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
       'phoneNumber': phoneNumber,
     }, SetOptions(merge: true));
     foodieUser.phoneNumber = phoneNumber;
-    foodieUser.email = email;
+    if (foodieUser.email != email) {
+      await user.verifyBeforeUpdateEmail(email);
+    }
     foodieUser.username = username;
     return foodieUser;
   }

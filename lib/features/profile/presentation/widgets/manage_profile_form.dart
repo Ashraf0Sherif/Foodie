@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/features/profile/presentation/widgets/update_profile_bloc_listener.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -19,7 +18,8 @@ class ManageProfileForm extends StatefulWidget {
 }
 
 class _ManageProfileFormState extends State<ManageProfileForm> {
-  late TextEditingController _usernameController;
+  late TextEditingController _firstNameController;
+  late TextEditingController _lastNameController;
   late TextEditingController _emailController;
   late TextEditingController _phoneNumberController;
   late TextEditingController _passwordController;
@@ -31,10 +31,12 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
     super.initState();
     final foodieUser = context.read<ProfileCubit>().foodieUser;
     _formKey = context.read<ProfileCubit>().formKey;
-    _usernameController = context.read<ProfileCubit>().usernameController;
-    _usernameController.text = foodieUser!.username;
+    _firstNameController = context.read<ProfileCubit>().firstNameController;
+    _firstNameController.text = foodieUser!.username!.split(' ')[0];
+    _lastNameController = context.read<ProfileCubit>().lastNameController;
+    _lastNameController.text = foodieUser.username!.split(' ')[1];
     _emailController = context.read<ProfileCubit>().emailController;
-    _emailController.text = foodieUser.email;
+    _emailController.text = foodieUser.email!;
     _phoneNumberController = context.read<ProfileCubit>().phoneNumberController;
     _phoneNumberController.text = foodieUser.phoneNumber ?? '';
     _passwordController = context.read<ProfileCubit>().passwordController;
@@ -49,8 +51,17 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
       child: Column(
         children: [
           verticalSpace(20),
-          buildSizedBoxField(
-              controller: _usernameController, label: 'Username'),
+          Row(
+            children: [
+              Expanded(
+                  child: buildSizedBoxField(
+                      controller: _firstNameController, label: 'First Name')),
+              horizontalSpace(10),
+              Expanded(
+                  child: buildSizedBoxField(
+                      controller: _lastNameController, label: 'Last Name')),
+            ],
+          ),
           verticalSpace(30),
           buildSizedBoxField(controller: _emailController, label: 'E-mail'),
           verticalSpace(30),
@@ -91,8 +102,10 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
             controller: _currentPasswordController,
             label: 'Current Password',
             validator: (value) {
-              if (_passwordController.text != '' &&
-                  _currentPasswordController.text == '') {
+              if ((_passwordController.text != '' &&
+                      _currentPasswordController.text == '') ||
+                  value == null ||
+                  value.isEmpty) {
                 return 'Please enter your current password';
               }
             },
@@ -110,7 +123,6 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
             borderRadius: BorderRadius.circular(10.r),
           ),
           verticalSpace(30),
-          const UpdateProfileBlocListener()
         ],
       ),
     );

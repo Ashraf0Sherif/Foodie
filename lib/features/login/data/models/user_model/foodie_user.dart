@@ -13,9 +13,9 @@ class FoodieUser {
   @JsonKey(includeFromJson: false, includeToJson: true)
   late final String id;
   @JsonKey(includeFromJson: false, includeToJson: true)
-  late final String email;
+  String? email;
   @JsonKey(includeFromJson: false, includeToJson: true)
-  late final String username;
+  String? username;
   @JsonKey(includeFromJson: false, includeToJson: true)
   String? avatarUrl;
 

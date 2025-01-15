@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/show_snack_bar.dart';
 import 'package:foodie/core/routing/routes.dart';
 
 import '../../logic/login_cubit/login_cubit.dart';
@@ -25,10 +27,16 @@ class LoginBlocListener extends StatelessWidget {
                     const Center(child: CircularProgressIndicator()));
           },
           success: () {
-            context.pop();
-            context.pushNamedAndRemoveUntil(Routes.kLandingView, predicate: (Route<dynamic> route) {
-              return false;
-            });
+            if (FirebaseAuth.instance.currentUser!.emailVerified) {
+              context.pop();
+              context.pushNamedAndRemoveUntil(Routes.kLandingView,
+                  predicate: (Route<dynamic> route) {
+                return false;
+              });
+            } else {
+              context.pop();
+              showSnackBar(context, message: 'Please verify your email');
+            }
           },
           error: (error) {
             setupErrorState(context, error);

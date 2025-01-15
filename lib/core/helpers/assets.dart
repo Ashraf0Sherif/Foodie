@@ -11,6 +11,7 @@ abstract class AssetsData{
   static const kNoInternetConnectionSVG = "assets/svgs/no_internet_connection.svg";
   static const kEmptySearchSVG = "assets/svgs/empty_search.svg";
   static const kEmptyCartSVG = "assets/svgs/empty_cart.svg";
+  static const kNotLoggedInCartSVG = "assets/svgs/not_logged_in_cart.svg";
   static const kNoImageSVG = "assets/svgs/no_image.svg";
   static const kBackButton = "assets/icons/back_button.png";
 }
