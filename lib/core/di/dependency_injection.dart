@@ -29,7 +29,8 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<ForgotPasswordRepo>(
       () => ForgotPasswordRepo(getIt()));
   getIt.registerLazySingleton<BannerRepo>(() => BannerRepo(getIt()));
-  getIt.registerLazySingleton<FoodieFoodRepo>(() => FoodieFoodRepo(getIt()));
+  getIt.registerLazySingleton<FoodieFoodRepo>(
+      () => FoodieFoodRepo(getIt(), getIt()));
   getIt.registerLazySingleton<PaymobRepo>(() => PaymobRepo(getIt()));
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
 }

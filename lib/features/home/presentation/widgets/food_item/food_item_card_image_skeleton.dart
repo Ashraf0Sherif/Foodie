@@ -4,16 +4,17 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 class FoodItemCardImageSkeleton extends StatelessWidget {
   const FoodItemCardImageSkeleton({
-    super.key,
+    super.key, this.height, this.width,
   });
-
+  final double? height;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return Skeletonizer(
       enabled: true,
       child: Container(
-        width: 120.w,
-        height: 120.h,
+        width: width ?? 120.w,
+        height: height ?? 120.h,
         color: Colors.grey,
       ),
     );

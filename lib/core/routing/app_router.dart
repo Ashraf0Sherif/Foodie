@@ -4,6 +4,7 @@ import 'package:foodie/core/di/dependency_injection.dart';
 import 'package:foodie/core/routing/routes.dart';
 import 'package:foodie/features/home/logic/food_items_cubit/food_items_cubit.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
+import 'package:foodie/features/profile/logic/receipt_cubit/receipt_cubit.dart';
 import 'package:foodie/features/profile/presentation/views/addresses_view.dart';
 import 'package:foodie/features/profile/presentation/views/manage_profile_view.dart';
 import 'package:foodie/features/profile/presentation/views/receipt_details_view.dart';
@@ -11,6 +12,7 @@ import 'package:foodie/features/profile/presentation/views/receipts_view.dart';
 import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 
+import '../../features/cart/data/models/receipt.dart';
 import '../../features/cart/presentation/views/payment_gateway_view.dart';
 import '../../features/forgot_password/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../features/forgot_password/presentation/views/forgot_password_view.dart';
@@ -112,14 +114,19 @@ class AppRouter {
         );
       case Routes.kReceiptsView:
         return MaterialPageRoute(
-          builder: (_) => ReceiptsView(
-            foodieUser: arguments as FoodieUser,
+          builder: (_) => BlocProvider(
+            create: (context) => ReceiptCubit(getIt(), getIt())..getReceipts(),
+            child: ReceiptsView(
+              foodieUser: arguments as FoodieUser,
+            ),
           ),
           settings: const RouteSettings(name: Routes.kReceiptsView),
         );
       case Routes.kReceiptDetailsView:
         return MaterialPageRoute(
-          builder: (_) => const ReceiptDetailsView(),
+          builder: (_) => ReceiptDetailsView(
+            receipt: arguments as Receipt,
+          ),
           settings: const RouteSettings(name: Routes.kReceiptDetailsView),
         );
       case Routes.kManageProfileView:

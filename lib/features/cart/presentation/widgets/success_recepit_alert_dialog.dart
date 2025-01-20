@@ -44,7 +44,7 @@ class SuccessReceiptAlertDialog extends StatelessWidget {
             style: FontStyles.font24SecondaryColorBold,
             overflow: TextOverflow.ellipsis),
         verticalSpace(20),
-        Text("EGP ${int.parse(receipt.amountCents) / 10}",
+        Text("EGP ${receipt.amountCents! / 10}",
             style: FontStyles.font16SecondaryColorBold,
             overflow: TextOverflow.ellipsis),
         verticalSpace(20),
@@ -58,7 +58,7 @@ class SuccessReceiptAlertDialog extends StatelessWidget {
                 style: FontStyles.font18PassiveRegular,
                 overflow: TextOverflow.ellipsis),
             const Spacer(),
-            Text(receipt.orderId,
+            Text(receipt.orderId!,
                 style: FontStyles.font16SecondaryColorBold,
                 overflow: TextOverflow.ellipsis)
           ],
@@ -70,7 +70,7 @@ class SuccessReceiptAlertDialog extends StatelessWidget {
                 style: FontStyles.font18PassiveRegular,
                 overflow: TextOverflow.ellipsis),
             const Spacer(),
-            Text(receipt.createdAt,
+            Text(receipt.date!,
                 style: FontStyles.font16SecondaryColorBold,
                 overflow: TextOverflow.ellipsis)
           ],
@@ -81,7 +81,7 @@ class SuccessReceiptAlertDialog extends StatelessWidget {
               style: FontStyles.font18PassiveRegular,
               overflow: TextOverflow.ellipsis),
           const Spacer(),
-          Text(receipt.paymentId,
+          Text(receipt.paymentId.toString(),
               style: FontStyles.font16SecondaryColorBold,
               overflow: TextOverflow.ellipsis)
         ]),

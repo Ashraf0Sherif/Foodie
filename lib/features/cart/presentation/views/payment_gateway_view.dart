@@ -1,8 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/features/cart/data/models/receipt.dart';
+import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
+
+import '../../logic/cart_cubit/cart_cubit.dart';
 
 class PaymentGatewayView extends StatefulWidget {
   const PaymentGatewayView(
@@ -45,13 +51,52 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
               url.queryParameters.containsKey('success') &&
               url.queryParameters['success'] == 'true') {
             context.pop();
-            widget.onSuccess(Receipt.fromJson(url.queryParameters));
+            final receipt = Receipt();
+            receipt.orderId = url.queryParameters['order'];
+            receipt.paymentId = int.parse(url.queryParameters['id']!);
+            receipt.amountCents =
+                int.parse(url.queryParameters['amount_cents']!);
+            receipt.date = url.queryParameters['created_at']!.split('T')[0];
+            _addReceipt(receipt: receipt);
+            _increaseUserTotalOrdersAndTotalSpent(context,
+                amount: receipt.amountCents!);
+            widget.onSuccess(receipt);
           } else if (url != null &&
               url.queryParameters.containsKey('success') &&
               url.queryParameters['success'] == 'false') {}
         },
       ),
     );
+  }
+
+  _addReceipt({required Receipt receipt}) async {
+    await FirebaseFirestore.instance
+        .collection('receipts')
+        .doc(receipt.orderId)
+        .set(
+      {
+        'foodItems': context
+            .read<CartCubit>()
+            .cartItems
+            .map((foodItem) =>
+                {'id': foodItem.id, 'quantity': foodItem.quantity})
+            .toList(),
+      },
+    );
+  }
+
+  _increaseUserTotalOrdersAndTotalSpent(context, {required int amount}) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({'totalOrders': FieldValue.increment(1)});
+
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({'totalSpent': FieldValue.increment(amount / 100)});
+    context.read<ProfileCubit>().foodieUser!.totalSpent += amount / 100;
+    context.read<ProfileCubit>().foodieUser!.totalOrders++;
   }
 }
 

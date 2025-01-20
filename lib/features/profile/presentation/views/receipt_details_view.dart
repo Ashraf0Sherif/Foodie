@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
-import 'package:foodie/features/login/data/models/user_model/address.dart';
-import 'package:foodie/features/profile/presentation/widgets/address_card.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../cart/data/models/receipt.dart';
 
 class ReceiptDetailsView extends StatelessWidget {
-  const ReceiptDetailsView({super.key});
+  const ReceiptDetailsView({super.key, required this.receipt});
+
+  final Receipt receipt;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class ReceiptDetailsView extends StatelessWidget {
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
-                                '23.05.2020 - 23:20',
+                                receipt.date!,
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
@@ -68,7 +70,7 @@ class ReceiptDetailsView extends StatelessWidget {
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
-                                '14124124',
+                                receipt.orderId!,
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
@@ -98,7 +100,7 @@ class ReceiptDetailsView extends StatelessWidget {
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
-                                '1200 EGP',
+                                '${receipt.amountCents} EGP',
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
@@ -124,7 +126,7 @@ class ReceiptDetailsView extends StatelessWidget {
                                   style: FontStyles.font16PrimaryColoSemiBold),
                               const Spacer(),
                               Text(
-                                '1200 EGP',
+                                '${receipt.amountCents} EGP',
                                 style: FontStyles.font16PrimaryColoSemiBold,
                               )
                             ],
@@ -132,14 +134,6 @@ class ReceiptDetailsView extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                  verticalSpace(10),
-                  Text('Address Information',
-                      style: FontStyles.font16PrimaryColoSemiBold),
-                  verticalSpace(10),
-                  AddressCard(
-                    edit: false,
-                    address: Address(street: 'street', title: ' title'),
                   ),
                   verticalSpace(10),
                   Text('Payment Information',
@@ -156,15 +150,18 @@ class ReceiptDetailsView extends StatelessWidget {
                           horizontal: 9.0.w, vertical: 15.h),
                       child: Row(
                         children: [
-                          Image.asset('assets/images/paymentmethod.png'),
+                          SvgPicture.asset(
+                            receipt.cardImage!,
+                            width: 100.w,
+                          ),
                           horizontalSpace(10),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Troy',
+                              Text(receipt.cardType!,
                                   style: FontStyles.font16BlackSemiBold),
                               Text(
-                                '512345xxxxxx2346',
+                                receipt.cardNumber!,
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
@@ -187,7 +184,7 @@ class ReceiptDetailsView extends StatelessWidget {
             ),
           ),
           FoodItemsSliverListView(
-            foodItems: context.read<CartCubit>().cartItems,
+            foodItems: receipt.foodItems!,
             isLoading: false,
             isReceiptView: true,
           )
