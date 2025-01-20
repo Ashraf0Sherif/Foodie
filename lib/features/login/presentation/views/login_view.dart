@@ -6,7 +6,7 @@ import 'package:foodie/features/login/presentation/widgets/dont_have_an_account.
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
 import '../widgets/login_bloc_listener.dart';
 import '../widgets/login_form.dart';
 

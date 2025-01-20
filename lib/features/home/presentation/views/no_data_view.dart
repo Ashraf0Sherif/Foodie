@@ -29,7 +29,7 @@ class NoDataView extends StatelessWidget {
         ),
         Center(
           child: Padding(
-            padding: EdgeInsets.only(top: 8.h,right: 14.w,left: 14.w),
+            padding: EdgeInsets.only(top: 8.h, right: 14.w, left: 14.w),
             child: Text(
               'There is no data to show right now',
               style: FontStyles.font16PrimaryColoSemiBold,

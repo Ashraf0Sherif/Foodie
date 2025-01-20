@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/helpers/assets.dart';
 import '../../../../../core/theming/styles.dart';

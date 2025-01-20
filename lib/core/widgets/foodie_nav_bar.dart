@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import '../theming/colors.dart';
@@ -44,6 +45,7 @@ class _FoodieNavigationBarState extends State<FoodieNavigationBar> {
       builder: (context, state) {
         int currentIndex = context.read<BottomNavBarCubit>().currentIndex;
         return BottomNavigationBar(
+          selectedIconTheme:   IconThemeData(size: 28.sp,color: ColorsStyles.kPrimaryColor),
           items: navItems.map(
             (item) {
               int index = navItems.indexOf(item);
@@ -52,9 +54,6 @@ class _FoodieNavigationBarState extends State<FoodieNavigationBar> {
                   currentIndex == index
                       ? item['iconActive']
                       : item['iconInactive'],
-                  color: currentIndex == index
-                      ? ColorsStyles.kPrimaryColor
-                      : ColorsStyles.kPassiveColor,
                 ),
                 label: item['label'],
               );

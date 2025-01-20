@@ -7,7 +7,7 @@ import 'package:foodie/core/widgets/terms_and_conditions_text.dart';
 import 'package:foodie/features/signUp/presentation/widgets/sign_up_bloc_listener.dart';
 import 'package:foodie/features/signUp/presentation/widgets/sign_up_form.dart';
 
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';

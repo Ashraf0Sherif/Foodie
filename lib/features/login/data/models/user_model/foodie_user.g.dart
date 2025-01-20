@@ -7,22 +7,22 @@ part of 'foodie_user.dart';
 // **************************************************************************
 
 FoodieUser _$FoodieUserFromJson(Map<String, dynamic> json) => FoodieUser(
-      id: (json['id'] as num).toInt(),
-      firstName: json['firstName'] as String,
-      lastName: json['lastName'] as String,
-      email: json['email'] as String,
-      phoneNumber: json['phoneNumber'] as String,
-      address: (json['address'] as List<dynamic>)
-          .map((e) => Address.fromJson(e as Map<String, dynamic>))
+      phoneNumber: json['phoneNumber'] as String?,
+      addresses: (json['addresses'] as List<dynamic>?)
+          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
+      totalOrders: (json['totalOrders'] as num).toInt(),
+      totalSpent: (json['totalSpent'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$FoodieUserToJson(FoodieUser instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
-      'email': instance.email,
+      'totalOrders': instance.totalOrders,
+      'totalSpent': instance.totalSpent,
       'phoneNumber': instance.phoneNumber,
-      'address': instance.address,
+      'addresses': instance.addresses,
+      'id': instance.id,
+      'email': instance.email,
+      'username': instance.username,
+      'avatarUrl': instance.avatarUrl,
     };

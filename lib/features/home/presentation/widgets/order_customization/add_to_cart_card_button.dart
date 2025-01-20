@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,8 +62,24 @@ class AddToCartCardButton extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    context.read<CartCubit>().addItemToCart(foodItem);
-                    Navigator.pop(context);
+                    if (FirebaseAuth.instance.currentUser == null) {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Please login to add to cart", style: FontStyles.font16BlackSemiBold,),
+                            actions: [
+                              TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: const Text("Close"))
+                            ],
+                          );
+                        },
+                      );
+                    } else {
+                      context.read<CartCubit>().addItemToCart(foodItem);
+                      Navigator.pop(context);
+                    }
                   },
                   child: Text(
                     "Add to cart",

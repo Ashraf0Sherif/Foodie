@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/theming/styles.dart';
 
-class CustomizeOrderBottomSheetTopBar extends StatelessWidget {
-  const CustomizeOrderBottomSheetTopBar({
+class BottomSheetTopBar extends StatelessWidget {
+  const BottomSheetTopBar({
     super.key,
+    required this.title,
   });
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class CustomizeOrderBottomSheetTopBar extends StatelessWidget {
           flex: 2,
         ),
         Text(
-          "Customize Order",
+          title,
           style: FontStyles.font18BlackSemiBold,
         ),
         const Spacer(),

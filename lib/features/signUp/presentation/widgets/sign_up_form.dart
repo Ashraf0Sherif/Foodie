@@ -20,7 +20,8 @@ class _SignUpFormState extends State<SignUpForm> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
   late TextEditingController _confirmPasswordController;
-  late TextEditingController _usernameController;
+  late TextEditingController _firstnameController;
+  late TextEditingController _lastnameController;
   bool _obscureText = true;
   bool _obscureConfirmPassword = true;
   bool hasLowercase = false;
@@ -36,21 +37,24 @@ class _SignUpFormState extends State<SignUpForm> {
     _passwordController = context.read<SignUpCubit>().passwordController;
     _confirmPasswordController =
         context.read<SignUpCubit>().confirmPasswordController;
-    _usernameController = context.read<SignUpCubit>().usernameController;
+    _firstnameController = context.read<SignUpCubit>().firstnameController;
+    _lastnameController = context.read<SignUpCubit>().lastnameController;
     setupPasswordControllerListener();
   }
 
   void setupPasswordControllerListener() {
-    _passwordController.addListener(() {
-      setState(() {
-        hasLowercase = AppRegex.hasLowerCase(_passwordController.text);
-        hasUppercase = AppRegex.hasUpperCase(_passwordController.text);
-        hasSpecialCharacter =
-            AppRegex.hasSpecialCharacter(_passwordController.text);
-        hasMinLength = AppRegex.hasMinLength(_passwordController.text);
-        hasNumber = AppRegex.hasNumber(_passwordController.text);
-      });
-    });
+    _passwordController.addListener(
+      () {
+        setState(() {
+          hasLowercase = AppRegex.hasLowerCase(_passwordController.text);
+          hasUppercase = AppRegex.hasUpperCase(_passwordController.text);
+          hasSpecialCharacter =
+              AppRegex.hasSpecialCharacter(_passwordController.text);
+          hasMinLength = AppRegex.hasMinLength(_passwordController.text);
+          hasNumber = AppRegex.hasNumber(_passwordController.text);
+        });
+      },
+    );
   }
 
   @override
@@ -65,15 +69,34 @@ class _SignUpFormState extends State<SignUpForm> {
       key: context.read<SignUpCubit>().formKey,
       child: Column(
         children: [
-          CustomTextFormField(
-            controller: _usernameController,
-            label: 'Username',
-            keyboardType: TextInputType.text,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Please enter your username";
-              }
-            },
+          Row(
+            children: [
+              Expanded(
+                child: CustomTextFormField(
+                  controller: _firstnameController,
+                  label: 'First Name',
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your first name";
+                    }
+                  },
+                ),
+              ),
+              horizontalSpace(10),
+              Expanded(
+                child: CustomTextFormField(
+                  controller: _lastnameController,
+                  label: 'Last Name',
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter your last name";
+                    }
+                  },
+                ),
+              ),
+            ],
           ),
           verticalSpace(10),
           CustomTextFormField(
@@ -88,7 +111,6 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-          verticalSpace(10),
           CustomTextFormField(
             controller: _passwordController,
             label: 'Password',

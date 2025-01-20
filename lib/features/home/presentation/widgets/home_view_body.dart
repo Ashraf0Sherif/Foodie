@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../logic/banner_cubit/banner_cubit.dart';
@@ -40,6 +42,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             bannerState.banners.isEmpty &&
             categoriesState.foodCategories.isEmpty) {
           return const NoDataView();
+        }
+        if (context.read<ProfileCubit>().foodieUser == null &&
+            FirebaseAuth.instance.currentUser != null) {
+          context.read<ProfileCubit>().getFoodieUser();
         }
         return CustomScrollView(
           controller: scrollController,

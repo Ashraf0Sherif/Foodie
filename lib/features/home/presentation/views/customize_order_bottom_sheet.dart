@@ -12,9 +12,11 @@ import '../widgets/order_customization/customize_main_ingredients_section.dart';
 import '../widgets/order_customization/customize_order_bottom_sheet_top_bar.dart';
 
 class CustomizeOrderBottomSheet extends StatefulWidget {
-  const CustomizeOrderBottomSheet({super.key, required this.foodItem});
+  const CustomizeOrderBottomSheet(
+      {super.key, required this.foodItem, this.isReceipt = false});
 
   final FoodItem foodItem;
+  final bool isReceipt;
 
   @override
   State<CustomizeOrderBottomSheet> createState() =>
@@ -48,7 +50,9 @@ class _CustomizeOrderBottomSheetState extends State<CustomizeOrderBottomSheet> {
         padding: EdgeInsets.symmetric(horizontal: 16.0.w),
         child: Column(
           children: [
-            const CustomizeOrderBottomSheetTopBar(),
+            BottomSheetTopBar(
+              title: widget.isReceipt ? 'Order Details' : 'Customize Order',
+            ),
             const Divider(
               color: Color(0xffECECEC),
             ),
@@ -64,30 +68,33 @@ class _CustomizeOrderBottomSheetState extends State<CustomizeOrderBottomSheet> {
                           CustomizeMainIngredientsSection(
                             foodItem: widget.foodItem,
                             onIngredientChanged: () => _evaluateButtonState(),
+                            isReceipt: widget.isReceipt,
                           ),
                         verticalSpace(sectionSpacing),
                         if (widget.foodItem.extraIngredients.isNotEmpty)
                           CustomizeExtraIngredientsSection(
                             foodItem: widget.foodItem,
                             onIngredientChanged: () => _evaluateButtonState(),
+                            isReceipt: widget.isReceipt,
                           ),
                         verticalSpace(120),
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: 18.h),
-                      child: isInCart
-                          ? DeleteFromCartCardButton(
-                              foodItem: widget.foodItem,
-                            )
-                          : AddToCartCardButton(
-                              foodItem: widget.foodItem,
-                            ),
+                  if (!widget.isReceipt)
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 18.h),
+                        child: isInCart
+                            ? DeleteFromCartCardButton(
+                                foodItem: widget.foodItem,
+                              )
+                            : AddToCartCardButton(
+                                foodItem: widget.foodItem,
+                              ),
+                      ),
                     ),
-                  ),
                 ],
               ),
             )

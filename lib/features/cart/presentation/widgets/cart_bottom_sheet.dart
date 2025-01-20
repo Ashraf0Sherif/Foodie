@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
 import '../../logic/cart_cubit/cart_cubit.dart';
 
 class CartBottomSheet extends StatelessWidget {
@@ -25,7 +25,7 @@ class CartBottomSheet extends StatelessWidget {
               ),
               const Spacer(),
               Builder(builder: (context) {
-                final price = context.watch<CartCubit>().price;
+                final price = context.watch<CartCubit>().amount;
                 return Row(
                   children: [
                     Text(
