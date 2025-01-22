@@ -16,4 +16,5 @@ abstract class AssetsData{
   static const kBackButton = "assets/icons/back_button.png";
   static const kVisaSVG = "assets/svgs/visa.svg";
   static const kMasterCardSVG = "assets/svgs/master_card.svg";
+  static const kNoUserImageSVG = "assets/images/user.png";
 }

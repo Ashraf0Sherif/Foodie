@@ -22,9 +22,11 @@ class ReceiptCubit extends Cubit<ReceiptState> {
     final response = await foodieFoodRepo.fetchReceipts();
     response.when(
       success: (receipts) {
+        if (isClosed) return;
         emit(ReceiptState.success(receipts: receipts));
       },
       failure: (error) {
+        if (isClosed) return;
         emit(
           ReceiptState.error(
             error: FirebaseExceptions.getErrorMessage(error),

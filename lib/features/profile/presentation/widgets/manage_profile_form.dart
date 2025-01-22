@@ -25,6 +25,8 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
   late TextEditingController _passwordController;
   late TextEditingController _currentPasswordController;
   late GlobalKey<FormState> _formKey;
+  bool _currentPasswordObscureText = true;
+  bool _passwordObscureText = true;
 
   @override
   void initState() {
@@ -71,6 +73,17 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
           buildSizedBoxField(
             controller: _passwordController,
             label: 'Password',
+            isObscureText: _passwordObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () => {
+                setState(() {
+                  _passwordObscureText = !_passwordObscureText;
+                })
+              },
+              child: Icon(_passwordObscureText
+                  ? Icons.visibility_off
+                  : Icons.visibility),
+            ),
             validator: (value) {
               if (value != null &&
                   value.isNotEmpty &&
@@ -101,6 +114,17 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
           buildSizedBoxField(
             controller: _currentPasswordController,
             label: 'Current Password',
+            isObscureText: _currentPasswordObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () => {
+                setState(() {
+                  _currentPasswordObscureText = !_currentPasswordObscureText;
+                })
+              },
+              child: Icon(_currentPasswordObscureText
+                  ? Icons.visibility_off
+                  : Icons.visibility),
+            ),
             validator: (value) {
               if ((_passwordController.text != '' &&
                       _currentPasswordController.text == '') ||
@@ -131,12 +155,18 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
   SizedBox buildSizedBoxField(
       {required TextEditingController controller,
       required String label,
-      Function(String?)? validator}) {
+      Function(String?)? validator,
+      bool isObscureText = false,
+      Widget? suffixIcon}) {
     return SizedBox(
       height: 70.h,
       child: CustomTextFormField(
+        isObscureText: isObscureText,
         controller: controller,
         validator: validator,
+        suffixIcon: suffixIcon,
+        keyboardType: TextInputType.text,
+        label: label,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
           borderSide: const BorderSide(
@@ -156,8 +186,6 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
             color: Colors.grey,
           ),
         ),
-        keyboardType: TextInputType.text,
-        label: label,
       ),
     );
   }
