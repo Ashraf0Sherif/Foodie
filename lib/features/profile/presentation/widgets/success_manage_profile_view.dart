@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/manage_profile_form.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
@@ -48,11 +50,23 @@ class _SuccessManageProfileViewState extends State<SuccessManageProfileView> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(1.0),
-                      child: CircleAvatar(
-                        radius: 70.r,
-                        backgroundImage: CachedNetworkImageProvider(avatarUrl ??
-                            'https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-1170x780.jpg'),
-                      ),
+                      child: Builder(builder: (context) {
+                        final state = context.watch<ProfileCubit>().state;
+                        final avatarUrl =
+                            context.read<ProfileCubit>().foodieUser!.avatarUrl;
+                        return Skeletonizer(
+                          enabled: state is ProfileLoading,
+                          child: CircleAvatar(
+                            radius: 70.r,
+                            backgroundColor:
+                                Color(ColorsStyles.kSecondaryColor.value)
+                                    .withOpacity(0.3),
+                            backgroundImage: avatarUrl == null
+                                ? const AssetImage(AssetsData.kNoUserImageSVG)
+                                : CachedNetworkImageProvider(avatarUrl),
+                          ),
+                        );
+                      }),
                     ),
                   ),
                   Positioned(

@@ -18,6 +18,7 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   late TextEditingController _emailController;
+  late TextEditingController _phoneController;
   late TextEditingController _passwordController;
   late TextEditingController _confirmPasswordController;
   late TextEditingController _firstnameController;
@@ -34,6 +35,7 @@ class _SignUpFormState extends State<SignUpForm> {
   void initState() {
     super.initState();
     _emailController = context.read<SignUpCubit>().emailController;
+    _phoneController = context.read<SignUpCubit>().phoneController;
     _passwordController = context.read<SignUpCubit>().passwordController;
     _confirmPasswordController =
         context.read<SignUpCubit>().confirmPasswordController;
@@ -108,6 +110,19 @@ class _SignUpFormState extends State<SignUpForm> {
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
                 return "Please enter a valid email";
+              }
+            },
+          ),
+          verticalSpace(10),
+          CustomTextFormField(
+            controller: _phoneController,
+            label: 'Phone Number',
+            keyboardType: TextInputType.emailAddress,
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPhoneNumberValid(value)) {
+                return "Please enter a valid phone number";
               }
             },
           ),

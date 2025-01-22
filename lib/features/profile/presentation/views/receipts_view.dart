@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 import 'package:foodie/features/profile/logic/receipt_cubit/receipt_cubit.dart';
-import 'package:foodie/features/profile/presentation/widgets/success_receipts.dart';
+import 'package:foodie/features/profile/presentation/widgets/receipts_sliver_list.dart';
 
 import '../../../../core/helpers/assets.dart';
-import '../../../../core/logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/no_items_found.dart';
 
 class ReceiptsView extends StatelessWidget {
@@ -37,7 +34,7 @@ class ReceiptsView extends StatelessWidget {
               builder: (context, state) {
                 return state.maybeWhen(
                   orElse: () {
-                    return SliverToBoxAdapter(child: Container());
+                    return const SliverToBoxAdapter(child: SizedBox());
                   },
                   success: (receipts) {
                     if (receipts.isEmpty) {
@@ -49,21 +46,21 @@ class ReceiptsView extends StatelessWidget {
                         ),
                       );
                     } else {
-                      return SuccessReceipts(receipts: receipts);
+                      return ReceiptsSliverList(receipts: receipts);
                     }
                   },
                   error: (error) {
                     return SliverToBoxAdapter(
-                        child: Center(child: Text(error)));
+                      child: NoItemsFound(
+                        svgImage: AssetsData.kNoDataSVG,
+                        title: 'Something went wrong',
+                        description: error,
+                      ),
+                    );
                   },
                   loading: () {
-                    return SliverToBoxAdapter(
-                      child: Column(
-                        children: [
-                          verticalSpace(MediaQuery.of(context).size.height / 2),
-                          const CircularProgressIndicator(),
-                        ],
-                      ),
+                    return const ReceiptsSliverList(
+                      skeleton: true,
                     );
                   },
                 );

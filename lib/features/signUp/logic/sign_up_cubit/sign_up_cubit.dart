@@ -14,6 +14,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   final TextEditingController lastnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
@@ -21,9 +22,11 @@ class SignUpCubit extends Cubit<SignUpState> {
   void emitSignUpStates() async {
     emit(const SignUpState.signUpLoading());
     final response = await signUpRepo.signupUsingEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-        username: "${firstnameController.text} ${lastnameController.text}");
+      email: emailController.text,
+      password: passwordController.text,
+      username: "${firstnameController.text} ${lastnameController.text}",
+      phoneNumber: phoneController.text,
+    );
     response.when(success: (_) {
       emit(const SignUpState.signUpSuccess());
     }, failure: (error) {
