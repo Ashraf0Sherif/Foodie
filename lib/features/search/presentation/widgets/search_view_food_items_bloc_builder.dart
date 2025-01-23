@@ -8,6 +8,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/widgets/food_items_sliver_list_view.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/presentation/widgets/food_item/food_item_card_skeleton.dart';
 import '../../logic/search_cubit/search_cubit.dart';
 
@@ -57,20 +58,17 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
             child: Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-              child: const NoItemsFound(
+              child: NoItemsFound(
                   svgImage: AssetsData.kNoSearchItemsSVG,
-                  title:
-                      'The food item you are looking for could not be found.',
-                  description:
-                      'We couldn\'t find any food with the name you searched for. Please try searching with different names.'),
+                  title: S.of(context).noSearchResultsTitle,
+                  description: S.of(context).noSearchResultsDescription),
             ),
           ),
-          emptySearch: () => const SliverToBoxAdapter(
+          emptySearch: () => SliverToBoxAdapter(
               child: NoItemsFound(
                   svgImage: AssetsData.kEmptySearchSVG,
-                  title: 'Search For Your Favorite Food',
-                  description:
-                      'Find what you  want among hundreds of different dishes.')),
+                  title: S.of(context).emptySearchTitle,
+                  description: S.of(context).emptySearchDescription)),
           noInternet: () =>
               const SliverToBoxAdapter(child: NoInternetConnectionWidget()),
           orElse: () {

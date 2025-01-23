@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
@@ -9,7 +10,7 @@ class HomeTopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        "Foodie",
+        S.of(context).foodie,
         style: FontStyles.font24SecondaryColorBold,
       ),
     );

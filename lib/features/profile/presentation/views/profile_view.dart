@@ -5,6 +5,7 @@ import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/profile_skeleton_view.dart';
 
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -29,11 +30,11 @@ class ProfileView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: state is ProfileLoading
                     ? const ProfileSkeletonView(
-                      skeleton: true,
-                    )
+                        skeleton: true,
+                      )
                     : ProfileSkeletonView(
-                      foodieUser: context.read<ProfileCubit>().foodieUser,
-                    ),
+                        foodieUser: context.read<ProfileCubit>().foodieUser,
+                      ),
               )
             ],
           );
@@ -41,14 +42,14 @@ class ProfileView extends StatelessWidget {
         return state.maybeWhen(
           error: (error) => ProfileErrorOrNotLoggedIn(
             error: error,
-            view: 'Profile',
-            errorDescription: 'Something went wrong',
+            view: S.of(context).profile,
+            errorDescription: S.of(context).somethingWentWrong,
           ),
           orElse: () {
-            return const ProfileErrorOrNotLoggedIn(
-              error: 'You are not logged in',
-              view: 'Profile',
-              errorDescription: 'Please log in to view your profile',
+            return ProfileErrorOrNotLoggedIn(
+              error: S.of(context).notLoggedInError,
+              view: S.of(context).profile,
+              errorDescription: S.of(context).notLoggedInDescription,
             );
           },
         );

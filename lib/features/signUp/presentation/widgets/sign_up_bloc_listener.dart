@@ -6,6 +6,7 @@ import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_state.dart';
 
 import '../../../../core/routing/routes.dart';
+import '../../../../generated/l10n.dart';
 
 class SignUpBlocListener extends StatelessWidget {
   const SignUpBlocListener({super.key});
@@ -34,9 +35,7 @@ class SignUpBlocListener extends StatelessWidget {
                 return false;
               },
             );
-            showSnackBar(context,
-                message:
-                    'We have sent you a verification email. Please verify your email address.');
+            showSnackBar(context, message: S.of(context).verificationEmailSent);
           },
           signUpError: (error) {
             setupErrorState(context, error);

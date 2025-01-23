@@ -11,6 +11,7 @@ import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -66,11 +67,11 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                       verticalSpace(31),
                       Text(
-                        'Nice to meet you!',
+                        S.of(context).niceToMeetYou,
                         style: FontStyles.font24Bold,
                       ),
                       Text(
-                        "I hope you spend your all money here :)",
+                        S.of(context).spendAllMoneyHere,
                         style: FontStyles.font14GreyRegular,
                       ),
                       verticalSpace(10),

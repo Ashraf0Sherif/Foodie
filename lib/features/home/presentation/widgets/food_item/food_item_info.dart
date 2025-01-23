@@ -8,6 +8,7 @@ import 'package:foodie/features/home/presentation/widgets/food_item/food_item_ca
 
 import '../../../../../core/helpers/assets.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class FoodItemInfo extends StatelessWidget {
   const FoodItemInfo({super.key, required this.foodItem});
@@ -57,7 +58,7 @@ class FoodItemInfo extends StatelessWidget {
                     style: FontStyles.font16SecondaryColorBold,
                   ),
                   Text(
-                    ' EGP',
+                    S.of(context).egp,
                     style: FontStyles.font12SecondaryColorBold,
                   ),
                 ],

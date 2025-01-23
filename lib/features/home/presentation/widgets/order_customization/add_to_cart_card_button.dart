@@ -7,6 +7,7 @@ import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class AddToCartCardButton extends StatelessWidget {
   const AddToCartCardButton({
@@ -40,7 +41,7 @@ class AddToCartCardButton extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      " EGP",
+                      S.of(context).egp,
                       style: FontStyles.font14BlackRegular,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -67,11 +68,14 @@ class AddToCartCardButton extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Please login to add to cart", style: FontStyles.font16BlackSemiBold,),
+                            title: Text(
+                              S.of(context).pleaseLoginToAddToCart,
+                              style: FontStyles.font16BlackSemiBold,
+                            ),
                             actions: [
                               TextButton(
                                   onPressed: () => Navigator.pop(context),
-                                  child: const Text("Close"))
+                                  child: Text(S.of(context).close))
                             ],
                           );
                         },
@@ -82,7 +86,7 @@ class AddToCartCardButton extends StatelessWidget {
                     }
                   },
                   child: Text(
-                    "Add to cart",
+                    S.of(context).addToCart,
                     style: FontStyles.font16WhiteSemiBold,
                   ),
                 ),

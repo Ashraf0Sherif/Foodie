@@ -4,14 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import 'package:foodie/core/widgets/custom_elevated_button.dart';
-import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/core/widgets/no_items_found.dart';
+import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/cart_view_body.dart';
-import '../widgets/not_logged_in.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -31,17 +31,19 @@ class CartView extends StatelessWidget {
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
-                  'Cart',
+                  S.of(context).cart, // Localized
                   style: FontStyles.font24SecondaryColorBold,
                 ),
               ),
-              const SliverToBoxAdapter(
-              child: NoItemsFound(
-                svgImage: AssetsData.kNotLoggedInCartSVG,
-                title: 'You are not logged in',
-                description: 'Login to your account to start your order.',
+              SliverToBoxAdapter(
+                child: NoItemsFound(
+                  svgImage: AssetsData.kNotLoggedInCartSVG,
+                  title: S.of(context).notLoggedInTitle, // Localized
+                  description:
+                      S.of(context).notLoggedInDescription, // Localized
+                ),
               ),
-            ),],
+            ],
           );
         }
         return state.maybeWhen(
@@ -59,21 +61,21 @@ class CartView extends StatelessWidget {
                   elevation: 0,
                   centerTitle: true,
                   title: Text(
-                    'Cart',
+                    S.of(context).cart, // Localized
                     style: FontStyles.font24SecondaryColorBold,
                   ),
                 ),
                 SliverToBoxAdapter(
                   child: NoItemsFound(
                     svgImage: AssetsData.kEmptyCartSVG,
-                    title: 'Your cart is empty',
+                    title: S.of(context).emptyCartTitle, // Localized
                     description:
-                        'Find what you want among hundreds of different dishes.',
+                        S.of(context).emptyCartDescription, // Localized
                     button: CustomElevatedButton(
                       onPressed: () {
                         context.read<BottomNavBarCubit>().changeIndex(0);
                       },
-                      text: 'Order Now',
+                      text: S.of(context).orderNow, // Localized
                       gradient: ColorsStyles.kButtonGradient,
                       width: 200.w,
                     ),

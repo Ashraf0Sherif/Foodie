@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
 import '../helpers/spacing.dart';
 import '../theming/styles.dart';
 
@@ -44,11 +45,11 @@ class PasswordValidations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        buildValidationRow('At least one lowercase letter', hasLowercase),
-        buildValidationRow('At least one uppercase letter', hasUppercase),
-        buildValidationRow('At least one number', hasNumber),
-        buildValidationRow('At least one special character', hasSpecialCharacter),
-        buildValidationRow('At least 8 characters long', hasMinLength),
+        buildValidationRow(S.of(context).atLeastOneLowercase, hasLowercase),
+        buildValidationRow(S.of(context).atLeastOneUppercase, hasUppercase),
+        buildValidationRow(S.of(context).atLeastOneNumber, hasNumber),
+        buildValidationRow(S.of(context).atLeastOneSpecialCharacter, hasSpecialCharacter),
+        buildValidationRow(S.of(context).atLeast8Characters, hasMinLength),
       ],
     );
   }

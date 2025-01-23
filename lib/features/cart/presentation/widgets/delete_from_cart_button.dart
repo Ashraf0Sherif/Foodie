@@ -5,6 +5,7 @@ import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class DeleteFromCartCardButton extends StatelessWidget {
   const DeleteFromCartCardButton({
@@ -38,7 +39,7 @@ class DeleteFromCartCardButton extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      " EGP",
+                      " ${S.of(context).egp}",
                       style: FontStyles.font14BlackRegular,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -64,7 +65,7 @@ class DeleteFromCartCardButton extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Delete from cart",
+                    S.of(context).deleteFromCart,
                     style: FontStyles.font16WhiteSemiBold,
                   ),
                 ),

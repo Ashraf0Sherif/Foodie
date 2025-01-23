@@ -9,6 +9,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/onboarding_image.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -30,7 +31,7 @@ class OnboardingView extends StatelessWidget {
               verticalSpace(40),
               const OnboardingImage(),
               Text(
-                "Experience Convenient and Fast Food Delivery with Foodie",
+                S.of(context).onboardingTitle,
                 textAlign: TextAlign.center,
                 style: FontStyles.font24SecondaryColorBold,
               ),
@@ -38,9 +39,10 @@ class OnboardingView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                 child: Text(
-                    textAlign: TextAlign.center,
-                    style: FontStyles.font13GreyRegular,
-                    "Say goodbye to waiting in line or dealing with traffic, our food delivery app will make ordering and receiving your food a breeze."),
+                  S.of(context).onboardingDescription,
+                  textAlign: TextAlign.center,
+                  style: FontStyles.font13GreyRegular,
+                ),
               ),
               verticalSpace(30),
               CustomElevatedButton(
@@ -53,7 +55,7 @@ class OnboardingView extends StatelessWidget {
                     return false;
                   });
                 },
-                text: "Get Started",
+                text: S.of(context).getStartedButton,
               )
             ],
           ),

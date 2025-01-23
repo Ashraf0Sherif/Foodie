@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 
 import '../../../../core/routing/routes.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/forgot_password_cubit/forgot_password_cubit.dart';
 import '../../logic/forgot_password_cubit/forgot_password_state.dart';
 
@@ -34,12 +35,11 @@ class ForgotPasswordBlocListener extends StatelessWidget {
                   Icons.check,
                   color: Colors.green,
                 ),
-                content: const Text(
-                    "Password reset link has been sent to your email"),
+                content: Text(S.of(context).passwordResetLinkSent),
                 actions: [
                   TextButton(
                     onPressed: () => context.pop(),
-                    child: const Text('Got it'),
+                    child: Text(S.of(context).gotIt),
                   )
                 ],
               ),
@@ -67,7 +67,7 @@ class ForgotPasswordBlocListener extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => context.pop(),
-            child: const Text('Got it'),
+            child: Text(S.of(context).gotIt),
           )
         ],
       ),

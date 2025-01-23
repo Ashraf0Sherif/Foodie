@@ -9,6 +9,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class SuccessManageProfileView extends StatefulWidget {
   const SuccessManageProfileView({super.key});
@@ -30,7 +31,7 @@ class _SuccessManageProfileViewState extends State<SuccessManageProfileView> {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            'Manage Profile',
+            S.of(context).manageProfile,
             style: FontStyles.font24SecondaryColorBold,
           ),
         ),

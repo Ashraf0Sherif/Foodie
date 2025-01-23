@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/features/search/logic/search_cubit/search_cubit.dart';
 
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/search_view_food_items_bloc_builder.dart';
 
 class SearchView extends StatefulWidget {
@@ -42,7 +43,7 @@ class _SearchViewState extends State<SearchView> {
                 context.read<SearchCubit>().emitSearchStates();
               },
               validator: (value) =>
-                  value!.isEmpty ? 'Enter search query' : null,
+                  value!.isEmpty ? S.of(context).enterSearchQuery : null,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: const Icon(Icons.search),
@@ -54,7 +55,7 @@ class _SearchViewState extends State<SearchView> {
                   },
                 ),
                 hintText: _searchController.text == ''
-                    ? 'Search'
+                    ? S.of(context).search
                     : _searchController.text,
                 hintStyle: FontStyles.font14GreyRegular,
               ),

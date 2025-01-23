@@ -9,6 +9,7 @@ import 'package:foodie/features/profile/presentation/widgets/address_card.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/data/models/food_item/food_item.dart';
 import '../../../home/presentation/widgets/order_customization/customize_order_bottom_sheet_top_bar.dart';
 import '../../../login/data/models/user_model/address.dart';
@@ -16,13 +17,17 @@ import '../../../login/data/models/user_model/address.dart';
 class ChooseAddressBottomSheet extends StatefulWidget {
   const ChooseAddressBottomSheet({
     super.key,
-    required this.addresses, required this.foodieUser, required this.cartItems, required this.amount,
+    required this.addresses,
+    required this.foodieUser,
+    required this.cartItems,
+    required this.amount,
   });
 
   final List<Address> addresses;
   final FoodieUser foodieUser;
   final List<FoodItem> cartItems;
   final double amount;
+
   @override
   State<ChooseAddressBottomSheet> createState() =>
       _ChooseAddressBottomSheetState();
@@ -38,8 +43,8 @@ class _ChooseAddressBottomSheetState extends State<ChooseAddressBottomSheet> {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w),
         child: Column(children: [
-          const BottomSheetTopBar(
-            title: 'Choose Address',
+          BottomSheetTopBar(
+            title: S.of(context).chooseAddress,
           ),
           const Divider(
             color: Color(0xffECECEC),
@@ -86,7 +91,7 @@ class _ChooseAddressBottomSheetState extends State<ChooseAddressBottomSheet> {
                             );
                         context.pop();
                       },
-                      text: 'CONFIRM',
+                      text: S.of(context).confirm,
                       gradient: ColorsStyles.kButtonGradient,
                     ),
                   ),

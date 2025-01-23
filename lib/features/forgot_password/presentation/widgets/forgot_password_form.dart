@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/features/forgot_password/logic/forgot_password_cubit/forgot_password_cubit.dart';
+
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../generated/l10n.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({super.key});
@@ -31,13 +33,13 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         children: [
           CustomTextFormField(
             controller: _emailController,
-            label: 'E-mail',
+            label: S.of(context).emailLabel,
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return "Please enter a valid email";
+                return S.of(context).pleaseEnterValidEmail;
               }
             },
           ),
@@ -45,7 +47,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           CustomElevatedButton(
             gradient: ColorsStyles.kButtonGradient,
             onPressed: () => validateAndResetPassword(),
-            text: 'RESET',
+            text: S.of(context).resetButton,
           ),
         ],
       ),

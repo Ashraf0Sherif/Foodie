@@ -8,6 +8,7 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/profile_cubit/profile_cubit.dart';
 
 class ManageProfileForm extends StatefulWidget {
@@ -57,22 +58,26 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
             children: [
               Expanded(
                   child: buildSizedBoxField(
-                      controller: _firstNameController, label: 'First Name')),
+                      controller: _firstNameController,
+                      label: S.of(context).firstNameLabel)),
               horizontalSpace(10),
               Expanded(
                   child: buildSizedBoxField(
-                      controller: _lastNameController, label: 'Last Name')),
+                      controller: _lastNameController,
+                      label: S.of(context).lastNameLabel)),
             ],
           ),
           verticalSpace(30),
-          buildSizedBoxField(controller: _emailController, label: 'E-mail'),
+          buildSizedBoxField(
+              controller: _emailController, label: S.of(context).emailLabel),
           verticalSpace(30),
           buildSizedBoxField(
-              controller: _phoneNumberController, label: 'Phone Number'),
+              controller: _phoneNumberController,
+              label: S.of(context).phoneNumberLabel),
           verticalSpace(30),
           buildSizedBoxField(
             controller: _passwordController,
-            label: 'Password',
+            label: S.of(context).passwordLabel,
             isObscureText: _passwordObscureText,
             suffixIcon: GestureDetector(
               onTap: () => {
@@ -100,7 +105,7 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+                        S.of(context).passwordRequirements,
                         style: FontStyles.font16SecondaryColorBold,
                       ),
                     );
@@ -113,7 +118,7 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
           verticalSpace(30),
           buildSizedBoxField(
             controller: _currentPasswordController,
-            label: 'Current Password',
+            label: S.of(context).currentPassword,
             isObscureText: _currentPasswordObscureText,
             suffixIcon: GestureDetector(
               onTap: () => {
@@ -130,7 +135,7 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
                       _currentPasswordController.text == '') ||
                   value == null ||
                   value.isEmpty) {
-                return 'Please enter your current password';
+                return S.of(context).pleaseEnterCurrentPassword;
               }
             },
           ),
@@ -142,7 +147,7 @@ class _ManageProfileFormState extends State<ManageProfileForm> {
                 context.read<ProfileCubit>().updateFoodieUser();
               }
             },
-            text: 'Save Changes',
+            text: S.of(context).saveChanges,
             gradient: ColorsStyles.kButtonGradient,
             borderRadius: BorderRadius.circular(10.r),
           ),

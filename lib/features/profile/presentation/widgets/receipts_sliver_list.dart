@@ -11,6 +11,7 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
 
 class ReceiptsSliverList extends StatelessWidget {
@@ -46,12 +47,13 @@ class ReceiptsSliverList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              receipts?[receiptIndex].date ?? 'Loading...',
+                              receipts?[receiptIndex].date ??
+                                  S.of(context).loading,
                               style: FontStyles.font14PassiveRegular,
                             ),
                             Text(
                               receipts?[receiptIndex].paymentId?.toString() ??
-                                  'Loading...',
+                                  S.of(context).loading,
                               style: FontStyles.font16BlackSemiBold,
                             ),
                           ],
@@ -60,7 +62,7 @@ class ReceiptsSliverList extends StatelessWidget {
                         Text(
                           receipts != null
                               ? '${receipts![receiptIndex].amountCents} EGP'
-                              : 'Loading...',
+                              : S.of(context).loading,
                           style: FontStyles.font16SecondaryColorBold,
                         ),
                         if (!skeleton)

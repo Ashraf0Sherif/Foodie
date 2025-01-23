@@ -7,6 +7,7 @@ import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
 import '../../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../../generated/l10n.dart';
 import 'food_item_info.dart';
 import 'item_quantity_controller.dart';
 
@@ -85,7 +86,7 @@ class FoodItemCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Ingredients",
+                          S.of(context).ingredients,
                           style: FontStyles.font12PassiveBold,
                         ),
                         Text(

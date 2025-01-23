@@ -9,6 +9,7 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../generated/l10n.dart';
 
 class AddressBottomSheetForm extends StatefulWidget {
   const AddressBottomSheetForm({super.key, required this.edit, this.address});
@@ -56,41 +57,41 @@ class _AddressBottomSheetFormState extends State<AddressBottomSheetForm> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomTextFormField(
-                  label: 'Address Title',
+                  label: S.of(context).addressTitle,
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter your address title";
+                      return S.of(context).pleaseEnterAddressTitle;
                     }
                   },
                   controller: _addressTitleController,
                 ),
                 verticalSpace(10),
                 CustomTextFormField(
-                  label: 'Street',
+                  label: S.of(context).street,
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter your street";
+                      return S.of(context).pleaseEnterStreet;
                     }
                   },
                   controller: _streetController,
                 ),
                 verticalSpace(10),
                 CustomTextFormField(
-                  label: 'Floor',
+                  label: S.of(context).floor,
                   keyboardType: TextInputType.text,
                   controller: _floorController,
                 ),
                 verticalSpace(10),
                 CustomTextFormField(
-                  label: 'Building',
+                  label: S.of(context).building,
                   keyboardType: TextInputType.text,
                   controller: _buildingController,
                 ),
                 verticalSpace(10),
                 CustomTextFormField(
-                  label: 'Apartment',
+                  label: S.of(context).apartment,
                   keyboardType: TextInputType.text,
                   controller: _apartmentController,
                 ),
@@ -117,7 +118,9 @@ class _AddressBottomSheetFormState extends State<AddressBottomSheetForm> {
                     }
                   }
                 },
-                text: widget.edit ? 'UPDATE' : 'ADD ADDRESS',
+                text: widget.edit
+                    ? S.of(context).update
+                    : S.of(context).addAddress,
               ),
             ),
           ),

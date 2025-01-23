@@ -9,6 +9,7 @@ import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 
 class ProfileErrorOrNotLoggedIn extends StatelessWidget {
   const ProfileErrorOrNotLoggedIn(
@@ -70,7 +71,7 @@ class ProfileErrorOrNotLoggedIn extends StatelessWidget {
                       return false;
                     });
                   },
-                  text: 'Login',
+                  text: S.of(context).loginButton,
                   gradient: ColorsStyles.kButtonGradient,
                   width: 120.w,
                 ),
