@@ -106,12 +106,12 @@ class ReceiptsSliverList extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(16.r),
                                   child: receipts != null
                                       ? CachedNetworkImage(
-                                          width: 80.w,
-                                          height: 80.h,
+                                          width: 120.w,
+                                          height: 120.h,
                                           placeholder: (_, __) =>
                                               FoodItemCardImageSkeleton(
-                                            width: 80.w,
-                                            height: 80.h,
+                                            width: 120.w,
+                                            height: 120.h,
                                           ),
                                           fit: BoxFit.cover,
                                           errorWidget: (_, __, ___) =>
@@ -123,8 +123,8 @@ class ReceiptsSliverList extends StatelessWidget {
                                               .images[0],
                                         )
                                       : Container(
-                                          width: 80.w,
-                                          height: 80.h,
+                                          width: 120.w,
+                                          height: 120.h,
                                           color: Colors.grey.shade300,
                                         ),
                                 ),
