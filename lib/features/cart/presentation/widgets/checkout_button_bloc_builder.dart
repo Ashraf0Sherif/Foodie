@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
+import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/data/models/food_item/food_item.dart';
-import '../../../login/data/models/user_model/address.dart';
-import '../../../login/data/models/user_model/foodie_user.dart';
-import '../../logic/cart_cubit/cart_cubit.dart';
 import '../../logic/payment_cubit/payment_cubit.dart';
-import 'cart_view_body.dart';
+import 'choose_address_bottom_sheet.dart';
 
 class CheckoutButtonBlocBuilder extends StatelessWidget {
   const CheckoutButtonBlocBuilder({
@@ -24,35 +24,14 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => CustomElevatedButton(
-            onPressed: () {
-              context.read<PaymentCubit>().emitPaymentStates(
-                    amount: context.read<CartCubit>().price,
-                    foodItems: cartItems,
-                    user: FoodieUser(
-                      id: 123,
-                      firstName: 'dummy',
-                      lastName: 'dummy',
-                      email: 'dummy@gmail.com',
-                      phoneNumber: '01553336414',
-                      address: [],
-                    ),
-                    address: Address(
-                      country: 'Egypt',
-                      city: 'Cairo',
-                      street: 'Elshorouk',
-                      building: '1',
-                      floor: '',
-                      apartment: '',
-                    ),
-                  );
-            },
-            text: 'CHECKOUT',
+            onPressed: () => _showAddressesAndStartPayment(context),
+            text: S.of(context).checkout, // Localized
             gradient: ColorsStyles.kButtonGradient,
             loading: false,
           ),
           loading: () => CustomElevatedButton(
             onPressed: () {},
-            text: 'CHECKOUT',
+            text: S.of(context).checkout, // Localized
             gradient: ColorsStyles.kButtonGradient,
             loading: true,
           ),
@@ -60,34 +39,53 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
             child: Text(error),
           ),
           success: (paymentKey) => CustomElevatedButton(
-            onPressed: () {
-              context.read<PaymentCubit>().emitPaymentStates(
-                    amount: context.read<CartCubit>().price,
-                    foodItems: cartItems,
-                    user: FoodieUser(
-                      id: 123,
-                      firstName: 'dummy',
-                      lastName: 'dummy',
-                      email: 'dummy@gmail.com',
-                      phoneNumber: '01553336414',
-                      address: [],
-                    ),
-                    address: Address(
-                      country: 'Egypt',
-                      city: 'Cairo',
-                      street: 'Elshorouk',
-                      building: '1',
-                      floor: '',
-                      apartment: '',
-                    ),
-                  );
-            },
-            text: 'CHECKOUT',
+            onPressed: () => _showAddressesAndStartPayment(context),
+            text: S.of(context).checkout, // Localized
             gradient: ColorsStyles.kButtonGradient,
-            loading: false, // Set loading to false here
+            loading: false,
           ),
         );
       },
     );
+  }
+
+  void _showAddressesAndStartPayment(BuildContext context) async {
+    if (context.read<ProfileCubit>().foodieUser!.addresses == null ||
+        context.read<ProfileCubit>().foodieUser!.addresses!.isEmpty) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(S.of(context).noAddressesFound), // Localized
+            content: Text(S.of(context).addAddressFirst), // Localized
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(S.of(context).ok)), // Localized
+            ],
+          );
+        },
+      );
+    } else {
+      final addresses = context.read<ProfileCubit>().foodieUser!.addresses;
+      final foodieUser = context.read<ProfileCubit>().foodieUser;
+      final PaymentCubit paymentCubit = context.read<PaymentCubit>();
+      showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return BlocProvider<PaymentCubit>.value(
+            value: paymentCubit,
+            child: ChooseAddressBottomSheet(
+              addresses: addresses!,
+              foodieUser: foodieUser!,
+              cartItems: cartItems,
+              amount: context.read<CartCubit>().amount,
+            ),
+          );
+        },
+      );
+    }
   }
 }

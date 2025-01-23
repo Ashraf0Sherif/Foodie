@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 
+import '../../generated/l10n.dart';
 import '../helpers/assets.dart';
 import '../theming/styles.dart';
 
@@ -22,7 +23,7 @@ class NoInternetConnectionWidget extends StatelessWidget {
         ),
         Center(
           child: Text(
-            'No Network',
+            S.of(context).noNetwork,
             style: FontStyles.font24SecondaryColorBold,
           ),
         ),
@@ -30,7 +31,7 @@ class NoInternetConnectionWidget extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 8.h, right: 14.w, left: 14.w),
             child: Text(
-              'Please check your network connection',
+              S.of(context).checkNetworkConnection,
               style: FontStyles.font16PrimaryColoSemiBold,
               textAlign: TextAlign.center,
             ),

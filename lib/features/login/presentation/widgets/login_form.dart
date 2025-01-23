@@ -9,6 +9,7 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/login_cubit/login_cubit.dart';
 
 class EmailAndPassword extends StatefulWidget {
@@ -44,20 +45,20 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         children: [
           CustomTextFormField(
             controller: _emailController,
-            label: 'E-mail',
+            label: S.of(context).emailLabel,
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return "Please enter a valid email";
+                return S.of(context).pleaseEnterValidEmail;
               }
             },
           ),
           verticalSpace(10),
           CustomTextFormField(
             controller: _passwordController,
-            label: 'Password',
+            label: S.of(context).passwordLabel,
             isObscureText: _obscureText,
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: GestureDetector(
@@ -67,11 +68,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 })
               },
               child:
-              Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
+                  Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return "Please enter a valid password";
+                return S.of(context).pleaseEnterValidPassword;
               }
             },
           ),
@@ -83,7 +84,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 context.pushNamed(Routes.kForgotPasswordView);
               },
               child: Text(
-                'Forgot Password?',
+                S.of(context).forgotPassword,
                 style: FontStyles.font16SecondaryColorBold,
               ),
             ),
@@ -92,7 +93,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           CustomElevatedButton(
             gradient: ColorsStyles.kButtonGradient,
             onPressed: validateAndLogin,
-            text: 'LOGIN',
+            text: S.of(context).loginButton,
           ),
         ],
       ),

@@ -20,7 +20,7 @@ mixin _$SignUpState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() signUpLoading,
-    required TResult Function(T data) signUpSuccess,
+    required TResult Function() signUpSuccess,
     required TResult Function(String error) signUpError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$SignUpState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
-    TResult? Function(T data)? signUpSuccess,
+    TResult? Function()? signUpSuccess,
     TResult? Function(String error)? signUpError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$SignUpState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? signUpLoading,
-    TResult Function(T data)? signUpSuccess,
+    TResult Function()? signUpSuccess,
     TResult Function(String error)? signUpError,
     required TResult orElse(),
   }) =>
@@ -132,7 +132,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() signUpLoading,
-    required TResult Function(T data) signUpSuccess,
+    required TResult Function() signUpSuccess,
     required TResult Function(String error) signUpError,
   }) {
     return initial();
@@ -143,7 +143,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
-    TResult? Function(T data)? signUpSuccess,
+    TResult? Function()? signUpSuccess,
     TResult? Function(String error)? signUpError,
   }) {
     return initial?.call();
@@ -154,7 +154,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? signUpLoading,
-    TResult Function(T data)? signUpSuccess,
+    TResult Function()? signUpSuccess,
     TResult Function(String error)? signUpError,
     required TResult orElse(),
   }) {
@@ -249,7 +249,7 @@ class _$SignUpLoadingImpl<T> implements SignUpLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() signUpLoading,
-    required TResult Function(T data) signUpSuccess,
+    required TResult Function() signUpSuccess,
     required TResult Function(String error) signUpError,
   }) {
     return signUpLoading();
@@ -260,7 +260,7 @@ class _$SignUpLoadingImpl<T> implements SignUpLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
-    TResult? Function(T data)? signUpSuccess,
+    TResult? Function()? signUpSuccess,
     TResult? Function(String error)? signUpError,
   }) {
     return signUpLoading?.call();
@@ -271,7 +271,7 @@ class _$SignUpLoadingImpl<T> implements SignUpLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? signUpLoading,
-    TResult Function(T data)? signUpSuccess,
+    TResult Function()? signUpSuccess,
     TResult Function(String error)? signUpError,
     required TResult orElse(),
   }) {
@@ -328,8 +328,6 @@ abstract class _$$SignUpSuccessImplCopyWith<T, $Res> {
   factory _$$SignUpSuccessImplCopyWith(_$SignUpSuccessImpl<T> value,
           $Res Function(_$SignUpSuccessImpl<T>) then) =
       __$$SignUpSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T data});
 }
 
 /// @nodoc
@@ -342,63 +340,36 @@ class __$$SignUpSuccessImplCopyWithImpl<T, $Res>
 
   /// Create a copy of SignUpState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$SignUpSuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
-  const _$SignUpSuccessImpl(this.data);
-
-  @override
-  final T data;
+  const _$SignUpSuccessImpl();
 
   @override
   String toString() {
-    return 'SignUpState<$T>.signUpSuccess(data: $data)';
+    return 'SignUpState<$T>.signUpSuccess()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SignUpSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+        (other.runtimeType == runtimeType && other is _$SignUpSuccessImpl<T>);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  /// Create a copy of SignUpState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignUpSuccessImplCopyWith<T, _$SignUpSuccessImpl<T>> get copyWith =>
-      __$$SignUpSuccessImplCopyWithImpl<T, _$SignUpSuccessImpl<T>>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() signUpLoading,
-    required TResult Function(T data) signUpSuccess,
+    required TResult Function() signUpSuccess,
     required TResult Function(String error) signUpError,
   }) {
-    return signUpSuccess(data);
+    return signUpSuccess();
   }
 
   @override
@@ -406,10 +377,10 @@ class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
-    TResult? Function(T data)? signUpSuccess,
+    TResult? Function()? signUpSuccess,
     TResult? Function(String error)? signUpError,
   }) {
-    return signUpSuccess?.call(data);
+    return signUpSuccess?.call();
   }
 
   @override
@@ -417,12 +388,12 @@ class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? signUpLoading,
-    TResult Function(T data)? signUpSuccess,
+    TResult Function()? signUpSuccess,
     TResult Function(String error)? signUpError,
     required TResult orElse(),
   }) {
     if (signUpSuccess != null) {
-      return signUpSuccess(data);
+      return signUpSuccess();
     }
     return orElse();
   }
@@ -466,15 +437,7 @@ class _$SignUpSuccessImpl<T> implements SignUpSuccess<T> {
 }
 
 abstract class SignUpSuccess<T> implements SignUpState<T> {
-  const factory SignUpSuccess(final T data) = _$SignUpSuccessImpl<T>;
-
-  T get data;
-
-  /// Create a copy of SignUpState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SignUpSuccessImplCopyWith<T, _$SignUpSuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory SignUpSuccess() = _$SignUpSuccessImpl<T>;
 }
 
 /// @nodoc
@@ -548,7 +511,7 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() signUpLoading,
-    required TResult Function(T data) signUpSuccess,
+    required TResult Function() signUpSuccess,
     required TResult Function(String error) signUpError,
   }) {
     return signUpError(error);
@@ -559,7 +522,7 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? signUpLoading,
-    TResult? Function(T data)? signUpSuccess,
+    TResult? Function()? signUpSuccess,
     TResult? Function(String error)? signUpError,
   }) {
     return signUpError?.call(error);
@@ -570,7 +533,7 @@ class _$SignUpErrorImpl<T> implements SignUpError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? signUpLoading,
-    TResult Function(T data)? signUpSuccess,
+    TResult Function()? signUpSuccess,
     TResult Function(String error)? signUpError,
     required TResult orElse(),
   }) {

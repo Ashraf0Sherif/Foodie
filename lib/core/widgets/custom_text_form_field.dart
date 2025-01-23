@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final Widget? suffixIcon;
   final InputBorder? border, focusedBorder, enabledBorder;
-  final Function(String?) validator;
+  final Function(String?)? validator;
 
   const CustomTextFormField({
     super.key,
@@ -21,18 +21,22 @@ class CustomTextFormField extends StatelessWidget {
     this.border,
     this.focusedBorder,
     this.enabledBorder,
-    required this.validator,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (value) {
-        return validator(value);
-      },
+      validator: validator == null
+          ? null
+          : (value) {
+              return validator!(value);
+            },
       obscureText: isObscureText ?? false,
       keyboardType: keyboardType,
       controller: controller,
+      cursorColor:  ColorsStyles.kPrimaryColor,
+      cursorHeight:  20,
       decoration: InputDecoration(
         label: Text(label),
         labelStyle: const TextStyle(color: Colors.black),

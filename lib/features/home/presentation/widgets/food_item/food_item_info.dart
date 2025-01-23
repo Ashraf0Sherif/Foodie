@@ -5,10 +5,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/helpers/assets.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class FoodItemInfo extends StatelessWidget {
   const FoodItemInfo({super.key, required this.foodItem});
@@ -51,9 +51,17 @@ class FoodItemInfo extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               verticalSpace(5),
-              Text(
-                '${foodItem.totalPrice}\$',
-                style: FontStyles.font16SecondaryColorBold,
+              Row(
+                children: [
+                  Text(
+                    '${foodItem.totalPrice}',
+                    style: FontStyles.font16SecondaryColorBold,
+                  ),
+                  Text(
+                    S.of(context).egp,
+                    style: FontStyles.font12SecondaryColorBold,
+                  ),
+                ],
               ),
             ],
           ),

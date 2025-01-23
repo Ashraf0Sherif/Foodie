@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/widgets/no_internet_connection_widget.dart';
-import 'package:foodie/features/search/presentation/widgets/empty_search_bar_widget.dart';
+import 'package:foodie/core/widgets/no_items_found.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../core/ui_constants.dart';
+import '../../../../core/helpers/assets.dart';
+import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/widgets/food_items_sliver_list_view.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/presentation/widgets/food_item/food_item_card_skeleton.dart';
 import '../../logic/search_cubit/search_cubit.dart';
-import 'no_food_item_found_widget.dart';
 
 class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
   const SearchViewFoodItemsBlocBuilder({
@@ -57,11 +58,17 @@ class SearchViewFoodItemsBlocBuilder extends StatelessWidget {
             child: Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-              child: const NoFoodItemFoundWidget(),
+              child: NoItemsFound(
+                  svgImage: AssetsData.kNoSearchItemsSVG,
+                  title: S.of(context).noSearchResultsTitle,
+                  description: S.of(context).noSearchResultsDescription),
             ),
           ),
-          emptySearch: () =>
-              const SliverToBoxAdapter(child: EmptySearchBarWidget()),
+          emptySearch: () => SliverToBoxAdapter(
+              child: NoItemsFound(
+                  svgImage: AssetsData.kEmptySearchSVG,
+                  title: S.of(context).emptySearchTitle,
+                  description: S.of(context).emptySearchDescription)),
           noInternet: () =>
               const SliverToBoxAdapter(child: NoInternetConnectionWidget()),
           orElse: () {

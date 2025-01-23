@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:foodie/features/cart/data/models/receipt.dart';
 import 'package:foodie/features/home/data/models/food_category/food_category.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
@@ -69,5 +70,60 @@ class FoodieFirebaseFood {
       return foodItem;
     }).toList();
     return foodItems;
+  }
+
+
+  Future<List<Receipt>> fetchReceipts() async {
+    QuerySnapshot receiptsSnapshot =
+        await FirebaseFirestore.instance.collection('receipts').get();
+
+    List<Future<Receipt>> receiptFutures = receiptsSnapshot.docs.map(
+      (doc) async {
+        final receipt = Receipt();
+        receipt.orderId = doc.id;
+        receipt.foodItems = await fetchFoodItemsForReceipt(receipt.orderId!);
+        return receipt;
+      },
+    ).toList();
+
+    return await Future.wait(receiptFutures);
+  }
+
+  Future<List<FoodItem>> fetchFoodItemsForReceipt(String receiptId) async {
+    DocumentSnapshot receiptSnapshot = await FirebaseFirestore.instance
+        .collection('receipts')
+        .doc(receiptId)
+        .get();
+    List<dynamic> foodItemsData =
+        (receiptSnapshot.data() as Map<String, dynamic>)['foodItems'] ?? [];
+    Map<String, int> foodItemQuantities = {
+      for (var item in foodItemsData)
+        (item['id'] as String): item['quantity'] as int,
+    };
+    List<String> foodItemIds = foodItemQuantities.keys.toList();
+    List<FoodItem> fetchedFoodItems = [];
+    const int batchSize = 10;
+    for (int i = 0; i < foodItemIds.length; i += batchSize) {
+      List<String> batchIds = foodItemIds.sublist(
+        i,
+        i + batchSize > foodItemIds.length ? foodItemIds.length : i + batchSize,
+      );
+      QuerySnapshot foodItemsSnapshot =
+          await FirebaseFirestore.instance.collectionGroup('foodItems').get();
+      for (var doc in foodItemsSnapshot.docs) {
+        if (!batchIds.contains(doc.id)) {
+          continue;
+        } else {
+          final foodItem =
+              FoodItem.fromJson(doc.data() as Map<String, dynamic>);
+          foodItem.id = doc.id;
+          foodItem.categoryId = doc.reference.parent.parent!.id;
+          foodItem.quantity = foodItemQuantities[foodItem.id] ?? 0;
+          foodItem.totalPrice = int.parse(foodItem.price) * foodItem.quantity;
+          fetchedFoodItems.add(foodItem);
+        }
+      }
+    }
+    return fetchedFoodItems;
   }
 }

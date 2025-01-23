@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../logic/cart_cubit/cart_cubit.dart';
 
 class ClearCartAlertDialog extends StatelessWidget {
@@ -11,21 +12,21 @@ class ClearCartAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Are you sure?'),
-      content: const Text('Do you want to clear the cart?'),
+      title: Text(S.of(context).areYouSure), // Localized
+      content: Text(S.of(context).clearCartConfirmation), // Localized
       actions: [
         TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text('Cancel'),
+          child: Text(S.of(context).cancel), // Localized
         ),
         TextButton(
           onPressed: () {
             context.read<CartCubit>().clearCart();
             Navigator.pop(context);
           },
-          child: const Text('Clear'),
+          child: Text(S.of(context).clear), // Localized
         ),
       ],
     );

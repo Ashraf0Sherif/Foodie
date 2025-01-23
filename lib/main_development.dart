@@ -26,6 +26,7 @@ void main() async {
     appleProvider: AppleProvider.appAttest,
   );
   await getIsFirstTime();
+  await getCurrentLocal();
   runApp(
     Foodie(
       appRouter: AppRouter(),
@@ -36,5 +37,16 @@ void main() async {
 getIsFirstTime() async {
   if (await SharedPrefHelper.getBool(SharedPrefKeys.kIsFirstTime) == false) {
     isFirstTime = false;
+  }
+}
+
+getCurrentLocal() async {
+  if (await SharedPrefHelper.getString(SharedPrefKeys.currentLocal) == null ||
+      await SharedPrefHelper.getString(SharedPrefKeys.currentLocal) == '') {
+    await SharedPrefHelper.setData(SharedPrefKeys.currentLocal, 'en');
+    currentLocal = 'en';
+  } else {
+    currentLocal =
+        await SharedPrefHelper.getString(SharedPrefKeys.currentLocal);
   }
 }

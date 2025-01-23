@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/show_snack_bar.dart';
 import 'package:foodie/core/routing/routes.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../logic/login_cubit/login_cubit.dart';
 import '../../logic/login_cubit/login_state.dart';
 
@@ -13,7 +16,9 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is LoginError || current is LoginSuccess || current is LoginLoading,
+          current is LoginError ||
+          current is LoginSuccess ||
+          current is LoginLoading,
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
@@ -22,12 +27,17 @@ class LoginBlocListener extends StatelessWidget {
                 builder: (context) =>
                     const Center(child: CircularProgressIndicator()));
           },
-          success: (loginResponse) {
-            context.pop();
-            context.pushNamedAndRemoveUntil(Routes.kLandingView,
-                predicate: (Route<dynamic> route) {
-              return false;
-            });
+          success: () {
+            if (FirebaseAuth.instance.currentUser!.emailVerified) {
+              context.pop();
+              context.pushNamedAndRemoveUntil(Routes.kLandingView,
+                  predicate: (Route<dynamic> route) {
+                return false;
+              });
+            } else {
+              context.pop();
+              showSnackBar(context, message: S.of(context).pleaseVerifyEmail);
+            }
           },
           error: (error) {
             setupErrorState(context, error);
@@ -51,7 +61,7 @@ class LoginBlocListener extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => context.pop(),
-            child: const Text('Got it'),
+            child: Text(S.of(context).gotIt),
           )
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../logic/food_categories_cubit/food_categories_cubit.dart';
 import 'filter_food_items_bloc_listener.dart';
 import 'food_item/sliver_food_item_card_list_skeleton.dart';
@@ -20,8 +21,8 @@ class FoodListBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           error: (error) {
-            return const SliverToBoxAdapter(
-              child: Center(child: Text('Error loading food items')),
+            return SliverToBoxAdapter(
+              child: Center(child: Text(S.of(context).errorLoadingFoodItems)),
             );
           },
           success: (foodCategories) {

@@ -1,11 +1,11 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:foodie/features/home/data/models/banner_model/banner_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class FoodieFirebaseBanner {
   bool checkActive(BannerModel banner) {
     final currentDate = DateTime.now();
-    final dateFormat = DateFormat('dd/MM/yyyy');
+    final dateFormat = DateFormat('dd/MM/yyyy', 'en_US'); // Use fixed date format
     final start = dateFormat.parse(banner.startDate);
     final end = dateFormat.parse(banner.endDate);
     return currentDate.isAfter(start) && currentDate.isBefore(end);

@@ -9,4 +9,8 @@ class Routes {
   static const String kCartView = '/cart';
   static const String kLandingView = '/landing';
   static const String kPaymentGatewayView = '/paymentGateway';
+  static const String kAddressView = '/address';
+  static const String kReceiptsView = '/receipts';
+  static const String kReceiptDetailsView = '/receiptDetails';
+  static const String kManageProfileView = '/manageProfile';
 }

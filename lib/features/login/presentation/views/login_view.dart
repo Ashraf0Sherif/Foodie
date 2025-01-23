@@ -6,7 +6,8 @@ import 'package:foodie/features/login/presentation/widgets/dont_have_an_account.
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/login_bloc_listener.dart';
 import '../widgets/login_form.dart';
 
@@ -42,11 +43,11 @@ class LoginView extends StatelessWidget {
                   ),
                   verticalSpace(31),
                   Text(
-                    'Welcome to Foodie',
+                    S.of(context).welcomeToFoodie,
                     style: FontStyles.font24Bold,
                   ),
                   Text(
-                    "Please Login to continue",
+                    S.of(context).pleaseLoginToContinue,
                     style: FontStyles.font16GreyRegular,
                   ),
                   verticalSpace(10),

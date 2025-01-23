@@ -14,6 +14,7 @@ class BannerRepo {
       var response = await firebaseBanner.banners();
       return FirebaseResult.success(response);
     } catch (error) {
+      print("555555555555555555555555 $error");
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }

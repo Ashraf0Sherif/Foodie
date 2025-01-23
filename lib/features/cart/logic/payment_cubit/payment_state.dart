@@ -9,6 +9,5 @@ class PaymentState with _$PaymentState {
   const factory PaymentState.success({required String paymentKey}) =
       PaymentSuccess;
 
-
   const factory PaymentState.failure({required String error}) = PaymentFailure;
 }

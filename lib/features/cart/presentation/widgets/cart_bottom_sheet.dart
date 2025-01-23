@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/cart_cubit/cart_cubit.dart';
 
 class CartBottomSheet extends StatelessWidget {
@@ -20,15 +21,22 @@ class CartBottomSheet extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Total',
+                S.of(context).total, // Localized
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
               Builder(builder: (context) {
-                final price = context.watch<CartCubit>().price;
-                return Text(
-                  '\$$price',
-                  style: FontStyles.font16PrimaryColoSemiBold,
+                final price = context.watch<CartCubit>().amount;
+                return Row(
+                  children: [
+                    Text(
+                      '$price',
+                      style: FontStyles.font16PrimaryColoSemiBold,
+                    ),
+                    Text(' ${S.of(context).egp}',
+                        style: FontStyles.font12PrimaryColorRegular),
+                    // Localized
+                  ],
                 );
               }),
             ],
@@ -41,12 +49,12 @@ class CartBottomSheet extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Delivery',
+                S.of(context).delivery, // Localized
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
               Text(
-                'Free',
+                S.of(context).free, // Localized
                 style: FontStyles.font16PrimaryColoSemiBold,
               ),
             ],

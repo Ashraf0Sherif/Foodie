@@ -4,11 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/features/forgot_password/presentation/widgets/forgot_password_form.dart';
 
-import '../../../../core/ui_constants.dart';
+import '../../../../core/theming/ui_constants.dart';
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/forgot_password_bloc_listener.dart';
 
 class ResetPasswordView extends StatefulWidget {
@@ -56,15 +57,15 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                         ),
                         verticalSpace(31),
                         Text(
-                          'Forgot Password?',
+                          S.of(context).forgotPassword,
                           style: FontStyles.font24Bold,
                         ),
                         Text(
-                          "Don’t worry!",
+                          S.of(context).dontWorry,
                           style: FontStyles.font14GreyRegular,
                         ),
                         Text(
-                          "You can easily reset your password ",
+                          S.of(context).resetPasswordMessage,
                           style: FontStyles.font14GreyRegular,
                         ),
                         verticalSpace(10),

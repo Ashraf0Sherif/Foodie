@@ -5,6 +5,7 @@ import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class DeleteFromCartCardButton extends StatelessWidget {
   const DeleteFromCartCardButton({
@@ -29,11 +30,22 @@ class DeleteFromCartCardButton extends StatelessWidget {
             SizedBox(
               height: 50.h,
               width: 80.w,
-              child: Center(
-                  child: Text(
-                    "\$${foodItem.totalPrice}",
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${foodItem.totalPrice}",
                     style: FontStyles.font16BlackSemiBold,
-                  )),
+                  ),
+                  Flexible(
+                    child: Text(
+                      " ${S.of(context).egp}",
+                      style: FontStyles.font14BlackRegular,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: SizedBox(
@@ -53,7 +65,7 @@ class DeleteFromCartCardButton extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    "Delete from cart",
+                    S.of(context).deleteFromCart,
                     style: FontStyles.font16WhiteSemiBold,
                   ),
                 ),
