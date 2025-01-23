@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../logic/food_categories_cubit/food_categories_cubit.dart';
 import '../../../logic/food_items_cubit/food_items_cubit.dart';
 import 'categories_list_view.dart';
@@ -40,7 +41,7 @@ class CategoriesBlocBuilder extends StatelessWidget {
             }
           },
           error: (error) {
-            return const Center(child: Text('Error loading categories'));
+            return Center(child: Text(S.of(context).errorLoadingCategories));
           },
           loading: () {
             return ListView.builder(

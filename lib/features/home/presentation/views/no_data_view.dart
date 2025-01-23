@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/home_top_bar.dart';
 
 class NoDataView extends StatelessWidget {
@@ -31,7 +32,7 @@ class NoDataView extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 8.h, right: 14.w, left: 14.w),
             child: Text(
-              'There is no data to show right now',
+              S.of(context).noDataToShow,
               style: FontStyles.font16PrimaryColoSemiBold,
               textAlign: TextAlign.center,
             ),

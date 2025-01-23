@@ -14,6 +14,9 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/theming/ui_constants.dart';
+import '../../../../generated/l10n.dart';
+import 'language_bottom_sheet.dart';
+
 class ProfileSkeletonView extends StatelessWidget {
   const ProfileSkeletonView(
       {super.key, this.foodieUser, this.skeleton = false});
@@ -37,8 +40,7 @@ class ProfileSkeletonView extends StatelessWidget {
                   enabled: skeleton,
                   child: CircleAvatar(
                     radius: 35.r,
-                    backgroundColor:
-                    Color(ColorsStyles.kSecondaryColor.value)
+                    backgroundColor: Color(ColorsStyles.kSecondaryColor.value)
                         .withOpacity(0.3),
                     backgroundImage: foodieUser?.avatarUrl == null
                         ? const AssetImage(AssetsData.kNoUserImageSVG)
@@ -52,11 +54,11 @@ class ProfileSkeletonView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        foodieUser?.username ?? 'Loading...',
+                        foodieUser?.username ?? S.of(context).loading,
                         style: FontStyles.font16SecondaryColorBold,
                       ),
                       Text(
-                        foodieUser?.email ?? 'Loading...',
+                        foodieUser?.email ?? S.of(context).loading,
                         style: FontStyles.font14PassiveRegular,
                       ),
                     ],
@@ -85,7 +87,7 @@ class ProfileSkeletonView extends StatelessWidget {
                         ),
                         subtitle: Center(
                           child: Text(
-                            'Total Orders',
+                            S.of(context).totalOrders,
                             style: FontStyles.font12BlackRegular,
                           ),
                         ),
@@ -112,7 +114,7 @@ class ProfileSkeletonView extends StatelessWidget {
                         ),
                         subtitle: Center(
                           child: Text(
-                            'Total Spent',
+                            S.of(context).totalSpent,
                             style: FontStyles.font12BlackRegular,
                           ),
                         ),
@@ -131,7 +133,7 @@ class ProfileSkeletonView extends StatelessWidget {
               child: Column(
                 children: [
                   buildPaddingRow(
-                    title: 'Manage Profile',
+                    title: S.of(context).manageProfile,
                     onPressed: () => context.pushNamed(
                       Routes.kManageProfileView,
                       arguments: context.read<ProfileCubit>(),
@@ -139,7 +141,7 @@ class ProfileSkeletonView extends StatelessWidget {
                   ),
                   buildDivider(),
                   buildPaddingRow(
-                    title: 'Addresses',
+                    title: S.of(context).addresses,
                     onPressed: () => context.pushNamed(
                       Routes.kAddressView,
                       arguments: context.read<ProfileCubit>(),
@@ -147,10 +149,38 @@ class ProfileSkeletonView extends StatelessWidget {
                   ),
                   buildDivider(),
                   buildPaddingRow(
-                    title: 'Receipts',
+                    title: S.of(context).receipts,
                     onPressed: () => context.pushNamed(
                       Routes.kReceiptsView,
                       arguments: foodieUser,
+                    ),
+                  ),
+                  buildDivider(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.h),
+                    child: Row(
+                      children: [
+                        Text(
+                          S.of(context).language,
+                          style: FontStyles.font14PassiveRegular,
+                        ),
+                        const Spacer(),
+                        Skeletonizer(
+                          enabled: skeleton,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.grey,
+                              overlayColor: Colors.grey.withOpacity(0.25),
+                            ),
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => LanguageBottomSheet());
+                            },
+                            child: Text(S.of(context).change),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -163,7 +193,7 @@ class ProfileSkeletonView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.r),
               ),
               child: buildPaddingRow(
-                title: 'Logout',
+                title: S.of(context).logout,
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
                   context.pushNamedAndRemoveUntil(

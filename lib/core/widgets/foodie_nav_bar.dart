@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../generated/l10n.dart';
 import '../logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import '../theming/colors.dart';
 import '../theming/styles.dart';
@@ -16,36 +17,36 @@ class FoodieNavigationBar extends StatefulWidget {
 }
 
 class _FoodieNavigationBarState extends State<FoodieNavigationBar> {
-  final List<Map<String, dynamic>> navItems = [
-    {
-      'iconActive': Icons.home,
-      'iconInactive': Icons.home_outlined,
-      'label': 'Home',
-    },
-    {
-      'iconActive': Icons.search,
-      'iconInactive': Icons.search_outlined,
-      'label': 'Search',
-    },
-    {
-      'iconActive': Icons.shopping_cart,
-      'iconInactive': Icons.shopping_cart_outlined,
-      'label': 'Cart',
-    },
-    {
-      'iconActive': Icons.person_2,
-      'iconInactive': Icons.person_2_outlined,
-      'label': 'Profile',
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> navItems = [
+      {
+        'iconActive': Icons.home,
+        'iconInactive': Icons.home_outlined,
+        'label': S.of(context).home,
+      },
+      {
+        'iconActive': Icons.search,
+        'iconInactive': Icons.search_outlined,
+        'label': S.of(context).search,
+      },
+      {
+        'iconActive': Icons.shopping_cart,
+        'iconInactive': Icons.shopping_cart_outlined,
+        'label': S.of(context).cart,
+      },
+      {
+        'iconActive': Icons.person_2,
+        'iconInactive': Icons.person_2_outlined,
+        'label': S.of(context).profile,
+      },
+    ];
     return BlocBuilder<BottomNavBarCubit, BottomNavBarState>(
       builder: (context, state) {
         int currentIndex = context.read<BottomNavBarCubit>().currentIndex;
         return BottomNavigationBar(
-          selectedIconTheme:   IconThemeData(size: 28.sp,color: ColorsStyles.kPrimaryColor),
+          selectedIconTheme:
+              IconThemeData(size: 28.sp, color: ColorsStyles.kPrimaryColor),
           items: navItems.map(
             (item) {
               int index = navItems.indexOf(item);

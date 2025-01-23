@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 import 'custom_ingredient_check_box.dart';
 
 class CustomizeMainIngredientsSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class CustomizeMainIngredientsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Main Ingredients",
+          S.of(context).mainIngredients,
           style: FontStyles.font16BlackBold,
         ),
         for (int i = 0; i < foodItem.mainIngredients.length; i++)

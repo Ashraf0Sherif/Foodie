@@ -7,6 +7,7 @@ import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/success_manage_profile_view.dart';
 
 import '../../../../core/theming/colors.dart';
+import '../../../../generated/l10n.dart';
 
 class ManageProfileView extends StatefulWidget {
   const ManageProfileView({super.key});
@@ -37,15 +38,17 @@ class _ManageProfileViewState extends State<ManageProfileView> {
                   context.pop();
                   if (context.read<ProfileCubit>().emailController.text !=
                       context.read<ProfileCubit>().foodieUser!.email!) {
-                    showSnackBar(context, message: 'Verify your new email!');
+                    showSnackBar(context,
+                        message: S.of(context).verifyNewEmail);
                   } else {
                     showSnackBar(context,
-                        message: 'Profile updated successfully');
+                        message: S.of(context).profileUpdatedSuccessfully);
                   }
                 },
                 error: (error) {
                   context.pop();
-                  showSnackBar(context, message: 'Something went wrong');
+                  showSnackBar(context,
+                      message: S.of(context).somethingWentWrong);
                 },
                 loading: () {
                   showDialog(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/cart/data/models/receipt.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -11,6 +12,7 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
 
 class ReceiptsSliverList extends StatelessWidget {
@@ -46,12 +48,13 @@ class ReceiptsSliverList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              receipts?[receiptIndex].date ?? 'Loading...',
+                              receipts?[receiptIndex].date ??
+                                  S.of(context).loading,
                               style: FontStyles.font14PassiveRegular,
                             ),
                             Text(
                               receipts?[receiptIndex].paymentId?.toString() ??
-                                  'Loading...',
+                                  S.of(context).loading,
                               style: FontStyles.font16BlackSemiBold,
                             ),
                           ],
@@ -60,7 +63,7 @@ class ReceiptsSliverList extends StatelessWidget {
                         Text(
                           receipts != null
                               ? '${receipts![receiptIndex].amountCents} EGP'
-                              : 'Loading...',
+                              : S.of(context).loading,
                           style: FontStyles.font16SecondaryColorBold,
                         ),
                         if (!skeleton)
@@ -71,8 +74,10 @@ class ReceiptsSliverList extends StatelessWidget {
                                 arguments: receipts?[receiptIndex],
                               );
                             },
-                            icon: const Icon(
-                              Icons.arrow_circle_right,
+                            icon: Icon(
+                              currentLocal == 'en'
+                                  ? Icons.arrow_circle_right
+                                  : Icons.arrow_circle_left,
                               color: ColorsStyles.kSecondaryColor,
                             ),
                           ),

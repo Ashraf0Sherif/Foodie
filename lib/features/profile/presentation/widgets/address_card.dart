@@ -6,6 +6,7 @@ import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../../../login/data/models/user_model/address.dart';
 import '../views/address_bottom_sheet.dart';
 
@@ -37,7 +38,7 @@ class AddressCard extends StatelessWidget {
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
             icon: Icons.delete,
-            label: 'Delete',
+            label: S.of(context).delete,
             padding: EdgeInsets.symmetric(horizontal: 5.0.w, vertical: 8.h),
             borderRadius: BorderRadius.circular(16.r),
           ),

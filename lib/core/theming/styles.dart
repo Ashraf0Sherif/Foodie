@@ -7,6 +7,8 @@ import 'colors.dart';
 abstract class FontStyles {
   static TextStyle font20BlackBold = TextStyle(
       fontSize: 20.sp, fontWeight: FontWeightHelper.bold, color: Colors.black);
+  static TextStyle font24BlackMedium = TextStyle(
+      fontSize: 24.sp, fontWeight: FontWeightHelper.medium, color: Colors.black);
   static TextStyle font20BlackMedium = TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeightHelper.medium,
@@ -54,6 +56,11 @@ abstract class FontStyles {
     color: Colors.grey,
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle font18GreyMedium = TextStyle(
+    color: Colors.grey,
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.medium,
   );
   static TextStyle font16BlackBold = TextStyle(
     color: Colors.black,

@@ -6,6 +6,7 @@ import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/features/home/logic/banner_cubit/banner_cubit.dart';
 import 'package:foodie/features/home/presentation/widgets/banner_widgets/skeletonizer_carousel.dart';
 
+import '../../../../../generated/l10n.dart';
 import 'custom_banner.dart';
 
 class BannersCarouselSlider extends StatefulWidget {
@@ -58,7 +59,7 @@ class _BannersCarouselSliderState extends State<BannersCarouselSlider> {
               color: Colors.red, // Skeleton color
               borderRadius: BorderRadius.circular(16.r),
             ),
-            child: const Text("Error"),
+            child: Text(S.of(context).error),
           );
         } else {
           return const SkeletonizerCarousel();

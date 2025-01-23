@@ -4,6 +4,7 @@ import 'package:foodie/core/helpers/spacing.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class DontHaveAnAccount extends StatelessWidget {
   const DontHaveAnAccount({super.key});
@@ -14,22 +15,19 @@ class DontHaveAnAccount extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Don\'t have an account? ',
-            ),
-            InkWell(
-              onTap: () {
-                context.pushNamed(Routes.kRegisterView);
-              },
-              child: Text(
-                'Create One',
-                style:
-                    FontStyles.font16SecondaryColorBold.copyWith(fontSize: 14),
+            children: [
+              Text("${S.of(context).dontHaveAnAccount} "),
+              InkWell(
+                onTap: () {
+                  context.pushNamed(Routes.kRegisterView);
+                },
+                child: Text(
+                  S.of(context).createOne,
+                  style: FontStyles.font16SecondaryColorBold.copyWith(fontSize: 14),
+                ),
               ),
-            ),
-            horizontalSpace(10),
-          ],
+              horizontalSpace(10),
+            ]
         ),
         verticalSpace(5),
         InkWell(
@@ -40,7 +38,7 @@ class DontHaveAnAccount extends StatelessWidget {
             });
           },
           child: Text(
-            'Or Continue as Guest',
+            S.of(context).continueAsGuest,
             style: FontStyles.font16SecondaryColorBold.copyWith(fontSize: 14),
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/data/models/food_item/food_item.dart';
 import '../../logic/payment_cubit/payment_cubit.dart';
 import 'choose_address_bottom_sheet.dart';
@@ -24,13 +25,13 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
         return state.maybeWhen(
           orElse: () => CustomElevatedButton(
             onPressed: () => _showAddressesAndStartPayment(context),
-            text: 'CHECKOUT',
+            text: S.of(context).checkout, // Localized
             gradient: ColorsStyles.kButtonGradient,
             loading: false,
           ),
           loading: () => CustomElevatedButton(
             onPressed: () {},
-            text: 'CHECKOUT',
+            text: S.of(context).checkout, // Localized
             gradient: ColorsStyles.kButtonGradient,
             loading: true,
           ),
@@ -39,9 +40,9 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
           ),
           success: (paymentKey) => CustomElevatedButton(
             onPressed: () => _showAddressesAndStartPayment(context),
-            text: 'CHECKOUT',
+            text: S.of(context).checkout, // Localized
             gradient: ColorsStyles.kButtonGradient,
-            loading: false, // Set loading to false here
+            loading: false,
           ),
         );
       },
@@ -55,14 +56,14 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('No addresses found'),
-            content: const Text('Please add an address first'),
+            title: Text(S.of(context).noAddressesFound), // Localized
+            content: Text(S.of(context).addAddressFirst), // Localized
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text('OK'))
+                  child: Text(S.of(context).ok)), // Localized
             ],
           );
         },

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
-import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../../../cart/data/models/receipt.dart';
 
 class ReceiptDetailsView extends StatelessWidget {
@@ -28,7 +27,7 @@ class ReceiptDetailsView extends StatelessWidget {
             elevation: 0,
             centerTitle: true,
             title: Text(
-              'Receipt Details',
+              S.of(context).receiptDetails,
               style: FontStyles.font24SecondaryColorBold,
             ),
           ),
@@ -39,7 +38,7 @@ class ReceiptDetailsView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Order Information',
+                  Text(S.of(context).orderInformation,
                       style: FontStyles.font16PrimaryColoSemiBold),
                   verticalSpace(10),
                   Card(
@@ -55,7 +54,7 @@ class ReceiptDetailsView extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text('Date',
+                              Text(S.of(context).date,
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
@@ -66,7 +65,7 @@ class ReceiptDetailsView extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text('Order Number',
+                              Text(S.of(context).orderNumber,
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
@@ -80,7 +79,7 @@ class ReceiptDetailsView extends StatelessWidget {
                     ),
                   ),
                   verticalSpace(10),
-                  Text('Order Summary',
+                  Text(S.of(context).orderSummary,
                       style: FontStyles.font16PrimaryColoSemiBold),
                   verticalSpace(10),
                   Card(
@@ -96,22 +95,22 @@ class ReceiptDetailsView extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text('Total',
+                              Text(S.of(context).total,
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
-                                '${receipt.amountCents} EGP',
+                                '${receipt.amountCents} ${S.of(context).egp}',
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
                           ),
                           Row(
                             children: [
-                              Text('Shipping',
+                              Text(S.of(context).shipping,
                                   style: FontStyles.font16BlackSemiBold),
                               const Spacer(),
                               Text(
-                                'Free',
+                                S.of(context).free,
                                 style: FontStyles.font14PassiveRegular,
                               )
                             ],
@@ -122,11 +121,11 @@ class ReceiptDetailsView extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text('Total',
+                              Text(S.of(context).total,
                                   style: FontStyles.font16PrimaryColoSemiBold),
                               const Spacer(),
                               Text(
-                                '${receipt.amountCents} EGP',
+                                '${receipt.amountCents} ${S.of(context).egp}',
                                 style: FontStyles.font16PrimaryColoSemiBold,
                               )
                             ],
@@ -136,7 +135,7 @@ class ReceiptDetailsView extends StatelessWidget {
                     ),
                   ),
                   verticalSpace(10),
-                  Text('Payment Information',
+                  Text(S.of(context).paymentInformation,
                       style: FontStyles.font16PrimaryColoSemiBold),
                   verticalSpace(10),
                   Card(
@@ -179,7 +178,7 @@ class ReceiptDetailsView extends StatelessWidget {
             child: Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: kDefaultHorizontalPadding),
-              child: Text('Order Items',
+              child: Text(S.of(context).orderItems,
                   style: FontStyles.font16PrimaryColoSemiBold),
             ),
           ),

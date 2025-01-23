@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class RecentSearchWidget extends StatelessWidget {
   const RecentSearchWidget({
@@ -17,7 +18,7 @@ class RecentSearchWidget extends StatelessWidget {
         Row(
           children: [
             Text(
-              "Recent",
+              S.of(context).recent,
               style: FontStyles.font13BlackBold,
             ),
             const Spacer(),
@@ -33,7 +34,7 @@ class RecentSearchWidget extends StatelessWidget {
               ),
               onPressed: () {},
               child: Text(
-                'CLEAR ALL',
+                S.of(context).clearAll,
                 style: FontStyles.font13CustomRedColorBold,
               ),
             )
@@ -49,7 +50,7 @@ class RecentSearchWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'Pizza',
+                        S.of(context).clearAll,
                         style: FontStyles.font16BlackMedium,
                       ),
                     ],

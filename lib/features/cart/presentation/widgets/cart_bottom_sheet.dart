@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/theming/ui_constants.dart';
+import '../../../../generated/l10n.dart';
 import '../../logic/cart_cubit/cart_cubit.dart';
 
 class CartBottomSheet extends StatelessWidget {
@@ -20,7 +21,7 @@ class CartBottomSheet extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Total',
+                S.of(context).total, // Localized
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
@@ -32,7 +33,9 @@ class CartBottomSheet extends StatelessWidget {
                       '$price',
                       style: FontStyles.font16PrimaryColoSemiBold,
                     ),
-                    Text(' EGP', style: FontStyles.font12PrimaryColorRegular),
+                    Text(' ${S.of(context).egp}',
+                        style: FontStyles.font12PrimaryColorRegular),
+                    // Localized
                   ],
                 );
               }),
@@ -46,12 +49,12 @@ class CartBottomSheet extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Delivery',
+                S.of(context).delivery, // Localized
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),
               Text(
-                'Free',
+                S.of(context).free, // Localized
                 style: FontStyles.font16PrimaryColoSemiBold,
               ),
             ],

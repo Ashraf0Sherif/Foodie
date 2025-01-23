@@ -8,6 +8,7 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/custom_elevated_button.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/password_validations.dart';
+import '../../../../generated/l10n.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -76,11 +77,11 @@ class _SignUpFormState extends State<SignUpForm> {
               Expanded(
                 child: CustomTextFormField(
                   controller: _firstnameController,
-                  label: 'First Name',
+                  label: S.of(context).firstNameLabel,
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter your first name";
+                      return S.of(context).pleaseEnterFirstName;
                     }
                   },
                 ),
@@ -89,11 +90,11 @@ class _SignUpFormState extends State<SignUpForm> {
               Expanded(
                 child: CustomTextFormField(
                   controller: _lastnameController,
-                  label: 'Last Name',
+                  label: S.of(context).lastNameLabel,
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Please enter your last name";
+                      return S.of(context).pleaseEnterLastName;
                     }
                   },
                 ),
@@ -103,32 +104,32 @@ class _SignUpFormState extends State<SignUpForm> {
           verticalSpace(10),
           CustomTextFormField(
             controller: _emailController,
-            label: 'E-mail',
+            label: S.of(context).emailLabel,
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return "Please enter a valid email";
+                return S.of(context).pleaseEnterValidEmail;
               }
             },
           ),
           verticalSpace(10),
           CustomTextFormField(
             controller: _phoneController,
-            label: 'Phone Number',
+            label: S.of(context).phoneNumberLabel,
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isPhoneNumberValid(value)) {
-                return "Please enter a valid phone number";
+                return S.of(context).pleaseEnterValidPhoneNumber;
               }
             },
           ),
           CustomTextFormField(
             controller: _passwordController,
-            label: 'Password',
+            label: S.of(context).passwordLabel,
             isObscureText: _obscureText,
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: GestureDetector(
@@ -150,14 +151,14 @@ class _SignUpFormState extends State<SignUpForm> {
                   !hasUppercase ||
                   !hasLowercase ||
                   !hasNumber) {
-                return "Please enter a valid password";
+                return S.of(context).pleaseEnterValidPassword;
               }
             },
           ),
           CustomTextFormField(
             controller: _confirmPasswordController,
             isObscureText: _obscureConfirmPassword,
-            label: 'Confirm Password',
+            label: S.of(context).confirmPasswordLabel,
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -173,7 +174,7 @@ class _SignUpFormState extends State<SignUpForm> {
               if (value == null ||
                   value.isEmpty ||
                   value != _passwordController.text) {
-                return "Password does not match";
+                return S.of(context).passwordDoesNotMatch;
               }
             },
           ),
@@ -190,7 +191,7 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () {
               validateAndSignUp();
             },
-            text: 'REGISTER',
+            text: S.of(context).registerButton,
           ),
         ],
       ),

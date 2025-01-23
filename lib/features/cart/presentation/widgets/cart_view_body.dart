@@ -10,6 +10,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/food_items_sliver_list_view.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/data/models/food_item/food_item.dart';
 import 'cart_bottom_sheet.dart';
 import 'checkout_button_bloc_builder.dart';
@@ -75,7 +76,7 @@ class _CartViewBodyState extends State<CartViewBody> {
               ),
             ],
             title: Text(
-              'Cart',
+              S.of(context).cart,
               style: FontStyles.font24SecondaryColorBold,
             ),
           ),

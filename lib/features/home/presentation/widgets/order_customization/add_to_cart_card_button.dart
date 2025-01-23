@@ -2,11 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class AddToCartCardButton extends StatelessWidget {
   const AddToCartCardButton({
@@ -40,7 +42,7 @@ class AddToCartCardButton extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      " EGP",
+                      S.of(context).egp,
                       style: FontStyles.font14BlackRegular,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -56,8 +58,18 @@ class AddToCartCardButton extends StatelessWidget {
                     backgroundColor: ColorsStyles.kPrimaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(8.r),
-                        bottomRight: Radius.circular(8.r),
+                        topRight: currentLocal == 'ar'
+                            ? Radius.zero
+                            : Radius.circular(8.r),
+                        bottomRight: currentLocal == 'ar'
+                            ? Radius.zero
+                            : Radius.circular(8.r),
+                        topLeft: currentLocal == 'ar'
+                            ? Radius.circular(8.r)
+                            : Radius.zero,
+                        bottomLeft: currentLocal == 'ar'
+                            ? Radius.circular(8.r)
+                            : Radius.zero,
                       ),
                     ),
                   ),
@@ -67,11 +79,14 @@ class AddToCartCardButton extends StatelessWidget {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Please login to add to cart", style: FontStyles.font16BlackSemiBold,),
+                            title: Text(
+                              S.of(context).pleaseLoginToAddToCart,
+                              style: FontStyles.font16BlackSemiBold,
+                            ),
                             actions: [
                               TextButton(
                                   onPressed: () => Navigator.pop(context),
-                                  child: const Text("Close"))
+                                  child: Text(S.of(context).close))
                             ],
                           );
                         },
@@ -82,7 +97,7 @@ class AddToCartCardButton extends StatelessWidget {
                     }
                   },
                   child: Text(
-                    "Add to cart",
+                    S.of(context).addToCart,
                     style: FontStyles.font16WhiteSemiBold,
                   ),
                 ),

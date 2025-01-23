@@ -4,6 +4,7 @@ import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/widgets/order_customization/custom_ingredient_check_box.dart';
 
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../cart/logic/cart_cubit/cart_cubit.dart';
 
 class CustomizeExtraIngredientsSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(
-        "Extra Ingredients",
+        S.of(context).extraIngredients,
         style: FontStyles.font16BlackBold,
       ),
       for (int i = 0; i < foodItem.extraIngredients.length; i++)
@@ -39,7 +40,7 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
                   style: FontStyles.font14PassiveRegular,
                 ),
                 Text(
-                  " EGP",
+                  S.of(context).egp,
                   style: FontStyles.font12PassiveRegular,
                 ),
               ],

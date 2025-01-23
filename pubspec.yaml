@@ -47,7 +47,6 @@ dependencies:
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
   intl: ^0.19.0
-  easy_localization: ^3.0.7
   flutter_svg: ^2.0.10+1
   flutter_screenutil: ^5.9.3
   flutter_bloc: ^8.1.6
@@ -64,6 +63,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   flutter_slidable: ^3.1.2
   image_picker: ^1.1.2
+  flutter_localizations:
+    sdk: flutter
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -118,3 +119,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true

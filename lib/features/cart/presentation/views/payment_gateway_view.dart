@@ -8,6 +8,7 @@ import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/features/cart/data/models/receipt.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../logic/cart_cubit/cart_cubit.dart';
 
 class PaymentGatewayView extends StatefulWidget {
@@ -36,7 +37,7 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Payment Gateway'),
+        title: Text(S.of(context).paymentGateway), // Localized
       ),
       body: InAppWebView(
         initialOptions: InAppWebViewGroupOptions(
@@ -79,7 +80,7 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
             .read<CartCubit>()
             .cartItems
             .map((foodItem) =>
-                {'id': foodItem.id, 'quantity': foodItem.quantity})
+        {'id': foodItem.id, 'quantity': foodItem.quantity})
             .toList(),
       },
     );

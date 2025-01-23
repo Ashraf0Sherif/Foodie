@@ -9,6 +9,7 @@ import 'package:foodie/features/profile/presentation/widgets/success_addresses_v
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/no_items_found.dart';
+import '../../../../generated/l10n.dart';
 import 'address_bottom_sheet.dart';
 
 class AddressesView extends StatelessWidget {
@@ -49,7 +50,7 @@ class AddressesView extends StatelessWidget {
             elevation: 0,
             centerTitle: true,
             title: Text(
-              'Addresses',
+              S.of(context).addresses,
               style: FontStyles.font24SecondaryColorBold,
             ),
           ),
@@ -66,16 +67,17 @@ class AddressesView extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: kDefaultHorizontalPadding),
-                        child: const NoItemsFound(
+                        child: NoItemsFound(
                           svgImage: AssetsData.kNoAddressesSVG,
-                          title: 'Your address list is empty',
+                          title: S.of(context).emptyAddressListTitle,
                           description:
-                              'You look like you haven\'t given any addresses yet.',
+                              S.of(context).emptyAddressListDescription,
                         ),
                       ),
                     );
                   } else {
-                    return SuccessAddressesView(addresses: addresses, profileCubit: profileCubit);
+                    return SuccessAddressesView(
+                        addresses: addresses, profileCubit: profileCubit);
                   }
                 },
                 error: (error) {

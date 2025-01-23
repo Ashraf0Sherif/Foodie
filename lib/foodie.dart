@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/internet_connection_cubit/internet_connection_cubit.dart';
+import 'package:foodie/core/logic/language_cubit/language_cubit.dart';
 import 'package:foodie/core/routing/navigator_observer.dart';
 import 'package:foodie/core/theming/foodie_theme.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
@@ -10,6 +12,8 @@ import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'core/helpers/shared_pref_keys.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
+import 'core/theming/colors.dart';
+import 'generated/l10n.dart';
 
 class Foodie extends StatelessWidget {
   const Foodie({super.key, required this.appRouter});
@@ -30,17 +34,32 @@ class Foodie extends StatelessWidget {
           BlocProvider(
             create: (context) => CartCubit(),
           ),
+          BlocProvider(
+            create: (context) => LanguageCubit(),
+          ),
         ],
-        child: MaterialApp(
-          navigatorObservers: [MyNavigatorObserver()],
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: appRouter.generateRoute,
-          initialRoute: isFirstTime
-              ? Routes.kOnboardingView
-              : (FirebaseAuth.instance.currentUser != null)
+        child: BlocBuilder<LanguageCubit, LanguageState>(
+          builder: (context, state) {
+            return MaterialApp(
+              locale: Locale(currentLocal),
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              navigatorObservers: [MyNavigatorObserver()],
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: appRouter.generateRoute,
+              initialRoute: isFirstTime
+                  ? Routes.kOnboardingView
+                  : (FirebaseAuth.instance.currentUser != null)
                   ? Routes.kLandingView
                   : Routes.kLoginView,
-          theme: foodieTheme,
+              theme: foodieTheme(context), // Pass context to the theme
+            );
+          },
         ),
       ),
     );

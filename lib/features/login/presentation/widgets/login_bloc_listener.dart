@@ -5,6 +5,7 @@ import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/core/helpers/show_snack_bar.dart';
 import 'package:foodie/core/routing/routes.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../logic/login_cubit/login_cubit.dart';
 import '../../logic/login_cubit/login_state.dart';
 
@@ -35,7 +36,7 @@ class LoginBlocListener extends StatelessWidget {
               });
             } else {
               context.pop();
-              showSnackBar(context, message: 'Please verify your email');
+              showSnackBar(context, message: S.of(context).pleaseVerifyEmail);
             }
           },
           error: (error) {
@@ -60,7 +61,7 @@ class LoginBlocListener extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => context.pop(),
-            child: const Text('Got it'),
+            child: Text(S.of(context).gotIt),
           )
         ],
       ),

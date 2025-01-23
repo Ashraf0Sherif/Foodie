@@ -5,6 +5,7 @@ import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../cart/presentation/widgets/delete_from_cart_button.dart';
 import '../widgets/order_customization/add_to_cart_card_button.dart';
 import '../widgets/order_customization/customize_extra_ingredients_section.dart';
@@ -51,7 +52,9 @@ class _CustomizeOrderBottomSheetState extends State<CustomizeOrderBottomSheet> {
         child: Column(
           children: [
             BottomSheetTopBar(
-              title: widget.isReceipt ? 'Order Details' : 'Customize Order',
+              title: widget.isReceipt
+                  ? S.of(context).orderDetails
+                  : S.of(context).customizeOrder,
             ),
             const Divider(
               color: Color(0xffECECEC),

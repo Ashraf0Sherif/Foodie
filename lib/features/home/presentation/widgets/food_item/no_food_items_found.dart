@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/helpers/assets.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class NoFoodItemsFound extends StatelessWidget {
   const NoFoodItemsFound({
@@ -23,7 +24,7 @@ class NoFoodItemsFound extends StatelessWidget {
         ),
         verticalSpace(10),
         Text(
-          'No Food Items Found',
+          S.of(context).noFoodItemsFound,
           style: FontStyles.font16PrimaryColoSemiBold,
         ),
       ],
