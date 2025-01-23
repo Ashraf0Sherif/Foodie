@@ -1459,6 +1459,66 @@ class S {
       args: [],
     );
   }
+
+  /// `change`
+  String get change {
+    return Intl.message(
+      'change',
+      name: 'change',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select language`
+  String get selectLanguage {
+    return Intl.message(
+      'Select language',
+      name: 'selectLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What language do you prefer?`
+  String get whatLanguageDoYouPrefer {
+    return Intl.message(
+      'What language do you prefer?',
+      name: 'whatLanguageDoYouPrefer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

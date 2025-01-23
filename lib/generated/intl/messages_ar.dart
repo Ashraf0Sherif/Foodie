@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addresses": MessageLookupByLibrary.simpleMessage("العناوين"),
         "and": MessageLookupByLibrary.simpleMessage(" و "),
         "apartment": MessageLookupByLibrary.simpleMessage("الشقة"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("هل أنت متأكد؟"),
         "atLeast8Characters":
             MessageLookupByLibrary.simpleMessage("8 أحرف على الأقل"),
@@ -44,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "building": MessageLookupByLibrary.simpleMessage("المبنى"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+        "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "checkNetworkConnection": MessageLookupByLibrary.simpleMessage(
             "يرجى التحقق من اتصالك بالشبكة"),
         "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
@@ -87,7 +89,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptySearchDescription": MessageLookupByLibrary.simpleMessage(
             "ابحث عما تريده من بين مئات الأطباق المختلفة."),
         "emptySearchTitle":
-            MessageLookupByLibrary.simpleMessage("ابحث عن طعامك المفضل"),
+            MessageLookupByLibrary.simpleMessage("ابحث عن طبقك المفضل"),
+        "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
         "enterSearchQuery":
             MessageLookupByLibrary.simpleMessage("أدخل استعلام البحث"),
         "error": MessageLookupByLibrary.simpleMessage("خطأ"),
@@ -99,7 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مكونات إضافية"),
         "firstNameLabel": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "floor": MessageLookupByLibrary.simpleMessage("الطابق"),
-        "foodie": MessageLookupByLibrary.simpleMessage("Foodie"),
+        "foodie": MessageLookupByLibrary.simpleMessage("فودي"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "free": MessageLookupByLibrary.simpleMessage("مجاني"),
@@ -107,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gotIt": MessageLookupByLibrary.simpleMessage("تم"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "ingredients": MessageLookupByLibrary.simpleMessage("المكونات"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "lastNameLabel": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
         "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -200,7 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "privacyPolicyContent": MessageLookupByLibrary.simpleMessage(
             "في Foodie، نحن نقدر خصوصيتك. نجمع معلومات شخصية مثل اسمك وبريدك الإلكتروني لتقديم خدماتنا وتحسينها. نحن لا نشارك معلوماتك مع أطراف ثالثة إلا للامتثال للقانون أو بموافقتك. نستخدم إجراءات أمنية معقولة لحماية بياناتك. للأسئلة، يرجى الاتصال بنا على shifoashraf75@gmail.com."),
-        "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
         "profileUpdatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي بنجاح"),
         "receiptDetails":
@@ -213,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يمكنك بسهولة إعادة تعيين كلمة المرور"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "shipping": MessageLookupByLibrary.simpleMessage("الشحن"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
@@ -235,6 +240,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyNewEmail": MessageLookupByLibrary.simpleMessage(
             "تحقق من بريدك الإلكتروني الجديد!"),
         "welcomeToFoodie":
-            MessageLookupByLibrary.simpleMessage("مرحبًا بكم في Foodie")
+            MessageLookupByLibrary.simpleMessage("مرحبًا بكم في Foodie"),
+        "whatLanguageDoYouPrefer":
+            MessageLookupByLibrary.simpleMessage("ما هي اللغة التي تفضلها؟")
       };
 }

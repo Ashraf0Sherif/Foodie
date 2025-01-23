@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/cart/data/models/receipt.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -73,8 +74,10 @@ class ReceiptsSliverList extends StatelessWidget {
                                 arguments: receipts?[receiptIndex],
                               );
                             },
-                            icon: const Icon(
-                              Icons.arrow_circle_right,
+                            icon: Icon(
+                              currentLocal == 'en'
+                                  ? Icons.arrow_circle_right
+                                  : Icons.arrow_circle_left,
                               color: ColorsStyles.kSecondaryColor,
                             ),
                           ),

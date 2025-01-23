@@ -139,5 +139,11 @@
   "atLeastOneSpecialCharacter": "At least one special character",
   "atLeast8Characters": "At least 8 characters long",
   "dontHaveAnAccount": "Don't have an account?",
-  "createOne": "Create One"
+  "createOne": "Create One",
+  "change": "change",
+  "language": "Language",
+  "selectLanguage": "Select language",
+  "whatLanguageDoYouPrefer": "What language do you prefer?",
+  "english": "English",
+  "arabic": "Arabic"
 }

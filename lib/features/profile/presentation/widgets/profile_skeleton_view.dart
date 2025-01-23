@@ -15,6 +15,7 @@ import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/theming/ui_constants.dart';
 import '../../../../generated/l10n.dart';
+import 'language_bottom_sheet.dart';
 
 class ProfileSkeletonView extends StatelessWidget {
   const ProfileSkeletonView(
@@ -152,6 +153,34 @@ class ProfileSkeletonView extends StatelessWidget {
                     onPressed: () => context.pushNamed(
                       Routes.kReceiptsView,
                       arguments: foodieUser,
+                    ),
+                  ),
+                  buildDivider(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.h),
+                    child: Row(
+                      children: [
+                        Text(
+                          S.of(context).language,
+                          style: FontStyles.font14PassiveRegular,
+                        ),
+                        const Spacer(),
+                        Skeletonizer(
+                          enabled: skeleton,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.grey,
+                              overlayColor: Colors.grey.withOpacity(0.25),
+                            ),
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => LanguageBottomSheet());
+                            },
+                            child: Text(S.of(context).change),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

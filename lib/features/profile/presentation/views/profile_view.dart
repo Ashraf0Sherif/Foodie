@@ -23,7 +23,7 @@ class ProfileView extends StatelessWidget {
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
-                  'Profile',
+                  S.of(context).profile,
                   style: FontStyles.font24SecondaryColorBold,
                 ),
               ),

@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addresses": MessageLookupByLibrary.simpleMessage("Addresses"),
         "and": MessageLookupByLibrary.simpleMessage(" and "),
         "apartment": MessageLookupByLibrary.simpleMessage("Apartment"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
         "atLeast8Characters":
             MessageLookupByLibrary.simpleMessage("At least 8 characters long"),
@@ -44,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "building": MessageLookupByLibrary.simpleMessage("Building"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "change": MessageLookupByLibrary.simpleMessage("change"),
         "checkNetworkConnection": MessageLookupByLibrary.simpleMessage(
             "Please check your network connection"),
         "checkout": MessageLookupByLibrary.simpleMessage("CHECKOUT"),
@@ -91,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Find what you want among hundreds of different dishes."),
         "emptySearchTitle": MessageLookupByLibrary.simpleMessage(
             "Search For Your Favorite Food"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterSearchQuery":
             MessageLookupByLibrary.simpleMessage("Enter search query"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
@@ -110,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gotIt": MessageLookupByLibrary.simpleMessage("Got it"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastNameLabel": MessageLookupByLibrary.simpleMessage("Last Name"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "loginButton": MessageLookupByLibrary.simpleMessage("LOGIN"),
@@ -217,6 +221,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can easily reset your password"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "selectLanguage":
+            MessageLookupByLibrary.simpleMessage("Select language"),
         "shipping": MessageLookupByLibrary.simpleMessage("Shipping"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
@@ -240,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyNewEmail":
             MessageLookupByLibrary.simpleMessage("Verify your new email!"),
         "welcomeToFoodie":
-            MessageLookupByLibrary.simpleMessage("Welcome to Foodie")
+            MessageLookupByLibrary.simpleMessage("Welcome to Foodie"),
+        "whatLanguageDoYouPrefer":
+            MessageLookupByLibrary.simpleMessage("What language do you prefer?")
       };
 }
