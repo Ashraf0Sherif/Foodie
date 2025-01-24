@@ -41,12 +41,12 @@ getIsFirstTime() async {
 }
 
 getCurrentLocal() async {
-  if (await SharedPrefHelper.getString(SharedPrefKeys.currentLocal) == null ||
-      await SharedPrefHelper.getString(SharedPrefKeys.currentLocal) == '') {
-    await SharedPrefHelper.setData(SharedPrefKeys.currentLocal, 'en');
-    currentLocal = 'en';
+  if (await SharedPrefHelper.getString(SharedPrefKeys.currentLanguage) == null ||
+      await SharedPrefHelper.getString(SharedPrefKeys.currentLanguage) == '') {
+    await SharedPrefHelper.setData(SharedPrefKeys.currentLanguage, 'en');
+    currentLanguage = 'en';
   } else {
-    currentLocal =
-        await SharedPrefHelper.getString(SharedPrefKeys.currentLocal);
+    currentLanguage =
+        await SharedPrefHelper.getString(SharedPrefKeys.currentLanguage);
   }
 }

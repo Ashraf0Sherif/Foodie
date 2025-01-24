@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/core/logic/language_cubit/language_cubit.dart';
-import 'package:foodie/core/routing/app_router.dart';
 import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/core/widgets/custom_elevated_button.dart';
 
@@ -20,7 +18,7 @@ class LanguageBottomSheet extends StatefulWidget {
 }
 
 class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
-  String _selectedLanguage = currentLocal;
+  String _selectedLanguage = currentLanguage;
 
   @override
   Widget build(BuildContext context) {

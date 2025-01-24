@@ -50,7 +50,6 @@ class ProfileRepo {
       );
       return FirebaseResult.success(foodieUser);
     } catch (error) {
-      print(error);
       return FirebaseResult.failure(
           FirebaseExceptions.getFirebaseException(error));
     }

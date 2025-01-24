@@ -75,7 +75,7 @@ class ReceiptsSliverList extends StatelessWidget {
                               );
                             },
                             icon: Icon(
-                              currentLocal == 'en'
+                              currentLanguage == 'en'
                                   ? Icons.arrow_circle_right
                                   : Icons.arrow_circle_left,
                               color: ColorsStyles.kSecondaryColor,

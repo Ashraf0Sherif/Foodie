@@ -21,7 +21,6 @@ class PaymobRepo {
           amount: amount, foodItems: foodItems, user: user, address: address);
       return ApiResult.success(response);
     } catch (error) {
-      print(error);
       return ApiResult.failure(NetworkExceptions.getDioException(error));
     }
   }

@@ -11,7 +11,7 @@ ThemeData foodieTheme(context) {
       backgroundColor: Colors.white,
       elevation: 0,
     ),
-    textTheme: currentLocal == 'ar'
+    textTheme: currentLanguage == 'ar'
         ? GoogleFonts.tajawalTextTheme()
         : GoogleFonts.robotoTextTheme(),
     radioTheme: RadioThemeData(

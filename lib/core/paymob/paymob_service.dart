@@ -52,10 +52,6 @@ class PaymobService {
   }
 
   Map<String, String> _buildBillingData(FoodieUser user, Address address) {
-    print('email ${user.email} \n username ${user.username} \n'
-        ' first name ${user.username!.split(' ')[0]} \n'
-        ' last name ${user.username!.split(' ')[1]} \n'
-        'phone number ${user.phoneNumber} \n address ${address.street}');
     return {
       "email": user.email!,
       "first_name": user.username!.split(' ')[0],

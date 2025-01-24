@@ -22,7 +22,6 @@ class SuccessManageProfileView extends StatefulWidget {
 class _SuccessManageProfileViewState extends State<SuccessManageProfileView> {
   @override
   Widget build(BuildContext context) {
-    final avatarUrl = context.read<ProfileCubit>().foodieUser!.avatarUrl;
     return CustomScrollView(
       slivers: [
         SliverAppBar(
