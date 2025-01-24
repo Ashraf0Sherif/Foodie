@@ -26,6 +26,13 @@ jobs:
         with:
           channel: stable
 
+      - name: Increment Flutter Version
+        run: |
+          version=$(grep '^version:' pubspec.yaml | awk '{print $2}' | cut -d '+' -f 1)
+          build=$(grep '^version:' pubspec.yaml | awk '{print $2}' | cut -d '+' -f 2)
+          new_build=$((build + 1))
+          sed -i "s/^version: .*/version: $version+$new_build/" pubspec.yaml
+
       - name: Install Flutter Dependencies
         run: flutter pub get
 
