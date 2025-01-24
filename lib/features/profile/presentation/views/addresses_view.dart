@@ -9,6 +9,7 @@ import 'package:foodie/features/profile/presentation/widgets/addresses_sliver_li
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/no_items_found.dart';
+import '../../../../core/widgets/sliver_view_app_bar.dart';
 import '../../../../generated/l10n.dart';
 import 'address_bottom_sheet.dart';
 
@@ -44,15 +45,8 @@ class AddressesView extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            surfaceTintColor: Colors.transparent,
-            elevation: 0,
-            centerTitle: true,
-            title: Text(
-              S.of(context).addresses,
-              style: FontStyles.font24SecondaryColorBold,
-            ),
+          SliverViewAppBar(
+            title: S.of(context).addresses,
           ),
           BlocBuilder<ProfileCubit, ProfileState>(
             builder: (context, state) {
@@ -101,3 +95,5 @@ class AddressesView extends StatelessWidget {
     );
   }
 }
+
+

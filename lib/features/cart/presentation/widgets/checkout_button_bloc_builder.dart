@@ -35,9 +35,6 @@ class CheckoutButtonBlocBuilder extends StatelessWidget {
             gradient: ColorsStyles.kButtonGradient,
             loading: true,
           ),
-          failure: (error) => Center(
-            child: Text(error),
-          ),
           success: (paymentKey) => CustomElevatedButton(
             onPressed: () => _showAddressesAndStartPayment(context),
             text: S.of(context).checkout, // Localized

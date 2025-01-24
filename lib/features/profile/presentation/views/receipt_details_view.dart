@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/core/widgets/food_items_sliver_list_view.dart';
+import 'package:foodie/core/widgets/sliver_view_app_bar.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors.dart';
@@ -21,16 +22,7 @@ class ReceiptDetailsView extends StatelessWidget {
       backgroundColor: ColorsStyles.kViewBackground,
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            surfaceTintColor: Colors.transparent,
-            elevation: 0,
-            centerTitle: true,
-            title: Text(
-              S.of(context).receiptDetails,
-              style: FontStyles.font24SecondaryColorBold,
-            ),
-          ),
+          SliverViewAppBar(title: S.of(context).receiptDetails),
           SliverToBoxAdapter(
             child: Padding(
               padding:

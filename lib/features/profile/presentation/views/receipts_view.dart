@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/widgets/sliver_view_app_bar.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 import 'package:foodie/features/profile/logic/receipt_cubit/receipt_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/receipts_sliver_list.dart';
@@ -21,16 +22,7 @@ class ReceiptsView extends StatelessWidget {
       backgroundColor: ColorsStyles.kViewBackground,
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            surfaceTintColor: Colors.transparent,
-            elevation: 0,
-            centerTitle: true,
-            title: Text(
-              S.of(context).receipts,
-              style: FontStyles.font24SecondaryColorBold,
-            ),
-          ),
+          SliverViewAppBar(title: S.of(context).receipts),
           BlocBuilder<ReceiptCubit, ReceiptState>(
             builder: (context, state) {
               return state.maybeWhen(

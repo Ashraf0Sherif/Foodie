@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/core/helpers/spacing.dart';
 import 'package:foodie/core/routing/routes.dart';
+import 'package:foodie/core/widgets/sliver_view_app_bar.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
@@ -28,16 +29,7 @@ class ProfileErrorOrNotLoggedIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverAppBar(
-          backgroundColor: Colors.transparent,
-          surfaceTintColor: Colors.transparent,
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            view,
-            style: FontStyles.font24SecondaryColorBold,
-          ),
-        ),
+        SliverViewAppBar(title: view),
         SliverToBoxAdapter(
           child: Column(
             children: [
