@@ -40,7 +40,7 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
                   style: FontStyles.font14PassiveRegular,
                 ),
                 Text(
-                  S.of(context).egp,
+                  " ${S.of(context).egp}",
                   style: FontStyles.font12PassiveRegular,
                 ),
               ],

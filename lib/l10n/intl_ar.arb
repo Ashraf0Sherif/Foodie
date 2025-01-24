@@ -1,5 +1,5 @@
 {
-  "welcomeToFoodie": "مرحبًا بكم في Foodie",
+  "welcomeToFoodie": "مرحبًا بكم في فودي",
   "pleaseLoginToContinue": "يرجى تسجيل الدخول للمتابعة",
   "emailLabel": "البريد الإلكتروني",
   "passwordLabel": "كلمة المرور",
@@ -127,7 +127,7 @@
   "loading": "جاري التحميل...",
   "totalOrders": "إجمالي الطلبات",
   "totalSpent": "إجمالي الإنفاق",
-  "manageProfile": "إدارة الملف الشخصي",
+  "manageProfile": "إدارة الحساب",
   "logout": "تسجيل الخروج",
   "home": "الرئيسية",
   "profile": "الحساب",

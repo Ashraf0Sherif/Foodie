@@ -54,7 +54,7 @@ class FoodItemInfo extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '${foodItem.totalPrice}',
+                    '${foodItem.totalPrice} ',
                     style: FontStyles.font16SecondaryColorBold,
                   ),
                   Text(

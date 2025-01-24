@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/helpers/app_regex.dart';
 import 'package:foodie/core/helpers/extensions.dart';
+import 'package:foodie/features/login/logic/login_cubit/login_state.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routing/routes.dart';
@@ -90,11 +91,16 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             ),
           ),
           verticalSpace(8),
-          CustomElevatedButton(
-            gradient: ColorsStyles.kButtonGradient,
-            onPressed: validateAndLogin,
-            text: S.of(context).loginButton,
-          ),
+          Builder(builder: (context) {
+            final loginState = context.watch<LoginCubit>().state;
+            bool isLoading = loginState is LoginLoading;
+            return CustomElevatedButton(
+              gradient: ColorsStyles.kButtonGradient,
+              onPressed: isLoading ? () {} : validateAndLogin,
+              text: S.of(context).loginButton,
+              loading: isLoading,
+            );
+          }),
         ],
       ),
     );

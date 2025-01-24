@@ -37,7 +37,7 @@ class AddToCartCardButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${foodItem.totalPrice}",
+                    "${foodItem.totalPrice} ",
                     style: FontStyles.font16BlackSemiBold,
                   ),
                   Flexible(

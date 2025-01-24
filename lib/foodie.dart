@@ -56,7 +56,8 @@ class Foodie extends StatelessWidget {
                   onGenerateRoute: appRouter.generateRoute,
                   initialRoute: isFirstTime
                       ? Routes.kOnboardingView
-                      : (FirebaseAuth.instance.currentUser != null)
+                      : (FirebaseAuth.instance.currentUser != null &&
+                              FirebaseAuth.instance.currentUser!.emailVerified)
                           ? Routes.kLandingView
                           : Routes.kLoginView,
                   theme: foodieTheme(context), // Pass context to the theme

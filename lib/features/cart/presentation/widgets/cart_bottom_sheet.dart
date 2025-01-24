@@ -21,7 +21,7 @@ class CartBottomSheet extends StatelessWidget {
           Row(
             children: [
               Text(
-                S.of(context).total, // Localized
+                S.of(context).total,
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),

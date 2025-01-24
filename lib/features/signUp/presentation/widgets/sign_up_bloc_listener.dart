@@ -20,15 +20,7 @@ class SignUpBlocListener extends StatelessWidget {
           current is SignUpLoading,
       listener: (context, state) {
         state.whenOrNull(
-          signUpLoading: () {
-            showDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (context) =>
-                    const Center(child: CircularProgressIndicator()));
-          },
           signUpSuccess: () {
-            context.pop();
             context.pushNamedAndRemoveUntil(
               Routes.kLoginView,
               predicate: (Route<dynamic> route) {
@@ -47,7 +39,6 @@ class SignUpBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-    context.pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

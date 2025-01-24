@@ -21,21 +21,15 @@ class LoginBlocListener extends StatelessWidget {
           current is LoginLoading,
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {
-            showDialog(
-                context: context,
-                builder: (context) =>
-                    const Center(child: CircularProgressIndicator()));
-          },
           success: () {
             if (FirebaseAuth.instance.currentUser!.emailVerified) {
-              context.pop();
-              context.pushNamedAndRemoveUntil(Routes.kLandingView,
-                  predicate: (Route<dynamic> route) {
-                return false;
-              });
+              context.pushNamedAndRemoveUntil(
+                Routes.kLandingView,
+                predicate: (Route<dynamic> route) {
+                  return false;
+                },
+              );
             } else {
-              context.pop();
               showSnackBar(context, message: S.of(context).pleaseVerifyEmail);
             }
           },
@@ -49,7 +43,6 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-    context.pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
