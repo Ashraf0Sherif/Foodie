@@ -92,6 +92,11 @@ abstract class FontStyles {
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font16PassiveRegular = TextStyle(
+    color: ColorsStyles.kPassiveColor,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font14SecondaryColorMedium = TextStyle(
     color: ColorsStyles.kSecondaryColor,
     fontSize: 14.sp,

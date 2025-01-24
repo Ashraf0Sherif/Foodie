@@ -4,7 +4,7 @@ import 'package:foodie/core/helpers/assets.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
-import 'package:foodie/features/profile/presentation/widgets/success_addresses_view.dart';
+import 'package:foodie/features/profile/presentation/widgets/addresses_sliver_list.dart';
 
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -59,6 +59,12 @@ class AddressesView extends StatelessWidget {
               return state.maybeWhen(
                 orElse: () =>
                     const SliverToBoxAdapter(child: SizedBox.shrink()),
+                loading: () {
+                  return AddressesSliverList(
+                    skeleton: true,
+                    profileCubit: profileCubit,
+                  );
+                },
                 success: () {
                   List<Address> addresses =
                       context.read<ProfileCubit>().foodieUser!.addresses ?? [];
@@ -76,7 +82,7 @@ class AddressesView extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return SuccessAddressesView(
+                    return AddressesSliverList(
                         addresses: addresses, profileCubit: profileCubit);
                   }
                 },
