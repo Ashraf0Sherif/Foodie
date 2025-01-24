@@ -23,7 +23,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).size.height * 0.5,
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: kDefaultHorizontalPadding),

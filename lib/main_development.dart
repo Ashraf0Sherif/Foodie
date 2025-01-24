@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:foodie/core/di/dependency_injection.dart';
 
@@ -27,6 +28,10 @@ void main() async {
   );
   await getIsFirstTime();
   await getCurrentLocal();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
   runApp(
     Foodie(
       appRouter: AppRouter(),
