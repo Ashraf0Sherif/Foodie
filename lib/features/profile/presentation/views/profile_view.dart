@@ -5,7 +5,6 @@ import 'package:foodie/features/cart/presentation/widgets/not_logged_in.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/profile_skeleton_view.dart';
 
-import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
 class ProfileView extends StatelessWidget {

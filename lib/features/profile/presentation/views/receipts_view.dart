@@ -7,7 +7,6 @@ import 'package:foodie/features/profile/presentation/widgets/receipts_sliver_lis
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/no_items_found.dart';
 import '../../../../generated/l10n.dart';
 

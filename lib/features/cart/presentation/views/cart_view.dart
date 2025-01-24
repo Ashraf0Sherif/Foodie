@@ -10,7 +10,6 @@ import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/cart_view_body.dart';
 

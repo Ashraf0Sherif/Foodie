@@ -7,7 +7,6 @@ import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/addresses_sliver_list.dart';
 
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/no_items_found.dart';
 import '../../../../core/widgets/sliver_view_app_bar.dart';
 import '../../../../generated/l10n.dart';

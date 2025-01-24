@@ -72,7 +72,6 @@ class FoodieFirebaseFood {
     return foodItems;
   }
 
-
   Future<List<Receipt>> fetchReceipts() async {
     QuerySnapshot receiptsSnapshot =
         await FirebaseFirestore.instance.collection('receipts').get();
@@ -102,28 +101,24 @@ class FoodieFirebaseFood {
     };
     List<String> foodItemIds = foodItemQuantities.keys.toList();
     List<FoodItem> fetchedFoodItems = [];
-    const int batchSize = 10;
-    for (int i = 0; i < foodItemIds.length; i += batchSize) {
-      List<String> batchIds = foodItemIds.sublist(
-        i,
-        i + batchSize > foodItemIds.length ? foodItemIds.length : i + batchSize,
-      );
-      QuerySnapshot foodItemsSnapshot =
-          await FirebaseFirestore.instance.collectionGroup('foodItems').get();
-      for (var doc in foodItemsSnapshot.docs) {
-        if (!batchIds.contains(doc.id)) {
-          continue;
-        } else {
+    QuerySnapshot foodItemsSnapshot = await FirebaseFirestore.instance
+        .collectionGroup('foodItems')
+        .where('id', whereIn: foodItemIds)
+        .orderBy('createdAt', descending: true)
+        .get();
+    fetchedFoodItems.addAll(
+      foodItemsSnapshot.docs.map(
+        (doc) {
           final foodItem =
               FoodItem.fromJson(doc.data() as Map<String, dynamic>);
           foodItem.id = doc.id;
           foodItem.categoryId = doc.reference.parent.parent!.id;
           foodItem.quantity = foodItemQuantities[foodItem.id] ?? 0;
           foodItem.totalPrice = int.parse(foodItem.price) * foodItem.quantity;
-          fetchedFoodItems.add(foodItem);
-        }
-      }
-    }
+          return foodItem;
+        },
+      ),
+    );
     return fetchedFoodItems;
   }
 }

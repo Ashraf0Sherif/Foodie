@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/views/customize_order_bottom_sheet.dart';
 
+import '../../../../../core/helpers/shared_pref_keys.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
@@ -90,7 +91,7 @@ class FoodItemCard extends StatelessWidget {
                           style: FontStyles.font12PassiveBold,
                         ),
                         Text(
-                          foodItem.mainIngredients
+                          currentLanguage == 'ar' ? foodItem.arabicDescription : foodItem.mainIngredients
                               .map((e) => e.title)
                               .join(", "),
                           style: FontStyles.font12BlackRegular,
