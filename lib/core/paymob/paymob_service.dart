@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:foodie/core/helpers/assets.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/cart/data/models/receipt.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
@@ -52,10 +53,6 @@ class PaymobService {
   }
 
   Map<String, String> _buildBillingData(FoodieUser user, Address address) {
-    print('email ${user.email} \n username ${user.username} \n'
-        ' first name ${user.username!.split(' ')[0]} \n'
-        ' last name ${user.username!.split(' ')[1]} \n'
-        'phone number ${user.phoneNumber} \n address ${address.street}');
     return {
       "email": user.email!,
       "first_name": user.username!.split(' ')[0],
@@ -73,9 +70,10 @@ class PaymobService {
   List<Map<String, dynamic>> _buildItems(List<FoodItem> foodItems) {
     return foodItems.map((item) {
       return {
-        "name": item.title,
+        "name": currentLanguage == 'ar' ? item.arabicTitle : item.title,
         "amount": item.totalPrice * 100,
-        "description": item.description,
+        "description":
+            currentLanguage == 'ar' ? item.arabicDescription : item.description,
         "quantity": item.quantity,
       };
     }).toList();

@@ -10,8 +10,8 @@ class LanguageCubit extends Cubit<LanguageState> {
   LanguageCubit() : super(LanguageInitial());
 
   void changeLanguage({required String language}) async {
-    await SharedPrefHelper.setData(SharedPrefKeys.currentLocal, language);
-    currentLocal = language;
+    await SharedPrefHelper.setData(SharedPrefKeys.currentLanguage, language);
+    currentLanguage = language;
     emit(LanguageChanged());
   }
 }

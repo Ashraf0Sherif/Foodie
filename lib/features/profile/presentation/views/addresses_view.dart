@@ -4,11 +4,11 @@ import 'package:foodie/core/helpers/assets.dart';
 import 'package:foodie/core/theming/ui_constants.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
-import 'package:foodie/features/profile/presentation/widgets/success_addresses_view.dart';
+import 'package:foodie/features/profile/presentation/widgets/addresses_sliver_list.dart';
 
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/no_items_found.dart';
+import '../../../../core/widgets/sliver_view_app_bar.dart';
 import '../../../../generated/l10n.dart';
 import 'address_bottom_sheet.dart';
 
@@ -44,21 +44,20 @@ class AddressesView extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            surfaceTintColor: Colors.transparent,
-            elevation: 0,
-            centerTitle: true,
-            title: Text(
-              S.of(context).addresses,
-              style: FontStyles.font24SecondaryColorBold,
-            ),
+          SliverViewAppBar(
+            title: S.of(context).addresses,
           ),
           BlocBuilder<ProfileCubit, ProfileState>(
             builder: (context, state) {
               return state.maybeWhen(
                 orElse: () =>
                     const SliverToBoxAdapter(child: SizedBox.shrink()),
+                loading: () {
+                  return AddressesSliverList(
+                    skeleton: true,
+                    profileCubit: profileCubit,
+                  );
+                },
                 success: () {
                   List<Address> addresses =
                       context.read<ProfileCubit>().foodieUser!.addresses ?? [];
@@ -76,7 +75,7 @@ class AddressesView extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return SuccessAddressesView(
+                    return AddressesSliverList(
                         addresses: addresses, profileCubit: profileCubit);
                   }
                 },
@@ -95,3 +94,5 @@ class AddressesView extends StatelessWidget {
     );
   }
 }
+
+

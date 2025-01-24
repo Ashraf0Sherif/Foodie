@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/core/theming/colors.dart';
 import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_cubit.dart';
+import 'package:foodie/features/signUp/logic/sign_up_cubit/sign_up_state.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -186,13 +187,16 @@ class _SignUpFormState extends State<SignUpForm> {
               hasMinLength: hasMinLength,
               hasNumber: hasNumber),
           verticalSpace(36),
-          CustomElevatedButton(
-            gradient: ColorsStyles.kButtonGradient,
-            onPressed: () {
-              validateAndSignUp();
-            },
-            text: S.of(context).registerButton,
-          ),
+          Builder(builder: (context) {
+            final loginState = context.watch<SignUpCubit>().state;
+            bool isLoading = loginState is SignUpLoading;
+            return CustomElevatedButton(
+              gradient: ColorsStyles.kButtonGradient,
+              onPressed: isLoading ? () {} : validateAndSignUp,
+              text: S.of(context).registerButton,
+              loading: isLoading,
+            );
+          }),
         ],
       ),
     );

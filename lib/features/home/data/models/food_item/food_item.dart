@@ -9,7 +9,9 @@ part 'food_item.g.dart';
 @JsonSerializable()
 class FoodItem {
   final String title;
+  final String arabicTitle;
   final String description;
+  final String arabicDescription;
   final String price;
   final String deliveryTime;
   final List<String> images;
@@ -21,7 +23,9 @@ class FoodItem {
 
   FoodItem copyWith({
     String? title,
+    String? arabicTitle,
     String? description,
+    String? arabicDescription,
     String? price,
     String? deliveryTime,
     List<String>? images,
@@ -35,7 +39,9 @@ class FoodItem {
   }) {
     var copy = FoodItem(
       title: title ?? this.title,
+      arabicTitle: arabicTitle ?? this.arabicTitle,
       description: description ?? this.description,
+      arabicDescription: arabicDescription ?? this.arabicDescription,
       price: price ?? this.price,
       deliveryTime: deliveryTime ?? this.deliveryTime,
       images: images ?? List.from(this.images),
@@ -54,7 +60,9 @@ class FoodItem {
 
   FoodItem({
     required this.title,
+    required this.arabicTitle,
     required this.description,
+    required this.arabicDescription,
     required this.price,
     required this.deliveryTime,
     required this.images,

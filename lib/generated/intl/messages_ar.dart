@@ -117,8 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "mainIngredients":
             MessageLookupByLibrary.simpleMessage("المكونات الرئيسية"),
-        "manageProfile":
-            MessageLookupByLibrary.simpleMessage("إدارة الملف الشخصي"),
+        "manageProfile": MessageLookupByLibrary.simpleMessage("إدارة الحساب"),
         "niceToMeetYou": MessageLookupByLibrary.simpleMessage("سعدت بلقائك!"),
         "noAddressesFound":
             MessageLookupByLibrary.simpleMessage("لم يتم العثور على عناوين"),
@@ -240,7 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "verifyNewEmail": MessageLookupByLibrary.simpleMessage(
             "تحقق من بريدك الإلكتروني الجديد!"),
         "welcomeToFoodie":
-            MessageLookupByLibrary.simpleMessage("مرحبًا بكم في Foodie"),
+            MessageLookupByLibrary.simpleMessage("مرحبًا بكم في فودي"),
         "whatLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("ما هي اللغة التي تفضلها؟")
       };

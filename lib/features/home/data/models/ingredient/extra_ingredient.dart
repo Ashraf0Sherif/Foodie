@@ -7,18 +7,23 @@ part 'extra_ingredient.g.dart';
 @JsonSerializable()
 class ExtraIngredient extends Ingredient {
   ExtraIngredient(
-      {required super.title, required this.price, super.isChecked = false});
+      {required super.title,
+      required super.arabicTitle,
+      required this.price,
+      super.isChecked = false});
 
   final String price;
 
   @override
   ExtraIngredient copyWith({
     String? title,
+    String? arabicTitle,
     String? description,
     List<String>? images,
   }) {
     return ExtraIngredient(
       title: title ?? this.title,
+      arabicTitle: arabicTitle ?? this.arabicTitle,
       isChecked: isChecked,
       price: price,
     );

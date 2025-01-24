@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import 'package:foodie/core/widgets/custom_elevated_button.dart';
 import 'package:foodie/core/widgets/no_items_found.dart';
+import 'package:foodie/core/widgets/sliver_view_app_bar.dart';
 import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
 
 import '../../../../core/helpers/assets.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/cart_view_body.dart';
 
@@ -25,16 +25,7 @@ class CartView extends StatelessWidget {
         if (FirebaseAuth.instance.currentUser == null) {
           return CustomScrollView(
             slivers: [
-              SliverAppBar(
-                backgroundColor: Colors.transparent,
-                surfaceTintColor: Colors.transparent,
-                elevation: 0,
-                centerTitle: true,
-                title: Text(
-                  S.of(context).cart, // Localized
-                  style: FontStyles.font24SecondaryColorBold,
-                ),
-              ),
+              SliverViewAppBar(title: S.of(context).cart),
               SliverToBoxAdapter(
                 child: NoItemsFound(
                   svgImage: AssetsData.kNotLoggedInCartSVG,
@@ -55,16 +46,7 @@ class CartView extends StatelessWidget {
           emptyCart: () {
             return CustomScrollView(
               slivers: [
-                SliverAppBar(
-                  backgroundColor: Colors.transparent,
-                  surfaceTintColor: Colors.transparent,
-                  elevation: 0,
-                  centerTitle: true,
-                  title: Text(
-                    S.of(context).cart, // Localized
-                    style: FontStyles.font24SecondaryColorBold,
-                  ),
-                ),
+                SliverViewAppBar(title: S.of(context).cart),
                 SliverToBoxAdapter(
                   child: NoItemsFound(
                     svgImage: AssetsData.kEmptyCartSVG,

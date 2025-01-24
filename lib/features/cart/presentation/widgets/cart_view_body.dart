@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie/core/helpers/extensions.dart';
 import 'package:foodie/features/cart/logic/payment_cubit/payment_cubit.dart';
 import 'package:foodie/features/cart/presentation/views/payment_gateway_view.dart';
+import 'package:foodie/features/cart/presentation/widgets/payment_bloc_listener.dart';
 import 'package:foodie/features/cart/presentation/widgets/success_recepit_alert_dialog.dart';
 
 import '../../../../core/routing/routes.dart';
@@ -93,6 +94,9 @@ class _CartViewBodyState extends State<CartViewBody> {
               child: CheckoutButtonBlocBuilder(cartItems: widget.cartItems),
             ),
           ),
+          const SliverToBoxAdapter(
+            child: PaymentBlocListener(),
+          )
         ],
       ),
     );

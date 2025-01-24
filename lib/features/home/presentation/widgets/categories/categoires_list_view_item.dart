@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/home/logic/filter_cubit/filter_cubit.dart';
 
 import '../../../../../core/theming/colors.dart';
@@ -34,7 +35,7 @@ class CategoriesListViewItem extends StatelessWidget {
         child: BlocBuilder<FilterCubit, FilterState>(
           builder: (context, state) {
             return Text(
-              category.title,
+              currentLanguage == 'ar' ? category.arabicTitle : category.title,
               style: FontStyles.font17PrimaryColorMedium.copyWith(
                 color: (state is FilterIndexChanged && state.index == index) ||
                         (state is FilterInitial && index == 0)
@@ -48,4 +49,3 @@ class CategoriesListViewItem extends StatelessWidget {
     );
   }
 }
-

@@ -20,7 +20,8 @@ class FoodieFirebaseProfile {
   Future<void> signupUsingEmailAndPassword(
       {required String email,
       required String password,
-      required String username,required String phoneNumber}) async {
+      required String username,
+      required String phoneNumber}) async {
     UserCredential userCredential =
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email,
@@ -31,7 +32,7 @@ class FoodieFirebaseProfile {
     await user.reload();
     await user.sendEmailVerification();
     user = FirebaseAuth.instance.currentUser!;
-    await addUserToFirestore(userId: user.uid,phoneNumber: phoneNumber);
+    await addUserToFirestore(userId: user.uid, phoneNumber: phoneNumber);
   }
 
   Future<void> logout() async {
@@ -42,7 +43,8 @@ class FoodieFirebaseProfile {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> addUserToFirestore({required String userId,required String phoneNumber}) async {
+  Future<void> addUserToFirestore(
+      {required String userId, required String phoneNumber}) async {
     await FirebaseFirestore.instance.collection('users').doc(userId).set(
       {
         'totalOrders': 0,
@@ -87,6 +89,7 @@ class FoodieFirebaseProfile {
   }
 
   Future<FoodieUser> getCurrentUser() async {
+    await FirebaseAuth.instance.currentUser!.reload();
     User user = FirebaseAuth.instance.currentUser!;
     DocumentSnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')

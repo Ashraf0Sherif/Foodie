@@ -7,6 +7,7 @@ import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/widgets/food_item/food_item_card_image_skeleton.dart';
 
 import '../../../../../core/helpers/assets.dart';
+import '../../../../../core/helpers/shared_pref_keys.dart';
 import '../../../../../core/theming/styles.dart';
 import '../../../../../generated/l10n.dart';
 
@@ -39,13 +40,15 @@ class FoodItemInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                foodItem.title,
+                currentLanguage == 'ar' ? foodItem.arabicTitle : foodItem.title,
                 style: FontStyles.font16BlackBold,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
-                foodItem.description,
+                currentLanguage == 'ar'
+                    ? foodItem.arabicDescription
+                    : foodItem.description,
                 style: FontStyles.font12PassiveRegular,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -54,7 +57,7 @@ class FoodItemInfo extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '${foodItem.totalPrice}',
+                    '${foodItem.totalPrice} ',
                     style: FontStyles.font16SecondaryColorBold,
                   ),
                   Text(

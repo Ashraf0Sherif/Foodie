@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/widgets/sliver_view_app_bar.dart';
 import 'package:foodie/features/cart/presentation/widgets/not_logged_in.dart';
 import 'package:foodie/features/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:foodie/features/profile/presentation/widgets/profile_skeleton_view.dart';
 
-import '../../../../core/theming/styles.dart';
 import '../../../../generated/l10n.dart';
 
 class ProfileView extends StatelessWidget {
@@ -17,16 +17,7 @@ class ProfileView extends StatelessWidget {
         if (state is ProfileLoading || state is ProfileSuccess) {
           return CustomScrollView(
             slivers: [
-              SliverAppBar(
-                backgroundColor: Colors.transparent,
-                surfaceTintColor: Colors.transparent,
-                elevation: 0,
-                centerTitle: true,
-                title: Text(
-                  S.of(context).profile,
-                  style: FontStyles.font24SecondaryColorBold,
-                ),
-              ),
+              SliverViewAppBar(title: S.of(context).profile),
               SliverToBoxAdapter(
                 child: state is ProfileLoading
                     ? const ProfileSkeletonView(

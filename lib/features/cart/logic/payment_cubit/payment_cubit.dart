@@ -3,6 +3,7 @@ import 'package:foodie/features/cart/data/repos/paymob_repo.dart';
 import 'package:foodie/features/home/data/repos/foodie_food_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/networking/network_exceptions.dart';
 import '../../../home/data/models/food_item/food_item.dart';
 import '../../../login/data/models/user_model/address.dart';
 import '../../../login/data/models/user_model/foodie_user.dart';
@@ -31,7 +32,8 @@ class PaymentCubit extends Cubit<PaymentState> {
         emit(PaymentState.success(paymentKey: paymentKey));
       },
       failure: (error) {
-        emit(PaymentState.failure(error: error.toString()));
+        emit(PaymentState.failure(
+            error: NetworkExceptions.getErrorMessage(error)));
       },
     );
   }

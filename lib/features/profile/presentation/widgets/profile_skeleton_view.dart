@@ -175,7 +175,7 @@ class ProfileSkeletonView extends StatelessWidget {
                             onPressed: () {
                               showModalBottomSheet(
                                   context: context,
-                                  builder: (context) => LanguageBottomSheet());
+                                  builder: (context) => const LanguageBottomSheet());
                             },
                             child: Text(S.of(context).change),
                           ),

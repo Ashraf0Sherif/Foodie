@@ -8,8 +8,9 @@ part 'food_category.g.dart';
 class FoodCategory {
   @JsonKey(name: 'category')
   final String title;
+  final String arabicTitle;
 
-  FoodCategory({required this.title});
+  FoodCategory({required this.title, required this.arabicTitle});
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<FoodItem> foodItems;

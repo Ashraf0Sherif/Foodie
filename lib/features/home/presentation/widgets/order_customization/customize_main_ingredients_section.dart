@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/styles.dart';
@@ -29,7 +30,9 @@ class CustomizeMainIngredientsSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                foodItem.mainIngredients[i].title,
+                currentLanguage == 'ar'
+                    ? foodItem.mainIngredients[i].arabicTitle
+                    : foodItem.mainIngredients[i].title,
                 style: FontStyles.font18PassiveRegular,
               ),
               const Spacer(),

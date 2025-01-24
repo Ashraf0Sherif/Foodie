@@ -37,7 +37,7 @@ class AddToCartCardButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${foodItem.totalPrice}",
+                    "${foodItem.totalPrice} ",
                     style: FontStyles.font16BlackSemiBold,
                   ),
                   Flexible(
@@ -58,16 +58,16 @@ class AddToCartCardButton extends StatelessWidget {
                     backgroundColor: ColorsStyles.kPrimaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                        topRight: currentLocal == 'ar'
+                        topRight: currentLanguage == 'ar'
                             ? Radius.zero
                             : Radius.circular(8.r),
-                        bottomRight: currentLocal == 'ar'
+                        bottomRight: currentLanguage == 'ar'
                             ? Radius.zero
                             : Radius.circular(8.r),
-                        topLeft: currentLocal == 'ar'
+                        topLeft: currentLanguage == 'ar'
                             ? Radius.circular(8.r)
                             : Radius.zero,
-                        bottomLeft: currentLocal == 'ar'
+                        bottomLeft: currentLanguage == 'ar'
                             ? Radius.circular(8.r)
                             : Radius.zero,
                       ),
