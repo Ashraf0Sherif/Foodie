@@ -8,7 +8,9 @@ part of 'food_item.dart';
 
 FoodItem _$FoodItemFromJson(Map<String, dynamic> json) => FoodItem(
       title: json['title'] as String,
+      arabicTitle: json['arabicTitle'] as String,
       description: json['description'] as String,
+      arabicDescription: json['arabicDescription'] as String,
       price: json['price'] as String,
       deliveryTime: json['deliveryTime'] as String,
       images:
@@ -24,7 +26,9 @@ FoodItem _$FoodItemFromJson(Map<String, dynamic> json) => FoodItem(
 
 Map<String, dynamic> _$FoodItemToJson(FoodItem instance) => <String, dynamic>{
       'title': instance.title,
+      'arabicTitle': instance.arabicTitle,
       'description': instance.description,
+      'arabicDescription': instance.arabicDescription,
       'price': instance.price,
       'deliveryTime': instance.deliveryTime,
       'images': instance.images,

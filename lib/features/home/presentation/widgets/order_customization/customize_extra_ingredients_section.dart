@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:foodie/features/home/presentation/widgets/order_customization/custom_ingredient_check_box.dart';
 
@@ -29,7 +30,7 @@ class CustomizeExtraIngredientsSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              foodItem.extraIngredients[i].title,
+              currentLanguage == 'ar' ? foodItem.extraIngredients[i].arabicTitle : foodItem.extraIngredients[i].title,
               style: FontStyles.font18PassiveRegular,
             ),
             const Spacer(),
