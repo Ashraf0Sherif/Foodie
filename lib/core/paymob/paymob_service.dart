@@ -120,6 +120,7 @@ class PaymobService {
         'VISA': AssetsData.kVisaSVG,
       };
       receipt.cardImage = cardImageMap[receipt.cardType];
+      receipt.cardImage ??= AssetsData.kInvalidCardSVG;
     }
     receipts
         .sort((receipt1, receipt2) => receipt2.date!.compareTo(receipt1.date!));

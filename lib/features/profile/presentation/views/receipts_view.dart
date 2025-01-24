@@ -32,7 +32,7 @@ class ReceiptsView extends StatelessWidget {
                   if (receipts.isEmpty) {
                     return SliverToBoxAdapter(
                       child: NoItemsFound(
-                        svgImage: AssetsData.kEmptyCartSVG,
+                        svgImage: AssetsData.kNoOrdersSVG,
                         title: S.of(context).noReceiptsFound,
                         description: S.of(context).startFirstOrder,
                       ),

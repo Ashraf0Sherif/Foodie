@@ -93,32 +93,47 @@ class FoodieFirebaseFood {
         .collection('receipts')
         .doc(receiptId)
         .get();
+
     List<dynamic> foodItemsData =
         (receiptSnapshot.data() as Map<String, dynamic>)['foodItems'] ?? [];
+
     Map<String, int> foodItemQuantities = {
       for (var item in foodItemsData)
-        (item['id'] as String): item['quantity'] as int,
+        if (item['id'] != null && item['quantity'] != null)
+          item['id'] as String: item['quantity'] as int,
     };
+
     List<String> foodItemIds = foodItemQuantities.keys.toList();
+
+    const int batchSize = 10;
+
     List<FoodItem> fetchedFoodItems = [];
-    QuerySnapshot foodItemsSnapshot = await FirebaseFirestore.instance
-        .collectionGroup('foodItems')
-        .where('id', whereIn: foodItemIds)
-        .orderBy('createdAt', descending: true)
-        .get();
-    fetchedFoodItems.addAll(
-      foodItemsSnapshot.docs.map(
-        (doc) {
-          final foodItem =
-              FoodItem.fromJson(doc.data() as Map<String, dynamic>);
+
+    for (int i = 0; i < foodItemIds.length; i += batchSize) {
+      List<String> batchIds = foodItemIds.sublist(
+        i,
+        i + batchSize > foodItemIds.length ? foodItemIds.length : i + batchSize,
+      );
+
+      QuerySnapshot foodItemsSnapshot = await FirebaseFirestore.instance
+          .collectionGroup('foodItems')
+          .where('id', whereIn: batchIds)
+          .get();
+
+      fetchedFoodItems.addAll(
+        foodItemsSnapshot.docs.map((doc) {
+          final data = doc.data() as Map<String, dynamic>;
+          final foodItem = FoodItem.fromJson(data);
           foodItem.id = doc.id;
-          foodItem.categoryId = doc.reference.parent.parent!.id;
+          foodItem.categoryId = doc.reference.parent.parent?.id ?? '';
           foodItem.quantity = foodItemQuantities[foodItem.id] ?? 0;
-          foodItem.totalPrice = int.parse(foodItem.price) * foodItem.quantity;
+          foodItem.totalPrice =
+              (int.tryParse(foodItem.price) ?? 0) * foodItem.quantity;
           return foodItem;
-        },
-      ),
-    );
+        }),
+      );
+    }
+
     return fetchedFoodItems;
   }
 }
