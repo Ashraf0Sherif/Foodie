@@ -5,8 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../../core/media_service/media_service.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../login/data/models/user_model/address.dart';
 import '../../data/repos/profile_repo.dart';
 

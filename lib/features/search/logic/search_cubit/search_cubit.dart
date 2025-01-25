@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../../core/helpers/internet_connection_helper.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../home/data/models/food_item/food_item.dart';
 import '../../../home/data/repos/foodie_food_repo.dart';
 

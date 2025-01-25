@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:foodie/core/firebase/models/firebase_result/firebase_result.dart';
 import 'package:foodie/features/login/data/models/user_model/address.dart';
 
 import '../../../../core/firebase/foodie_firebase_profile.dart';
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_result/firebase_result.dart';
 import '../../../login/data/models/user_model/foodie_user.dart';
 
 class ProfileRepo {
