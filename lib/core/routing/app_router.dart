@@ -28,6 +28,7 @@ import '../logic/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import '../widgets/landing_view.dart';
 
 class AppRouter {
+
   Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {

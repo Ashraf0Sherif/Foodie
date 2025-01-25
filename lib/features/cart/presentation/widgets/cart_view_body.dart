@@ -13,6 +13,7 @@ import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/food_items_sliver_list_view.dart';
 import '../../../../generated/l10n.dart';
 import '../../../home/data/models/food_item/food_item.dart';
+import '../../../profile/logic/profile_cubit/profile_cubit.dart';
 import 'cart_bottom_sheet.dart';
 import 'checkout_button_bloc_builder.dart';
 import 'clear_cart_alert_dialog.dart';
@@ -42,6 +43,9 @@ class _CartViewBodyState extends State<CartViewBody> {
               arguments: PaymentGatewayArgs(
                 paymentKey: paymentKey,
                 onSuccess: (receipt) {
+                  context.read<ProfileCubit>().foodieUser!.totalSpent +=
+                      receipt.amountCents! / 100;
+                  context.read<ProfileCubit>().foodieUser!.totalOrders++;
                   showDialog(
                     context: context,
                     builder: (context) {
