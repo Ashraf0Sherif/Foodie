@@ -91,8 +91,8 @@ class FoodItemCard extends StatelessWidget {
                           style: FontStyles.font12PassiveBold,
                         ),
                         Text(
-                          currentLanguage == 'ar' ? foodItem.arabicDescription : foodItem.mainIngredients
-                              .map((e) => e.title)
+                          foodItem.mainIngredients
+                              .map((e) => currentLanguage == 'ar' ? e.arabicTitle : e.title)
                               .join(", "),
                           style: FontStyles.font12BlackRegular,
                           overflow: TextOverflow.ellipsis,

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie/features/signUp/data/repos/sign_up_repo.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
 import 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {

@@ -1,10 +1,10 @@
 import 'package:foodie/core/firebase/foodie_firebase_food.dart';
-import 'package:foodie/core/firebase/models/firebase_result/firebase_result.dart';
 import 'package:foodie/core/paymob/paymob_service.dart';
 import 'package:foodie/features/cart/data/models/receipt.dart';
 import 'package:foodie/features/home/data/models/food_category/food_category.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_result/firebase_result.dart';
 import '../models/food_item/food_item.dart';
 
 class FoodieFoodRepo {

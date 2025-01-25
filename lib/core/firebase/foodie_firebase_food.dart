@@ -4,7 +4,7 @@ import 'package:foodie/features/home/data/models/food_category/food_category.dar
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 class FoodieFirebaseFood {
-  static const fetchLimit = 3;
+  static const fetchLimit = 2;
 
   Future<List<FoodItem>> foodItems(
       {required String categoryId, FoodItem? lastFoodItem}) async {
@@ -36,8 +36,10 @@ class FoodieFirebaseFood {
   }
 
   Future<List<FoodCategory>> categories() async {
-    QuerySnapshot topicsSnapshot =
-        await FirebaseFirestore.instance.collection('foodCategories').get();
+    QuerySnapshot topicsSnapshot = await FirebaseFirestore.instance
+        .collection('foodCategories')
+        .orderBy('createdAt', descending: false)
+        .get();
     List<FoodCategory> categories =
         await Future.wait(topicsSnapshot.docs.map((doc) async {
       final category =
@@ -52,16 +54,24 @@ class FoodieFirebaseFood {
     required String query,
     FoodItem? lastFoodItem,
   }) async {
-    Query searchQuery = FirebaseFirestore.instance
+    Query englishQuery = FirebaseFirestore.instance
         .collectionGroup('foodItems')
         .orderBy('createdAt', descending: true)
         .where('title', isGreaterThanOrEqualTo: query)
         .where('title', isLessThanOrEqualTo: '$query\uf8ff')
         .limit(fetchLimit);
+    Query arabicQuery = FirebaseFirestore.instance
+        .collectionGroup('foodItems')
+        .orderBy('createdAt', descending: true)
+        .where('arabicTitle', isGreaterThanOrEqualTo: query)
+        .where('arabicTitle', isLessThanOrEqualTo: '$query\uf8ff')
+        .limit(fetchLimit);
     if (lastFoodItem != null) {
-      searchQuery = searchQuery.startAfter([lastFoodItem.createdAt]);
+      englishQuery = englishQuery.startAfter([lastFoodItem.createdAt]);
+      arabicQuery = arabicQuery.startAfter([lastFoodItem.createdAt]);
     }
-    QuerySnapshot querySnapshot = await searchQuery.get();
+    QuerySnapshot querySnapshot = await englishQuery.get();
+    QuerySnapshot arabicQuerySnapshot = await arabicQuery.get();
     List<FoodItem> foodItems = querySnapshot.docs.map((doc) {
       final foodItem = FoodItem.fromJson(doc.data() as Map<String, dynamic>);
       foodItem.id = doc.id;
@@ -69,6 +79,18 @@ class FoodieFirebaseFood {
       foodItem.categoryId = doc.reference.parent.parent!.id;
       return foodItem;
     }).toList();
+    foodItems.addAll(
+      arabicQuerySnapshot.docs.map(
+        (doc) {
+          final foodItem =
+              FoodItem.fromJson(doc.data() as Map<String, dynamic>);
+          foodItem.id = doc.id;
+          foodItem.totalPrice = int.parse(foodItem.price);
+          foodItem.categoryId = doc.reference.parent.parent!.id;
+          return foodItem;
+        },
+      ),
+    );
     return foodItems;
   }
 

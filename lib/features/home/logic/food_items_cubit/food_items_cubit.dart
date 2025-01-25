@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../../../core/helpers/internet_connection_helper.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../data/repos/foodie_food_repo.dart';
 
 part 'food_items_cubit.freezed.dart';

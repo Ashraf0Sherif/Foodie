@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:foodie/features/home/data/models/banner_model/banner_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
 import '../../data/repos/banner_repo.dart';
 
 part 'banner_cubit.freezed.dart';

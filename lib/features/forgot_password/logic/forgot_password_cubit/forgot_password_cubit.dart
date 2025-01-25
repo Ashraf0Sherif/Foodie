@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie/features/forgot_password/data/repos/forgot_password_repo.dart';
 
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
 import 'forgot_password_state.dart';
 
 class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {

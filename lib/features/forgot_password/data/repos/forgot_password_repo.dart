@@ -1,6 +1,7 @@
 import '../../../../core/firebase/foodie_firebase_profile.dart';
-import '../../../../core/firebase/models/firebase_exceptions/firebase_exceptions.dart';
-import '../../../../core/firebase/models/firebase_result/firebase_result.dart';
+import '../../../../core/models/firebase_exceptions/firebase_exceptions.dart';
+import '../../../../core/models/firebase_result/firebase_result.dart';
+
 
 class ForgotPasswordRepo {
   final FoodieFirebaseProfile foodieFirebaseProfile;
