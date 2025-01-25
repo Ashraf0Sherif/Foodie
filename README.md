@@ -125,9 +125,9 @@ Update account details, manage addresses, and track orders.
   - `flutter_screenutil`: Adaptive screen size and font scaling.  
   - `flutter_native_splash`: Easy splash screen configuration.  
   - `flutter_dotenv`: Environment variable management.  
-  - `carousel_slider`: Interactive image carousel widget.  
   - `skeletonizer`: Placeholder skeleton screens.  
   - `internet_connection_checker`: Check internet connectivity.  
+  - `get_it`: Dependency injection for managing app dependencies.  
 
 ---
 
