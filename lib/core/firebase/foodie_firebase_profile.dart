@@ -89,6 +89,7 @@ class FoodieFirebaseProfile {
   }
 
   Future<FoodieUser> getCurrentUser() async {
+
     await FirebaseAuth.instance.currentUser!.reload();
     User user = FirebaseAuth.instance.currentUser!;
     DocumentSnapshot snapshot = await FirebaseFirestore.instance

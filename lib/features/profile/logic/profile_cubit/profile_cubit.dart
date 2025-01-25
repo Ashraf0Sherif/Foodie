@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:foodie/features/login/data/models/user_model/foodie_user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -36,6 +37,8 @@ class ProfileCubit extends Cubit<ProfileState> {
   final TextEditingController apartmentController = TextEditingController();
 
   void getFoodieUser() async {
+    if (FirebaseAuth.instance.currentUser == null) return;
+    if (FirebaseAuth.instance.currentUser!.emailVerified == false) return;
     emit(const ProfileState.loading());
     final response = await profileRepo.getCurrentUser();
     response.when(

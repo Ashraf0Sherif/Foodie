@@ -51,7 +51,6 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
           if (url != null &&
               url.queryParameters.containsKey('success') &&
               url.queryParameters['success'] == 'true') {
-            context.pop();
             final receipt = Receipt();
             receipt.orderId = url.queryParameters['order'];
             receipt.paymentId = int.parse(url.queryParameters['id']!);
@@ -59,12 +58,10 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
                 int.parse(url.queryParameters['amount_cents']!);
             receipt.date = url.queryParameters['created_at']!.split('T')[0];
             _addReceipt(receipt: receipt);
-            _increaseUserTotalOrdersAndTotalSpent(context,
-                amount: receipt.amountCents!);
+            _increaseUserTotalOrdersAndTotalSpent(amount: receipt.amountCents!);
+            context.pop();
             widget.onSuccess(receipt);
-          } else if (url != null &&
-              url.queryParameters.containsKey('success') &&
-              url.queryParameters['success'] == 'false') {}
+          }
         },
       ),
     );
@@ -80,13 +77,13 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
             .read<CartCubit>()
             .cartItems
             .map((foodItem) =>
-        {'id': foodItem.id, 'quantity': foodItem.quantity})
+                {'id': foodItem.id, 'quantity': foodItem.quantity})
             .toList(),
       },
     );
   }
 
-  _increaseUserTotalOrdersAndTotalSpent(context, {required int amount}) async {
+  _increaseUserTotalOrdersAndTotalSpent({required int amount}) async {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -96,8 +93,6 @@ class _PaymentGatewayViewState extends State<PaymentGatewayView> {
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .update({'totalSpent': FieldValue.increment(amount / 100)});
-    context.read<ProfileCubit>().foodieUser!.totalSpent += amount / 100;
-    context.read<ProfileCubit>().foodieUser!.totalOrders++;
   }
 }
 

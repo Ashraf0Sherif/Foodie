@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addAddressFirst":
             MessageLookupByLibrary.simpleMessage("يرجى إضافة عنوان أولاً"),
         "addToCart": MessageLookupByLibrary.simpleMessage("إضافة إلى السلة"),
-        "addressTitle": MessageLookupByLibrary.simpleMessage("عنوان العنوان"),
+        "addressTitle": MessageLookupByLibrary.simpleMessage("العنوان"),
         "addresses": MessageLookupByLibrary.simpleMessage("العناوين"),
         "and": MessageLookupByLibrary.simpleMessage(" و "),
         "apartment": MessageLookupByLibrary.simpleMessage("الشقة"),
@@ -179,7 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNumberLabel": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "pizza": MessageLookupByLibrary.simpleMessage("بيتزا"),
         "pleaseEnterAddressTitle":
-            MessageLookupByLibrary.simpleMessage("يرجى إدخال عنوان العنوان"),
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال العنوان"),
         "pleaseEnterCurrentPassword": MessageLookupByLibrary.simpleMessage(
             "يرجى إدخال كلمة المرور الحالية"),
         "pleaseEnterFirstName":

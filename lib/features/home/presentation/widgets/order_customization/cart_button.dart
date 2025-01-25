@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodie/features/cart/logic/cart_cubit/cart_cubit.dart';
+import 'package:foodie/core/helpers/shared_pref_keys.dart';
 import 'package:foodie/features/home/data/models/food_item/food_item.dart';
 
 import '../../../../../core/theming/styles.dart';
-import '../../../../generated/l10n.dart';
+import '../../../../../generated/l10n.dart';
 
-class DeleteFromCartCardButton extends StatelessWidget {
-  const DeleteFromCartCardButton({
+class CartButton extends StatelessWidget {
+  const CartButton({
     super.key,
     required this.foodItem,
+    required this.buttonColor,
+    required this.onPressed,
+    required this.text,
   });
 
   final FoodItem foodItem;
+  final Color buttonColor;
+  final Function() onPressed;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +39,12 @@ class DeleteFromCartCardButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${foodItem.totalPrice}",
+                    "${foodItem.totalPrice} ",
                     style: FontStyles.font16BlackSemiBold,
                   ),
                   Flexible(
                     child: Text(
-                      " ${S.of(context).egp}",
+                      S.of(context).egp,
                       style: FontStyles.font14BlackRegular,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -52,20 +57,27 @@ class DeleteFromCartCardButton extends StatelessWidget {
                 height: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: buttonColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(8.r),
-                        bottomRight: Radius.circular(8.r),
+                        topRight: currentLanguage == 'ar'
+                            ? Radius.zero
+                            : Radius.circular(8.r),
+                        bottomRight: currentLanguage == 'ar'
+                            ? Radius.zero
+                            : Radius.circular(8.r),
+                        topLeft: currentLanguage == 'ar'
+                            ? Radius.circular(8.r)
+                            : Radius.zero,
+                        bottomLeft: currentLanguage == 'ar'
+                            ? Radius.circular(8.r)
+                            : Radius.zero,
                       ),
                     ),
                   ),
-                  onPressed: () {
-                    context.read<CartCubit>().removeItemFromCart(foodItem);
-                    Navigator.pop(context);
-                  },
+                  onPressed: onPressed,
                   child: Text(
-                    S.of(context).deleteFromCart,
+                    text,
                     style: FontStyles.font16WhiteSemiBold,
                   ),
                 ),
