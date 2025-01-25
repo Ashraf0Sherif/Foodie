@@ -47,7 +47,7 @@ A beautifully designed **Flutter** application for food delivery with a robust a
 
 ### **User-Centric Features**  
 - **Cart Management**: Easy order customization and checkout.  
-- **Payment Options**: Enter and save payment details securely.  
+- **Payment Options**: Enter payment details securely.  
 - **Profile Management**: Edit personal details, view order history, and manage saved addresses.  
 
 ---
