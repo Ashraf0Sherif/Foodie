@@ -30,7 +30,7 @@ android {
     productFlavors {
         production {
             dimension "default"
-            resValue "string", "app_name", "Foodie Production"
+            resValue "string", "app_name", "Foodie"
         }
         development {
             dimension "default"
