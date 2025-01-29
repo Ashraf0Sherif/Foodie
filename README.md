@@ -9,7 +9,7 @@ A beautifully designed **Flutter** application for food delivery with a robust a
 ### **Firebase Integration**  
 - **App Distribution**: Share builds effortlessly for testing.  
 - **Authentication**: Secure user login and registration.  
-- **Firestore**: Real-time database for restaurant and order data.  
+- **Firestore**: Database for food items, banners, and orders data.  
 - **Pagination**: Load data efficiently for a smooth user experience.  
 - **Storage**: Upload and store images (e.g., profile pictures, food items).  
 
